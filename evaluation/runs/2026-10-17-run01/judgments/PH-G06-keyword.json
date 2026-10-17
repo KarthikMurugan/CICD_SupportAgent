@@ -1,0 +1,53 @@
+{
+  "id": "PH-G06",
+  "mode": "keyword",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "3f006d8aaaf081ea6ab3b87630ca5538dab90901d648825af8779d838563324f",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G06-C01",
+        "met": false,
+        "reason": "Config Notifications and Project Config are named, but the Edit step is omitted."
+      },
+      {
+        "criterion_id": "PH-G06-C02",
+        "met": false,
+        "reason": "Comma-separated addresses are correct, but Save is omitted."
+      },
+      {
+        "criterion_id": "PH-G06-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Core field/format/triggers are right for keyword/hybrid; the frozen rubric also requires Edit and Save. Semantic suffered an incomplete generation response."
+  },
+  "external_grading_calls": 0
+}

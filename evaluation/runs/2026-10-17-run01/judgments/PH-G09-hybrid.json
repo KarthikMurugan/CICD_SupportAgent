@@ -1,0 +1,48 @@
+{
+  "id": "PH-G09",
+  "mode": "hybrid",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "9a2bf6b3f528ed92285619d131751d1cc7ab236107bfb7a743f302fdbef5d435",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G09-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G09-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G09-C03",
+        "met": false,
+        "reason": "The V3 service scope and resource-cleanup validation purpose are not explained."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": false,
+        "reason": "The cited higher-BOM-version line is a CloudNative Redeploy lookup rule. It does not by itself establish the claim's added upgrade/patch and service-reintroduction scope."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Additional version/redeployment explanations extend beyond the requested documented behavior; cleanup purpose is omitted."
+  },
+  "external_grading_calls": 0
+}

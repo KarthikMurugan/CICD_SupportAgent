@@ -1,0 +1,119 @@
+{
+  "id": "PH-G06",
+  "mode": "semantic",
+  "question": "In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?",
+  "run_status": "generation_error",
+  "result": {
+    "question": "In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "Nebius did not finish a complete supported response",
+    "draft": null,
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0022:chunk-0001:bge-001",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "char_start": 0,
+        "char_end": 1408,
+        "text": "### \n\n### Summary\n\nThis guide outlines how to configure email notifications for changes made to a workload's CI/CD settings.\n\nOnce configured, any updates to the **basic information**, **source repository**, **build**, **deploy**, or **test configurations** will trigger email notifications to the specified recipients.\n\nThese notifications apply to **all branches associated with the selected usage type** (e.g., RELEASE, INTEGRATION).\n\nRecipients will be alerted whenever configuration changes occur within branches of the corresponding usage category.\n\n### Configure email notification for project level config change\n\n* Go to Project Config page\n\t+ **Scenario 1:** use URL to locate the Project Config config page  \n\t\n\t\t- https://app.example.com/reference/resource-218<projectName>&view=basicConfig\n\t+ **Scenario 2:** search project Name to land onto Project Config config page  \n\t\n\t\t- Navigate to PipelineHub <https://app.example.com/reference/resource-004>\n\t\t- Search for the project name in the PipelineHub search bar\n\t\t- Click on the Project Config Tab Left NavBar\n* Click Edit button on top\n* Enter comma-separated email addresses in **Config Notifications** Section\n* Click Save button\n* Any changes to basic info/ source repo/ build/ deploy/ test configuration will notify email recipients configured above.\n* \n\n### Configure email notification for branch level config change and ci/cd pipelines\n\n"
+      },
+      {
+        "chunk_id": "doc-0022:chunk-0001:bge-002",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "char_start": 1408,
+        "char_end": 2480,
+        "text": "* Go to Branch Categories page\n\t+ **Scenario 1:** use URL to locate the Branch Categories config page  \n\t\n\t\t- [https://app.example.com/reference/resource-130](https://app.example.com/reference/resource-004)[/projectDetails?projectName=RELEASEENGINEERING-APEXCDFLOWS-SP&view=branchCategories](https://app.example.com/reference/resource-219)\n\t+ **Scenario 2:** search project Name to land onto Branch Categories config page  \n\t\n\t\t- Navigate to PipelineHub <https://app.example.com/reference/resource-004>\n\t\t- Search for the project name in the PipelineHub search bar\n\t\t- Click on the Branch Categories Tab Left NavBar\n* Click Edit button on the bottom for **Release / Maintenance / Integration / Other** branch type\n* Enter comma-separated email addresses inthe Notification popup\n* Click Save button\n\n*\\* This email configuration will apply to all branches configured to a particular usage type (RELEASE, INTEGRATION, etc.)*\n\n*\\* Email recipients configured here will get notified when branches config of corresponding usage type (RELEASE, INTEGRATION, etc.) are updated*\n\n"
+      },
+      {
+        "chunk_id": "doc-0114:chunk-0004:bge-002",
+        "document_id": "doc-0114",
+        "parent_id": "doc-0002",
+        "title": "PipelineHub APIs for BusinessApp Monolith",
+        "char_start": 14612,
+        "char_end": 15662,
+        "text": "| 7 | IntegrationBuild Dependency/Tag change | **API Syntax:****Url:** /rest/recordProjectDependencyChange**Request Type:** POST**Payload For Tag Event (Params Marked with \\* are mandatory):**{\\*\"**projectName**\":\"<IntegrationBuild Series Name>\", \\*\"dependencyChanges\":[<Provide List of Labels that were tagged to the IntegrationBuild>],\\*\"type\":\"TAG_DEPENDENCY\",\\*\"performedBy\":\"<Email of who triggered the operation>\",\\*\"reason\":\"<Reason for the tag>\",\"additionalDetails\": {Json to pass for any additional data in the form of key/value pairs}}**Payload For Artifactory Manifest Change Event (Params Marked with \\* are mandatory):**{\\*\"projectName\":\"<IntegrationBuild Series Name>\",\\*\"dependencyChanges\":[<Provide list of Artifactory Manifest Urls that were changed>],\\*\"type\":\"ARTIFACTORY_DEPENDENCY\",\\*\"performedBy\":\"<Email of who triggered the operation>\",\\*\"reason\":\"<Reason for the tag>\",\"additionalDetails\": {Json to pass for any additional data in the form of key/value pairs}} | Report tag/dependency change to an IntegrationBuild series  |\n"
+      },
+      {
+        "chunk_id": "doc-0003:chunk-0001:bge-002",
+        "document_id": "doc-0003",
+        "parent_id": "doc-0002",
+        "title": "How to consume PipelineHub REST Services (IdentityService)",
+        "char_start": 1621,
+        "char_end": 3204,
+        "text": "* + - Enter your Application Name of your choice, your application URL and Email .\n\t\t- Resource :   search for **PIPELINEHUB-PRODUCTION (or PIPELINEHUB-STAGE)** as the case may be.\n\t\t- Available scopes – select the corresponding scopes available.\n* You will receive an email that includes a clientID, clientSecret and Scope.\n* **Register your ClientID (in PipelineHub)** :\n\t+ Navigate to **MyProfile on the top right part of the FAB page**(<https://app.example.com/reference/resource-004>)  (under your SSO Username)\n\t+ Please navigate to your profile, click the Edit button beside the IdentityService ClientID column  and update the ClientID in the header section of your profile.Please copy the following script to your machine and make the changes according to the email\n* Download  the script from <https://app.example.com/reference/resource-043>  (**NEW SCRIPT with CLIENT CREDENTIAL GRANT**) to your machine. You may use the logic for obtaining the token in any platform of your choice (e.g. java, python)\n\n                      Script can be copied to your local machine and update as per following :\n\n              // include the values as received in the email when you register the client\n\n      clientId=\"<Client-id>\"   \n\n      clientSecret=\"<client-secret>\"    \n\n      scope=\"<scope>\"   e.g. for stage/dev it is  BusinessAppTeamsPIPELINEHUB-STAGE and PROD it will be BusinessAppTeams/PipelineHub\n\ndo NOT modify rest of the script.\n\n       **Please notice that the grant_type = \"client_credentials\".  If you have \"password\" earlier in your automation, please modify it** ."
+      },
+      {
+        "chunk_id": "doc-0129:chunk-0001:bge-001",
+        "document_id": "doc-0129",
+        "parent_id": "doc-0002",
+        "title": "API to update branch properties for multiple branches for a PipelineHub project",
+        "char_start": 0,
+        "char_end": 1064,
+        "text": "**This API is exposed as a convenience, it's intended for updating simple config (eg. fixing a typo). Using the API doesn't guarantee functionalities would work because it's not verified by our QA.**\n\n**Updating project config via PipelineHub UI is the only way that guarantees the functionalities. Any breakage in functionalities from this API won't be supported by PipelineHub team.**\n\nThis API is intended as a one time use option for CloudNative type projects only.\n\nAll branch properties, etc. can be updated via an API, this API only updates one project at a time, but it can update as many branches as you want.  If you have multiple projects, you could write an automation to repeat the below via API for each project.\n\nThere are 2 steps involved: \n\n### Step 1. Get the existing branch properties for all branches\n\nCall the GET API below to get the existing branch properties for all branches of a given project\n\njsAPI endpointGET - rest/getProjectStageConfigDetails/<projectName>/BRANCH_PROPERTIES/Example<https://api.example.com/reference/resource-851>\n\n"
+      },
+      {
+        "chunk_id": "doc-0130:chunk-0001:bge-001",
+        "document_id": "doc-0130",
+        "parent_id": "doc-0002",
+        "title": "API to update branch schedules for multiple branches for a PipelineHub project",
+        "char_start": 0,
+        "char_end": 1063,
+        "text": "**This API is exposed as a convenience, it's intended for updating simple config (eg. fixing a typo). Using the API doesn't guarantee functionalities would work because it's not verified by our QA.**\n\n**Updating project config via PipelineHub UI is the only way that guarantees the functionalities. Any breakage in functionalities from this API won't be supported by PipelineHub team.**\n\nThis API is intended as a one time use option for CloudNative type projects only.\n\nAll branch properties, etc. can be updated via an API, this API only updates one project at a time, but it can update as many branches as you want.  If you have multiple projects, you could write an automation to repeat the below via API for each project.\n\nThere are 2 steps involved: \n\n### Step 1. Get the existing branch properties for all branches\n\nCall the GET API below to get the existing branch properties for all branches of a given project\n\njsAPI endpointGET - rest/getProjectStageConfigDetails/<projectName>/BRANCH_SCHEDULES/Example<https://api.example.com/reference/resource-852>\n\n"
+      }
+    ],
+    "handoff": {
+      "question": "In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?",
+      "reason": "Nebius did not finish a complete supported response",
+      "source_ids": [
+        "doc-0022",
+        "doc-0114",
+        "doc-0003",
+        "doc-0129",
+        "doc-0130"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 17.801,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "status": "error",
+      "error": "Nebius did not finish a complete supported response",
+      "seconds": 17.0364
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7637
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 17.8012
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 17.8014
+    }
+  ],
+  "wall_seconds": 17.8175,
+  "token_usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  },
+  "completed_at_utc": "2026-10-17T17:41:46.657920+00:00"
+}

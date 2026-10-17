@@ -1,0 +1,130 @@
+{
+  "id": "PH-G19",
+  "mode": "semantic",
+  "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+  "run_status": "completed",
+  "result": {
+    "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The provided passages describe general PipelineHub configuration, file structures like .pipeline_pipeline.yml, and Java microservice skills, but they do not contain specific settings, YAML configurations, or procedures for generating SLSA Level 3 provenance or enforcing Sigstore Cosign signature verification. The documents mention artifact publishing and validation but lack the specific security standards requested.",
+    "draft": {
+      "decision": "escalate",
+      "reason": "The provided passages describe general PipelineHub configuration, file structures like .pipeline_pipeline.yml, and Java microservice skills, but they do not contain specific settings, YAML configurations, or procedures for generating SLSA Level 3 provenance or enforcing Sigstore Cosign signature verification. The documents mention artifact publishing and validation but lack the specific security standards requested.",
+      "claims": [],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0023:chunk-0001:bge-002",
+        "document_id": "doc-0023",
+        "parent_id": "doc-0001",
+        "title": "ConfigurePipeline Java Microservices Skill",
+        "char_start": 961,
+        "char_end": 1964,
+        "text": "The skill supports Java microservices only (Build phase). \n\nIt creates or validates:\n\n* `.pipeline_dep.yml` at the repository root when the source repository contains more than one microservice\n* `.pipeline_pipeline.yml` per microservice\n* `scqs_scan_jenkins.properties` per microservice\n* `pipeline-container-config.yml` per microservice\n\nInstall the Skill\n-----------------\n\n### Prerequisites\n\nAccess : \n\n* Access to the [ReleaseEngineering skills repository](https://git.example.com/reference/resource-220).\n* PipelineHub project onboarding access is required later if you intend to create or update the PipelineHub project after generating the files.\n\nTooling : \n\n* Codex desktop application or Codex CLI.\n* Git.\n* Python 3  (Python 3 runs the bundled Pipelineization generator. It scans the Java source repository and its Helm configuration, then creates the required Pipeline-related CI/CD files and configuration for each microservice. Python is not a dependency of the Java application itself.\n\n"
+      },
+      {
+        "chunk_id": "doc-0109:chunk-0001:bge-004",
+        "document_id": "doc-0109",
+        "parent_id": "doc-0021",
+        "title": "ArtifactService Specification Component Type - (CI/CD for Associations/TransactionDatabase Configs/EnvironmentService Proxy)",
+        "char_start": 2471,
+        "char_end": 3432,
+        "text": "1. Configure specifications json file for artifactservice publish in source repo matching artifactservice specification (for signal handler/generic artifact/workload artifact) as applicable\n2. Pipeline Pipeline YAML\n\t1. Pipeline requires a hidden file, **.pipeline_pipeline.yml**, to orchestrate the CI pipeline. This YAML file defines all the steps involved in the CI process and is parsed by Pipeline to execute these steps. The **.pipeline_pipeline.yml** file must be placed in the root directory of the component.\n\t2. reference doc:\n3. Examples of specifications json file payload  \n\n\t1. Generic Arifact\n\t\t1.\n\t2. Workload Artifact\n\t\t1.\n\t3. Signal Handler\n\t\t1.\n\n#### **Configuration in PipelineHub**\n\n1. In PipelineHub component configuration, you will need to configure fields below:\n\t1. ArtifactService Publish Type (Signal Handler/Workload/Generic Artifact)\n\t2. Source Repo Folder Name\n\t3. JSON File Name\n2. Examples of PipelineHub component configuration"
+      },
+      {
+        "chunk_id": "doc-0020:chunk-0002:bge-001",
+        "document_id": "doc-0020",
+        "parent_id": "doc-0001",
+        "title": "Checklist for Onboarding to CICD and Preflights",
+        "char_start": 3422,
+        "char_end": 4374,
+        "text": "Create .pipeline.pipeline.yaml |\n| 17 | Branch configuration | * Schedules -\n* ci/cd version creation - Use Workload Yaml\n |  | Greencomplet | trueresources:\n - repoName: falcm\n workloadArtifactName: lifecyclemanager\n version: 3.0.0\n - repoName: environmentservice\n workloadArtifactName: instance\n version: 3.0.3\nworkloadResources:\n genericArtifacts:\n - repoName: businessapp.digital-gov.core\n artifactName: db-bom-com-dgv-workspace\n version: 2510+\n - repoName: businessapp.digital-gov.core\n artifactName: associations\n version: 2510+ |\n| 18 | Branch properties | * Version\n* Configure CI steps\n |  | Greencomplet |  |\n| 19 | CD - Artifact Publish | PipelineHub will publish artifacts to CloudNative Platform* Each DB-BOM maps to an LowCode workspace. PipelineHub creates a DB-BOM i& publishes to SP\n* Association Artifact (if defined as a component)\n |  | Greencomplet | \\*\\* Need to review published db-bom \\*\\* Need to set up association artifact |\n"
+      },
+      {
+        "chunk_id": "doc-0007:chunk-0001:bge-002",
+        "document_id": "doc-0007",
+        "parent_id": "doc-0024",
+        "title": "Family Environment - User Guide",
+        "char_start": 1075,
+        "char_end": 2507,
+        "text": "\t1. Click on the \"Release Set\" from the drop down list\n\t2. Enter the text you wish to enter in the field for the \"**Purpose**\"\n\t3. On selection, it will load the remaining page with the pre-populated value(s) like Template Type and Template Size and other information.\n\t\t* Reminder: PipelineHub currently does not validate the authenticity of the selected MOAB.\n\t\t* Reminder: You have to **make sure** you select the **right Template Size + Template Type combinations** correspond to the templates associated to the selected MOAB.\n3. Select \"Config Languages\"\n\t* Reminder: PipelineHub currently does not validate the authenticity of the selected MOAB.\n\t* Reminder: You have to **make sure** you have selected the **right languages** correspond to the templates associated to the selected MOAB.\n\t* You can select 1 or a max of 2 languages. If you leave it blank, KO (KO stands for Korean) will be defaulted as the selected language to be provisioned.\n\t* Alternatively, you can just enter \"Pseudo KO\"\n4. Click on \"**CloudNative V2**\" or \"**CloudNative V3**\"  \n  \n             \n  - On selecting the **CloudNative V2** we can see the \"CloudNative Services\" and below this you can select either \"**All**\" or \"**Selected**\"   \n  - Also you can search with Org/Service Name/Version and it will be displayed accordingly under the \"**Services from Selected ApplicationBOM**\". Also you can select the services under the Selected Services.  \n\n"
+      },
+      {
+        "chunk_id": "doc-0023:chunk-0002:bge-002",
+        "document_id": "doc-0023",
+        "parent_id": "doc-0001",
+        "title": "ConfigurePipeline Java Microservices Skill",
+        "char_start": 4854,
+        "char_end": 5609,
+        "text": "For a repository containing two or more microservices (monorepo), verify the root dependency file:\n\ntest -f .pipeline_dep.yml \\\n && echo \".pipeline_dep.yml found\" \\\n || echo \".pipeline_dep.yml is required only for multi-microservice repositories\"Inspect it:\n\ncat .pipeline_dep.ymlExpected shape:\n\ncomponents:\n - name: orders\n source: msvc/orders\n - name: payments\n source: msvc/paymentsVerify that:\n\n* There is one entry for every microservice.\n* Each `name` is simple and unique.\n* Each `source` is relative to the source repository root.\n* The name uses Helm `[microservice.name](https://app.example.com/reference/resource-221)` when it exists.\n* No AppPackage components or AppPackage Pipeline files were generated.\n\n### Verify .pipeline_pipeline.yml\n\n"
+      },
+      {
+        "chunk_id": "doc-0117:chunk-0008:bge-002",
+        "document_id": "doc-0117",
+        "parent_id": "doc-0030",
+        "title": "PipelineHub One-Off Tagging: How It Differs from Tip and CWB Promotion",
+        "char_start": 21419,
+        "char_end": 22563,
+        "text": "information-to-provide-to-pipelinehub-supportInformation to provide to PipelineHub support\n----------------------------------------------------------------------------\n\nInclude:\n\n* BusinessApp release,\n* one-off tag and bug number,\n* application or service coordinates and selected version,\n* captured base ApplicationBOM identifier, if the enhancement is deployed; otherwise the expected source ApplicationBOM,\n* full validation message,\n* each requested and baseline app-package version shown,\n* the expected base ApplicationBOM and why it is expected,\n* time of the attempt, and\n* a link or identifier for the affected build or promotion request.\n\nengineering-appendix-proposed-baseapplicationbom-supportEngineering appendix: proposed base-APPLICATIONBOM support\n------------------------------------------------------------------------------------------------\n\nThe remainder of this page describes the enhancement under discussion, not currently deployed user behavior.\n\n### proposed-implementation-acceptance-criteriaProposed implementation acceptance criteria\n\nThe base-APPLICATIONBOM change is complete when all of the following are true:"
+      }
+    ],
+    "handoff": {
+      "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+      "reason": "The provided passages describe general PipelineHub configuration, file structures like .pipeline_pipeline.yml, and Java microservice skills, but they do not contain specific settings, YAML configurations, or procedures for generating SLSA Level 3 provenance or enforcing Sigstore Cosign signature verification. The documents mention artifact publishing and validation but lack the specific security standards requested.",
+      "source_ids": [
+        "doc-0023",
+        "doc-0109",
+        "doc-0020",
+        "doc-0007",
+        "doc-0117"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 2.555,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 92,
+        "prompt_tokens": 6225,
+        "total_tokens": 6317,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 1.812
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7422
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 2.5547
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 2.5548
+    }
+  ],
+  "wall_seconds": 2.558,
+  "token_usage": {
+    "prompt_tokens": 6225,
+    "completion_tokens": 92,
+    "total_tokens": 6317
+  },
+  "completed_at_utc": "2026-10-17T17:40:02.990675+00:00"
+}

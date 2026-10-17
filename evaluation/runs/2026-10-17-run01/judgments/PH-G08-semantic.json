@@ -1,0 +1,38 @@
+{
+  "id": "PH-G08",
+  "mode": "semantic",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "c13cc39d941e8084c290be40a56dda7af4b67fbe3c6c515b5753ced857ed988a",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G08-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G08-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Hybrid withheld a supported answer despite retrieving the correct recovery instruction."
+  },
+  "external_grading_calls": 0
+}

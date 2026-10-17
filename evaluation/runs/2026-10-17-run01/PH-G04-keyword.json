@@ -1,0 +1,222 @@
+{
+  "id": "PH-G04",
+  "mode": "keyword",
+  "question": "Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?",
+  "run_status": "completed",
+  "result": {
+    "question": "Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?",
+    "status": "answered",
+    "answer": "- The build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel. [doc-0050]\n- For this combination, the Compile step is reported as successful (✅). [doc-0050]\n- For this combination, the Docker Creation step is reported as successful (✅). [doc-0050]\n- For this combination, the Publish step is reported as successful (✅). [doc-0050]\n- The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as 'GreenSupported'. [doc-0050]\n\nSources:\n- [doc-0050] Supported OS & Kernel Combinations - PipelineHub CI/CD Build\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft answer correctly identifies that the build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel. It accurately reports the status for Compile, Docker Creation, and Publish steps as successful (✅) and the overall support status as 'GreenSupported', all of which are explicitly stated in the provided evidence table (doc-0050:chunk-0001:bge-001:line-022). No claims are extrapolated, and all relevant details from the source are preserved.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation explicitly lists the compatibility status for EnterpriseLinux9 on OL8u6 UEK6 in the 'Supported CI/CD Combinations' table.",
+      "claims": [
+        {
+          "text": "The build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        },
+        {
+          "text": "For this combination, the Compile step is reported as successful (✅).",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        },
+        {
+          "text": "For this combination, the Docker Creation step is reported as successful (✅).",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        },
+        {
+          "text": "For this combination, the Publish step is reported as successful (✅).",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        },
+        {
+          "text": "The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as 'GreenSupported'.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "The build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel.",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      },
+      {
+        "claim": "For this combination, the Compile step is reported as successful (✅).",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      },
+      {
+        "claim": "For this combination, the Docker Creation step is reported as successful (✅).",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      },
+      {
+        "claim": "For this combination, the Publish step is reported as successful (✅).",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as 'GreenSupported'.",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0050:chunk-0001:bge-001",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "char_start": 0,
+        "char_end": 1376,
+        "text": "Overview\n--------\n\nThis document outlines the current status and results of supported operating system (OS) and kernel combinations for image builds in PipelineHub CI/CD pipelines. As PipelineHub' support expands to additional distributions and kernel variants, this page may serve as a central reference for compatibility notes and validations. \n\nBackground\n----------\n\nProduction builds primarily take place using Enterprise Linux 8 (aka EnterpriseLinux8) built on VMs running EnterpriseLinux8 UEK 7 (Unbreakable Enterprise Kernel). To ensure broad compatibility and provide flexibility, PipelineHub has begun evaluating builds across multiple Enterprise Linux versions, EnterpriseLinux8 & EnterpriseLinux9, using VMs running differing EnterpriseLinux8 UEK versions (UEK6, UEK7).\n\nSupported CI/CD Combinations\n----------------------------\n\nThe following summarizes a set of tests executed to verify compatibility and extend support for additional configurations.  \n \n\n| Base Image OS | Build Kernel | Compile | Docker Creation | Publish | Support | Notes |\n| --- | --- | --- | --- | --- | --- | --- |\n| EnterpriseLinux8 | OL8u10 UEK7 | ✅ | ✅ | ✅ | GreenSupported | Baseline |\n| EnterpriseLinux8 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |\n| EnterpriseLinux9 | OL8u10 UEK7 | ✅ | ✅ | ✅ | GreenSupported |  |\n| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |"
+      },
+      {
+        "chunk_id": "doc-0039:chunk-0001:bge-001",
+        "document_id": "doc-0039",
+        "parent_id": "doc-0001",
+        "title": "SecurityScan Scan User Guide",
+        "char_start": 0,
+        "char_end": 926,
+        "text": "true\n\nOverview\n========\n\nSecurityScan Scans are able to be run on both services and applications. For services, one may be triggered on a service version or an individual snapshot. For applications, SecurityScan Scan can only be triggered at the application version level.\n\nServices\n========\n\nTrigger on Snapshot\n-------------------\n\n### Prerequisites\n\nTo trigger a SecurityScan Scan on a service snapshot, there are a few requirements:\n\n1. **All project components must be registered in the project's Source Repo config**  \n\n\t1. The component name must match the image tag of the docker image being built. If it does not match, it will not be scanned.\n\t2. \n\t3.\n2. A completed successful pipeline run including (pre-)compile, docker image creation, publish\n3. Access to trigger a SecurityScan Scan\n\n### Triggering\n\nGiven all prerequisites are met, the user can click the Trigger SLAPLS Scan button when viewing the snapshot.\n\n"
+      },
+      {
+        "chunk_id": "doc-0023:chunk-0002:bge-003",
+        "document_id": "doc-0023",
+        "parent_id": "doc-0001",
+        "title": "ConfigurePipeline Java Microservices Skill",
+        "char_start": 5609,
+        "char_end": 6477,
+        "text": "For the default `cloudnative` profile, verify:\n\nconfiguration:\n common:\n project.type: MICROSERVICES\n build:\n docker-compose-location: docker-compose.ymlThe default pipeline should include these Pipeline steps:\n\nprecompile\ncompile\ncodeScan\nsecurityScan\nunitTest\ndockerImageCreation\ndockerImageScan\nperftests\npublish\nsastFortify\nsastDetectSecretScan\ntranslate\nreferenceImageAuditFor a `CloudNative sandbox` request, verify that the pipeline includes only:\n\nprecompile\ncompile\ndockerImageCreation\npublish### Verify SCQS properties\n\nVerify these values are present and non-empty:\n\nPRJ_NAME=\nPRJ_SOURCE=\nPRJ_BINARIES=\nEMAIL_NOTIFICATIONS=\nPRJ_PARENT_BRANCH_NAME=\nPRJ_RELEASE_VERSION=Confirm that `EMAIL_NOTIFICATIONS` contains the intended team distribution list, rather than the default placeholder.\n\n### Verify container image configuration\n\n```\n\n```\nInspect the file:\n\n"
+      },
+      {
+        "chunk_id": "doc-0109:chunk-0001:bge-003",
+        "document_id": "doc-0109",
+        "parent_id": "doc-0021",
+        "title": "ArtifactService Specification Component Type - (CI/CD for Associations/TransactionDatabase Configs/EnvironmentService Proxy)",
+        "char_start": 1818,
+        "char_end": 2471,
+        "text": "**Batch Jobs Generic Artifact:**\n\n| Component Type | ArtifactService Publish Type | Comments |\n| --- | --- | --- |\n| ArtifactService Specification Only (No Code) (Batch Team) | Schema | eg: <https://docs.example.com/reference/resource-684> |\n| Java Common Component (Service Teams) | Generic Artifact | This will create the docker image and publish the image as generic artifact<https://docs.example.com/reference/resource-685> |\n\n \n\n**Configuration   (ArtifactService Publish Type)  (Signal Handler/Workload/Generic Artifact)**\n-----------------------------------------------------------------------------------\n\n#### **Configuration in Source Repo**\n\n"
+      },
+      {
+        "chunk_id": "doc-0108:chunk-0001:bge-002",
+        "document_id": "doc-0108",
+        "parent_id": "doc-0021",
+        "title": "Lifecycle hooks CI/CD",
+        "char_start": 1027,
+        "char_end": 2051,
+        "text": "### Step 3: Include Publish Step in CI and trigger pipeline\n\nConfigure the CI steps to include **Publish** step, then trigger the pipeline. This will build the Lifecycle Hooks and produce them as Docker containers.\n\n### Step 4: Reference Lifecycle Hooks in the Spec File of Another Workload Artifact\n\nIn the target workload artifact (e.g., a microservice application component) where the generated Lifecycle Hooks should be applied -\n\n#### Step 4.1: Modify the osspArtifact.yaml File to Include Lifecycle Hooks\n\nIn the **lifecycleHooks** section of the osspArtifact.yaml file (for the target workload artifact, a microservice application component), refer to the [Build Artifact Reference Resolution User Guide - BOM Format Instructions](#) for detailed guidance on how to substitute the newly generated Docker image.\n\n#### Step 4.2 Trigger pipeline\n\nInitiate the pipeline for this component. The Lifecycle Hooks from **Step 3** will be included in the artifact publish output.\n\n**Reporting Details:**\n----------------------"
+      },
+      {
+        "chunk_id": "doc-0116:chunk-0003:bge-002",
+        "document_id": "doc-0116",
+        "parent_id": "doc-0002",
+        "title": "PipelineHub APIs for CloudNative",
+        "char_start": 7785,
+        "char_end": 8394,
+        "text": "```\nBuild Impacted Components\n```\n/********** To build impacted components **********/{  \"projectName\": \"RELEASEENGINEERING-SINGLETENANT-SEP4-SP\",  \"reason\": \"for testing\",  \"componentBuildType\": \"Build_Impacted_Components\",  \"branchName\": \"fredev_rebuild\",  \"pipelineVersion\": \"\",  \"buildDependentComponents\": true,  \"updatedPipelineSteps\": {    \"DEMOSVC\": {       \"buildPipelineSteps\": [ \"compile\", \"dockerImageCreation\", \"precompile\", \"publish\", \"referenceImageAudit\" ]    },     \"TESTCOMMONCOMPONENT\": {       \"buildPipelineSteps\": [ \"compile\", \"dockerImageCreation\", \"precompile\", \"publish\" ],     }  }}\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 7.296,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 463,
+        "prompt_tokens": 5572,
+        "total_tokens": 6035,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 4.7683
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 151,
+        "prompt_tokens": 5519,
+        "total_tokens": 5670,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.4062
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.1165
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 4.8855
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 7.2931
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 7.2951
+    }
+  ],
+  "wall_seconds": 7.2998,
+  "token_usage": {
+    "prompt_tokens": 11091,
+    "completion_tokens": 614,
+    "total_tokens": 11705
+  },
+  "completed_at_utc": "2026-10-17T17:39:44.448079+00:00"
+}

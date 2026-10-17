@@ -1,0 +1,171 @@
+{
+  "id": "PH-G08",
+  "mode": "keyword",
+  "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?",
+  "run_status": "completed",
+  "result": {
+    "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?",
+    "status": "answered",
+    "answer": "- PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on. [doc-0084]\n- If the job times out, there is an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage to continue tracking the operation. [doc-0084]\n\nSources:\n- [doc-0084] PipelineHub Preflight - Pod Add-ons - Install Language Packs\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft answer is fully supported by the provided evidence. Claim 1 accurately reflects line-005 of doc-0084, which states that PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on. Claim 2 directly quotes the solution found in line-007 of the same document: if the job times out, there is an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage. The answer directly addresses the user's question about tracking a timed-out operation without adding unsupported extrapolations or omitting necessary caveats found in the specific text.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The documentation explicitly states that if the job for configuring additional languages times out, there is an option to restart monitoring on the specific stage.",
+      "claims": [
+        {
+          "text": "PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0084:chunk-0001:bge-001:line-005"
+            }
+          ]
+        },
+        {
+          "text": "If the job times out, there is an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage to continue tracking the operation.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0084:chunk-0001:bge-001:line-007"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on.",
+        "evidence_id": "doc-0084:chunk-0001:bge-001:line-005",
+        "quote": "PipelineHub now support configuring additional language packs on EnvironmentService environment as a post provisioning Pod Add-on on EnvironmentService Pods.",
+        "document_id": "doc-0084",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Install Language Packs",
+        "chunk_id": "doc-0084:chunk-0001:bge-001"
+      },
+      {
+        "claim": "If the job times out, there is an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage to continue tracking the operation.",
+        "evidence_id": "doc-0084:chunk-0001:bge-001:line-007",
+        "quote": "If the job times out there is an option to restart monitoring on the  UPDATE_ADDITIONAL_LANGUAGES stage.",
+        "document_id": "doc-0084",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Install Language Packs",
+        "chunk_id": "doc-0084:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0084:chunk-0001:bge-001",
+        "document_id": "doc-0084",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Install Language Packs",
+        "char_start": 0,
+        "char_end": 391,
+        "text": "Redcontent moved to DocumentationPortal  <https://docs.example.com/reference/resource-664>\n\n### Configure additional languages\n\nPipelineHub now support configuring additional language packs on EnvironmentService environment as a post provisioning Pod Add-on on EnvironmentService Pods.\n\nIf the job times out there is an option to restart monitoring on the  UPDATE_ADDITIONAL_LANGUAGES stage."
+      },
+      {
+        "chunk_id": "doc-0117:chunk-0006:bge-002",
+        "document_id": "doc-0117",
+        "parent_id": "doc-0030",
+        "title": "PipelineHub One-Off Tagging: How It Differs from Tip and CWB Promotion",
+        "char_start": 16200,
+        "char_end": 17677,
+        "text": "### 5-complete-or-stop-the-tag-operation5. Complete or stop the tag operation\n\nIf all required checks pass, PipelineHub adds the one-off tag and records the result. Adding the tag does not by itself create or publish a one-off APPLICATIONBOM.\n\nIf a check fails, PipelineHub does not complete the tagging operation. The user must correct the reported condition and retry.\n\n### 6-downstream-handoff6. Downstream handoff\n\nAfter a successful tag, the intended flow hands the bug-scoped selection to downstream one-off/ApplicationBOM processing, where the targeted post-GA vehicle is assembled. The reviewed PipelineHub tagging path stops after saving the tag, and the exact current downstream owner, trigger, and tool need to be confirmed before this is published as an operational runbook.\n\nThe proposed base-APPLICATIONBOM value must be durable across that handoff. If tagging validates against one ApplicationBOM but downstream processing builds from another, the validation is not reproducible and can permit or reject the wrong version set.\n\napppackage-version-failureApp-package version failure\n-----------------------------------------------------\n\n### what-the-failure-meansWhat the failure means\n\n`App Package Version Validation Failed` means that at least one requested app-package version is lower than the version in the comparison APPLICATIONBOM. PipelineHub blocks the operation because the one-off must not move an app package backward relative to its real baseline."
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0009:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 27537,
+        "char_end": 29176,
+        "text": "* As a precursor, lets understand what accounts for an AnalyticsDatabase quota\n\t+ When the RuntimeDiagnostics is enabled, either during provisioning or during post action.\n\t+ When a CDP cloudnative service is provisioned or patched.\n* Starting this release, when an user opts for AnalyticsDatabase, the quota is checked against the LOB/SubLOB.\n* Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled\n\n### **Support Enable RuntimeDiagnostics added as a Post POD action.**\n\n### Disable RuntimeDiagnostics on an existing POD\n\nDisable RuntimeDiagnostics option is now available. For newly provisioned pods we will have the correct metadata on the POD but for existing pods, please use this option only if you are sure that the pod has RUNTIMEDIAGNOSTICS.  \n\nDisable RuntimeDiagnostics  does the deletion of RuntimeDiagnostics Instance, resulting in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance. On the other hand, enabling RuntimeDiagnostics does the installation of the Replication Infrastructure and the setup of replicated data in AnalyticsDatabase instance. Furthermore, it is possible to enable RuntimeDiagnostics again after disabling it.\n\nKeep in mind this operation takes several hours and PipelineHub monitoring reports the status back to user.  \n\nFurther more, you need to disable RuntimeDiagnostics prior to running RESTORE.\n\nNOTE: For older pods, this action might fail if RuntimeDiagnostics is not enabled.\n\nEnable/Disable RuntimeDiagnostics action changes made on Patching dashboard\n\n"
+      },
+      {
+        "chunk_id": "doc-0021:chunk-0004:bge-001",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 9942,
+        "char_end": 10701,
+        "text": "\t+\n* Incase, there are scenarios where you would like all services to be deployed, you can set the branch level flag that controls the behavior to false - **Single Service Deployment: false**\n\t+ Example: For MultiTenant Teams, the recommendation is to keep this flag to false (ie go through the old sideloading route that deplos all services) to ensure their ST Proxy Service signals are raised by EnvironmentService.\n* Tracking Jira For This Change:\n\t+ Central JIRAadf9d0b9-328f-38b2-a954-2899436ad300CloudNativeCICD-11203\n\nQuality Calculation & Reporting:\n--------------------------------\n\n* Deployments contribute to overall quality\n* Recommend trying ServiceModelV3 in your integration branches first for 24.07 to avoid deploy/test quality dirty issues.\n\n"
+      },
+      {
+        "chunk_id": "doc-0067:chunk-0004:bge-002",
+        "document_id": "doc-0067",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - CloudNative Promotion",
+        "char_start": 10399,
+        "char_end": 11703,
+        "text": "### Preflight and Promotion checklist\n\nAt Preflight Submission:\n\n* Only one related change is brought in; everything else is picked from the base (either the milestone or the latest promoted CloudNative content). Typically this includes one service and app packages from the same repo.\n* Verification that the POD was provisioned successfully\n* Validation that all services were deployed and are healthy\n* BusinessApp Release ApplicationBOM (Milestone/GA/HWM) must be used for the monolith provisioning\n* CloudNative fleet must be BUSINESSAPP_PREFLIGHT\n* CloudNative service or application should be “Approved” in taxonomy\n* LowCode Service should be part of the repo cloudnative override\n* There should not be any override in env profiles\n* Override version should be higher than already promoted version\n* Dependent application app-package versions should already be promoted\n\nAt Promotion:\n\n* Confirmation that BuildAcceptanceTests were executed\n* SecurityScan are clean\n* Versions from integration branch cannot be promoted\n\n### CloudNative Service Dashboard\n\nThere is a small change in the structure to show CloudNative Service Dashboard.\n\nTarget to eliminate the organizational/service hierarchy and instead display the complete service name from the taxonomy, along with the releases and versions."
+      },
+      {
+        "chunk_id": "doc-0097:chunk-0001:bge-002",
+        "document_id": "doc-0097",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - EnableCloudMode Monolith Pod",
+        "char_start": 1073,
+        "char_end": 2313,
+        "text": "1. Clear the **Enable CloudNative** checkbox.\n2. In the CloudNative parameters section, select **Provision Monolith to EnableCloudMode later (To be used for cloudnative promotion)**.\n\nThe **Provision Monolith to EnableCloudMode later** option is available only for monolith provisioning. It is the option to use when a pod will be provisioned as monolith first and CloudNativefied later for promotion. \n\nDo not confuse the two EnableCloudMode paths\n--------------------------------------\n\n| Path | What it does | Run Tests availability |\n| --- | --- | --- |\n| **EnableCloudMode Monolith Pod** | Creates a CloudNative environment on a monolith pod and converts it to a CloudNative pod. | **Run Tests** can be selected when EnableCloudModeing as part of a promotion. |\n| **EnableCloudMode through CloudNative Redeploy** | Redeploys CloudNative services on a pod that is already a CloudNative pod, using the same versions in the existing CloudNative environment. | **Run Tests** is not available with this submission flow. |\n\nUse **EnableCloudMode Monolith Pod** for the initial monolith-to-CloudNative conversion. Use **CloudNative Redeploy** only when working with an already CloudNative-enabled pod and redeploying its CloudNative services."
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 5.665,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 230,
+        "prompt_tokens": 4883,
+        "total_tokens": 5113,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.6833
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 167,
+        "prompt_tokens": 4660,
+        "total_tokens": 4827,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.9076
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.072
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 2.7563
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 5.6646
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 5.665
+    }
+  ],
+  "wall_seconds": 5.6703,
+  "token_usage": {
+    "prompt_tokens": 9543,
+    "completion_tokens": 397,
+    "total_tokens": 9940
+  },
+  "completed_at_utc": "2026-10-17T17:42:30.186471+00:00"
+}

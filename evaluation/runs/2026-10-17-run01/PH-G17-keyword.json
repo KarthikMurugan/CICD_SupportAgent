@@ -1,0 +1,119 @@
+{
+  "id": "PH-G17",
+  "mode": "keyword",
+  "question": "Can I restore this pod to the version we used before?",
+  "run_status": "completed",
+  "result": {
+    "question": "Can I restore this pod to the version we used before?",
+    "status": "needs_clarification",
+    "answer": "Are you trying to restore an EnvironmentService pod to its previous software version (n-1 restore) after an upgrade, or are you trying to restore a specific build snapshot (label) to retrieve artifacts?",
+    "evidence_reason": "The provided documentation distinguishes between restoring a 'snapshot/label' (a build artifact) and restoring a 'pod' (an EnvironmentService instance) to a previous version. The user's question mentions 'pod' but asks about restoring to a 'version', which aligns with the pod backup/restore functionality (n-1 restore) or potentially label restoration. Clarification is needed to determine if the user intends to restore a pod instance to a previous software version (n-1) or restore a specific build snapshot/label.",
+    "draft": {
+      "decision": "clarify",
+      "reason": "The provided documentation distinguishes between restoring a 'snapshot/label' (a build artifact) and restoring a 'pod' (an EnvironmentService instance) to a previous version. The user's question mentions 'pod' but asks about restoring to a 'version', which aligns with the pod backup/restore functionality (n-1 restore) or potentially label restoration. Clarification is needed to determine if the user intends to restore a pod instance to a previous software version (n-1) or restore a specific build snapshot/label.",
+      "claims": [],
+      "clarification": "Are you trying to restore an EnvironmentService pod to its previous software version (n-1 restore) after an upgrade, or are you trying to restore a specific build snapshot (label) to retrieve artifacts?"
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0001:chunk-0014:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 35539,
+        "char_end": 36616,
+        "text": "\t+ Use the following steps to extend a label via PIPELINEHUB.\n\t+ Note : we discourage using UNO to extend a snapshot, because this breaks many PipelineHub based processes that expects the knowledge of extension.\n\t+ Make sure to provide a valid reason.\n\n* ### How do I expire a snapshot (aka label) in PipelineHub?\n\n\t+ Use the following steps to expire a label via PIPELINEHUB.\n\t+ Note : we discourage using UNO to expire a snapshot, because this breaks many PipelineHub based processes that expects the knowledge of expiry.\n\t+ Make sure to provide a valid reason.\n\n* ### How do I restore a snapshot (aka label) ?\n\n\t+ Use the following steps to restore a label via PIPELINEHUB.\n\t+ Make sure to provide a valid reason.\n\t+ Remember: there is a good possibility that DOs of a label is truly purged and the restore process will not be able to restore the entire label. If you need the source only - use the force option.\n\n* ### Can I see only Microservices or UIBuildService Projects in PipelineHub?\n\n\t+ Use the following screen from PipelineHub Menu :: Reports → Project Pipeline\n\n"
+      },
+      {
+        "chunk_id": "doc-0089:chunk-0001:bge-001",
+        "document_id": "doc-0089",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Backups-Restore",
+        "char_start": 0,
+        "char_end": 1487,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-667>\n\n### PipelineHub UI support for Backup/Restore/Delete backup\n\nPipelineHub supports backup, restore and delete from UI. Support 2 backups for EnvironmentService pods\n\n* In case you encounter issues with Backup/Restore, see Self-Triaging page for [Backup/Restore](https://docs.example.com/reference/resource-668)\n\n### PipelineHub UI support for Restore\n\nPipelineHub supports two forms of restore\n\n1. Restoring at same version as the pods version. This is done using a POD Backups available at that version\n2. Restoring to n-1 version. This is only available when the pod has been successfully upgrade. Once the upgrade is complete and if the user wishes to go back to n-1 version, he/she can do a n-1 restore.\n\n### PipelineHub refresh button for Backup/Restore job's\n\nThe status one off for backup / restore jobs appears under POST_PROVISIONING_ACTIONS\n\n* Users can get the status of the backup or restore at any point of time, need not wait till the job is COMPLETED\n* Some backup and restore jobs have to be resumed from JC console and the job continues to run. In such cases users can also refresh the status from PipelineHub UI with \"Refresh\" circle arrow button.\n\n### Hard delete the pod backup UI\n\n* Backup delete is now linked to actual JC job which hard deletes backup and frees up space.\n* After selecting \"Delete Backup\" there will be a new preflight ID created to track backup delete\n* \n*"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0012:bge-001",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 46994,
+        "char_end": 47804,
+        "text": "### **NOTE: API Endpoint is different for Family and Preflight Pods.**\n\n### Pre-requisites:\n\n* To use this API the user needs an OAuth token\n* To use the preflight API endpoint the user needs the role ROLE_CLOUDPLATFORM_PREFLIGHT_SUBMIT in PIPELINEHUB.\n* To use the family API endpoint the user needs the role ROLE_CLOUDPLATFORM_FAMILY_ENV_SUBMIT in PIPELINEHUB.\n\n### Purpose:\n\nThe purpose of this API is to allow the user to submit restore without having to go into the PipelineHub UI.\n\n**Endpoints:**\n\nFor Preflight Pod: https://api.example.com/reference/resource-243\nFor Family Pod: https://api.example.com/reference/resource-244 **Payload Format:**\n\n* **For same version restore. Same version restore needs a backup name to be able to submit a restore.**\n\n**Note : isSameVersionRestore needs to be true**\n\n"
+      },
+      {
+        "chunk_id": "doc-0118:chunk-0002:bge-004",
+        "document_id": "doc-0118",
+        "parent_id": "doc-0002",
+        "title": "PipelineHub Unlisted API consumed by Customers",
+        "char_start": 2706,
+        "char_end": 3804,
+        "text": " | RELEASE_SRE |   | Sustenance Triage Tool to help debug job issues. Call APIs once per day and it helps to resolve JIRAs with users who have quota related questions. This would be fine to limit to my DEV VMs (that I would consider RELEASE_SRE infra prod) | Yes (searched and did not see listed so adding here) | Priority medium/low (but convenient). We used to use this more, but I have helped BIAPPS this week on a quota related Jira using one of these APIs. | These are not PipelineHub API. |\n| * /pipelinehub/rest/ro/ssm/getServiceVersion\n* /pipelinehub/rest/auth/getCloudNativeGAVMapping/{repo}/{name}/{version}/\n* /pipelinehub/rest/auth/pipelineRuns/getLatestPipelineRunReportedDetails\n* /pipelinehub/rest/getGitBranchTagFromAcceptanceTestsLabel\n* /pipelinehub/rest/ro/getAcceptanceTestsLabel/{id}/\n* /pipelinehub/rest/auth/servicemodelv3/workloadDeployments/{pod}/status/\n* /pipelinehub/rest/auth/appPackage/getDeployedAppPackagesReport/{pod}\n* /pipelinehub/rest/auth/getCloudNativeV3HealthCheckDetails\n | CX |   | * Reverse-map CloudNative-service CICD-version to originating CICD-pipeline"
+      },
+      {
+        "chunk_id": "doc-0110:chunk-0004:bge-002",
+        "document_id": "doc-0110",
+        "parent_id": "doc-0118",
+        "title": "Internal review for customer consumed API",
+        "char_start": 6756,
+        "char_end": 8211,
+        "text": "| https://api.example.com/reference/resource-705<erpCoreVersion>/ |   | To get the app packages included within any specific application |  | Just like we have for [CloudNative Service](https://docs.example.com/reference/resource-706), we need an API to get the versions included in App Packages | above API can be used. [https://api.example.com/reference/resource-703](https://api.example.com/reference/resource-703 \"Follow link\")   |\n| <https://api.example.com/reference/resource-707> |   | To get the tagged IntegrationBuild label for a milestoneTo get the CloudNative Services/IntegrationBuild label for any ApplicationBOM (Tip/PatchBundle/Milestone) |  | Currently we only have an API to list the CloudNative Service / App Packages version for any milestone/HWM.It does not give the IntegrationBuild label and cannot be used for any other non-milestone APPLICATIONBOM. | ro api can be used instaed of this: <https://api.example.com/reference/resource-708>We need to make it available with AUTH and ask the team to consume. |\n| <https://api.example.com/reference/resource-709> |   | To get the CloudNative app package version associated with any APMBOM (Tip/PatchBundle/Milestone) |  | Currently we only have an API to list the CloudNative Service / App Packages version for any milestone/HWM.It cannot be used for any other non-milestone APMBOM. | The API returns the application versions for an APM BOM.directly customer can call ArtifactService? |\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0027:bge-002",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 93115,
+        "char_end": 94588,
+        "text": "1. 1. As you guys know, there are multiple jobs that does purge like “direct” purge, manifest DO purge, manifest carb, ArmC, etc\n1. 1. 1. Note that since a label DO, can be referenced in any other label (due to inc build) we don’t purge per label. But we purge in a consolidation way where we make sure we purge a DO only when its “orphaned”.\n1. 1. For each jobs run, any artifact that gets deleted, is backed up in the object storage.\n\t2. Additionally, a metadata file is generated, per purge run, as to what was deleted.\n\n**Restore:**\n\n1. 1. When a restore is executed, we read ALL the metadata files, produced by different kind of purges.\n\t2. Then, for a given snapshot, we go and restore all the arifacts with that snapshot version.\n\t3. Then the SOL label (workspacecli) is also attempted.\n\t4. Once the restore is done a summary email is sent.\n1. 1. 1. In the email, if any DO restore is missed, based on the metadata file, it is mentioned.\n* Miscellaneous ReleaseEngineering Reports (External to PipelineHub)\n--------------------------------------------\n\n\t+ ### jAudit Report\n\n\t\t- Purpose : Results of jAudits for labels (more to come....)\nContact: Platform Operations Team\n\t+ ### DataModel Validation Report\n\n\t\t- Purpose : TBD.\nContact: Platform Operations Team\n\t+ ### Starter DB Build Report\n\n\t\t- Purpose : Details report of a starter DB build that happens either during a preflight or during a label build\nContact: Platform Operations Team\n\t+ ### DB Patching Report"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 2.775,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 180,
+        "prompt_tokens": 5599,
+        "total_tokens": 5779,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.7141
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0601
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 2.7749
+    },
+    {
+      "stage": "clarify",
+      "elapsed_seconds": 2.775
+    }
+  ],
+  "wall_seconds": 2.7843,
+  "token_usage": {
+    "prompt_tokens": 5599,
+    "completion_tokens": 180,
+    "total_tokens": 5779
+  },
+  "completed_at_utc": "2026-10-17T17:42:40.640763+00:00"
+}

@@ -1,0 +1,32 @@
+{
+  "id": "PH-G18",
+  "mode": "semantic",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "49f5da77adcef5d050421c0a2a543dbd6a4ed54a381644a5a601512f3cbbd26d",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G18-C01",
+        "met": false,
+        "reason": "Architecture and size are asked, but database platform is omitted."
+      },
+      {
+        "criterion_id": "PH-G18-C02",
+        "met": false,
+        "reason": "The full timing/Marketing SKU and FMK/CDP decision information is incomplete. Keyword omits both; semantic asks FMK/CDP but not timing; hybrid asks timing/Marketing SKU but not FMK/CDP."
+      },
+      {
+        "criterion_id": "PH-G18-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Correct clarification route, but the question misses some method-selection inputs."
+  },
+  "external_grading_calls": 0
+}

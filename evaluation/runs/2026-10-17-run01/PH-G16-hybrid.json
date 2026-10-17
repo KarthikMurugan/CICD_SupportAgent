@@ -1,0 +1,384 @@
+{
+  "id": "PH-G16",
+  "mode": "hybrid",
+  "question": "I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?",
+  "run_status": "completed",
+  "result": {
+    "question": "I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> * Select only the groups necessary for the request. [doc-0094]\n\n> If the required group does not exist or has incorrect membership, an admin with **ROLE_GRANULAR_SSH_USER_MANAGEMENT** can update it in **Granular SSH Group Management**. [doc-0094]\n\n> | **Group Name** | Letters and spaces only. | [doc-0094]\n\n> | **Line of Business** | The LOB in which the group must be available. | [doc-0094]\n\n> * Granular SSH groups are LOB-specific. The action lists only groups associated with the target pod's LOB. [doc-0094]\n\n> * **ROLE_GRANULAR_SSH_USER_MANAGEMENT** role is required to create and manage these groups. Ensure the needed groups already exist before submitting the pod action. [doc-0094]\n\n> PipelineHub shows groups associated with the target pod's LOB. If a required group is absent, do not substitute an unrelated group; verify the target LOB and group configuration first. [doc-0094]\n\n> User can update the form and hit \"Provision EnvironmentService Pod\" button. | Source vs Current Comparison section will show difference for only following fields: * Start with [doc-0091]\n\nDocumented guidance:\n- When copying an active-release pod provisioning record, CloudNative service, application, and environment profile overrides are excluded from auto-population and must be reviewed. [doc-0091]\n- If the required SSH group does not exist, an admin with the ROLE_GRANULAR_SSH_USER_MANAGEMENT role must create it in Granular SSH Group Management before the post-pod action. [doc-0094]\n- To prepare the group, open Granular SSH Group Management, select the intended LOB, and use Create New Group to provide a name (letters and spaces only), description, and Line of Business. [doc-0094]\n- Add members by selecting registered PipelineHub users or entering valid non-PIPELINEHUB GUIDs as comma-separated values, then select Add Selected Users to stage them for review. [doc-0094]\n- Select Save Changes to finalize the group creation, then return to the Granular SSH post-pod action to select the updated group. [doc-0094]\n- When executing the post-pod action, select only the necessary groups for the request, ensuring no more than three groups are chosen. [doc-0094]\n\nSources:\n- [doc-0091] PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job\n- [doc-0094] PipelineHub Preflight - Post Pod Actions - Granular SSH\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft accurately reflects the evidence. It correctly identifies the three CloudNative override types excluded during an active-release copy (doc-0091). It specifies the correct role (ROLE_GRANULAR_SSH_USER_MANAGEMENT) required to create groups, distinguishing it from the general admin role mentioned elsewhere, and outlines the correct sequence: create group, save changes, then select in post-pod action (doc-0094). It also preserves the critical constraint of selecting no more than three groups (doc-0094, doc-0091) and the naming convention (letters and spaces only).",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation outlines the specific overrides excluded during an active-release copy, the required role and steps to create a missing SSH group, and the constraints for selecting groups during the post-pod action.",
+      "claims": [
+        {
+          "text": "When copying an active-release pod provisioning record, CloudNative service, application, and environment profile overrides are excluded from auto-population and must be reviewed.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0091:chunk-0001:bge-002:line-005"
+            },
+            {
+              "evidence_id": "doc-0091:chunk-0001:bge-002:line-006"
+            },
+            {
+              "evidence_id": "doc-0091:chunk-0001:bge-002:line-007"
+            }
+          ]
+        },
+        {
+          "text": "If the required SSH group does not exist, an admin with the ROLE_GRANULAR_SSH_USER_MANAGEMENT role must create it in Granular SSH Group Management before the post-pod action.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-008"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-001:line-013"
+            }
+          ]
+        },
+        {
+          "text": "To prepare the group, open Granular SSH Group Management, select the intended LOB, and use Create New Group to provide a name (letters and spaces only), description, and Line of Business.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-010"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-012"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-017"
+            }
+          ]
+        },
+        {
+          "text": "Add members by selecting registered PipelineHub users or entering valid non-PIPELINEHUB GUIDs as comma-separated values, then select Add Selected Users to stage them for review.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-020"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-021"
+            }
+          ]
+        },
+        {
+          "text": "Select Save Changes to finalize the group creation, then return to the Granular SSH post-pod action to select the updated group.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-024"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-025"
+            }
+          ]
+        },
+        {
+          "text": "When executing the post-pod action, select only the necessary groups for the request, ensuring no more than three groups are chosen.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-001"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-002"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "When copying an active-release pod provisioning record, CloudNative service, application, and environment profile overrides are excluded from auto-population and must be reviewed.",
+        "evidence_id": "doc-0091:chunk-0001:bge-002:line-005",
+        "quote": "|  | All fields on the provisioning page are automatically populated from the source record.The following will be excluded from auto-populating field values:1. CloudNative service overrides",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "chunk_id": "doc-0091:chunk-0001:bge-002"
+      },
+      {
+        "claim": "When copying an active-release pod provisioning record, CloudNative service, application, and environment profile overrides are excluded from auto-population and must be reviewed.",
+        "evidence_id": "doc-0091:chunk-0001:bge-002:line-006",
+        "quote": "2. CloudNative application overrides",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "chunk_id": "doc-0091:chunk-0001:bge-002"
+      },
+      {
+        "claim": "When copying an active-release pod provisioning record, CloudNative service, application, and environment profile overrides are excluded from auto-population and must be reviewed.",
+        "evidence_id": "doc-0091:chunk-0001:bge-002:line-007",
+        "quote": "3. CloudNative environment profile overrides",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "chunk_id": "doc-0091:chunk-0001:bge-002"
+      },
+      {
+        "claim": "If the required SSH group does not exist, an admin with the ROLE_GRANULAR_SSH_USER_MANAGEMENT role must create it in Granular SSH Group Management before the post-pod action.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-008",
+        "quote": "If the required group does not exist or has incorrect membership, an admin with **ROLE_GRANULAR_SSH_USER_MANAGEMENT** can update it in **Granular SSH Group Management**.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "If the required SSH group does not exist, an admin with the ROLE_GRANULAR_SSH_USER_MANAGEMENT role must create it in Granular SSH Group Management before the post-pod action.",
+        "evidence_id": "doc-0094:chunk-0001:bge-001:line-013",
+        "quote": "* **ROLE_GRANULAR_SSH_USER_MANAGEMENT** role is required to create and manage these groups. Ensure the needed groups already exist before submitting the pod action.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-001"
+      },
+      {
+        "claim": "To prepare the group, open Granular SSH Group Management, select the intended LOB, and use Create New Group to provide a name (letters and spaces only), description, and Line of Business.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-010",
+        "quote": "1. Open **Granular SSH Group Management** from the left navigation pane.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "To prepare the group, open Granular SSH Group Management, select the intended LOB, and use Create New Group to provide a name (letters and spaces only), description, and Line of Business.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-012",
+        "quote": "3. Create a group with **Create New Group**, or select the existing group's **Edit** icon.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "To prepare the group, open Granular SSH Group Management, select the intended LOB, and use Create New Group to provide a name (letters and spaces only), description, and Line of Business.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-017",
+        "quote": "| **Group Name** | Letters and spaces only. |",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "Add members by selecting registered PipelineHub users or entering valid non-PIPELINEHUB GUIDs as comma-separated values, then select Add Selected Users to stage them for review.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-020",
+        "quote": "5. Add members either by selecting registered PipelineHub users or by entering valid non-PIPELINEHUB GUIDs as comma-separated values.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "Add members by selecting registered PipelineHub users or entering valid non-PIPELINEHUB GUIDs as comma-separated values, then select Add Selected Users to stage them for review.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-021",
+        "quote": "6. Select **Add Selected Users** to stage the users for review.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "Select Save Changes to finalize the group creation, then return to the Granular SSH post-pod action to select the updated group.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-024",
+        "quote": "7. Verify the membership, then select **Save Changes** to create or update the group.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "Select Save Changes to finalize the group creation, then return to the Granular SSH post-pod action to select the updated group.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-025",
+        "quote": "8. Return to the Granular SSH post-pod action and select the updated group.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "When executing the post-pod action, select only the necessary groups for the request, ensuring no more than three groups are chosen.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-001",
+        "quote": "* Select only the groups necessary for the request.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      },
+      {
+        "claim": "When executing the post-pod action, select only the necessary groups for the request, ensuring no more than three groups are chosen.",
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-002",
+        "quote": "* Select no more than **three** groups.",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "chunk_id": "doc-0094:chunk-0001:bge-002"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-001",
+        "document_id": "doc-0094",
+        "chunk_id": "doc-0094:chunk-0001:bge-002",
+        "quote": "* Select only the groups necessary for the request."
+      },
+      {
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-008",
+        "document_id": "doc-0094",
+        "chunk_id": "doc-0094:chunk-0001:bge-002",
+        "quote": "If the required group does not exist or has incorrect membership, an admin with **ROLE_GRANULAR_SSH_USER_MANAGEMENT** can update it in **Granular SSH Group Management**."
+      },
+      {
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-017",
+        "document_id": "doc-0094",
+        "chunk_id": "doc-0094:chunk-0001:bge-002",
+        "quote": "| **Group Name** | Letters and spaces only. |"
+      },
+      {
+        "evidence_id": "doc-0094:chunk-0001:bge-002:line-019",
+        "document_id": "doc-0094",
+        "chunk_id": "doc-0094:chunk-0001:bge-002",
+        "quote": "| **Line of Business** | The LOB in which the group must be available. |"
+      },
+      {
+        "evidence_id": "doc-0094:chunk-0001:bge-001:line-011",
+        "document_id": "doc-0094",
+        "chunk_id": "doc-0094:chunk-0001:bge-001",
+        "quote": "* Granular SSH groups are LOB-specific. The action lists only groups associated with the target pod's LOB."
+      },
+      {
+        "evidence_id": "doc-0094:chunk-0001:bge-001:line-013",
+        "document_id": "doc-0094",
+        "chunk_id": "doc-0094:chunk-0001:bge-001",
+        "quote": "* **ROLE_GRANULAR_SSH_USER_MANAGEMENT** role is required to create and manage these groups. Ensure the needed groups already exist before submitting the pod action."
+      },
+      {
+        "evidence_id": "doc-0094:chunk-0001:bge-001:line-022",
+        "document_id": "doc-0094",
+        "chunk_id": "doc-0094:chunk-0001:bge-001",
+        "quote": "PipelineHub shows groups associated with the target pod's LOB. If a required group is absent, do not substitute an unrelated group; verify the target LOB and group configuration first."
+      },
+      {
+        "evidence_id": "doc-0091:chunk-0001:bge-002:line-009",
+        "document_id": "doc-0091",
+        "chunk_id": "doc-0091:chunk-0001:bge-002",
+        "quote": "User can update the form and hit \"Provision EnvironmentService Pod\" button. | Source vs Current Comparison section will show difference for only following fields: * Start with"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0094:chunk-0001:bge-002",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "char_start": 1270,
+        "char_end": 2594,
+        "text": "\t* Select only the groups necessary for the request.\n\t* Select no more than **three** groups.\n5. Review the selected groups and the target pod before proceeding.\n\nPrepare or update groups before the action\n------------------------------------------\n\nIf the required group does not exist or has incorrect membership, an admin with **ROLE_GRANULAR_SSH_USER_MANAGEMENT** can update it in **Granular SSH Group Management**.\n\n1. Open **Granular SSH Group Management** from the left navigation pane.\n2. If you can access multiple LOBs, select the intended LOB.\n3. Create a group with **Create New Group**, or select the existing group's **Edit** icon.\n4. For a new group, provide:\n\n| Field | Requirement |\n| --- | --- |\n| **Group Name** | Letters and spaces only. |\n| **Description** | A brief, non-sensitive statement of the group's purpose. |\n| **Line of Business** | The LOB in which the group must be available. |\n5. Add members either by selecting registered PipelineHub users or by entering valid non-PIPELINEHUB GUIDs as comma-separated values.\n6. Select **Add Selected Users** to stage the users for review.\n\nThis does not create or update the group by itself.\n7. Verify the membership, then select **Save Changes** to create or update the group.\n8. Return to the Granular SSH post-pod action and select the updated group."
+      },
+      {
+        "chunk_id": "doc-0094:chunk-0001:bge-001",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "char_start": 0,
+        "char_end": 1270,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-673>\n\nPurpose\n-------\n\nUse the \\***Granular SSH**\\* post-pod action to grant SSH access to the users contained in approved Granular SSH groups. Instead of selecting individual users during the action, you select one or more pre-defined groups associated with the target pod's Line of Business (LOB).\n\nPrerequisites\n-------------\n\n* Granular SSH groups are LOB-specific. The action lists only groups associated with the target pod's LOB.\n* You can select a maximum of \\***three groups**\\* in one Granular SSH post-pod action.\n* **ROLE_GRANULAR_SSH_USER_MANAGEMENT** role is required to create and manage these groups. Ensure the needed groups already exist before submitting the pod action.\n\nSubmit a Granular SSH post-pod action\n-------------------------------------\n\n1. Open the PipelineHub post-pod action flow for the target pod.\n2. Select **Granular SSH** as the post-pod action.\n3. Review the groups presented by PIPELINEHUB.\n\nPipelineHub shows groups associated with the target pod's LOB. If a required group is absent, do not substitute an unrelated group; verify the target LOB and group configuration first.\n4. Select the group or groups that contain the intended SSH users.\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0034:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 100715,
+        "char_end": 102063,
+        "text": "We have now enabled granular ssh support for the LOBS/SUB-LOBS \n\nIf pipelinehub admin update metadata for user's LOB/Sub-LOB with a 'SubHostClass' , then that users pod will have granular ssh profile by default and on pipelinehub UI it can seen as a new stage post monitoring ,\n\nWe can also setUp granualSSH as post pod action and the pod is associated with the granular ssh profile associated with the LOB/SUB-LOB under which the pod is created. For more details, please refer to [Granular SSH access to EnvironmentService PODs](https://docs.example.com/reference/resource-417)\n\nThere are use cases when the pods get moved from one LOB to other LOB or SUB LOB or use cases where the granular ssh access need to be revoked and the pod to be made available for a generic SSH , in all those cases PipelineHub supports this new post pod action that will allow the pod owners to associate/ disassociate a given granular ssh profile on the pod.\n\n### Granular SSH User Management Dashboard:\n\nAdmins can now create/manage user lists to perform Granular SSH Access on a POD. This requires a Role - ROLE_LOB_OPS_ADMIN.\n\nGranular SSH Group Management option is available on the left hand side navigation option. \n\nIf the user is a super admin or has access to multiple LOBs, selecting the desired LOB will bring up the existing user lists that are created.\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0034:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 102063,
+        "char_end": 103292,
+        "text": "Admins can create new user group lists by clicking \"Create New Group\"\n\n1. **Group Name:** any valid group name for the list of users you are adding (only char and space is allowed)\n2. **Description**: brief description of what this group is\n3. **Line of Business:** which LOB does this group get associated with\n4. **Select users to add to the group:**\n\t1. **Registered Users in PipelineHub:** select GUIDS from the users registered in PipelineHub\n\t2. **GUIDs/Users not in PipelineHub:** add comma separated values of valid GUIDs of user not in PipelineHub\n5. **Add Selected Users:** this will add all the users you have selected (Group not created at this point - this is only for review)\n6. **Save Changes:** This will create/update the group\n\nTo EDIT the existing group, simply click the Edit icon and it will open up the users in the group, this list can be modified either by adding or deleting the users\n\nNow during the actual post pod action on the pod, Granular SSH will now list the groups associated with the LOB and up to 3 maximum can be selected.\n\n### Granular SSH User Management Dashboard:\n\nAdmins can now create/manage user lists to perform Granular SSH Access on a POD. This requires a Role - ROLE_LOB_OPS_ADMIN."
+      },
+      {
+        "chunk_id": "doc-0091:chunk-0001:bge-002",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "char_start": 1265,
+        "char_end": 2497,
+        "text": "### Use Case 1: Copy Pod Provisioning with active release version\n\n| Step 1: Select pod action | Step 2: Open provisioning page with pre-filled form | Step 3: Review changes for any fields that have been modified from the source record and submit |\n| --- | --- | --- |\n|  | All fields on the provisioning page are automatically populated from the source record.The following will be excluded from auto-populating field values:1. CloudNative service overrides\n2. CloudNative application overrides\n3. CloudNative environment profile overrides\n\nUser can update the form and hit \"Provision EnvironmentService Pod\" button. | Source vs Current Comparison section will show difference for only following fields: * Start with\n* Free form tags\n* Feature Flags\n* ApplicationBOM\n* Environment Profiles\n* CloudNative Services\n* CloudNative Applications\n\ntrueSubmit Confirmationfalseautotoptrue7314711 |\n\n### Use Case 2: Copy Pod Provisioning with end of life release version\n\n| Step 1: Select pod action | Step 2: Show error message |\n| --- | --- |\n|  | trueError falseautotoptrue5412411**\"Copy Provisioning Job\" dialog appears.**With message:The source provisioning job was submitted using an EOL release set and is not eligible for copying. |"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0035:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 103294,
+        "char_end": 104277,
+        "text": "Granular SSH Group Management option is available on the left hand side navigation option. \n\nIf the user is a super admin or has access to multiple LOBs, selecting the desired LOB will bring up the existing user lists that are created.\n\nAdmins can create new user group lists by clicking \"Create New Group\"\n\n1. **Group Name:** any valid group name for the list of users you are adding (only char and space is allowed)\n2. **Description**: brief description of what this group is\n3. **Line of Business:** which LOB does this group get associated with\n4. **Select users to add to the group:**\n\t1. **Registered Users in PipelineHub:** select GUIDS from the users registered in PipelineHub\n\t2. **GUIDs/Users not in PipelineHub:** add comma separated values of valid GUIDs of user not in PipelineHub\n5. **Add Selected Users:** this will add all the users you have selected (Group not created at this point - this is only for review)\n6. **Save Changes:** This will create/update the group\n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 11.13,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 958,
+        "prompt_tokens": 5950,
+        "total_tokens": 6908,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 7.9379
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 166,
+        "prompt_tokens": 6305,
+        "total_tokens": 6471,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.3422
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.8465
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 8.7856
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 11.1291
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 11.13
+    }
+  ],
+  "wall_seconds": 11.1438,
+  "token_usage": {
+    "prompt_tokens": 12255,
+    "completion_tokens": 1124,
+    "total_tokens": 13379
+  },
+  "completed_at_utc": "2026-10-17T17:42:41.332762+00:00"
+}

@@ -1,0 +1,208 @@
+{
+  "id": "PH-G13",
+  "mode": "keyword",
+  "question": "We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?",
+  "run_status": "completed",
+  "result": {
+    "question": "We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The draft fails to answer the specific question regarding prerequisites for the 'subsequent masking' step, only addressing refresh prerequisites. It also fails to mention the critical restriction found in doc-0115 that 'Install Language Packs' is an action that 'should NOT be supported' on PipelineHub and needs to be hidden, which directly impacts the user's plan to manage language packs. Furthermore, the claim that feature flags are 'not carried over' is an oversimplification; the evidence states 'individual pod's settings honored,' which implies the target's existing settings persist rather than a simple non-transfer of source settings. Finally, the draft omits the prerequisite that IdentityService, ManagedDatabase, and IDM must match between pods.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages outline specific prerequisites for refreshing a TEST pod from Production, including version symmetry and backup requirements. They also explicitly state that feature flags and language packs are not carried over during the refresh. Additionally, the documents mention data masking as a separate one-off job available for cases where masking is required, implying it is a subsequent step rather than an automatic part of the refresh.",
+      "claims": [
+        {
+          "text": "The source Production pod and target TEST pod must be of the same BusinessApp version, with identical states for all patches and cloud-native components.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0032:chunk-0010:bge-002:line-015"
+            },
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-001:line-013"
+            }
+          ]
+        },
+        {
+          "text": "Users must take a backup of the target TEST environment before scheduling the refresh operation from Production.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0032:chunk-0010:bge-002:line-016"
+            },
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-001:line-014"
+            }
+          ]
+        },
+        {
+          "text": "Feature flags (add/remove) are not carried over during the refresh; the individual pod's settings are honored instead.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0032:chunk-0011:bge-001:line-004"
+            },
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-002:line-008"
+            }
+          ]
+        },
+        {
+          "text": "Extra language packs added before the refresh are not carried over to the target environment.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0032:chunk-0011:bge-001:line-002"
+            },
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-002:line-006"
+            }
+          ]
+        },
+        {
+          "text": "Data masking is handled as a separate 'Data Masking Oneoff Job' rather than being an automatic result of the refresh process.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0032:chunk-0010:bge-002:line-001"
+            }
+          ]
+        },
+        {
+          "text": "The refresh operation typically takes around 5 to 7 hours to complete.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0032:chunk-0010:bge-002:line-018"
+            },
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-001:line-016"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0032:chunk-0010:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 32123,
+        "char_end": 33491,
+        "text": "**Data Masking Oneoff Job:**\n\nFor cases where the data masking is timed out ,there will be a replay shown for status check of the data masking.\n\n### Uptake P2T (Refresh) as a post pod action\n\nThis feature is now available as a **Pod Add-on**feature. User can now refresh a \"**TEST**\" type environment from a \"**Production**\" environment.\n\nAll BusinessApp Environments are created of type \"**Production\"**by default. To create a \"TEST\" type environment, be sure to use following option in Advanced Parameters. \n\n**Prerequisites  :**\n\n**Ideally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;**\n\n* The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same\n* User must take back-up of the Target environment before scheduling a refresh of the environment.\n\nThis takes around 5 to 7 hrs. \n\n**EnvironmentService REFRESH - Status One Off Check:**\n\nA refresh button is now enabled to perform one-off status check for REFRESH_POD\n\nAdditional information regarding the REFRESH use case:\n\nIdeally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;"
+      },
+      {
+        "chunk_id": "doc-0095:chunk-0001:bge-001",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "char_start": 0,
+        "char_end": 1080,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-674>\n\n### Uptake P2T (Refresh) as a post pod action\n\nThis feature is now available as a Post Pod Action feature. User can now refresh a \"**TEST**\" type environment from a \"**Production**\" environment.\n\nAll BusinessApp Environments are created of type \"**Production\"** by default. To create a \"TEST\" type environment, be sure to use following option in Advanced Parameters.\n\n**Prerequisites :**\n\n**Ideally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;**\n\n* The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same\n* User must take back-up of the Target environment before scheduling a refresh of the environment.\n\nThis takes around 5 to 7 hrs.\n\n**EnvironmentService REFRESH - Status One Off Check:**\n\nA refresh button is now enabled to perform one-off status check for REFRESH_POD\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0011:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 33493,
+        "char_end": 34785,
+        "text": "* dbChange(add new column before refresh) == will be refreshed from SOURCE\n* language pack (add extra lang before refresh) ==  **not carried over**\n* \\*toggleAutoSchedule (true/false) == not carried over **: individual pod's settings honored**\n* \\*featureFlag(add/Remove) == **not carried over : individual pod's settings honored**\n* deleteSpService == **not carried over;**\n* \\*addFreeForm tag == **not carried over: individual pod's settings honored**\n* scaleout/resize == not carried over\n* runtimediagnostics (from source to target) = **old RuntimeDiagnostics db is deleted and re-Enabled on the TARGET POD**\n* patches = same BusinessApp release and Patch bundles\n* source deploymenttemplate and target is starter (at same relLabel) = **post Refresh - TARGET will have DeploymentTemplate**\n\nHere are additional Details from EnvironmentService about P2T - \n\n### Enable feature Flag as post POD Action\n\nFeature flags can now be added individually as a post pod action.\n\n* Value and minVersion are optional fields\n* Not all feature flags can be added to an existing BusinessApp POD, please confirm with EnvironmentService team if the flag is supported\n* This operation will take 5-10 minutes and can be confirmed in the DevOps portal\n\n### Support for Freeform tag\n\n***PLEASE TAKE NOTE:*** \n\n"
+      },
+      {
+        "chunk_id": "doc-0095:chunk-0001:bge-002",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "char_start": 1080,
+        "char_end": 2206,
+        "text": "Additional information regarding the REFRESH use case:\n\nIdeally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;\n\n* dbChange(add new column before refresh) == will be refreshed from SOURCE\n* language pack (add extra lang before refresh) == **not carried over**\n* \\*toggleAutoSchedule (true/false) == not carried over **: individual pod's settings honored**\n* \\*featureFlag(add/Remove) == **not carried over : individual pod's settings honored**\n* deleteSpService == **not carried over;**\n* \\*addFreeForm tag == **not carried over: individual pod's settings honored**\n* scaleout/resize == not carried over\n* runtimediagnostics (from source to target) = **old RuntimeDiagnostics db is deleted and re-Enabled on the TARGET POD**\n* patches = same BusinessApp release and Patch bundles\n* source deploymenttemplate and target is starter (at same relLabel) = **post Refresh - TARGET will have DeploymentTemplate**\n\nHere are additional Details from EnvironmentService about P2T - EnvironmentService REFRESH (P2T)"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0035:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 104277,
+        "char_end": 104999,
+        "text": "To EDIT the existing group, simply click the Edit icon and it will open up the users in the group, this list can be modified either by adding or deleting the users\n\nNow during the actual post pod action on the pod, Granular SSH will now list the groups associated with the LOB and up to 3 maximum can be selected.\n\nMiscellaneous\n-------------\n\n### Refresh Hybrid Services from Pod View\n\nSupport to refresh hybrid services status in PipelineHub pod details\n\nThe hybrid service deployment status will now get the current status when going to the details page. If the table data is no longer current, \n\nthere is a reload button that will fetch up-to-date statuses.\n\n### Admin Audit Capability on Status Changes from Backend\n\n"
+      },
+      {
+        "chunk_id": "doc-0115:chunk-0002:bge-001",
+        "document_id": "doc-0115",
+        "parent_id": "doc-0032",
+        "title": "Lifecycle Activities for EnvironmentLifecycleService on Fleet vs PipelineHub",
+        "char_start": 242,
+        "char_end": 1090,
+        "text": "|  | Action | Support on Fleet | Support on PipelineHub |\n| --- | --- | --- | --- |\n| 1 | P2T | Not Supported | **Action: This should NOT be supported by option is available on PIPELINEHUB. Need to hide.**(Pod P2T Refresh) |\n| 2 | TST | Not Supported  | NA. |\n| 3 | Day N Order Update | Not Supported | Not Supported(Upgrade) |\n| 4 | L2L Patching | NA. | Supported |\n| 5 | Install Language Packs | Not Supported | **Action: This should NOT be supported by option is available on PIPELINEHUB. Need to hide.**(Pod Add-ons --> Install Language Packs) |\n| 6 | Copy Provisioning Job | NA. | Supported |\n| 7 | Application Users Reset Password | Fixed Password provided by Demo | **Action: PipelineHub needs to reset the password** |\n| 8 | Reset password policy | 30 days policy (managed by DemoOps) | No 30 days restriction - No action on PIPELINEHUB. |\n"
+      }
+    ],
+    "handoff": {
+      "question": "We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?",
+      "reason": "The draft fails to answer the specific question regarding prerequisites for the 'subsequent masking' step, only addressing refresh prerequisites. It also fails to mention the critical restriction found in doc-0115 that 'Install Language Packs' is an action that 'should NOT be supported' on PipelineHub and needs to be hidden, which directly impacts the user's plan to manage language packs. Furthermore, the claim that feature flags are 'not carried over' is an oversimplification; the evidence states 'individual pod's settings honored,' which implies the target's existing settings persist rather than a simple non-transfer of source settings. Finally, the draft omits the prerequisite that IdentityService, ManagedDatabase, and IDM must match between pods.",
+      "source_ids": [
+        "doc-0032",
+        "doc-0095",
+        "doc-0115"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 10.862,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 803,
+        "prompt_tokens": 5297,
+        "total_tokens": 6100,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 8.3185
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 186,
+        "prompt_tokens": 5522,
+        "total_tokens": 5708,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.4732
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0671
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 8.387
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 10.8615
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 10.8619
+    }
+  ],
+  "wall_seconds": 10.8682,
+  "token_usage": {
+    "prompt_tokens": 10819,
+    "completion_tokens": 989,
+    "total_tokens": 11808
+  },
+  "completed_at_utc": "2026-10-17T17:42:07.068103+00:00"
+}

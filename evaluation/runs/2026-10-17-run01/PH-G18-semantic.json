@@ -1,0 +1,119 @@
+{
+  "id": "PH-G18",
+  "mode": "semantic",
+  "question": "Which TestRunner provisioning method should I choose for my pod?",
+  "run_status": "completed",
+  "result": {
+    "question": "Which TestRunner provisioning method should I choose for my pod?",
+    "status": "needs_clarification",
+    "answer": "Do you require support for ARM architecture or pod sizes larger than 'S', or do you need FMK/CDP services included in your subscription?",
+    "evidence_reason": "The documentation outlines two distinct TestRunner provisioning methods with different constraints regarding architecture (ARM/x86), pod size (S/M/L vs S only), and required services (FMK/CDP). To recommend the correct method, I need to know the user's specific requirements for these attributes.",
+    "draft": {
+      "decision": "clarify",
+      "reason": "The documentation outlines two distinct TestRunner provisioning methods with different constraints regarding architecture (ARM/x86), pod size (S/M/L vs S only), and required services (FMK/CDP). To recommend the correct method, I need to know the user's specific requirements for these attributes.",
+      "claims": [],
+      "clarification": "Do you require support for ARM architecture or pod sizes larger than 'S', or do you need FMK/CDP services included in your subscription?"
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0137:chunk-0001:bge-001",
+        "document_id": "doc-0137",
+        "parent_id": "doc-0032",
+        "title": "PipelineHub Family Pods & Preflight - Provisioning Subscription for TestRunner",
+        "char_start": 0,
+        "char_end": 1274,
+        "text": "Two ways on how FDI is deployed on a BusinessApp Pod\n\nMethod 1 - Whitelist Pod for TestRunner (Post-Provisioning)\n\n* 2 steps Process and support for ARM/x86, EXA/ManagedDatabase, support for S,M,L size only.\n\nMethod 2 - Use Marketing SKU in mock subscription which include TestRunner (As Part of Provisioning)\n\n* 1 step Process and support for x86+EXA only, support for S size only\n\n | Subscription Name | Description | User Usage | \n\n1 | \nALL_HYBRIDS_NO_TESTRUNNER_NO_CDP (All hybrids+FS SKU+CPQ SKU)\n\n | \nUsing this subscription, you will have the opportunity to whitelist the pod for TestRunner post provisioning.\n\n | \n* Note: If you need FMK/CDP, please DO NOT use this subscription\n\n* Step 1 - Provisioning with all/selected cloudnative services \n* If you select CDP for whatever reason, CDP deployment will FAIL\n\n* Step 2 - Select Pod Add-ons > Deploy Hybrid FDI\n\nReleaseEngineering To-Do: PipelineHub can enhance to orchestrate into 1-click for useability. However, do note behind-the-scene, it will still a post-provisioning process aka Method 1 use case. ETA 2/13. ( [https://issues.example.com/reference/resource-862] DEMO-018)\n\nReleaseEngineering To-Do: Need to support XS subscription.  [https://issues.example.com/reference/resource-863] DEMO-019. ETA 2/6\n | \n\n"
+      },
+      {
+        "chunk_id": "doc-0137:chunk-0001:bge-002",
+        "document_id": "doc-0137",
+        "parent_id": "doc-0032",
+        "title": "PipelineHub Family Pods & Preflight - Provisioning Subscription for TestRunner",
+        "char_start": 1274,
+        "char_end": 2450,
+        "text": "2 | \nNote: Use this subscription only if you want to validate Marketing SKU\n\nALL_HYBRIDS_WITH_TESTRUNNER  (All hybrids+FS SKU+CPQ SKU+Marketing SKU)\n\n | \nUsing this subscription, TestRunner will be deployed as part of provisioning.\n\nNote: PipelineHub will route the job to pre-defined tenancies which are whitelisted for CDP+TestRunner\n | \n* Note: FMK+CDP must be selected - Please make sure you have the CDP Quota!\n\n* Provisioning with all/selected cloudnative services (FMK+CDP MUST be selected) \n\n* Currently Limitation: x86+EXA Pod\n\nReleaseEngineering To-Do: PipelineHub will expand to allow ARM/x86, EXA/ManagedDatabase combination pods. ETA 2/6. ( [https://issues.example.com/reference/resource-864] DEMO-020)\n\nReleaseEngineering To-Do: Need to support L,XS,M subscription.  [https://issues.example.com/reference/resource-863] DEMO-019. ETA 2/6\n | \n\nFYI Side Note -- From the Project NEXUS (managed by ReleaseManagement) – To move BusinessApp from BI legacy systems to BI Cloud.\n\nTestRunner (BusinessSuite Transaction Reporting) is the new name for the BI cloud solution which includes below services:\n\n* OAC (ExampleCo Analytic Cloud)\n\n* FDI (BusinessSuite Data Import)"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0007:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 22764,
+        "char_end": 24307,
+        "text": "### Architecture Considerations (ARM64 vs X86)\n\n* + When Provisioning a EnvironmentService POD for ARM64, please review these instructions (that will ask us to supply override parameters): \n\n\t\t- [EnvironmentService POD Provisioning Instructions](https://docs.example.com/reference/resource-391)\n\t+ If we are provisioning a EnvironmentService POD for x86_64 (X86 is used in the release set description), then use USE_X86_ONLY freeform tag.\n\t+ Note- Depending on the available quota either X86 or Arm64 POD will be created.. Refer to [Specific Instructions for Arm64 pod](https://docs.example.com/reference/resource-391)\n* Step 1: Provision a EnvironmentService POD based on the BusinessApp Release or the PipelineHub ID (and supply override parameters for ARM64 if you are using ARM64)\n\n### Provisioning Additional Considerations\n\n* Use Additional Parameters to override values\n\t+ Sample: lcmArtifactSetId=LifecycleManagerArtifactSet_2024.01.02.1_1.1.320_2023-12 [to override a different version of lcmArtifactsSet. This is just an example, use the value only after consulting LifecycleManager]\n\n### Post Provisioning Action Considerations of Patch, Upgrade, Run Tests, Bounce, Backup, P2T, Resize, Scaleout, Granular SSH, Load Demo Users (DeploymentTemplate only) and Delete\n\n* Once the POD is provisioned, future actions available on it in PipelineHub are to Patch it, Upgrade it, Run Tests on it, Bounce BusinessApp Services, Bounce BusinessApp and IDM Services on it, Load Demo User, or Delete it\n\n        \n\n### Scale out and Resize support"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0002:bge-002",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 4673,
+        "char_end": 6054,
+        "text": "### Display Update BusinessSuite Env response in UI during provisioning\n\n### Enable RuntimeDiagnostics for EnvironmentService Provisioning\n\nThe EnvironmentService provisioning submission UI has introduced a new option for RuntimeDiagnostics enablement. This feature will enable RuntimeDiagnostics after POD provisioning is successful\n\nPlease do take a note we now support API provisioning submissions as well.\n\nMore about RuntimeDiagnostics: <https://docs.example.com/reference/resource-393>\n\n### Allow opt-in for OPA hybrid service from UI\n\nUser to select checkbox to opt for OPA service while provisioning\n\n### Allow opt-in for UIBuildService hybrid service for Prod from UI\n\nUser can now provision UIBuildService Hybrid for Prod and not as a Test pod using the feature flag -\n\n**PFLT_UIBUILDSERVICE_PROD_PROVISION** is a group name and the feature flag is **provision-uibuildservice-hybrid-only-for-prod** which should be set to True\n\n### IdentityService support for pod provisioning\n\nPipelineHub support feature flags to enable IdentityService while provisioning a pod.\n\n### Support for Feature Flags\n\nPipelineHub provides commonly used feature flags for Provisioning, Upgrade and Patching jobs via Feature Flag Groups.\n\nHowever, there are more feature flags that can be used outside of these defaults. In order to add feature flags to PipelineHub, please specify the following"
+      },
+      {
+        "chunk_id": "doc-0025:chunk-0001:bge-002",
+        "document_id": "doc-0025",
+        "parent_id": "doc-0001",
+        "title": "PipelineHub Preflight and Family Guide",
+        "char_start": 734,
+        "char_end": 1079,
+        "text": "Pod Actions\n===========\n\nCopy Provisioning Job\n---------------------\n\nRun Tests\n---------\n\nBounce BusinessApp Services and IDM Services\n-----------------------------------\n\nPod Backup/Restore/Delete\n-------------------------\n\nPod P2T Refresh\n---------------\n\nPod Resize and Pod Scale-out\n----------------------------\n\nGranular SSH\n------------\n\n"
+      },
+      {
+        "chunk_id": "doc-0091:chunk-0001:bge-002",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "char_start": 1265,
+        "char_end": 2497,
+        "text": "### Use Case 1: Copy Pod Provisioning with active release version\n\n| Step 1: Select pod action | Step 2: Open provisioning page with pre-filled form | Step 3: Review changes for any fields that have been modified from the source record and submit |\n| --- | --- | --- |\n|  | All fields on the provisioning page are automatically populated from the source record.The following will be excluded from auto-populating field values:1. CloudNative service overrides\n2. CloudNative application overrides\n3. CloudNative environment profile overrides\n\nUser can update the form and hit \"Provision EnvironmentService Pod\" button. | Source vs Current Comparison section will show difference for only following fields: * Start with\n* Free form tags\n* Feature Flags\n* ApplicationBOM\n* Environment Profiles\n* CloudNative Services\n* CloudNative Applications\n\ntrueSubmit Confirmationfalseautotoptrue7314711 |\n\n### Use Case 2: Copy Pod Provisioning with end of life release version\n\n| Step 1: Select pod action | Step 2: Show error message |\n| --- | --- |\n|  | trueError falseautotoptrue5412411**\"Copy Provisioning Job\" dialog appears.**With message:The source provisioning job was submitted using an EOL release set and is not eligible for copying. |"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 3.048,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 121,
+        "prompt_tokens": 6222,
+        "total_tokens": 6343,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.3087
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7371
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.0469
+    },
+    {
+      "stage": "clarify",
+      "elapsed_seconds": 3.0475
+    }
+  ],
+  "wall_seconds": 3.0605,
+  "token_usage": {
+    "prompt_tokens": 6222,
+    "completion_tokens": 121,
+    "total_tokens": 6343
+  },
+  "completed_at_utc": "2026-10-17T17:42:43.704055+00:00"
+}

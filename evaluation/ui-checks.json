@@ -1,0 +1,43 @@
+{
+  "mode": "local_only_user_selected",
+  "url": "http://127.0.0.1:8765",
+  "launcher": "Open PipelineHub Chat.command",
+  "entrypoint": "python -m cicd_support_rag.ui_server",
+  "features": [
+    "chat conversation layout",
+    "browser-local history",
+    "new and deleted chats",
+    "suggested questions",
+    "live job progress",
+    "citation source drawer",
+    "copy answers",
+    "export chats",
+    "download human-review packet",
+    "clarification follow-up context"
+  ],
+  "tests_passed": 23,
+  "live_api_checks": [
+    {
+      "case": "clarification",
+      "status": "needs_clarification",
+      "elapsed_seconds": 1.117,
+      "stages": [
+        "retrieving",
+        "done"
+      ]
+    },
+    {
+      "case": "answer",
+      "status": "answered",
+      "elapsed_seconds": 60.234,
+      "stages": [
+        "retrieving",
+        "drafting",
+        "checking",
+        "done"
+      ]
+    }
+  ],
+  "browser_visual_qa": "Blocked: browser could not verify the admin-enforced policy. No rendered visual inspection completed.",
+  "frontend_checks": "JavaScript syntax validated; visual and browser interaction checks remain unverified."
+}

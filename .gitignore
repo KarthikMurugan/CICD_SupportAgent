@@ -1,0 +1,22 @@
+# Local credentials and runtime state
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.DS_Store
+project-status.json
+
+# Rebuildable corpus derivatives, embeddings and model weights
+data/
+indexes/
+
+# Artifact authoring caches and machine-specific dependency links
+**/.build/
+**/node_modules/
+*.inspect.ndjson
+
+# Locally supplied course corpus
+sources/

@@ -1,0 +1,236 @@
+{
+  "id": "PH-G14",
+  "mode": "hybrid",
+  "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+  "run_status": "completed",
+  "result": {
+    "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> 1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs. [doc-0098]\n\n> * To enable BATSnapper, the user must include `ENABLE_BATSNAPPER=true` in the `Additional Params` when submitting BuildAcceptanceTests. [doc-0060]\n\n> * Previously, BATSnapper’s pre-buildacceptancetests and post-buildacceptancetests hooks were called only once. With this update, these hooks will be called every time the user re-runs the tests. [doc-0060]\n\n> * This feature is available only when BATSnapper is enabled. [doc-0060]\n\n> * ### I have merged an WorkspaceCLI transaction and I do not see it is built yet, where do I check in PipelineHub what is happening with it? [doc-0001]\n\nDocumented guidance:\n- BuildAcceptanceTests will automatically disable MFA on the POD as they cannot run with MFA enabled, irrespective of any manual MFA settings configured during provisioning or post-provisioning actions. [doc-0098]\n- To start BuildAcceptanceTests, include the parameter ENABLE_BATSNAPPER=true in the Additional Params when submitting the test job if BATSnapper integration is required. [doc-0060]\n- Users can track the status of their project by navigating to the Project Pipeline and filtering for the specific project name. [doc-0001]\n- The status of a transaction, including whether it is built or not, can be viewed by selecting the Build/Pipeline Run which lists all transactions. [doc-0001]\n\nSources:\n- [doc-0098] PipelineHub Preflight - Post Pod Actions - Toggle MFA\n- [doc-0060] PipelineHub Preflight - Provisioning\n- [doc-0001] PipelineHub User Guide\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly answers all parts of the user's question. 1) It confirms MFA is automatically disabled during BuildAcceptanceTests regardless of manual settings, citing doc-0098 which explicitly states this behavior occurs 'irrespective of what the user has done'. 2) It correctly identifies the parameter 'ENABLE_BATSNAPPER=true' for enabling BATSnapper integration during test submission, supported by doc-0060. 3) It accurately describes tracking the project status via the Project Pipeline and viewing transaction details in the Build/Pipeline Run, supported by doc-0001. All claims are directly supported by the provided evidence, and the critical caveat regarding MFA behavior is preserved.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation explicitly states that BuildAcceptanceTests automatically disable MFA during the run, regardless of prior user settings. It also outlines how to trigger tests via additional parameters and how to track status via the project pipeline.",
+      "claims": [
+        {
+          "text": "BuildAcceptanceTests will automatically disable MFA on the POD as they cannot run with MFA enabled, irrespective of any manual MFA settings configured during provisioning or post-provisioning actions.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "To start BuildAcceptanceTests, include the parameter ENABLE_BATSNAPPER=true in the Additional Params when submitting the test job if BATSnapper integration is required.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0060:chunk-0006:bge-001:line-018"
+            }
+          ]
+        },
+        {
+          "text": "Users can track the status of their project by navigating to the Project Pipeline and filtering for the specific project name.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0001:chunk-0006:bge-001:line-007"
+            }
+          ]
+        },
+        {
+          "text": "The status of a transaction, including whether it is built or not, can be viewed by selecting the Build/Pipeline Run which lists all transactions.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0001:chunk-0006:bge-001:line-014"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "BuildAcceptanceTests will automatically disable MFA on the POD as they cannot run with MFA enabled, irrespective of any manual MFA settings configured during provisioning or post-provisioning actions.",
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-006",
+        "quote": "4. if BuildAcceptanceTests are triggered, BuildAcceptanceTests will automatically disable the MFA on the POD as BuildAcceptanceTests cannot run with MFA on, so when BuildAcceptanceTests are triggered the assumption is that MFA will be disabled (this will be done during the BuildAcceptanceTests run) , irrespective of what the user has done during prov or post prov action.",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "chunk_id": "doc-0098:chunk-0001:bge-001"
+      },
+      {
+        "claim": "To start BuildAcceptanceTests, include the parameter ENABLE_BATSNAPPER=true in the Additional Params when submitting the test job if BATSnapper integration is required.",
+        "evidence_id": "doc-0060:chunk-0006:bge-001:line-018",
+        "quote": "* To enable BATSnapper, the user must include `ENABLE_BATSNAPPER=true` in the `Additional Params` when submitting BuildAcceptanceTests.",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "chunk_id": "doc-0060:chunk-0006:bge-001"
+      },
+      {
+        "claim": "Users can track the status of their project by navigating to the Project Pipeline and filtering for the specific project name.",
+        "evidence_id": "doc-0001:chunk-0006:bge-001:line-007",
+        "quote": "* + Navigate to the Project Pipeline and filter to the project you are looking for",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "chunk_id": "doc-0001:chunk-0006:bge-001"
+      },
+      {
+        "claim": "The status of a transaction, including whether it is built or not, can be viewed by selecting the Build/Pipeline Run which lists all transactions.",
+        "evidence_id": "doc-0001:chunk-0006:bge-001:line-014",
+        "quote": "+ In the screenshot above it shows if the transaction is built or not. Additionally, you can select on the Build/Pipeline Run and that will show you all the transactions.",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "chunk_id": "doc-0001:chunk-0006:bge-001"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-003",
+        "document_id": "doc-0098",
+        "chunk_id": "doc-0098:chunk-0001:bge-001",
+        "quote": "1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs."
+      },
+      {
+        "evidence_id": "doc-0060:chunk-0006:bge-001:line-018",
+        "document_id": "doc-0060",
+        "chunk_id": "doc-0060:chunk-0006:bge-001",
+        "quote": "* To enable BATSnapper, the user must include `ENABLE_BATSNAPPER=true` in the `Additional Params` when submitting BuildAcceptanceTests."
+      },
+      {
+        "evidence_id": "doc-0060:chunk-0006:bge-001:line-019",
+        "document_id": "doc-0060",
+        "chunk_id": "doc-0060:chunk-0006:bge-001",
+        "quote": "* Previously, BATSnapper’s pre-buildacceptancetests and post-buildacceptancetests hooks were called only once. With this update, these hooks will be called every time the user re-runs the tests."
+      },
+      {
+        "evidence_id": "doc-0060:chunk-0006:bge-001:line-020",
+        "document_id": "doc-0060",
+        "chunk_id": "doc-0060:chunk-0006:bge-001",
+        "quote": "* This feature is available only when BATSnapper is enabled."
+      },
+      {
+        "evidence_id": "doc-0001:chunk-0006:bge-001:line-012",
+        "document_id": "doc-0001",
+        "chunk_id": "doc-0001:chunk-0006:bge-001",
+        "quote": "* ### I have merged an WorkspaceCLI transaction and I do not see it is built yet, where do I check in PipelineHub what is happening with it?"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0098:chunk-0001:bge-001",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "char_start": 0,
+        "char_end": 1165,
+        "text": "Toggle MFA (Multi-Factor Authentication) \n\n1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs.\n2. if MFA is disabled then the users will be able to login with user name and password on the IdentityService and IdentityService/ManagedDatabase pods\n3. if the MFA is enabled user will be prompted for extra authentication to be able to login to the PODs\n4. if BuildAcceptanceTests are triggered, BuildAcceptanceTests will automatically disable the MFA on the POD as BuildAcceptanceTests cannot run with MFA on, so when BuildAcceptanceTests are triggered the assumption is that MFA will be disabled (this will be done during the BuildAcceptanceTests run) , irrespective of what the user has done during prov or post prov action.\n\nEligible PODS (IdentityService) will have the option in the post pod actions - TOGGLE MFA\n\nThe user will be able to ENABLE MFA or DISABLE MFA based on the option selected (true or false)"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0006:bge-001",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 14670,
+        "char_end": 16278,
+        "text": "Filter tag All is now defaulted for all DeploymentTemplate Run Tests submissions. This will be empty for STARTER jobs.   \n\nReference - <https://issues.example.com/reference/resource-416>\n\nReach out to BusinessApp QA to get details about values that can be used for these parameters. \n\nTesting Parameters: \n\n* `AcceptanceTests Label`\n* `Order prop`\n* `Filter tags`\n* `BuildAcceptanceTests Config`\n* Git Branch\n* `Additional Params`\n\n#### BATSnapper Integration to BuildAcceptanceTests for PSR\n\n* To enable BATSnapper, the user must include `ENABLE_BATSNAPPER=true` in the `Additional Params` when submitting BuildAcceptanceTests.\n* Previously, BATSnapper’s pre-buildacceptancetests and post-buildacceptancetests hooks were called only once. With this update, these hooks will be called every time the user re-runs the tests.\n* This feature is available only when BATSnapper is enabled.\n\n### ManagedDatabase Enabled Flag\n\nEnvironmentService-Uptake ManagedDatabase Flag in provisioning submissions. If the template is ManagedDatabase enabled. This is for the users who wants to use PipelineHub for ADBS provisioning jobs. \n\nthis is a requirement for LifecycleManager to be able to use PipelineHub for ADBS prov\n\nSupport Enabled DB info check box for EnvironmentService provisioning\n\nPipelineHub now support with \"Enabled DB info\" check box feature for EnvironmentService provisioning which works exactly like GEN1.\n\n \n\nX86 is defaulted for provisioning, ARM Pods are based on user selection \n\nX86 is now the default for POD provisioning. User should click \"***Provision an ARM64 pod***\" if they want an ARM pod."
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0014:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 43721,
+        "char_end": 45248,
+        "text": "These input feature flags are only enabled in the environmentservice pod before submit for environmentservice provisioning, upgrade or patching flows. Feature flags can be enabled in either an existing provisioned pod or a provisioning pod as long as the system name of the environmentservice pod is available.\n\n* Only ZDT Phase 5 and Enable IDM  is supported at this time\n\n#### Feature flag support for upgrade\n\n#### Feature flag support for Patching (BI, ApplicationPatchBundle and ApplicationProvisioner)\n\n### Feature Flags UI\n\nfeature flags moved under Advanced parameters section during EnvironmentService Upgrade submissions\n\nIdentityService support for pod provisioning\n---------------------------------\n\nPipelineHub now support feature flags to enable IdentityService while provisioning a pod.\n\n### ManagedDatabase and IdentityService support for Provisioning and Upgrade\n\nSupport Provisioning and upgrade flow if selected template for which isManagedDatabase or isIdentityService enabled under advanced parameters and same will be default selected for release 24.10 and above.\n\nSecurityScan scan\n----------\n\n### SecurityScan submission can be enabled while provisioning (Only Starter)\n\n* Users can now enable SecurityScan scan while provisioning a pod\n\n### SecurityScan Scans Display\n\nSecurityScan Central Dashboard is now displayed at landing page.\n\n### SecurityScan reporting changes in PipelineHub\n\nPipelineHub now have partial deny status, which users are expected to review the results.\n\n### Partial and Temp Deny"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0006:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 14367,
+        "char_end": 15444,
+        "text": "* ### My integrator advised me to look at the Build Status via PipelineHub - how do I start that?\n\n\t+ Navigate to the default home page and search Or pick from the recently searched project.\n\n* + Search for your series or project name (you can just type in part of the name) and select the appropriate one.\n\n* + Navigate to the Project Pipeline and filter to the project you are looking for\n* My manager/integrator advised me to check the status of my WorkspaceCLI transaction via PipelineHub - how do I do that?\n\t+ Search for your series or project name (you can just type in part of the name) and select the appropriate one to navigate to Project Details page.\n\t+ Look for the section below Merge Requests that lists all the transactions in the recent past::\n\n* ### I have merged an WorkspaceCLI transaction and I do not see it is built yet, where do I check in PipelineHub what is happening with it?\n\n\t+ In the screenshot above it shows if the transaction is built or not. Additionally, you can select on the Build/Pipeline Run and that will show you all the transactions.\n\n"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0002:bge-002",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 4673,
+        "char_end": 6054,
+        "text": "### Display Update BusinessSuite Env response in UI during provisioning\n\n### Enable RuntimeDiagnostics for EnvironmentService Provisioning\n\nThe EnvironmentService provisioning submission UI has introduced a new option for RuntimeDiagnostics enablement. This feature will enable RuntimeDiagnostics after POD provisioning is successful\n\nPlease do take a note we now support API provisioning submissions as well.\n\nMore about RuntimeDiagnostics: <https://docs.example.com/reference/resource-393>\n\n### Allow opt-in for OPA hybrid service from UI\n\nUser to select checkbox to opt for OPA service while provisioning\n\n### Allow opt-in for UIBuildService hybrid service for Prod from UI\n\nUser can now provision UIBuildService Hybrid for Prod and not as a Test pod using the feature flag -\n\n**PFLT_UIBUILDSERVICE_PROD_PROVISION** is a group name and the feature flag is **provision-uibuildservice-hybrid-only-for-prod** which should be set to True\n\n### IdentityService support for pod provisioning\n\nPipelineHub support feature flags to enable IdentityService while provisioning a pod.\n\n### Support for Feature Flags\n\nPipelineHub provides commonly used feature flags for Provisioning, Upgrade and Patching jobs via Feature Flag Groups.\n\nHowever, there are more feature flags that can be used outside of these defaults. In order to add feature flags to PipelineHub, please specify the following"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0004:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 7385,
+        "char_end": 8286,
+        "text": "\t+ Ensure that no one else had configured such a project in PIPELINEHUB. Just search for the name of the WorkspaceCLI series and it will guide you.\n\t+ If your WorkspaceCLI series is not visible in PipelineHub, please configure them in PipelineHub using the simple steps in the Project Configuration screen.\n* ### I have my source code in a Git based (GitPortal/GitService/Gitlab) Source Repo, how do I start with the CI/CD Pipeline using PipelineHub?\n\n\t+ Onboard your project to PipelineHub using steps defined in one of the following pages based on the project type: \"\"\n* ### How do I find the ProjectId for my GitPortal/Gitlab Source Code Repo?\n\n\t+ The projectId for your GitPortal Source code Repo can be found on the home page of the project.\n\t+ Example: For PipelineHub source code repo, you can see the project Id as given below:\n* ### How do I find the Org for my GitService Source Code Repo?\n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 8.007,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 445,
+        "prompt_tokens": 5620,
+        "total_tokens": 6065,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 4.5809
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 186,
+        "prompt_tokens": 5568,
+        "total_tokens": 5754,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.6445
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7771
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 5.3597
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 8.0055
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 8.0065
+    }
+  ],
+  "wall_seconds": 8.0201,
+  "token_usage": {
+    "prompt_tokens": 11188,
+    "completion_tokens": 631,
+    "total_tokens": 11819
+  },
+  "completed_at_utc": "2026-10-17T17:39:54.835933+00:00"
+}

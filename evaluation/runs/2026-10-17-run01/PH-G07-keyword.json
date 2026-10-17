@@ -1,0 +1,276 @@
+{
+  "id": "PH-G07",
+  "mode": "keyword",
+  "question": "Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?",
+  "run_status": "completed",
+  "result": {
+    "question": "Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> #### 1) Permissions Required [doc-0038]\n\n> The **Rerun Scans** button is rendered **only if**: [doc-0038]\n\nDocumented guidance:\n- Verify that your user account has the required 'Project Control' role, as lacking this permission will disable the button. [doc-0038]\n- Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if it is not. [doc-0038]\n- Confirm that at least one component in the build is of the 'UIBuildService' type, which is required for the button to appear. [doc-0038]\n- Check that the build is not currently in progress, as this status disables the rerun control. [doc-0038]\n- Verify that a rerun submission is not already in progress, as this condition also disables the button. [doc-0038]\n- Ensure there are eligible components or steps available for rerun; if none exist, the button will be disabled. [doc-0038]\n\nSources:\n- [doc-0038] Rerun scans support\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft answer correctly identifies all conditions listed in the evidence (doc-0038:chunk-0001:bge-003) that cause the 'Rerun Scans' button to be missing or disabled. Specifically, it covers the required 'Project Control' role, the necessity of the snapshot being the latest eligible one, the requirement for at least one 'UIBuildService' component, the build not being in progress, no existing rerun submission in progress, and the existence of eligible components. Each claim maps directly to the provided text lines without extrapolation or omission of critical restrictions.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation explicitly lists the conditions under which the 'Rerun Scans' button is rendered and when it is disabled (greyed out). The answer synthesizes these specific restrictions to guide the user on what to check.",
+      "claims": [
+        {
+          "text": "Verify that your user account has the required 'Project Control' role, as lacking this permission will disable the button.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-012"
+            },
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-028"
+            }
+          ]
+        },
+        {
+          "text": "Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if it is not.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-018"
+            },
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-026"
+            }
+          ]
+        },
+        {
+          "text": "Confirm that at least one component in the build is of the 'UIBuildService' type, which is required for the button to appear.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-019"
+            }
+          ]
+        },
+        {
+          "text": "Check that the build is not currently in progress, as this status disables the rerun control.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-025"
+            }
+          ]
+        },
+        {
+          "text": "Verify that a rerun submission is not already in progress, as this condition also disables the button.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-029"
+            }
+          ]
+        },
+        {
+          "text": "Ensure there are eligible components or steps available for rerun; if none exist, the button will be disabled.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-027"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "Verify that your user account has the required 'Project Control' role, as lacking this permission will disable the button.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-012",
+        "quote": "* + **Project Control** role",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Verify that your user account has the required 'Project Control' role, as lacking this permission will disable the button.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-028",
+        "quote": "+ User lacks permission",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if it is not.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-018",
+        "quote": "* + The snapshot is the **latest** eligible snapshot of the pipeline",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if it is not.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-026",
+        "quote": "+ Current snapshot is not the latest eligible snapshot",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Confirm that at least one component in the build is of the 'UIBuildService' type, which is required for the button to appear.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-019",
+        "quote": "+ At least one component is of **UIBuildService type**",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Check that the build is not currently in progress, as this status disables the rerun control.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-025",
+        "quote": "* + Build is in progress",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Verify that a rerun submission is not already in progress, as this condition also disables the button.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-029",
+        "quote": "+ A rerun submission is already in progress",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Ensure there are eligible components or steps available for rerun; if none exist, the button will be disabled.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-027",
+        "quote": "+ No eligible components/steps are available for rerun",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-010",
+        "document_id": "doc-0038",
+        "chunk_id": "doc-0038:chunk-0001:bge-003",
+        "quote": "#### 1) Permissions Required"
+      },
+      {
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-016",
+        "document_id": "doc-0038",
+        "chunk_id": "doc-0038:chunk-0001:bge-003",
+        "quote": "The **Rerun Scans** button is rendered **only if**:"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0038:chunk-0002:bge-001",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "char_start": 3484,
+        "char_end": 4569,
+        "text": "Once you have **submitted** the component and step for rerun, it will take some time for the component/step to be transitioned to the \"In progress\" state. Reload the page after 3-5 mins, to find the latest state of component/step. \n\n#### Build Results page\n\nKindly make a note of the following - \n\n* The selected scans will be rerun on the **same snapshot**, and **no new snapshot** will be created after rerun submission.\n* There will be **no impact** to other steps of the same component, or to any other components that were part of the original snapshot build.\n* The **Deploy/Test** stages will remain the same as in the original snapshot, and there will be **no impact** to them.\n\n#### Pipeline Runs page\n\nHow to Identify Whether a Scan Was Rerun\n----------------------------------------\n\nTo differentiate between a rerun scan and a non-rerun scan:\n\n* If a scan is rerun for a given **component** and **snapshot**, an **“R”** icon will appear next to the **step name**.\n* When you hover over the step, the tooltip will display the **step name** along with the label **“(Rerun)”**."
+      },
+      {
+        "chunk_id": "doc-0016:chunk-0016:bge-002",
+        "document_id": "doc-0016",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (Monolith)",
+        "char_start": 35983,
+        "char_end": 36883,
+        "text": "2. Copy that data, and locate the value 'integratorYpMaster' which should be under `additionalData`, and we've been changing it to Demo Contributor's YPMaster: 'MNANDANI'\n\n3. Save that newly updated data back using: https://app.example.com/reference/resource-137](https://app.example.com/reference/resource-057)rest/saveProjectOnboardingRequest POST request with `Content-Type: application/json` header. \n\n4. After it's successfully saved, go back to the onboarding request, and under the 'Fulfillment Request' tab, click the `Restart Workflow` button. (Here in this picture it's greyed out, but that's because I had already restarted it)\n\nOnce May-B goes into production, this should not be happening anymore as we have made a change to avoid using the IdentityService identity API for this specific use-case, but wanted to give some background on why/how the issue is happening and our expected fix"
+      },
+      {
+        "chunk_id": "doc-0038:chunk-0001:bge-003",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "char_start": 1774,
+        "char_end": 2602,
+        "text": "User Interface\n--------------\n\n### Overview\n\nFor each completed pipeline a new action will be available to \"Rerun Scans\":\n\n### Rerun Scans Action Button Restrictions\n\n#### 1) Permissions Required\n\n* + **Project Control** role\n\n#### 2) Button Visibility (When the Button Is Rendered)\n\nThe **Rerun Scans** button is rendered **only if**:\n\n* + The snapshot is the **latest** eligible snapshot of the pipeline\n\t+ At least one component is of **UIBuildService type**\n\n#### 3) Button Disablement (When the Button Is Disabled)\n\nThe button is disabled if **any** of the following are true:\n\n* + Build is in progress\n\t+ Current snapshot is not the latest eligible snapshot\n\t+ No eligible components/steps are available for rerun\n\t+ User lacks permission\n\t+ A rerun submission is already in progress\n\n### Rerun Scans Dialog Restrictions\n\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0006:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 14367,
+        "char_end": 15444,
+        "text": "* ### My integrator advised me to look at the Build Status via PipelineHub - how do I start that?\n\n\t+ Navigate to the default home page and search Or pick from the recently searched project.\n\n* + Search for your series or project name (you can just type in part of the name) and select the appropriate one.\n\n* + Navigate to the Project Pipeline and filter to the project you are looking for\n* My manager/integrator advised me to check the status of my WorkspaceCLI transaction via PipelineHub - how do I do that?\n\t+ Search for your series or project name (you can just type in part of the name) and select the appropriate one to navigate to Project Details page.\n\t+ Look for the section below Merge Requests that lists all the transactions in the recent past::\n\n* ### I have merged an WorkspaceCLI transaction and I do not see it is built yet, where do I check in PipelineHub what is happening with it?\n\n\t+ In the screenshot above it shows if the transaction is built or not. Additionally, you can select on the Build/Pipeline Run and that will show you all the transactions.\n\n"
+      },
+      {
+        "chunk_id": "doc-0117:chunk-0008:bge-001",
+        "document_id": "doc-0117",
+        "parent_id": "doc-0030",
+        "title": "PipelineHub One-Off Tagging: How It Differs from Tip and CWB Promotion",
+        "char_start": 19481,
+        "char_end": 21419,
+        "text": "| Situation | Applies to | Resolution |\n| --- | --- | --- |\n| The requested package really is older than the comparison-APPLICATIONBOM package | Current and proposed | Rebuild or update the one-off so it uses the same or a newer package version, then retry. |\n| The intended fix must be carried forward from older source | Current and proposed | Produce a new forward-moving package version that contains the required change. Do not promote the older version directly. |\n| The wrong base ApplicationBOM was supplied or derived | Proposed only | Stop the operation and confirm the correct source APPLICATIONBOM. A saved one-off tag cannot be deleted in the current dashboard, so any post-save correction requires the support process defined during implementation. |\n| The base ApplicationBOM is missing or cannot be resolved | Proposed only | Confirm the source build and ApplicationBOM metadata. Contact PipelineHub support; the final fallback and correction process is still to be defined. |\n| The displayed requested or baseline version appears incorrect | Current and proposed | Collect the evidence listed below and ask PipelineHub to verify package extraction and comparison. Do not disable the check as a workaround. |\n| The latest promoted ApplicationBOM advanced after the one-off was created | Current | Either move the one-off package forward or ask PipelineHub to confirm that the moving baseline caused the failure. The current request cannot select an older base. |\n| The latest promoted ApplicationBOM advanced after the one-off was created | Proposed | Verify that the one-off has the correct captured base APPLICATIONBOM. Advancement of the latest ApplicationBOM should not change the one-off's baseline. |\n| A different promotion check failed | Current and proposed | Follow the specific message for that check. Fixing the app-package comparison does not bypass signing, audit, provenance, branch, or policy failures. |\n\n"
+      },
+      {
+        "chunk_id": "doc-0030:chunk-0003:bge-002",
+        "document_id": "doc-0030",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform Application Preflight and Promotion -for AppPackages",
+        "char_start": 8320,
+        "char_end": 9929,
+        "text": "* Choose the *latest* BusinessApp Release HWM, GA or Milestone ApplicationBOM for monolith. DO NOT use BusinessApp Template.\n* Select tip ApplicationBOM for CloudNative\n* Service owner can decide whether to select ALL or a subset of services from the APPLICATIONBOM. e.g. Any shared service must use all services but BusinessApp teams can decide based on their service consumption.\n* Check which shared services are required for  your preflight  but typically  facore:rwdinfra,  facore:dataservice  , businesssuitecommon are a must.\n* Choose overrides : Service version (if applicable) and Application Version(s)\n* CloudNative Application Selection -  CloudNative Applications Uber Blueprint Value (referred as APMBOM) is displayed from CloudNative APPLICATIONBOM.  This includes promoted versions of CloudNative Applications.  When user Overrides  CloudNative Application(s) versions in the Section below - PipelineHub will indicate if any prior version of the application promoted.\n* Upon Submission - PipelineHub will create new APMBOM based on baseline (from cloudnative ApplicationBOM) + Override selection. This will be included in the Preflight APPLICATIONBOM.\n\nDeployment Status & Reporting\n-----------------------------\n\n### Preflight Reporting\n\n  View Application(s) override and  contents of the generated Preflight ApplicationBOM  \n\nPipelineHub has integrated with APM to fetch latest status of AppPackages & versions deployed on the POD. \n\n APM reports status based on latest Active Deployment ID. Hence it may not be fully accurate if any deployment is in retry mode. Retry time out is 24 hours."
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 11.029,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 667,
+        "prompt_tokens": 5140,
+        "total_tokens": 5807,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 8.265
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 165,
+        "prompt_tokens": 5249,
+        "total_tokens": 5414,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.6902
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0714
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 8.3373
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 11.0283
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 11.0288
+    }
+  ],
+  "wall_seconds": 11.0351,
+  "token_usage": {
+    "prompt_tokens": 10389,
+    "completion_tokens": 832,
+    "total_tokens": 11221
+  },
+  "completed_at_utc": "2026-10-17T17:41:27.240422+00:00"
+}

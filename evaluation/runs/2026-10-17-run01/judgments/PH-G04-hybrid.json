@@ -1,0 +1,58 @@
+{
+  "id": "PH-G04",
+  "mode": "hybrid",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "cac44828c884d5436443dd0408abf94cf10b39a4d42695744e77d95ef0d3812a",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G04-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G04-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G04-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Relevant response with traceable source evidence."
+  },
+  "external_grading_calls": 0
+}

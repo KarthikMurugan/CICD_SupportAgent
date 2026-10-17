@@ -1,0 +1,27 @@
+{
+  "id": "PH-G08",
+  "mode": "hybrid",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "876aebe47e9492c0f5c43ff25eb17b0db732a1641ec371f72c9e344979334d20",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G08-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G08-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Hybrid withheld a supported answer despite retrieving the correct recovery instruction."
+  },
+  "external_grading_calls": 0
+}

@@ -1,0 +1,119 @@
+{
+  "id": "PH-G18",
+  "mode": "keyword",
+  "question": "Which TestRunner provisioning method should I choose for my pod?",
+  "run_status": "completed",
+  "result": {
+    "question": "Which TestRunner provisioning method should I choose for my pod?",
+    "status": "needs_clarification",
+    "answer": "To recommend the correct method, do you require support for ARM architecture, ManagedDatabase, or pod sizes larger than Small (M/L), or are you restricted to x86+EXA with a Small pod size?",
+    "evidence_reason": "The documentation presents two distinct TestRunner provisioning methods with different constraints regarding architecture (ARM/x86), database type (EXA/ManagedDatabase), pod size (S/M/L/XS), and timing (pre- vs post-provisioning). The user's specific requirements for these attributes are unknown, preventing a definitive recommendation.",
+    "draft": {
+      "decision": "clarify",
+      "reason": "The documentation presents two distinct TestRunner provisioning methods with different constraints regarding architecture (ARM/x86), database type (EXA/ManagedDatabase), pod size (S/M/L/XS), and timing (pre- vs post-provisioning). The user's specific requirements for these attributes are unknown, preventing a definitive recommendation.",
+      "claims": [],
+      "clarification": "To recommend the correct method, do you require support for ARM architecture, ManagedDatabase, or pod sizes larger than Small (M/L), or are you restricted to x86+EXA with a Small pod size?"
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0137:chunk-0001:bge-001",
+        "document_id": "doc-0137",
+        "parent_id": "doc-0032",
+        "title": "PipelineHub Family Pods & Preflight - Provisioning Subscription for TestRunner",
+        "char_start": 0,
+        "char_end": 1274,
+        "text": "Two ways on how FDI is deployed on a BusinessApp Pod\n\nMethod 1 - Whitelist Pod for TestRunner (Post-Provisioning)\n\n* 2 steps Process and support for ARM/x86, EXA/ManagedDatabase, support for S,M,L size only.\n\nMethod 2 - Use Marketing SKU in mock subscription which include TestRunner (As Part of Provisioning)\n\n* 1 step Process and support for x86+EXA only, support for S size only\n\n | Subscription Name | Description | User Usage | \n\n1 | \nALL_HYBRIDS_NO_TESTRUNNER_NO_CDP (All hybrids+FS SKU+CPQ SKU)\n\n | \nUsing this subscription, you will have the opportunity to whitelist the pod for TestRunner post provisioning.\n\n | \n* Note: If you need FMK/CDP, please DO NOT use this subscription\n\n* Step 1 - Provisioning with all/selected cloudnative services \n* If you select CDP for whatever reason, CDP deployment will FAIL\n\n* Step 2 - Select Pod Add-ons > Deploy Hybrid FDI\n\nReleaseEngineering To-Do: PipelineHub can enhance to orchestrate into 1-click for useability. However, do note behind-the-scene, it will still a post-provisioning process aka Method 1 use case. ETA 2/13. ( [https://issues.example.com/reference/resource-862] DEMO-018)\n\nReleaseEngineering To-Do: Need to support XS subscription.  [https://issues.example.com/reference/resource-863] DEMO-019. ETA 2/6\n | \n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0010:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 30756,
+        "char_end": 32123,
+        "text": "**PFLT_UIBUILDSERVICE_PROD_PROVISION**  is  a group name and the feature flag is **provision-uibuildservice-hybrid-only-for-prod** which should be set to True  \n\n### Subscriptions\n\nUsers can choose from a variety of SKUs by selecting different subscriptions during the provisioning process. Please note that all of these subscriptions are mock subscriptions.  \nFor more information about the available SKUs, [click here](https://api.example.com/reference/resource-398).  \nTo learn more about Provisioning Subscription for TestRunner, see: [Provisioning Subscription for TestRunner](https://docs.example.com/doc-0137)\n\n### FDI Hybrid\n\n#### FDI hybrid name is displayed in PipelineHub\n\n### Support Data Masking as post pod action\n\n          We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release. This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.\n\n**Note:**\n\n* Data masking will work for the releases for which DM template is already ingested.(Ex:GA,HWM ).\n\n**Feature not yet supported****:**\n\n* Multiple data masking runs.\n\n More details on Data Making:[Data Masking in Preflight](https://docs.example.com/reference/resource-399)\n\n"
+      },
+      {
+        "chunk_id": "doc-0137:chunk-0001:bge-002",
+        "document_id": "doc-0137",
+        "parent_id": "doc-0032",
+        "title": "PipelineHub Family Pods & Preflight - Provisioning Subscription for TestRunner",
+        "char_start": 1274,
+        "char_end": 2450,
+        "text": "2 | \nNote: Use this subscription only if you want to validate Marketing SKU\n\nALL_HYBRIDS_WITH_TESTRUNNER  (All hybrids+FS SKU+CPQ SKU+Marketing SKU)\n\n | \nUsing this subscription, TestRunner will be deployed as part of provisioning.\n\nNote: PipelineHub will route the job to pre-defined tenancies which are whitelisted for CDP+TestRunner\n | \n* Note: FMK+CDP must be selected - Please make sure you have the CDP Quota!\n\n* Provisioning with all/selected cloudnative services (FMK+CDP MUST be selected) \n\n* Currently Limitation: x86+EXA Pod\n\nReleaseEngineering To-Do: PipelineHub will expand to allow ARM/x86, EXA/ManagedDatabase combination pods. ETA 2/6. ( [https://issues.example.com/reference/resource-864] DEMO-020)\n\nReleaseEngineering To-Do: Need to support L,XS,M subscription.  [https://issues.example.com/reference/resource-863] DEMO-019. ETA 2/6\n | \n\nFYI Side Note -- From the Project NEXUS (managed by ReleaseManagement) – To move BusinessApp from BI legacy systems to BI Cloud.\n\nTestRunner (BusinessSuite Transaction Reporting) is the new name for the BI cloud solution which includes below services:\n\n* OAC (ExampleCo Analytic Cloud)\n\n* FDI (BusinessSuite Data Import)"
+      },
+      {
+        "chunk_id": "doc-0017:chunk-0004:bge-002",
+        "document_id": "doc-0017",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (CloudNative)",
+        "char_start": 9717,
+        "char_end": 10527,
+        "text": "How do I trigger a full build (all components build) for my project?\n--------------------------------------------------------------------\n\n* Search for the project name in the PipelineHub search bar\n* You will be landing into the CI/CD Pipelines view\n\t+ \n\t+ \n\t+ Choose the branch for which you want to trigger a pipeline (screenshot above)\n\t+ Click on **Trigger Pipeline** Button\n\t+ Enter the reason and select **All Components** button  \n\t\n\t\t- Select all components, you will trigger a build against all components\n\t+ Click on Submit button to trigger pipeline:\n\t+\n\nHow do I trigger an incremental build (impacted components build) on my project?\n--------------------------------------------------------------------------------\n\n* When in the trigger pipeline dialog shown above, select \"Impacted\" option\n* \n\n"
+      },
+      {
+        "chunk_id": "doc-0017:chunk-0006:bge-002",
+        "document_id": "doc-0017",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (CloudNative)",
+        "char_start": 15157,
+        "char_end": 16131,
+        "text": "* Latest regular service version: this uses the latest service version for the repo and workload in CloudNative Platform as a basis, and PipelineHub replaces the version with the newly generated build artifacts' version\n* Latest regular service version: you provide a path to a yaml file defined in your deployment repo's main or master branch, the yaml file would have workloadArtifacts, genericArtifacts, signalHandler defined in it, it will be used as a basis, and PipelineHub replaces the version with the newly generated build artifacts' version\n\n Choose the Pipeline Trigger Event (On MR Raised / On MR Merged etc), and Select Pod to Deploy, choose the POD in the pop up and save.\n\nHow Do I Configure My Project For ServiceModelV3\n--------------------------------------\n\n* \n\nHow do I view all the ci/cd pipelines for my project/branch\n-----------------------------------------------------------\n\n**Scenario 1:** use URL to locate the Merge Requests for your projects\n\n"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0004:bge-002",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 10095,
+        "char_end": 11567,
+        "text": "* As a precursor, lets understand what accounts for an AnalyticsDatabase quota\n\t+ When the RuntimeDiagnostics is enabled, either during provisioning or during post action.\n\t+ When a CDP cloudnative service is provisioned or patched.\n* Starting this release, when an user opts for AnalyticsDatabase, the quota is checked against the LOB/SubLOB.\n* Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled\n\nEnable AppServer logs\n\nUsers are now provided with an option in PipelineHub to setup AppServer logs on the Pod, during provisioning of a pod.\n\nThis is optional and users are provided with a checkbox called ***Enable AppServer Log*** as part of the ***Advanced Parameters*** in the Provisioning Submit page.\n\nAppServer Log setup is required on the Pod to enable or disable AppServer logs sync on the pod later on.\n\n### Subscriptions\n\nUsers can choose from a variety of SKUs by selecting different subscriptions during the provisioning process. Please note that all of these subscriptions are mock subscriptions.  \nFor more information about the available SKUs, <https://api.example.com/reference/resource-398>.  \nTo learn more about Provisioning Subscription for TestRunner, see: <https://docs.example.com/doc-0137>\n\n### CloudNative Service selection UI/Validations for Provisioning and Upgrade\n\nOn Provisioning and upgrade UI, we are splitting the cloudnative services in 2 sections:"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 2.496,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 141,
+        "prompt_tokens": 5944,
+        "total_tokens": 6085,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.4183
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0774
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 2.4961
+    },
+    {
+      "stage": "clarify",
+      "elapsed_seconds": 2.4962
+    }
+  ],
+  "wall_seconds": 2.4995,
+  "token_usage": {
+    "prompt_tokens": 5944,
+    "completion_tokens": 141,
+    "total_tokens": 6085
+  },
+  "completed_at_utc": "2026-10-17T17:42:43.835876+00:00"
+}

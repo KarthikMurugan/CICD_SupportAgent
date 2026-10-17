@@ -1,0 +1,217 @@
+{
+  "id": "PH-G09",
+  "mode": "semantic",
+  "question": "I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?",
+  "run_status": "completed",
+  "result": {
+    "question": "I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?",
+    "status": "answered",
+    "answer": "- The documentation notes that any subsequent actions such as Patching, Upgrade, or EnableCloudMode will restore any deleted cloud-native services. [doc-0081]\n- Patching allows overriding existing CloudNative services with new versions or adding new services to the BusinessApp POD. [doc-0125]\n- When using ApplicationBOM for patching, services with higher versions in the BOM are applied successfully, while lower versions in the BOM do not get applied and the higher version currently in the POD is retained. [doc-0032]\n- The EnableCloudMode action redeploys the same workload which was previously submitted, effectively restoring the environment state. [doc-0066]\n\nSources:\n- [doc-0081] PipelineHub Preflight - Pod Add-ons - Delete a CloudNative Service\n- [doc-0125] PipelineHub Onboarding for CloudNative\n- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring\n- [doc-0066] PipelineHub Preflight - CloudNative Patching\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly identifies that the documentation explicitly states deleted V3 cloud-native services are restored by subsequent actions like Patching, Upgrade, or EnableCloudMode. Claim 1 is directly supported by doc-0081. Claim 2 is supported by doc-0125. Claim 3 regarding ApplicationBOM versioning logic is supported by doc-0032. Claim 4 regarding EnableCloudMode redeploying the workload is supported by doc-0066. All claims are grounded in the provided text, and the explanation fully addresses why the service returned after an upgrade.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The documentation explicitly states that deleting a V3 cloud-native service is a temporary action for validation and that subsequent upgrades or patching operations will restore the deleted services based on the pod's configuration or ApplicationBOM.",
+      "claims": [
+        {
+          "text": "The documentation notes that any subsequent actions such as Patching, Upgrade, or EnableCloudMode will restore any deleted cloud-native services.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0081:chunk-0001:bge-001:line-008"
+            }
+          ]
+        },
+        {
+          "text": "Patching allows overriding existing CloudNative services with new versions or adding new services to the BusinessApp POD.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0125:chunk-0002:bge-002:line-001"
+            }
+          ]
+        },
+        {
+          "text": "When using ApplicationBOM for patching, services with higher versions in the BOM are applied successfully, while lower versions in the BOM do not get applied and the higher version currently in the POD is retained.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0032:chunk-0025:bge-002:line-013"
+            },
+            {
+              "evidence_id": "doc-0032:chunk-0025:bge-002:line-014"
+            }
+          ]
+        },
+        {
+          "text": "The EnableCloudMode action redeploys the same workload which was previously submitted, effectively restoring the environment state.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0066:chunk-0002:bge-002:line-001"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "The documentation notes that any subsequent actions such as Patching, Upgrade, or EnableCloudMode will restore any deleted cloud-native services.",
+        "evidence_id": "doc-0081:chunk-0001:bge-001:line-008",
+        "quote": "+ Note: Any subsequent actions such as Patching, Upgrade or EnableCloudMode will restore any deleted cloudnative services.",
+        "document_id": "doc-0081",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Delete a CloudNative Service",
+        "chunk_id": "doc-0081:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Patching allows overriding existing CloudNative services with new versions or adding new services to the BusinessApp POD.",
+        "evidence_id": "doc-0125:chunk-0002:bge-002:line-001",
+        "quote": "Patching allows to override existing CloudNative services with new versions or add new CloudNative services on BusinessApp POD .",
+        "document_id": "doc-0125",
+        "parent_id": "doc-0032",
+        "title": "PipelineHub Onboarding for CloudNative",
+        "chunk_id": "doc-0125:chunk-0002:bge-002"
+      },
+      {
+        "claim": "When using ApplicationBOM for patching, services with higher versions in the BOM are applied successfully, while lower versions in the BOM do not get applied and the higher version currently in the POD is retained.",
+        "evidence_id": "doc-0032:chunk-0025:bge-002:line-013",
+        "quote": "* The services with higher versions in the ApplicationBOM’s gets applied successfully",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "chunk_id": "doc-0032:chunk-0025:bge-002"
+      },
+      {
+        "claim": "When using ApplicationBOM for patching, services with higher versions in the BOM are applied successfully, while lower versions in the BOM do not get applied and the higher version currently in the POD is retained.",
+        "evidence_id": "doc-0032:chunk-0025:bge-002:line-014",
+        "quote": "* The services lower versions in the ApplicationBOM does not gets applied and the higher version is retained in the POD .",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "chunk_id": "doc-0032:chunk-0025:bge-002"
+      },
+      {
+        "claim": "The EnableCloudMode action redeploys the same workload which was previously submitted, effectively restoring the environment state.",
+        "evidence_id": "doc-0066:chunk-0002:bge-002:line-001",
+        "quote": "This feature is \"EnableCloudMode\" action from the DEV OPS Portal. It DOES NOT take any parameters. It simply redeploys the same workload which was previously submitted.",
+        "document_id": "doc-0066",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - CloudNative Patching",
+        "chunk_id": "doc-0066:chunk-0002:bge-002"
+      }
+    ],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0125:chunk-0002:bge-002",
+        "document_id": "doc-0125",
+        "parent_id": "doc-0032",
+        "title": "PipelineHub Onboarding for CloudNative",
+        "char_start": 5585,
+        "char_end": 6880,
+        "text": "Patching allows to override existing CloudNative services with new versions or add new CloudNative services on BusinessApp POD . \n\nSelect 'Patch' context menu option on the POD in Preflight Dashboard. \n\nIn order to do CloudNative Patching, select Patching Type = CloudNative Redeploy\n\nSelect Services or Applications to override\n\nOr select ApplicationBOM from a TIP to patch all or override existing Services\n\n \n\nRelevant Notes\n--------------\n\n### Environment Deletion\n\n* Delete your POD from PIPELINEHUB. When you delete your pod, the CloudNative  instances will be deleted\n* Family PODs & Preflight (CloudPlatform) → Preflight Dashboard → Find the POD you want to delete and select Delete from the (...) menu.\n* Note: If your ServiceModelV3 POD deletion fails, refer to the Self-Triaging guide for possible resolution scenarios\n### Debugging & triaging CloudNative deployments\n\n* \n### Other Onboarding Links\n\n* General  information\n* [CloudNative Service Onboarding to EnvironmentService](https://docs.example.com/reference/resource-843)\n### Next Steps\n\n* Guidelines for promoting V3 service versions - <coming soon>\n* Your V3 Services needs to be promoted by the upcoming 24.10 GA. If you missed this 24.10 GA, you will need to wait for the next 25.01 GA in order to introduce and promote V3."
+      },
+      {
+        "chunk_id": "doc-0081:chunk-0001:bge-001",
+        "document_id": "doc-0081",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Delete a CloudNative Service",
+        "char_start": 0,
+        "char_end": 515,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-662>\n\n### PipelineHub supports to select and delete V3 cloudnative services in the pod\n\n* Delete a CloudNative Service as a Pod Add-on\n\n\t+ This operation is to be used  to validate if CloudPlatform resources are cleaned when your service is deleted, and to trigger the delete action for a specific service.\n\t+ Note: Any subsequent actions such as Patching, Upgrade or EnableCloudMode will restore any deleted cloudnative services."
+      },
+      {
+        "chunk_id": "doc-0066:chunk-0002:bge-002",
+        "document_id": "doc-0066",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - CloudNative Patching",
+        "char_start": 4046,
+        "char_end": 5000,
+        "text": "This feature is \"EnableCloudMode\" action from the DEV OPS Portal. It DOES NOT take any parameters. It simply redeploys the same workload which was previously submitted.  \n\n**Use cases**\n\n* Issue in creating cloudnative env. due to quota issues\n* You want to redeploy already applied workload  to address some failures due to n/w issues etc.\n* If you delete your cloudnative environment using  DEVOPS portal (ArtifactService UI) , you can enablecloudmode BusinessApp POD again using this feature. \n\t+ **EnvironmentService uses the BusinessApp BOM from release set from****whatever release the pod is on, we'll get the environment profile from there**\n\n\t\t- *\\*so basically if the original Pod+env was created in 24.10, the env profile in 2410 would have been used for the cloudnative env*\n\t\t- *\\*if the Pod is then upgraded to 25.01, and we do this delete env and enablecloudmode, the env profile for the new cloudnative env will use the profile from 2501*"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0026:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 78019,
+        "char_end": 79507,
+        "text": "Details - [CloudPlatform Application Preflight and Promotion -for AppPackages#DeploymentStatus&Reporting](https://docs.example.com/reference/resource-407)\n\n### V3 Failure Error Code at CloudNative V3 Deployment Status table\n\n**CloudNative V3 data moved to dedicated Stream.**\n\n* Going forward, cloudnative V3 related deployment information will be posted to cloudnative V3 dedicated Stream\n* PipelineHub also has been enhanced to consume messages from multiple Stream\n\nP. S : There will be no impact/change to the customer.\n\n### Support lower version patching for V3 services\n\nTsccklsupprfofolwigs\n\n→ScdSce\n\n/A\n\nApplicationBOM→ Selected Services\n\nSelected Service/Application\n\nNOTE: You can't select a version that is lower than what was selected as part of the provisioning/upgrade.\n\n### Support EnableCloudMode on V3 CloudNative pod\n\nThis feature is \"EnableCloudMode\" action from the DEV OPS Portal. It DOES NOT take any parameters. It simply redeploys the same workload which was previously submitted.  \n\n**Use cases-**\n\n* Issue in creating cloudnative env. due to quota issues\n* You want to redeploy already applied worrkload  to address some failures due to n/w issues etc.\n* If you delete your cloudnative environment using  DEVOPS portal (ArtifactService UI) , you can enablecloudmode BusinessApp POD again using this feature. \n\t+ **EnvironmentService uses the BusinessApp BOM from release set from** **whatever release the pod is on, we'll get the environment profile from there**"
+      },
+      {
+        "chunk_id": "doc-0066:chunk-0002:bge-001",
+        "document_id": "doc-0066",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - CloudNative Patching",
+        "char_start": 3077,
+        "char_end": 4046,
+        "text": "Users can now provision/Upgrade with any available V3 CloudNative applicationbom versions that are populated as per ApplicationBOM details.\n\n### CloudNative Redeployment for lower version patching of V3\n\nNow we allow lower version patching of V3 cloudnative services even through APPLICATIONBOM. Once the users select ApplicationBOM, they will see if the service will be deleted and redeployed (Lower version patching). User will be also able to do a forceful delete and redeploy of service. Along with this we also not allow passing ApplicationBOM's cloudnative applications uber blueprint as input to patching, allowing us to do service as well as application patching from APPLICATIONBOM.\n\n### Support lower version patching for V3 services\n\nApplicationBOM→ Selected Services\n\nSelected Service/Application\n\nNOTE: You can't select a version that is lower than what was selected as part of the provisioning/upgrade.\n\n### Support EnableCloudMode on V3 CloudNative pod\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0025:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 75160,
+        "char_end": 76604,
+        "text": "### CloudNative Stage Selection\n\nWhile provisioning a new EnvironmentService POD for a V3 preflight, users have to select either alpha/beta stage.\n\nPlease take a note that default selection would be set to alpha.\n\n### CloudNative stage is defaulted to gamma for Family POD Provisioning for V3\n\n### V3 Health Check service status reporting\n\n### ApplicationBOM Lookup for CloudNative Redeploy\n\n* The services with higher versions in the ApplicationBOM’s gets applied successfully\n* The services lower versions in the ApplicationBOM does not gets applied and the higher version is retained in the POD .\n* The services with same versions in POD and ApplicationBOM remains as is.\n\n### CloudNative V3 ApplicationBOM Uptake\n\nUsers can now provision/Upgrade with any available V3 CloudNative applicationbom versions that are populated as per ApplicationBOM details.\n\n### CloudNative Redeployment for lower version patching of V3\n\nNow we allow lower version patching of V3 cloudnative services even through APPLICATIONBOM. Once the users select ApplicationBOM, they will see if the service will be deleted and redeployed (Lower version patching). User will be also able to do a forceful delete and redeploy of service. Along with this we also not allow passing ApplicationBOM's cloudnative applications uber blueprint as input to patching, allowing us to do service as well as application patching from APPLICATIONBOM.\n\n### Base ApplicationBOM Selection"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 7.448,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 476,
+        "prompt_tokens": 5269,
+        "total_tokens": 5745,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 4.2675
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 162,
+        "prompt_tokens": 5237,
+        "total_tokens": 5399,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.4811
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.6963
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 4.9656
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 7.4477
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 7.448
+    }
+  ],
+  "wall_seconds": 7.4522,
+  "token_usage": {
+    "prompt_tokens": 10506,
+    "completion_tokens": 638,
+    "total_tokens": 11144
+  },
+  "completed_at_utc": "2026-10-17T17:42:14.522523+00:00"
+}

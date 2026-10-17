@@ -1,0 +1,202 @@
+{
+  "id": "PH-G02",
+  "mode": "hybrid",
+  "question": "Which PipelineHub role is required for Pod Add-ons > Toggle Auto Scheduling, and what schedules does this action control?",
+  "run_status": "completed",
+  "result": {
+    "question": "Which PipelineHub role is required for Pod Add-ons > Toggle Auto Scheduling, and what schedules does this action control?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> * For long running PODs, we do not suggest to set this flag since best practice is to keep LifecycleManager Artifacts up to date [doc-0032]\n\nDocumented guidance:\n- The Pod Add-ons > Toggle Auto Scheduling feature requires the ROLE_PREFLIGHT_AND_FAMILY_ADMIN role in PipelineHub. [doc-0085] [doc-0032]\n- This action allows users to enable or disable monthly and quarterly patch bundle patching events. [doc-0085] [doc-0032]\n\nSources:\n- [doc-0085] PipelineHub Preflight - Pod Add-ons - Toggle Auto Scheduling\n- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly identifies the required role as 'ROLE_PREFLIGHT_AND_FAMILY_ADMIN' based on doc-0085 and doc-0032. It also accurately states that the action controls 'monthly and quarterly patch bundle patching events' as explicitly mentioned in the text 'allow (and disallow) monthly and quarterly patch bundle patching' found in both cited passages. All claims are directly supported by the provided evidence without extrapolation.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages explicitly state the required role and the specific schedules controlled by the 'Toggle Auto Scheduling' action.",
+      "claims": [
+        {
+          "text": "The Pod Add-ons > Toggle Auto Scheduling feature requires the ROLE_PREFLIGHT_AND_FAMILY_ADMIN role in PipelineHub.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0085:chunk-0001:bge-001:line-005"
+            },
+            {
+              "evidence_id": "doc-0032:chunk-0013:bge-001:line-010"
+            }
+          ]
+        },
+        {
+          "text": "This action allows users to enable or disable monthly and quarterly patch bundle patching events.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0085:chunk-0001:bge-001:line-003"
+            },
+            {
+              "evidence_id": "doc-0032:chunk-0013:bge-001:line-008"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "The Pod Add-ons > Toggle Auto Scheduling feature requires the ROLE_PREFLIGHT_AND_FAMILY_ADMIN role in PipelineHub.",
+        "evidence_id": "doc-0085:chunk-0001:bge-001:line-005",
+        "quote": "* Please note that the Pod Add-ons > Toggle Auto Scheduling feature needs role ROLE_PREFLIGHT_AND_FAMILY_ADMIN in PipelineHub",
+        "document_id": "doc-0085",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Toggle Auto Scheduling",
+        "chunk_id": "doc-0085:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The Pod Add-ons > Toggle Auto Scheduling feature requires the ROLE_PREFLIGHT_AND_FAMILY_ADMIN role in PipelineHub.",
+        "evidence_id": "doc-0032:chunk-0013:bge-001:line-010",
+        "quote": "* Please note that the Pod Add-ons > Toggle Auto Scheduling feature needs role ROLE_PREFLIGHT_AND_FAMILY_ADMIN in PipelineHub",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "chunk_id": "doc-0032:chunk-0013:bge-001"
+      },
+      {
+        "claim": "This action allows users to enable or disable monthly and quarterly patch bundle patching events.",
+        "evidence_id": "doc-0085:chunk-0001:bge-001:line-003",
+        "quote": "This is added as a POD Add On action - please use \"Toggle Auto Scheduling\" action to allow (and disallow) monthly and quarterly patch bundle patching",
+        "document_id": "doc-0085",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Toggle Auto Scheduling",
+        "chunk_id": "doc-0085:chunk-0001:bge-001"
+      },
+      {
+        "claim": "This action allows users to enable or disable monthly and quarterly patch bundle patching events.",
+        "evidence_id": "doc-0032:chunk-0013:bge-001:line-008",
+        "quote": "This is added as a POD Add On action - please use \"Toggle Auto Scheduling\" action to allow (and disallow) monthly and quarterly patch bundle patching",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "chunk_id": "doc-0032:chunk-0013:bge-001"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0032:chunk-0013:bge-001:line-004",
+        "document_id": "doc-0032",
+        "chunk_id": "doc-0032:chunk-0013:bge-001",
+        "quote": "* For long running PODs, we do not suggest to set this flag since best practice is to keep LifecycleManager Artifacts up to date"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0085:chunk-0001:bge-001",
+        "document_id": "doc-0085",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Toggle Auto Scheduling",
+        "char_start": 0,
+        "char_end": 347,
+        "text": "#### Disable Monthly and Quarterly Auto Scheduled Patch Bundle Events\n\nThis is added as a POD Add On action - please use \"Toggle Auto Scheduling\" action to allow (and disallow) monthly and quarterly patch bundle patching\n\n* Please note that the Pod Add-ons > Toggle Auto Scheduling feature needs role ROLE_PREFLIGHT_AND_FAMILY_ADMIN in PipelineHub"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0013:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 39114,
+        "char_end": 40609,
+        "text": "* There is Feature flag support to reduce number of times LifecycleManager Artifact Set AUTO Maintenance is triggered via **feature flag : enable-lifecyclemanager-auto-scheduled-upon-register**\n* Please read [Schedule LifecycleManager patching with Default LifecycleManager artifact set](https://docs.example.com/reference/resource-402) for more information to determine if setting feature flag (to false), enable-lifecyclemanager-auto-scheduled-upon-register, makes sense for you\n* Setting this feature flag to false will disable the scanner that detects if newer LifecycleManager Artifact Sets ought to be auto-scheduled on your POD\n* For long running PODs, we do not suggest to set this flag since best practice is to keep LifecycleManager Artifacts up to date\n\n#### Disable Monthly and Quarterly Auto Scheduled Patch Bundle Events\n\nThis is added as a POD Add On action - please use \"Toggle Auto Scheduling\" action to allow (and disallow) monthly and quarterly patch bundle patching\n\n* Please note that the Pod Add-ons > Toggle Auto Scheduling feature needs role ROLE_PREFLIGHT_AND_FAMILY_ADMIN in PipelineHub\n\n#### Applying LifecycleManager Patch on a provisioned pod\n\nWith this sprint, we are providing the user to patch a pod with a different LifecycleManager Artifact than the one that is on the pod, as part of provisioning.\n\nThis option is provided from the Patching Dashboard.\n\nThe LifecycleManager Artifact Patching is available as another Patching Type from the Patching Dashboard.\n\n"
+      },
+      {
+        "chunk_id": "doc-0121:chunk-0001:bge-002",
+        "document_id": "doc-0121",
+        "parent_id": "doc-0054",
+        "title": "PipelineHub Preflight - Auto Maintenance Report",
+        "char_start": 1415,
+        "char_end": 2897,
+        "text": "**Action Type** → This will allow users to look for particular maintenance type namely QUARTERLY_UPGRADE/PATCH/DISABLE_DEVELOPMENT_MODE/MONTHLY_PATCH/LIFECYCLEMANAGER_PATCH/VERTEX\n\n**Number of Schedules** → Currently MonitoringAgent Scheduler checks for Auto maintenance on all active PipelineHub Pods weekly, every Monday and Thursday 5:00 PM IST/ 4:30 AM PT. So the data shown in the UI will not be real time, but based on the data fetched as per this run. So this filter will allow user to check for the maintenance details fetched on a particular Scheduler run upto last 3 schedules. By default, this is set to fetch the latest schedule details alone.\n\n* For example, If user chooses \"Past 3 schedules\", the maintenance details fetched by last 3 MonitoringAgent Scheduler runs will be fetched. Let's say user is checking the maintenance details on 14th Tuesday 3:00 AM PT, this would mean, the dashboard would display the details fetched on 13th Monday 4:30 AM PT, 10th Thursday 4:30 AM PT and 7th Monday 4:30 AM PT\n\nOnce users have given all the required filters and clicks search, the table will be populated with the available data (if any).\n\nDownload Report\n---------------\n\nIf user is interested in downloading the report shown in dashboard, users can make use of the download button and a csv file would be downloaded to your system if any data is available in the table. The file name would be in the format **MaintenanceReport_yyyy-mm-dd.csv**\n\nReset Filter\n------------"
+      },
+      {
+        "chunk_id": "doc-0121:chunk-0001:bge-001",
+        "document_id": "doc-0121",
+        "parent_id": "doc-0054",
+        "title": "PipelineHub Preflight - Auto Maintenance Report",
+        "char_start": 0,
+        "char_end": 1415,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-823>\n\nScope\n-----\n\n* The Auto-Maintenance  Dashboard will allow users to verify if any auto-maintenance activity is ACCEPTED/IN_PROGRESS/FAILED on their pod and allow them to take necessary action on their pod\n* If any auto-maintenance activity is in FAILED/NEEDS_ATTENTION state, users need to refrain from taking any lifecycle action on their pod, as it would result in failure.\n* Currently MonitoringAgent Scheduler checks for Auto maintenance on all active PipelineHub Pods weekly, every Monday and Thursday 5:00 PM IST/ 4:30 AM PT. So the data shown in the UI will not be real time, but based on the data fetched as per this run.\n\nNavigation\n----------\n\nThe Auto Maintenance Dashboard is available in PipelineHub UI under the **Reports** Section.\n\nDashboard\n---------\n\nAs per the note section, all the times displayed in UI is in PT.\n\nAvailable Filters\n-----------------\n\n**Line of Business** → Users can choose to fetch the maintenance details for a specific LOB from the provided list. By default, this will be the LOB of the user\n\n**Pod Name** → If user is interested in getting the maintenance details for a particular pod, user can make use of this filter\n\n**Lifecycle State** → This will allow users to filter the maintenance details by their lifecycle state namely ACCEPTED/FAILED/NEEDS_ATTENTION/RUNNING/IN_PROGRESS\n\n"
+      },
+      {
+        "chunk_id": "doc-0025:chunk-0001:bge-001",
+        "document_id": "doc-0025",
+        "parent_id": "doc-0001",
+        "title": "PipelineHub Preflight and Family Guide",
+        "char_start": 0,
+        "char_end": 734,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-222>\n\nTable of Contents  \n\nPipelineHub Access Requests\n====================\n\nCreate Repo\n===========\n\nCreate Template\n===============\n\nProvisioning\n============\n\nUpgrade\n=======\n\nPatching\n========\n\nPod Add-ons\n===========\n\nInstall Language Packs\n----------------------\n\nEnable/Disable RuntimeDiagnostics\n-------------------\n\nToggle Auto Scheduling\n----------------------\n\nAdd a Feature Flag\n------------------\n\nAdd a Free Form Tag\n-------------------\n\nDelete a CloudNative Service\n------------------------\n\nUpdate POD IdentityService Metadata\n------------------------\n\nDeploy Hybrid FDI\n-----------------\n\nEnable Vanity Domain\n--------------------\n\n"
+      },
+      {
+        "chunk_id": "doc-0088:chunk-0001:bge-001",
+        "document_id": "doc-0088",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Pod Actions - Lock Pod",
+        "char_start": 0,
+        "char_end": 1419,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-666>\n\nAvailable only for Family Pods, Lock Pod action is blocking other users from submitting DB actions by other PipelineHub users against the POD. \n\nPipelineHub has the ability to prevent PipelineHub and MonitoringAgent operations on a Family POD via the \"Lock POD\" ACTION. When a POD is locked, other PipelineHub and MonitoringAgent operations like Patching, Upgrading, Running Tests and Restore cannot be performed. Then, later on, the POD can be un-locked (back to normal). An example of when this feature might be helpful is when there is a team with many people aware of a POD, and due to an event activity for the POD, a POD stakeholder would like a way to indicate to other users that the POD is locked (and also it will prevent them from performing several actions that might impact the POD).\n\n```\n\n```\nSteps to trigger Lock Pod:\n\n1. Select a Family Pod actions icon (...) and select \"Lock Pod\" menu item\n2. Answer 'Yes' in the dialog: Are you sure you want to lock this pod for other actions?\n3. The POD get's locked and will display a lock icon until it's unlocked.\n\n4. In order to unlock the POD, actions icon (...) and select \"Unlock Pod\" menu item\n\nLocked PODs have hidden all the Pod Actions and Pod Add-on functionality including, Upgrade and Patching. So the locked POD can't be Upgraded or Patched from PIPELINEHUB."
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 7.986,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 301,
+        "prompt_tokens": 5683,
+        "total_tokens": 5984,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.4202
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 130,
+        "prompt_tokens": 5510,
+        "total_tokens": 5640,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.8553
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7083
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 4.1294
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 7.9856
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 7.9862
+    }
+  ],
+  "wall_seconds": 7.9955,
+  "token_usage": {
+    "prompt_tokens": 11193,
+    "completion_tokens": 431,
+    "total_tokens": 11624
+  },
+  "completed_at_utc": "2026-10-17T17:42:03.072700+00:00"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "PH-G02",
+  "mode": "hybrid",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "6ce7d7ecfce940685d43660d665df71e3602b1808e5cf8bbeae36a1b4393c79d",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G02-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G02-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Extra caution about long-running pods may distract from the role/schedule answer."
+  },
+  "external_grading_calls": 0
+}

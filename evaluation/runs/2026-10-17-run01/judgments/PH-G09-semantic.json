@@ -1,0 +1,53 @@
+{
+  "id": "PH-G09",
+  "mode": "semantic",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "ac1ef0a9d2b22ac4cf3a6b7461d7422813b55bf66899f81a734375128aa1b198",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G09-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G09-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G09-C03",
+        "met": false,
+        "reason": "The V3 service scope and resource-cleanup validation purpose are not explained."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": false,
+        "reason": "The quote establishes redeploying the same workload; restoring the environment state is broader and not established by this excerpt."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Additional version/redeployment explanations extend beyond the requested documented behavior; cleanup purpose is omitted."
+  },
+  "external_grading_calls": 0
+}

@@ -1,0 +1,131 @@
+{
+  "id": "PH-G19",
+  "mode": "hybrid",
+  "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+  "run_status": "completed",
+  "result": {
+    "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The provided documentation passages describe general PipelineHub configuration, workload.yaml usage, and artifact publishing steps but do not contain specific settings, YAML configurations, or procedures for generating SLSA Level 3 provenance or enforcing Sigstore Cosign signature verification. Therefore, the requested information cannot be derived from the supplied text.",
+    "draft": {
+      "decision": "escalate",
+      "reason": "The provided documentation passages describe general PipelineHub configuration, workload.yaml usage, and artifact publishing steps but do not contain specific settings, YAML configurations, or procedures for generating SLSA Level 3 provenance or enforcing Sigstore Cosign signature verification. Therefore, the requested information cannot be derived from the supplied text.",
+      "claims": [],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0021:chunk-0004:bge-003",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 11467,
+        "char_end": 12842,
+        "text": "**What is a workload.yaml?**\n\n* Workload yaml specifies a list of custom artifact versions to be used during PipelineHub CD.\n* Based on the specifications in this file, either fixed versions or rules to select latest versions for a given release are used to create the CI/CD service version which gets deployed to the configured POD.\n* You can specify any of the following artifact types supported by CloudNative Platform: workloadArtifacts, genericArtifacts and signalHandlers\n* The workload yaml file needs to be in the **main** branch of your deployment config repo.\n* PipelineHub first checks for existence of the file in the main branch and if does not exist, fallsback to the file's presence in the master branch.\n\t+ eg:\n\n**How to configure deployment config repo for your CD?**\n\n* The deployment config repo is associated at the service level (and not at the microservice/artifact level )\n* So this needs to be mapped to your service in the CloudNative Service Dashboard\n* Configure the SSH and Web Url of your deployment config repo for your service as shown in screenshot below\n\n* Checkin the workload yaml file in the deployment config repository post the above.\n* After the above steps, you can configure the same for your branch level CD (by selecting the Workload Yaml) Option as shown in screenshot below\n\n**High Level Points/Recommendations:**\n\n* **Location:**"
+      },
+      {
+        "chunk_id": "doc-0109:chunk-0001:bge-004",
+        "document_id": "doc-0109",
+        "parent_id": "doc-0021",
+        "title": "ArtifactService Specification Component Type - (CI/CD for Associations/TransactionDatabase Configs/EnvironmentService Proxy)",
+        "char_start": 2471,
+        "char_end": 3432,
+        "text": "1. Configure specifications json file for artifactservice publish in source repo matching artifactservice specification (for signal handler/generic artifact/workload artifact) as applicable\n2. Pipeline Pipeline YAML\n\t1. Pipeline requires a hidden file, **.pipeline_pipeline.yml**, to orchestrate the CI pipeline. This YAML file defines all the steps involved in the CI process and is parsed by Pipeline to execute these steps. The **.pipeline_pipeline.yml** file must be placed in the root directory of the component.\n\t2. reference doc:\n3. Examples of specifications json file payload  \n\n\t1. Generic Arifact\n\t\t1.\n\t2. Workload Artifact\n\t\t1.\n\t3. Signal Handler\n\t\t1.\n\n#### **Configuration in PipelineHub**\n\n1. In PipelineHub component configuration, you will need to configure fields below:\n\t1. ArtifactService Publish Type (Signal Handler/Workload/Generic Artifact)\n\t2. Source Repo Folder Name\n\t3. JSON File Name\n2. Examples of PipelineHub component configuration"
+      },
+      {
+        "chunk_id": "doc-0017:chunk-0006:bge-002",
+        "document_id": "doc-0017",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (CloudNative)",
+        "char_start": 15157,
+        "char_end": 16131,
+        "text": "* Latest regular service version: this uses the latest service version for the repo and workload in CloudNative Platform as a basis, and PipelineHub replaces the version with the newly generated build artifacts' version\n* Latest regular service version: you provide a path to a yaml file defined in your deployment repo's main or master branch, the yaml file would have workloadArtifacts, genericArtifacts, signalHandler defined in it, it will be used as a basis, and PipelineHub replaces the version with the newly generated build artifacts' version\n\n Choose the Pipeline Trigger Event (On MR Raised / On MR Merged etc), and Select Pod to Deploy, choose the POD in the pop up and save.\n\nHow Do I Configure My Project For ServiceModelV3\n--------------------------------------\n\n* \n\nHow do I view all the ci/cd pipelines for my project/branch\n-----------------------------------------------------------\n\n**Scenario 1:** use URL to locate the Merge Requests for your projects\n\n"
+      },
+      {
+        "chunk_id": "doc-0023:chunk-0001:bge-002",
+        "document_id": "doc-0023",
+        "parent_id": "doc-0001",
+        "title": "ConfigurePipeline Java Microservices Skill",
+        "char_start": 961,
+        "char_end": 1964,
+        "text": "The skill supports Java microservices only (Build phase). \n\nIt creates or validates:\n\n* `.pipeline_dep.yml` at the repository root when the source repository contains more than one microservice\n* `.pipeline_pipeline.yml` per microservice\n* `scqs_scan_jenkins.properties` per microservice\n* `pipeline-container-config.yml` per microservice\n\nInstall the Skill\n-----------------\n\n### Prerequisites\n\nAccess : \n\n* Access to the [ReleaseEngineering skills repository](https://git.example.com/reference/resource-220).\n* PipelineHub project onboarding access is required later if you intend to create or update the PipelineHub project after generating the files.\n\nTooling : \n\n* Codex desktop application or Codex CLI.\n* Git.\n* Python 3  (Python 3 runs the bundled Pipelineization generator. It scans the Java source repository and its Helm configuration, then creates the required Pipeline-related CI/CD files and configuration for each microservice. Python is not a dependency of the Java application itself.\n\n"
+      },
+      {
+        "chunk_id": "doc-0011:chunk-0009:bge-001",
+        "document_id": "doc-0011",
+        "parent_id": "doc-0001",
+        "title": "LowCode CI-CD Onboarding",
+        "char_start": 24239,
+        "char_end": 25555,
+        "text": "1. Publishing LowCode artifacts to CloudNative Platform: PipelineHub publishes the DBBOM generated in CI pipeline to CloudNative Platform, with artifact version being the release version of the CI pipeline\n2. Creating CloudNative service version: PipelineHub creates a CloudNative service version (unpublished, used for CICD purposes only) containing LowCode artifacts from step 1\n\t1. You can choose the base CloudNative service version as the basis\n\t2. If you choose the base to be \"Latest Regular Service Version\", PipelineHub uses the latest service version in the CloudNative repo and artifact, and plugs in the LowCode artifacts\n\t3. If you choose the base to be \"Workload YAML\", PipelineHub uses the workload yaml file in your deployment repo, and plugs in the LowCode artifacts\n\t4. To configure a workload yaml in the deployment repo, see the instructions below\n3. Creating Patch Bundle: PipelineHub creates a patch bundle containing the CloudNative service version created in step 2\n4. Patch to the POD: PipelineHub uses ApplicationPatchBundle patching to patch the patch bundle in step 3 to the POD\n\t1. Please see the instructions below on how to monitor patching job\n\n**How to configure a POD to deploy to**\n\n \n\n**How to configure workload yaml in deployment config repo**\n\n**How to monitor patching job**\n\n"
+      },
+      {
+        "chunk_id": "doc-0020:chunk-0002:bge-001",
+        "document_id": "doc-0020",
+        "parent_id": "doc-0001",
+        "title": "Checklist for Onboarding to CICD and Preflights",
+        "char_start": 3422,
+        "char_end": 4374,
+        "text": "Create .pipeline.pipeline.yaml |\n| 17 | Branch configuration | * Schedules -\n* ci/cd version creation - Use Workload Yaml\n |  | Greencomplet | trueresources:\n - repoName: falcm\n workloadArtifactName: lifecyclemanager\n version: 3.0.0\n - repoName: environmentservice\n workloadArtifactName: instance\n version: 3.0.3\nworkloadResources:\n genericArtifacts:\n - repoName: businessapp.digital-gov.core\n artifactName: db-bom-com-dgv-workspace\n version: 2510+\n - repoName: businessapp.digital-gov.core\n artifactName: associations\n version: 2510+ |\n| 18 | Branch properties | * Version\n* Configure CI steps\n |  | Greencomplet |  |\n| 19 | CD - Artifact Publish | PipelineHub will publish artifacts to CloudNative Platform* Each DB-BOM maps to an LowCode workspace. PipelineHub creates a DB-BOM i& publishes to SP\n* Association Artifact (if defined as a component)\n |  | Greencomplet | \\*\\* Need to review published db-bom \\*\\* Need to set up association artifact |\n"
+      }
+    ],
+    "handoff": {
+      "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+      "reason": "The provided documentation passages describe general PipelineHub configuration, workload.yaml usage, and artifact publishing steps but do not contain specific settings, YAML configurations, or procedures for generating SLSA Level 3 provenance or enforcing Sigstore Cosign signature verification. Therefore, the requested information cannot be derived from the supplied text.",
+      "source_ids": [
+        "doc-0021",
+        "doc-0109",
+        "doc-0017",
+        "doc-0023",
+        "doc-0011",
+        "doc-0020"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 3.17,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 94,
+        "prompt_tokens": 5909,
+        "total_tokens": 6003,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.3787
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7895
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.1693
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 3.1695
+    }
+  ],
+  "wall_seconds": 3.1815,
+  "token_usage": {
+    "prompt_tokens": 5909,
+    "completion_tokens": 94,
+    "total_tokens": 6003
+  },
+  "completed_at_utc": "2026-10-17T17:42:24.513545+00:00"
+}

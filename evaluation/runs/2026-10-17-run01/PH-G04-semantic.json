@@ -1,0 +1,222 @@
+{
+  "id": "PH-G04",
+  "mode": "semantic",
+  "question": "Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?",
+  "run_status": "completed",
+  "result": {
+    "question": "Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?",
+    "status": "answered",
+    "answer": "- The build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel. [doc-0050]\n- For this combination, the Compile step reports a success status (✅). [doc-0050]\n- For this combination, the Docker Creation step reports a success status (✅). [doc-0050]\n- For this combination, the Publish step reports a success status (✅). [doc-0050]\n- The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as GreenSupported. [doc-0050]\n\nSources:\n- [doc-0050] Supported OS & Kernel Combinations - PipelineHub CI/CD Build\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft answer is fully supported by the evidence in doc-0050:chunk-0001:bge-001:line-022. The table row for Base Image 'EnterpriseLinux9' and Build Kernel 'OL8u6 UEK6' explicitly shows '✅' for Compile, Docker Creation, and Publish, and lists the Support status as 'GreenSupported'. All claims in the draft match this data exactly.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation explicitly lists the compatibility status for EnterpriseLinux9 on OL8u6 UEK6 in the supported OS and kernel combinations table.",
+      "claims": [
+        {
+          "text": "The build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        },
+        {
+          "text": "For this combination, the Compile step reports a success status (✅).",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        },
+        {
+          "text": "For this combination, the Docker Creation step reports a success status (✅).",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        },
+        {
+          "text": "For this combination, the Publish step reports a success status (✅).",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        },
+        {
+          "text": "The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as GreenSupported.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0050:chunk-0001:bge-001:line-022"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "The build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel.",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      },
+      {
+        "claim": "For this combination, the Compile step reports a success status (✅).",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      },
+      {
+        "claim": "For this combination, the Docker Creation step reports a success status (✅).",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      },
+      {
+        "claim": "For this combination, the Publish step reports a success status (✅).",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as GreenSupported.",
+        "evidence_id": "doc-0050:chunk-0001:bge-001:line-022",
+        "quote": "| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "chunk_id": "doc-0050:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0050:chunk-0001:bge-001",
+        "document_id": "doc-0050",
+        "parent_id": "doc-0017",
+        "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+        "char_start": 0,
+        "char_end": 1376,
+        "text": "Overview\n--------\n\nThis document outlines the current status and results of supported operating system (OS) and kernel combinations for image builds in PipelineHub CI/CD pipelines. As PipelineHub' support expands to additional distributions and kernel variants, this page may serve as a central reference for compatibility notes and validations. \n\nBackground\n----------\n\nProduction builds primarily take place using Enterprise Linux 8 (aka EnterpriseLinux8) built on VMs running EnterpriseLinux8 UEK 7 (Unbreakable Enterprise Kernel). To ensure broad compatibility and provide flexibility, PipelineHub has begun evaluating builds across multiple Enterprise Linux versions, EnterpriseLinux8 & EnterpriseLinux9, using VMs running differing EnterpriseLinux8 UEK versions (UEK6, UEK7).\n\nSupported CI/CD Combinations\n----------------------------\n\nThe following summarizes a set of tests executed to verify compatibility and extend support for additional configurations.  \n \n\n| Base Image OS | Build Kernel | Compile | Docker Creation | Publish | Support | Notes |\n| --- | --- | --- | --- | --- | --- | --- |\n| EnterpriseLinux8 | OL8u10 UEK7 | ✅ | ✅ | ✅ | GreenSupported | Baseline |\n| EnterpriseLinux8 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |\n| EnterpriseLinux9 | OL8u10 UEK7 | ✅ | ✅ | ✅ | GreenSupported |  |\n| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0006:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 18095,
+        "char_end": 19781,
+        "text": "**NOTE** : If the repo created has ARM bits, by default template created will also be ARM Enabled. To just create a X86 template, you will have to deselect \"Enabled ARM64\" checkbox in the Advanced Parameters section. Also if you use \"Create Repo and Template\" option, there is no way to unselect ARM, so if your IntegrationBuild is ARM enabled, your repo and template will also be ARM enabled.\n\n### OVM Script Directory can be passed while template creation\n\n### EnterpriseLinux8 images for BusinessApp Template\n\nPipelineHub now support creation of starter and deploymenttemplate templates using EnterpriseLinux8 images.\n\nUser should be able to create template on EnterpriseLinux8 VMs now by selecting the check box \"EnterpriseLinux8\" on the UI.\n\nEnterpriseLinux8 enabled Repo is a pre-requisite  so the parameters - \"-os_flvr enterpriselinux86_x64\" can be passed will be delivered as a part of September Sprint.\n\n### No default MLR on Template Creation\n\nThere will be no MLR information displayed on template creation page. \n\n**Same is applicable for create Repo and Template UI**\n\n### IdentityService Support for Template Creation\n\nPipelineHub UI now provide a flag to support IdentityService enablement during \"Create Template\" and \"Create Repo & template\" submissions. \n\n### Capability to default IdentityService for Template flow\n\n* PipelineHub can set the default as IdentityService when EnvironmentService is ready to default in PreProduction (Controlled by a flag within PIPELINEHUB. Currently set to false; Will be turned to true once EnvironmentService defaults IdentityService in PreProduction)\n* This is supported for creation of Template and  Template based Provisioning.\n\n"
+      },
+      {
+        "chunk_id": "doc-0116:chunk-0005:bge-028",
+        "document_id": "doc-0116",
+        "parent_id": "doc-0002",
+        "title": "PipelineHub APIs for CloudNative",
+        "char_start": 31317,
+        "char_end": 32007,
+        "text": " \"buildProperties\": {},\n \"pipelineSteps\": {\n \"MY-COMPONENT\": {\n \"buildPipelineSteps\": [\n \"compile\",\n \"dockerImageCreation\",\n \"publish\"\n ],\n \"deployPipelineSteps\": [],\n \"testPipelineSteps\": []\n }\n }\n}**Input:**• `projectName`, `branchName`, `reason`, `environmentName` — required.• `serviceCreationBaseline` — optional; valid values: `LATEST_SERVICE_VERSION` or `WORKLOAD_YAML`.• `workloadYaml` — required when `serviceCreationBaseline` is `WORKLOAD_YAML`.• `serviceWorkloadName`, `buildProperties`, and `pipelineSteps` — optional.**Returns:** A `ProjectBuildOperationResult` containing the request status/message and, when accepted, build/queue details.**Documentation:**  | POST | Yes |  |"
+      },
+      {
+        "chunk_id": "doc-0034:chunk-0003:bge-001",
+        "document_id": "doc-0034",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform SecurityScan Rescan Design: Submission and Reporting",
+        "char_start": 6701,
+        "char_end": 7529,
+        "text": "| EntityID - PK( artifact name + version) | WorkloadArtifact VersionRAV for the MS version | ArtifactTypeWorkloadArtifact/ Generic/SignalHandler/AppPackage | ParentConstructType(Service or Application) | ParentConstructRAVServiceVersion or Application Version | Status | Quality | Start Time | End Time | Origin(Overwritten once completed - quality - FAILED to trigger - should not update this table) | Response | Error | AdditionalInfo |  |  |  |  |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| facloudnative-release-helm-local/helm-cloudnative-pipelinehub/apps/common/apps-infra/apps-infra:apmbuild.prov:2701.146.262380118 |  |  |  |  | COMPLETED | Clean |  | 10-01-2026 14:30 | {OriginatedFrom: \"ReleaseArtifactsDashboard\",RequestID: \"105\"} |  |  |  |  |  |  |  |\n"
+      },
+      {
+        "chunk_id": "doc-0052:chunk-0002:bge-002",
+        "document_id": "doc-0052",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Create Repo",
+        "char_start": 4553,
+        "char_end": 5731,
+        "text": "Also keeping all other promotion constraints, user will be able to promote a successful service version with LowCode contents to Tip APPLICATIONBOM.\n\n### Support Decouple LifecycleManager Flags during Repo submissions\n\nNew check box LifecycleManager Decouple added in repo , this is to support LifecycleManager decouple artifacts. As of now this is for LifecycleManager do not use unless you have proper details.\n\nAddition of a new checkbox in the advanced section in Create Repo  \n\n#### Support ExecutionEngine parameters\n\nPipelineHub UI now introducing new params to support ExecutionEngine during create repo and create repo & template.\n\nManagedDatabase database parameters will be available if ManagedDatabase IntegrationBuild label is given for the repo submissions. Users can always provide ManagedDatabase config in additional parameters if they want repo to be ManagedDatabase and PipelineHub is unable to find if IntegrationBuild label is ManagedDatabase enabled.\n\n#### **EnterpriseLinux8 parameter update**\n\nThis update is done for both create repo and create template submissions page.\n\nPlease do take a note that EnterpriseLinux8 is applicable only for Middleware14x"
+      },
+      {
+        "chunk_id": "doc-0116:chunk-0003:bge-001",
+        "document_id": "doc-0116",
+        "parent_id": "doc-0002",
+        "title": "PipelineHub APIs for CloudNative",
+        "char_start": 7127,
+        "char_end": 7785,
+        "text": "**Sample Request Bodies**Build All Components\n```\n**Advanced Options: (Override Build Type, Components, Build Dependencies, Pipeline Steps)**{  \"projectName\": \"RELEASEENGINEERING-SINGLETENANT-SEP4-SP\",  \"reason\": \"for testing\",  \"componentBuildType\": \"Build_All_Components\",  \"branchName\": \"freqa_rebuild\",  \"pipelineVersion\": \"\",  \"buildDependentComponents\": true,  \"updatedPipelineSteps\": {    \"DEMOSVC\": {       \"buildPipelineSteps\": [ \"compile\", \"dockerImageCreation\", \"precompile\", \"publish\", \"referenceImageAudit\" ]    },     \"TESTCOMMONCOMPONENT\": {       \"buildPipelineSteps\": [ \"compile\", \"dockerImageCreation\", \"precompile\", \"publish\" ],     }  }}\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 7.881,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 463,
+        "prompt_tokens": 4719,
+        "total_tokens": 5182,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 4.8128
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 133,
+        "prompt_tokens": 4661,
+        "total_tokens": 4794,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.3905
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.6732
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 5.4873
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 7.879
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 7.8801
+    }
+  ],
+  "wall_seconds": 7.8954,
+  "token_usage": {
+    "prompt_tokens": 9380,
+    "completion_tokens": 596,
+    "total_tokens": 9976
+  },
+  "completed_at_utc": "2026-10-17T17:41:45.627732+00:00"
+}

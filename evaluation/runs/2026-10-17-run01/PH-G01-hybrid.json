@@ -1,0 +1,201 @@
+{
+  "id": "PH-G01",
+  "mode": "hybrid",
+  "question": "In Add a Free Form Tag, what format is accepted, and how many tags may I send in one submission?",
+  "run_status": "completed",
+  "result": {
+    "question": "In Add a Free Form Tag, what format is accepted, and how many tags may I send in one submission?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> * Only one free form tag is allowed per submission [doc-0080]\n\n> * It must follow the structure 'key=value' [doc-0080]\n\nDocumented guidance:\n- Only one free form tag is allowed per submission when using the Add a Free Form Tag action. [doc-0080]\n- The tag must follow the structure 'key=value'. [doc-0080]\n- The value portion of the tag can be nested, for example: key=key1=value1,key2=value2. [doc-0080]\n\nSources:\n- [doc-0080] PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly identifies that only one free form tag is allowed per submission and that the format must be 'key=value', both of which are explicitly stated in doc-0080:chunk-0001:bge-001:line-005 and line-006. The claim regarding nested values (key=key1=value1...) is also directly supported by line-007 of the same passage. The answer fully addresses both parts of the user's question (format and quantity) without omitting relevant restrictions found in the specific 'Add a Free Form Tag' section.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages explicitly state the format and quantity limits for the 'Add a Free Form Tag' action.",
+      "claims": [
+        {
+          "text": "Only one free form tag is allowed per submission when using the Add a Free Form Tag action.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0080:chunk-0001:bge-001:line-005"
+            }
+          ]
+        },
+        {
+          "text": "The tag must follow the structure 'key=value'.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0080:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "The value portion of the tag can be nested, for example: key=key1=value1,key2=value2.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0080:chunk-0001:bge-001:line-007"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "Only one free form tag is allowed per submission when using the Add a Free Form Tag action.",
+        "evidence_id": "doc-0080:chunk-0001:bge-001:line-005",
+        "quote": "* Only one free form tag is allowed per submission",
+        "document_id": "doc-0080",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag",
+        "chunk_id": "doc-0080:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The tag must follow the structure 'key=value'.",
+        "evidence_id": "doc-0080:chunk-0001:bge-001:line-006",
+        "quote": "* It must follow the structure 'key=value'",
+        "document_id": "doc-0080",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag",
+        "chunk_id": "doc-0080:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The value portion of the tag can be nested, for example: key=key1=value1,key2=value2.",
+        "evidence_id": "doc-0080:chunk-0001:bge-001:line-007",
+        "quote": "+ The value can be nested, ie: key=key1=value1,key2=value2",
+        "document_id": "doc-0080",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag",
+        "chunk_id": "doc-0080:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0080:chunk-0001:bge-001:line-005",
+        "document_id": "doc-0080",
+        "chunk_id": "doc-0080:chunk-0001:bge-001",
+        "quote": "* Only one free form tag is allowed per submission"
+      },
+      {
+        "evidence_id": "doc-0080:chunk-0001:bge-001:line-006",
+        "document_id": "doc-0080",
+        "chunk_id": "doc-0080:chunk-0001:bge-001",
+        "quote": "* It must follow the structure 'key=value'"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0080:chunk-0001:bge-001",
+        "document_id": "doc-0080",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag",
+        "char_start": 0,
+        "char_end": 348,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-661>\n\nUsers can add free form tags to PODs after deployment using the pod addons action Add a Free Form Tag:\n\n* Only one free form tag is allowed per submission\n* It must follow the structure 'key=value'\n\t+ The value can be nested, ie: key=key1=value1,key2=value2"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0004:bge-001",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 8946,
+        "char_end": 10095,
+        "text": "1. Set the Free Form tag at provisioning time. This will set the Free Form tag on your pod\n2. Set the Free Form tag at upgrade time. This will set the Free form tag on your pod\n\nIf you realize that you need a Free Form tag applied to your pod outside of provisioning, or upgrade, please file Jira to review.\n\n#### Freeform tag USE_X86_ONLY to honor Middleware14c Pod provisioning /Release set creation\n\nWhen we need to use a Releaseset flag , in the additional config params on the Provisioning job use the key with format \"RS-key1=value1\", for eg if you need to set USER_X86_ONLY=true at the release set level , then pass \"RS-USER_X86_ONLY=true\" in the additional config params and it would set the release set level free form tags, and you can also pass the provisioning level flags along side with it for eg., let say you are passing RS-key1=value1;podKey1=value1;podKey2=value2;RS-key2=value2 to the additional config param then Key1, and Ke2 will be set at release set level as they are prepended by RS- and the other 2 freeform tags podKey1 and podKey2 will be set at the pod level.\n\n### AnalyticsDatabase Quota will be restricted/controlled\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0012:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 36196,
+        "char_end": 37638,
+        "text": "1. Set the Free Form tag at provisioning time.  This will set the Free Form tag on your pod\n2. Set the Free Form tag at upgrade time. This will set the Free form tag on your pod\n\nIf you realize that you need a Free Form tag applied to your pod outside of provisioning, or upgrade, please file Jira to review.\n\n#### Example: Support for Freeform tag on Upgrade Submission. Freeform tags to pass at override parameters text field.\n\nPlease refer to [valid freeform Flags](https://docs.example.com/reference/resource-401) for details \n\n### Support for Feature Flags\n\nPipelineHub provides commonly used feature flags for Provisioning, Upgrade and Patching jobs via Feature Flag Groups. \n\nHowever, there are more feature flags that can be used outside of these defaults.  In order to add feature flags to PipelineHub, please specify the following\n\n* The Feature Flag Name (make sure its available in EnvironmentControlPlane)\n* Whether you would like the Feature Flag added to Provisioning, Upgrade and/or Patching jobs\n* Please file a PLATFORM_PREFLIGHT Jira with this information.  The ReleaseEngineering team needs to review this information with EnvironmentControlPlane and then include it in an upcoming deployment\n* If you need a feature flag added as a one-off to your pod, please work with ENVIRONMENTCONTROLPLANE.  You can also file Jira, but ReleaseEngineering will need to review settings with EnvironmentControlPlane in order to apply.\n\n"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0003:bge-002",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 7490,
+        "char_end": 8944,
+        "text": "Support for Freeform tag\n\n**PLEASE TAKE NOTE:**\n\n* ***Freeform Tag***: Supported via PipelineHub: EnvironmentControlPlane has a limitation to support up to 10 freeform tags per pod.\n* ***If you are not sure whether the project flags are freeform or feature, please check with the Project Owner, not RELEASEENGINEERING.***\n\n#### In CloudPlatform, there is a concept of Freeform Tags that can be set at the Pod level scope, or the Release Set Scope. Since there is a hard MAX of 10 Freeform Tags per pod, only use Freeform Tags if there is no Feature Flag equivalent.\n\n* <https://docs.example.com/reference/resource-400>\n\nPlease note that Release Set scope Freeform Tags are very specific in use case for Middleware 14 project users, whereas most other Freeform Tag use is at the Pod level. Explanation below:\n\n* Releaseset freeform flag use must be prepended with \"RS-\"; For example, in the additional config params on the Provisioning job use the key with format \"RS-key1=value1\",\n\t+ If you want to set USER_X86_ONLY=true at the release set level , then pass \"RS-USER_X86_ONLY=true\" in the additional config params\n\t+ It would set the release set level free form tags\n\t+ You can also pass the provisioning level flags along side, so in \"RS-key1=value1;podKey1=value1;podKey2=value2;RS-key2=value2\", key1, key2 at release set level, podKey1, podKey2 at pod level\n\nIf you would like to set Free Form tags on your EnvironmentService pod you have two options"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0011:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 34785,
+        "char_end": 36194,
+        "text": "* ***Freeform Flag**: Supported via PipelineHub: EnvironmentControlPlane has a limitation to support up to 10 freeform tags per pod.*\n* ***If you are not sure whether the project flags are freeform or feature, please check with the Project Owner, not RELEASEENGINEERING.***\n\n#### In CloudPlatform, there is a concept of Free Form Tags that can be set at the Pod level scope, or the Release Set Scope. Since there is a hard MAX of 10 Freeform Tags per pod, only use Freeform Tags if there is no Feature Flag equivalent.\n\n* <https://docs.example.com/reference/resource-400>\n\nPlease note that Release Set scope Freeform Tags are very specific in use case for Middleware 14 project users, whereas most other Freeform Tag use is at the Pod level. Explanation below: \n\n* Releaseset freeform flag use must be prepended with \"RS-\"; For example, in the additional config params on the Provisioning job use the key with format \"RS-key1=value1\", \n\t+ If you want to set USER_X86_ONLY=true at the release set level , then pass \"RS-USER_X86_ONLY=true\" in the additional config params\n\t+ It would set the release set level free form tags\n\t+ You can also pass the provisioning level flags along side, so in \"RS-key1=value1;podKey1=value1;podKey2=value2;RS-key2=value2\", key1, key2 at release set level, podKey1, podKey2 at pod level\n\nIf you would like to set Free Form tags on your EnvironmentService pod you have two options"
+      },
+      {
+        "chunk_id": "doc-0042:chunk-0007:bge-001",
+        "document_id": "doc-0042",
+        "parent_id": "doc-0001",
+        "title": "CloudNative Service Dashboard",
+        "char_start": 15969,
+        "char_end": 17053,
+        "text": "\t+ #### Action is disabled for versions only created in SPV2\n\t+ Select Tag Type (CWB/One-off/Generic).\n\t\t- CWB: Has to be an BusinessApplications monolith version. for Example: 11.13.21.10.0\n\t\t- One-Off: Has to be an BusinessApplications monolith version along with the bug number. For Example: 11.13.21.10.0-33479909\n\t\t- Generic: Any other String\n\t+ Click **Attach New Tag** button.\n\t+ The tag now appears in the table below, but to save the data, click **Save Changes**\n* ### **Adding a New Tag - Multi Tenant Versions**\n\n\t+ For multi tenant versions, tagging is used for promotion so only 2 types of tags are allowed- Preflight and Generic \n\n\t\t-\n\t+ To add a preflight tag, user provides the preflight id in the text box and selects add tag. The preflight status will be checked and the changes reflected on the UI   \n\t\n\t\t-\n\t+ Clicking save changes will add the tag to the version and a pop up will appear alerting the user the status. If the tag is added successfully, user can see it in the tagging window and the preflight results   \n\t\n\t\t- \n\t\t-\n* ### **Deleting a Generic Tag**\n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 6.525,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 294,
+        "prompt_tokens": 4962,
+        "total_tokens": 5256,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.2738
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 164,
+        "prompt_tokens": 4777,
+        "total_tokens": 4941,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.594
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.6536
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.9286
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 6.524
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 6.5248
+    }
+  ],
+  "wall_seconds": 6.5359,
+  "token_usage": {
+    "prompt_tokens": 9739,
+    "completion_tokens": 458,
+    "total_tokens": 10197
+  },
+  "completed_at_utc": "2026-10-17T17:40:50.908497+00:00"
+}

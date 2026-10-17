@@ -1,0 +1,63 @@
+{
+  "id": "PH-G15",
+  "mode": "semantic",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "bf5aba6ac53598d1e13c1093d7ea0f15a4957f019e5ca20040a65efc7e622d4b",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G15-C01",
+        "met": false,
+        "reason": "The reply mentions releasing a lock/HOLD but not the Family pod Unlock Pod action or hidden actions; the cited HOLD workflow is different."
+      },
+      {
+        "criterion_id": "PH-G15-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G15-C03",
+        "met": false,
+        "reason": "Resize purpose/stamps appear in prose or cautions, but resize eligibility validation is omitted."
+      },
+      {
+        "criterion_id": "PH-G15-C04",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": false,
+        "reason": "Conflates release of a HOLD with the separate Family pod Unlock Pod action. AVAILABLE scheduling evidence does not establish that equivalence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Resize/locking guidance is incomplete; semantic confuses HOLD release with the Family pod lock workflow."
+  },
+  "external_grading_calls": 0
+}

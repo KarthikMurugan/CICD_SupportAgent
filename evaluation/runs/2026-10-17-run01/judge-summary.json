@@ -1,0 +1,9 @@
+{
+  "scored": 60,
+  "errors": 0,
+  "reviewer": "Primary Codex assistant",
+  "external_grading_calls": 0,
+  "human_reviewed": false,
+  "approval_note": "Automatic approval review rejected sending gold labels to an external Nebius judge. No such upload occurred; primary assistant reviewed saved answers locally.",
+  "grading_policy": "Frozen criteria unchanged. All components of each compound criterion are required. This can fail useful core answers for omitted Save/Edit steps or contextual details; an SME should review rubric scope before a submission-grade claim."
+}

@@ -1,0 +1,13 @@
+{
+  "dataset_version": "1.0",
+  "frozen_date": "2026-10-17",
+  "files": {
+    "pipelinehub-golden-v1.json": "622321a4d7ff53fcaf4de802db9880925e9897bad109285f3c32c8635dd5cdaf",
+    "pipelinehub-questions-v1.jsonl": "9276dff0d4d702b2016e6431abc8ab41f3b1ea8edbef4380f20ba2a5a36c3f97",
+    "pipelinehub-golden-v1.csv": "6b66c6a5932b56c53c30d4089d3f21f8b96b8624f876617fb537403fd4eb8a78",
+    "pipelinehub-golden-v1.xlsx": "1e1a57ef578e8f8ce238ea016952a540b374faa8aa97dc7d375ae9cd452b69da",
+    "dataset-audit.json": "c108065b0c16bcdd82062a7d809921d627f263809616d7b062062a701dfd2293"
+  },
+  "corpus_sha256": "aef28c6fc2ffbf5ce3fc37272f2e0a3d8bbcee80061231364f408814e95cb58a",
+  "bot_executed": false
+}

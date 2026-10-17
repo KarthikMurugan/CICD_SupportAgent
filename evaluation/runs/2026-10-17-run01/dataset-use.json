@@ -1,0 +1,7 @@
+{
+  "gold_version": "1.0",
+  "gold_manifest_sha256": "76c2c4c515a465b0519c9b08d6ccd0510c0e9e7205045730b2b0c178791155ff",
+  "bot_runs_completed": 60,
+  "frozen_gold_modified": false,
+  "note": "Original dataset metadata records the pre-execution creation state. Current usage is recorded here and in project-status.json."
+}

@@ -1,0 +1,195 @@
+{
+  "id": "PH-G10",
+  "mode": "keyword",
+  "question": "I can see a provisioning record from my LOB, but Copy Provisioning Job says its release set is EOL. Can I bypass that by editing the copied form?",
+  "run_status": "completed",
+  "result": {
+    "question": "I can see a provisioning record from my LOB, but Copy Provisioning Job says its release set is EOL. Can I bypass that by editing the copied form?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> User can update the form and hit \"Provision EnvironmentService Pod\" button. | Source vs Current Comparison section will show difference for only following fields: * Start with [doc-0091]\n\nDocumented guidance:\n- Users can only copy a provisioning submission if the release version is not end-of-life. [doc-0091]\n- If the source provisioning job uses an EOL release set, the Copy Provisioning Job dialog displays an error stating it is not eligible for copying. [doc-0091]\n- The system blocks the copy action for EOL release sets at the validation step before the form can be reviewed or edited. [doc-0091]\n\nSources:\n- [doc-0091] PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly answers 'No' to the user's question about bypassing the restriction. The evidence explicitly states that if a source provisioning job uses an EOL release set, the system displays an error message ('not eligible for copying') instead of opening the form for editing. Therefore, the claim that the system blocks the action before the form can be reviewed or edited is supported by the 'Show error message' step in Use Case 2, confirming that editing is impossible in this scenario.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The documentation explicitly states that provisioning submissions with an end-of-life (EOL) release version are not eligible for copying. The system prevents this action by displaying an error message rather than allowing the form to be edited or submitted.",
+      "claims": [
+        {
+          "text": "Users can only copy a provisioning submission if the release version is not end-of-life.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0091:chunk-0001:bge-001:line-011"
+            }
+          ]
+        },
+        {
+          "text": "If the source provisioning job uses an EOL release set, the Copy Provisioning Job dialog displays an error stating it is not eligible for copying.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0091:chunk-0001:bge-002:line-023"
+            }
+          ]
+        },
+        {
+          "text": "The system blocks the copy action for EOL release sets at the validation step before the form can be reviewed or edited.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0091:chunk-0001:bge-002:line-021"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "Users can only copy a provisioning submission if the release version is not end-of-life.",
+        "evidence_id": "doc-0091:chunk-0001:bge-001:line-011",
+        "quote": "* The release version is not end-of-life.",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "chunk_id": "doc-0091:chunk-0001:bge-001"
+      },
+      {
+        "claim": "If the source provisioning job uses an EOL release set, the Copy Provisioning Job dialog displays an error stating it is not eligible for copying.",
+        "evidence_id": "doc-0091:chunk-0001:bge-002:line-023",
+        "quote": "|  | trueError falseautotoptrue5412411**\"Copy Provisioning Job\" dialog appears.**With message:The source provisioning job was submitted using an EOL release set and is not eligible for copying. |",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "chunk_id": "doc-0091:chunk-0001:bge-002"
+      },
+      {
+        "claim": "The system blocks the copy action for EOL release sets at the validation step before the form can be reviewed or edited.",
+        "evidence_id": "doc-0091:chunk-0001:bge-002:line-021",
+        "quote": "| Step 1: Select pod action | Step 2: Show error message |",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "chunk_id": "doc-0091:chunk-0001:bge-002"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0091:chunk-0001:bge-002:line-009",
+        "document_id": "doc-0091",
+        "chunk_id": "doc-0091:chunk-0001:bge-002",
+        "quote": "User can update the form and hit \"Provision EnvironmentService Pod\" button. | Source vs Current Comparison section will show difference for only following fields: * Start with"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0091:chunk-0001:bge-002",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "char_start": 1265,
+        "char_end": 2497,
+        "text": "### Use Case 1: Copy Pod Provisioning with active release version\n\n| Step 1: Select pod action | Step 2: Open provisioning page with pre-filled form | Step 3: Review changes for any fields that have been modified from the source record and submit |\n| --- | --- | --- |\n|  | All fields on the provisioning page are automatically populated from the source record.The following will be excluded from auto-populating field values:1. CloudNative service overrides\n2. CloudNative application overrides\n3. CloudNative environment profile overrides\n\nUser can update the form and hit \"Provision EnvironmentService Pod\" button. | Source vs Current Comparison section will show difference for only following fields: * Start with\n* Free form tags\n* Feature Flags\n* ApplicationBOM\n* Environment Profiles\n* CloudNative Services\n* CloudNative Applications\n\ntrueSubmit Confirmationfalseautotoptrue7314711 |\n\n### Use Case 2: Copy Pod Provisioning with end of life release version\n\n| Step 1: Select pod action | Step 2: Show error message |\n| --- | --- |\n|  | trueError falseautotoptrue5412411**\"Copy Provisioning Job\" dialog appears.**With message:The source provisioning job was submitted using an EOL release set and is not eligible for copying. |"
+      },
+      {
+        "chunk_id": "doc-0091:chunk-0001:bge-001",
+        "document_id": "doc-0091",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+        "char_start": 0,
+        "char_end": 1265,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-670>\n\nScope\n-----\n\nEnable users to copy a provisioning submission to simplify the preflight submission process and minimize repetitive work.\n\nUsers can copy any provisioning submission if the following conditions are met:\n\n* The submission is associated with the user’s LOBs.\n* The release version is not end-of-life.\n\nUse Case Definition\n-------------------\n\nThe action menu will be available in the following scenarios:\n\n* On the **Preflight Dashboard**:\n\n\t+ For all rows where the Type is **ENVIRONMENTSERVICE_PROVISIONING** and the LOB belongs to the user's LOBs.\n* On **All PODs**:\n\n\t+ For all rows where the LOB belongs to the user's LOBs.\n\t\t- The action will use the provisioning record associated with the selected pod as the source record.\n* On the **Family Pod Dashboard**:\n\n\t+ For all rows where the LOB belongs to the user's LOBs.\n\t\t- The action will use the provisioning record associated with the selected pod as the source record.\n\nAll fields on the provisioning page are automatically populated from the source record.\n\nAdditionally, all fields on the provisioning UI remain editable, allowing users to make any necessary changes after reviewing the information.\n\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0003:bge-002",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 6401,
+        "char_end": 7383,
+        "text": "\t+ Login in to PipelineHub → Navigate to **My Profile** Page from the user dropdown menu on the top right corner to see a screen like below.\n\t+ \n\t+ Click on edit button next to Secondary LOBs label. The below screen will pop-up.\n\t+ \n\t+ From the Desired Secondary LOB(s) drop-down you can select single or multiple Secondary LOB(s) and provide justification.\n\t+ Click on Submit and PipelineHub will trigger a mail to the manager for approval.\n\t+ Once manager approves your request, the changes will reflect in your profile.\n* ### I have been authorized to perform activities in PipelineHub, but when I login I do not see any action buttons or it says not authorized\n\n\t+ Please make sure to logout and login (using SSO) after you are authorized\n\t+ If the problem persists, please send an email to [user001@example.com](mailto:user001@example.com) describing the nature of the issue\n* ### I have my source code in WorkspaceCLI, how do I start with the CI/CD Pipeline using PipelineHub?"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0004:bge-001",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 8946,
+        "char_end": 10095,
+        "text": "1. Set the Free Form tag at provisioning time. This will set the Free Form tag on your pod\n2. Set the Free Form tag at upgrade time. This will set the Free form tag on your pod\n\nIf you realize that you need a Free Form tag applied to your pod outside of provisioning, or upgrade, please file Jira to review.\n\n#### Freeform tag USE_X86_ONLY to honor Middleware14c Pod provisioning /Release set creation\n\nWhen we need to use a Releaseset flag , in the additional config params on the Provisioning job use the key with format \"RS-key1=value1\", for eg if you need to set USER_X86_ONLY=true at the release set level , then pass \"RS-USER_X86_ONLY=true\" in the additional config params and it would set the release set level free form tags, and you can also pass the provisioning level flags along side with it for eg., let say you are passing RS-key1=value1;podKey1=value1;podKey2=value2;RS-key2=value2 to the additional config param then Key1, and Ke2 will be set at release set level as they are prepended by RS- and the other 2 freeform tags podKey1 and podKey2 will be set at the pod level.\n\n### AnalyticsDatabase Quota will be restricted/controlled\n\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0010:bge-002",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 26562,
+        "char_end": 27808,
+        "text": "Search for any project from search bar.\n\n1. 1. 1. 1. Tap on the \"PipeLine Runs\"\n\t\t\t2. Click on the Snapshot under \"Pipeline Runs\"\n\t\t\t3. Click on \"Lock\" button a pop up screen is displayed. Enter the reason and click on \"Submit\".\n\t\t\t4. You will see the users below the buttons (Edit MR, Unlock) which you would like to exempt by tapping on the check box beside the user guid and click on the red icon so that the selected users are exempted.\n\t\t\t5. By tapping on the green icon we can add users to project.\n\n* ### How do I set an WorkspaceCLI project to build incrementally?\n\n\t+ Via the Build config section with the Build Type attribute.\n\n* ### My BusinessApplications project is constantly failing because it is building non-incremental snapshot due to a new tagged IntegrationBuild snapshot. Can we bypass this incremental build policy?\n\n\t+ Contact ReleaseEngineering Ops team via email ([user001@example.com](mailto:user001@example.com)) or slack (#releaseengineering_ops) with the details and the reason for asking.\n* ### How do I configure Periodic Full Build(s) on a BusinessApplications Project?\n\n\t+ Via the Build config section with the **non** Daily Build schedule\n\n* ### How do I trigger a build forcefully on any project in PipelineHub?"
+      },
+      {
+        "chunk_id": "doc-0110:chunk-0002:bge-003",
+        "document_id": "doc-0110",
+        "parent_id": "doc-0118",
+        "title": "Internal review for customer consumed API",
+        "char_start": 2277,
+        "char_end": 3177,
+        "text": "| <https://api.example.com/reference/resource-691> | RELEASE_SRE |   | Sustenance Triage Tool to help debug job issues. Call API once per day, and it helps with reconciliation efforts.  This helps automate manual process (downloading POD report and using XLS). Lower priority. This would be fine to limit to my DEV VMs (that I would consider RELEASE_SRE infra prod) | Yes (searched and did not see listed so adding here) | Priority low (but convenient). But we have helped this week on reconciliation review for EOL artifact cleanup where this API helped to ensure PODs were deleted associated to artifacts. | @yogesh - review**can expose** |\n| * <https://api.example.com/reference/resource-692>\n* <https://api.example.com/reference/resource-693>\n* <https://api.example.com/reference/resource-694>\n* <https://api.example.com/reference/resource-695>\n* <https://api.example.com/reference/resource-696>\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 6.314,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 331,
+        "prompt_tokens": 5341,
+        "total_tokens": 5672,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.8495
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 138,
+        "prompt_tokens": 5197,
+        "total_tokens": 5335,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.3912
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0697
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.92
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 6.3124
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 6.3134
+    }
+  ],
+  "wall_seconds": 6.322,
+  "token_usage": {
+    "prompt_tokens": 10538,
+    "completion_tokens": 469,
+    "total_tokens": 11007
+  },
+  "completed_at_utc": "2026-10-17T17:40:00.429903+00:00"
+}

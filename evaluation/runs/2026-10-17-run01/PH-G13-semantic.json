@@ -1,0 +1,282 @@
+{
+  "id": "PH-G13",
+  "mode": "semantic",
+  "question": "We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?",
+  "run_status": "completed",
+  "result": {
+    "question": "We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> * The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same [doc-0095]\n\n> * User must take back-up of the Target environment before scheduling a refresh of the environment. [doc-0095]\n\n> We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above. [doc-0092]\n\nDocumented guidance:\n- The source and target pods must be symmetrical, matching in BusinessApp version, patch state, cloudnative status, and IdentityService/ManagedDatabase/IDM configurations. [doc-0095]\n- Users must take a backup of the target TEST environment before scheduling the refresh from Production. [doc-0095]\n- Feature flags and extra language packs are not carried over during the refresh; the target pod's individual settings are honored. [doc-0095]\n- Data masking is only applicable on non-production type pods and requires the pod version to be at least 11.13.24.10.0-11000 or above. [doc-0092]\n- Data masking works only for releases where the Data Masking (DM) template has already been ingested during the creation of the release. [doc-0092]\n- The refresh operation takes approximately 5 to 7 hours to complete. [doc-0095]\n\nSources:\n- [doc-0095] PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh\n- [doc-0092] PipelineHub Preflight - Post Pod Actions - Data Masking\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft answer correctly identifies all prerequisites for the refresh (symmetry, backup) and data masking (non-prod, version, template ingestion) based on the provided evidence. It accurately answers the specific questions regarding feature flags and language packs, confirming they are not carried over. The claims regarding duration and symmetry match the text in doc-0095 and doc-0032. All caveats, such as the specific version requirement for masking and the necessity of the DM template, are preserved.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages contain specific prerequisites for refreshing a TEST pod from Production, details on what data is carried over (feature flags and language packs), and requirements for data masking.",
+      "claims": [
+        {
+          "text": "The source and target pods must be symmetrical, matching in BusinessApp version, patch state, cloudnative status, and IdentityService/ManagedDatabase/IDM configurations.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-001:line-011"
+            },
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-001:line-013"
+            }
+          ]
+        },
+        {
+          "text": "Users must take a backup of the target TEST environment before scheduling the refresh from Production.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-001:line-014"
+            }
+          ]
+        },
+        {
+          "text": "Feature flags and extra language packs are not carried over during the refresh; the target pod's individual settings are honored.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-002:line-006"
+            },
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-002:line-008"
+            }
+          ]
+        },
+        {
+          "text": "Data masking is only applicable on non-production type pods and requires the pod version to be at least 11.13.24.10.0-11000 or above.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0092:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "Data masking works only for releases where the Data Masking (DM) template has already been ingested during the creation of the release.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0092:chunk-0001:bge-001:line-010"
+            }
+          ]
+        },
+        {
+          "text": "The refresh operation takes approximately 5 to 7 hours to complete.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0095:chunk-0001:bge-001:line-016"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "The source and target pods must be symmetrical, matching in BusinessApp version, patch state, cloudnative status, and IdentityService/ManagedDatabase/IDM configurations.",
+        "evidence_id": "doc-0095:chunk-0001:bge-001:line-011",
+        "quote": "**Ideally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;**",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "chunk_id": "doc-0095:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The source and target pods must be symmetrical, matching in BusinessApp version, patch state, cloudnative status, and IdentityService/ManagedDatabase/IDM configurations.",
+        "evidence_id": "doc-0095:chunk-0001:bge-001:line-013",
+        "quote": "* The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "chunk_id": "doc-0095:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Users must take a backup of the target TEST environment before scheduling the refresh from Production.",
+        "evidence_id": "doc-0095:chunk-0001:bge-001:line-014",
+        "quote": "* User must take back-up of the Target environment before scheduling a refresh of the environment.",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "chunk_id": "doc-0095:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Feature flags and extra language packs are not carried over during the refresh; the target pod's individual settings are honored.",
+        "evidence_id": "doc-0095:chunk-0001:bge-002:line-006",
+        "quote": "* language pack (add extra lang before refresh) == **not carried over**",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "chunk_id": "doc-0095:chunk-0001:bge-002"
+      },
+      {
+        "claim": "Feature flags and extra language packs are not carried over during the refresh; the target pod's individual settings are honored.",
+        "evidence_id": "doc-0095:chunk-0001:bge-002:line-008",
+        "quote": "* \\*featureFlag(add/Remove) == **not carried over : individual pod's settings honored**",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "chunk_id": "doc-0095:chunk-0001:bge-002"
+      },
+      {
+        "claim": "Data masking is only applicable on non-production type pods and requires the pod version to be at least 11.13.24.10.0-11000 or above.",
+        "evidence_id": "doc-0092:chunk-0001:bge-001:line-006",
+        "quote": "We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "chunk_id": "doc-0092:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Data masking works only for releases where the Data Masking (DM) template has already been ingested during the creation of the release.",
+        "evidence_id": "doc-0092:chunk-0001:bge-001:line-010",
+        "quote": "* Data masking will work for the releases for which DM template is already ingested.(Ex:GA,HWM ).",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "chunk_id": "doc-0092:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The refresh operation takes approximately 5 to 7 hours to complete.",
+        "evidence_id": "doc-0095:chunk-0001:bge-001:line-016",
+        "quote": "This takes around 5 to 7 hrs.",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "chunk_id": "doc-0095:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0095:chunk-0001:bge-001:line-013",
+        "document_id": "doc-0095",
+        "chunk_id": "doc-0095:chunk-0001:bge-001",
+        "quote": "* The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same"
+      },
+      {
+        "evidence_id": "doc-0095:chunk-0001:bge-001:line-014",
+        "document_id": "doc-0095",
+        "chunk_id": "doc-0095:chunk-0001:bge-001",
+        "quote": "* User must take back-up of the Target environment before scheduling a refresh of the environment."
+      },
+      {
+        "evidence_id": "doc-0092:chunk-0001:bge-001:line-006",
+        "document_id": "doc-0092",
+        "chunk_id": "doc-0092:chunk-0001:bge-001",
+        "quote": "We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above."
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0032:chunk-0010:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 32123,
+        "char_end": 33491,
+        "text": "**Data Masking Oneoff Job:**\n\nFor cases where the data masking is timed out ,there will be a replay shown for status check of the data masking.\n\n### Uptake P2T (Refresh) as a post pod action\n\nThis feature is now available as a **Pod Add-on**feature. User can now refresh a \"**TEST**\" type environment from a \"**Production**\" environment.\n\nAll BusinessApp Environments are created of type \"**Production\"**by default. To create a \"TEST\" type environment, be sure to use following option in Advanced Parameters. \n\n**Prerequisites  :**\n\n**Ideally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;**\n\n* The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same\n* User must take back-up of the Target environment before scheduling a refresh of the environment.\n\nThis takes around 5 to 7 hrs. \n\n**EnvironmentService REFRESH - Status One Off Check:**\n\nA refresh button is now enabled to perform one-off status check for REFRESH_POD\n\nAdditional information regarding the REFRESH use case:\n\nIdeally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;"
+      },
+      {
+        "chunk_id": "doc-0095:chunk-0001:bge-002",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "char_start": 1080,
+        "char_end": 2206,
+        "text": "Additional information regarding the REFRESH use case:\n\nIdeally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;\n\n* dbChange(add new column before refresh) == will be refreshed from SOURCE\n* language pack (add extra lang before refresh) == **not carried over**\n* \\*toggleAutoSchedule (true/false) == not carried over **: individual pod's settings honored**\n* \\*featureFlag(add/Remove) == **not carried over : individual pod's settings honored**\n* deleteSpService == **not carried over;**\n* \\*addFreeForm tag == **not carried over: individual pod's settings honored**\n* scaleout/resize == not carried over\n* runtimediagnostics (from source to target) = **old RuntimeDiagnostics db is deleted and re-Enabled on the TARGET POD**\n* patches = same BusinessApp release and Patch bundles\n* source deploymenttemplate and target is starter (at same relLabel) = **post Refresh - TARGET will have DeploymentTemplate**\n\nHere are additional Details from EnvironmentService about P2T - EnvironmentService REFRESH (P2T)"
+      },
+      {
+        "chunk_id": "doc-0095:chunk-0001:bge-001",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "char_start": 0,
+        "char_end": 1080,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-674>\n\n### Uptake P2T (Refresh) as a post pod action\n\nThis feature is now available as a Post Pod Action feature. User can now refresh a \"**TEST**\" type environment from a \"**Production**\" environment.\n\nAll BusinessApp Environments are created of type \"**Production\"** by default. To create a \"TEST\" type environment, be sure to use following option in Advanced Parameters.\n\n**Prerequisites :**\n\n**Ideally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;**\n\n* The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same\n* User must take back-up of the Target environment before scheduling a refresh of the environment.\n\nThis takes around 5 to 7 hrs.\n\n**EnvironmentService REFRESH - Status One Off Check:**\n\nA refresh button is now enabled to perform one-off status check for REFRESH_POD\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0011:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 33493,
+        "char_end": 34785,
+        "text": "* dbChange(add new column before refresh) == will be refreshed from SOURCE\n* language pack (add extra lang before refresh) ==  **not carried over**\n* \\*toggleAutoSchedule (true/false) == not carried over **: individual pod's settings honored**\n* \\*featureFlag(add/Remove) == **not carried over : individual pod's settings honored**\n* deleteSpService == **not carried over;**\n* \\*addFreeForm tag == **not carried over: individual pod's settings honored**\n* scaleout/resize == not carried over\n* runtimediagnostics (from source to target) = **old RuntimeDiagnostics db is deleted and re-Enabled on the TARGET POD**\n* patches = same BusinessApp release and Patch bundles\n* source deploymenttemplate and target is starter (at same relLabel) = **post Refresh - TARGET will have DeploymentTemplate**\n\nHere are additional Details from EnvironmentService about P2T - \n\n### Enable feature Flag as post POD Action\n\nFeature flags can now be added individually as a post pod action.\n\n* Value and minVersion are optional fields\n* Not all feature flags can be added to an existing BusinessApp POD, please confirm with EnvironmentService team if the flag is supported\n* This operation will take 5-10 minutes and can be confirmed in the DevOps portal\n\n### Support for Freeform tag\n\n***PLEASE TAKE NOTE:*** \n\n"
+      },
+      {
+        "chunk_id": "doc-0092:chunk-0001:bge-001",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "char_start": 0,
+        "char_end": 911,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-671>\n\nSupport Data Masking as post pod action\n---------------------------------------\n\nWe have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.\n\n**Note:**\n\n* Data masking will work for the releases for which DM template is already ingested.(Ex:GA,HWM ).\n\n**Feature not yet supported:**\n\n* Multiple data masking runs.\n\nMore details on Data Making: <https://docs.example.com/reference/resource-399>\n\n**Data Masking Oneoff Job:**\n\nFor cases where the data masking is timed out ,there will be a replay shown for status check of the data masking."
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0013:bge-003",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 52051,
+        "char_end": 52773,
+        "text": "### Pre-requisites:\n\n* To use this API the user needs an OAuth token\n\n### Purpose:\n\nThe purpose of this API is to allow the user to set feature flags on pod after provisioning without having to go into the PipelineHub UI.\n\n**Endpoints:**\n\nFor Preflight and family Pod: https://api.example.com/reference/resource-251 **Payload**\n\nOutput{\n \"podName\": \"<pod-name>\",\n \"featureFlags\": [\n {\n \"featureFlagName\": \"<feature-flag-name>\",\n \"featureFlagValue\": \"<feature-flag-value>\"\n }\n ]\n}   \n\n### **Output**\n\nOutput{\n \"status\": \"SUCCESS\",\n \"message\": \"\"\n}\n\n---\n\n**EnvironmentService Delete API - POST call**\n--------------------------------\n\n**NOTE: API Endpoint is different for Family and Preflight Pods.**\n\n### Pre-requisites:\n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 8.806,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 645,
+        "prompt_tokens": 5918,
+        "total_tokens": 6563,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 5.8147
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 142,
+        "prompt_tokens": 6037,
+        "total_tokens": 6179,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.3072
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.6822
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 6.498
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 8.8057
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 8.806
+    }
+  ],
+  "wall_seconds": 8.8102,
+  "token_usage": {
+    "prompt_tokens": 11955,
+    "completion_tokens": 787,
+    "total_tokens": 12742
+  },
+  "completed_at_utc": "2026-10-17T17:42:30.575726+00:00"
+}

@@ -1,0 +1,288 @@
+{
+  "id": "PH-G12",
+  "mode": "semantic",
+  "question": "Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?",
+  "run_status": "completed",
+  "result": {
+    "question": "Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above. [doc-0092]\n\n> 1. User must have the necessary roles (ROLE_FAMILY_ENV_ADV_POD_ACTIONS/ROLE_PREFLIGHT_ADV_POD_ACTIONS) [doc-0071]\n\n> 2. User must belong to the same LOB or a parent LOB of the pod [doc-0071]\n\n> 4. Pod must be EnvironmentService [doc-0071]\n\n> 5. Pod must have RuntimeDiagnostics enabled [doc-0071]\n\n> 6. Pod cannot have another action running (unless the forceJobExecution flag is used) [doc-0071]\n\nDocumented guidance:\n- The pod version 11.13.24.10.0-10999 is not eligible because data masking requires a version of at least 11.13.24.10.0-11000 or above. [doc-0092]\n- Data masking as a post pod action is only applicable on non-production type pods. [doc-0092]\n- A data masking template must already be ingested for the release (e.g., GA, HWM) for the feature to work. [doc-0092]\n- Users must have specific roles such as ROLE_FAMILY_ENV_ADV_POD_ACTIONS or ROLE_PREFLIGHT_ADV_POD_ACTIONS to perform these actions. [doc-0071]\n- The pod must be an EnvironmentService pod with RuntimeDiagnostics enabled. [doc-0071]\n- Multiple data masking runs are not yet supported. [doc-0092]\n\nSources:\n- [doc-0092] PipelineHub Preflight - Post Pod Actions - Data Masking\n- [doc-0071] OnPod API User Guide\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly identifies that the pod version 11.13.24.10.0-10999 is ineligible because the evidence requires at least 11.13.24.10.0-11000. It accurately lists all prerequisites found in the text: non-production type, ingested DM template, specific user roles, EnvironmentService pod type, and RuntimeDiagnostics enabled. It also correctly notes the limitation regarding multiple runs. All claims are directly supported by the provided passages without extrapolation.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages indicate the pod version is ineligible and specify the required conditions for data masking.",
+      "claims": [
+        {
+          "text": "The pod version 11.13.24.10.0-10999 is not eligible because data masking requires a version of at least 11.13.24.10.0-11000 or above.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0092:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "Data masking as a post pod action is only applicable on non-production type pods.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0092:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "A data masking template must already be ingested for the release (e.g., GA, HWM) for the feature to work.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0092:chunk-0001:bge-001:line-010"
+            }
+          ]
+        },
+        {
+          "text": "Users must have specific roles such as ROLE_FAMILY_ENV_ADV_POD_ACTIONS or ROLE_PREFLIGHT_ADV_POD_ACTIONS to perform these actions.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0071:chunk-0016:bge-003:line-003"
+            }
+          ]
+        },
+        {
+          "text": "The pod must be an EnvironmentService pod with RuntimeDiagnostics enabled.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0071:chunk-0016:bge-003:line-006"
+            },
+            {
+              "evidence_id": "doc-0071:chunk-0016:bge-003:line-007"
+            }
+          ]
+        },
+        {
+          "text": "Multiple data masking runs are not yet supported.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0092:chunk-0001:bge-001:line-014"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "The pod version 11.13.24.10.0-10999 is not eligible because data masking requires a version of at least 11.13.24.10.0-11000 or above.",
+        "evidence_id": "doc-0092:chunk-0001:bge-001:line-006",
+        "quote": "We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "chunk_id": "doc-0092:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Data masking as a post pod action is only applicable on non-production type pods.",
+        "evidence_id": "doc-0092:chunk-0001:bge-001:line-006",
+        "quote": "We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "chunk_id": "doc-0092:chunk-0001:bge-001"
+      },
+      {
+        "claim": "A data masking template must already be ingested for the release (e.g., GA, HWM) for the feature to work.",
+        "evidence_id": "doc-0092:chunk-0001:bge-001:line-010",
+        "quote": "* Data masking will work for the releases for which DM template is already ingested.(Ex:GA,HWM ).",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "chunk_id": "doc-0092:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Users must have specific roles such as ROLE_FAMILY_ENV_ADV_POD_ACTIONS or ROLE_PREFLIGHT_ADV_POD_ACTIONS to perform these actions.",
+        "evidence_id": "doc-0071:chunk-0016:bge-003:line-003",
+        "quote": "1. User must have the necessary roles (ROLE_FAMILY_ENV_ADV_POD_ACTIONS/ROLE_PREFLIGHT_ADV_POD_ACTIONS)",
+        "document_id": "doc-0071",
+        "parent_id": "doc-0028",
+        "title": "OnPod API User Guide",
+        "chunk_id": "doc-0071:chunk-0016:bge-003"
+      },
+      {
+        "claim": "The pod must be an EnvironmentService pod with RuntimeDiagnostics enabled.",
+        "evidence_id": "doc-0071:chunk-0016:bge-003:line-006",
+        "quote": "4. Pod must be EnvironmentService",
+        "document_id": "doc-0071",
+        "parent_id": "doc-0028",
+        "title": "OnPod API User Guide",
+        "chunk_id": "doc-0071:chunk-0016:bge-003"
+      },
+      {
+        "claim": "The pod must be an EnvironmentService pod with RuntimeDiagnostics enabled.",
+        "evidence_id": "doc-0071:chunk-0016:bge-003:line-007",
+        "quote": "5. Pod must have RuntimeDiagnostics enabled",
+        "document_id": "doc-0071",
+        "parent_id": "doc-0028",
+        "title": "OnPod API User Guide",
+        "chunk_id": "doc-0071:chunk-0016:bge-003"
+      },
+      {
+        "claim": "Multiple data masking runs are not yet supported.",
+        "evidence_id": "doc-0092:chunk-0001:bge-001:line-014",
+        "quote": "* Multiple data masking runs.",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "chunk_id": "doc-0092:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0092:chunk-0001:bge-001:line-006",
+        "document_id": "doc-0092",
+        "chunk_id": "doc-0092:chunk-0001:bge-001",
+        "quote": "We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above."
+      },
+      {
+        "evidence_id": "doc-0071:chunk-0016:bge-003:line-003",
+        "document_id": "doc-0071",
+        "chunk_id": "doc-0071:chunk-0016:bge-003",
+        "quote": "1. User must have the necessary roles (ROLE_FAMILY_ENV_ADV_POD_ACTIONS/ROLE_PREFLIGHT_ADV_POD_ACTIONS)"
+      },
+      {
+        "evidence_id": "doc-0071:chunk-0016:bge-003:line-004",
+        "document_id": "doc-0071",
+        "chunk_id": "doc-0071:chunk-0016:bge-003",
+        "quote": "2. User must belong to the same LOB or a parent LOB of the pod"
+      },
+      {
+        "evidence_id": "doc-0071:chunk-0016:bge-003:line-006",
+        "document_id": "doc-0071",
+        "chunk_id": "doc-0071:chunk-0016:bge-003",
+        "quote": "4. Pod must be EnvironmentService"
+      },
+      {
+        "evidence_id": "doc-0071:chunk-0016:bge-003:line-007",
+        "document_id": "doc-0071",
+        "chunk_id": "doc-0071:chunk-0016:bge-003",
+        "quote": "5. Pod must have RuntimeDiagnostics enabled"
+      },
+      {
+        "evidence_id": "doc-0071:chunk-0016:bge-003:line-008",
+        "document_id": "doc-0071",
+        "chunk_id": "doc-0071:chunk-0016:bge-003",
+        "quote": "6. Pod cannot have another action running (unless the forceJobExecution flag is used)"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0032:chunk-0010:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 32123,
+        "char_end": 33491,
+        "text": "**Data Masking Oneoff Job:**\n\nFor cases where the data masking is timed out ,there will be a replay shown for status check of the data masking.\n\n### Uptake P2T (Refresh) as a post pod action\n\nThis feature is now available as a **Pod Add-on**feature. User can now refresh a \"**TEST**\" type environment from a \"**Production**\" environment.\n\nAll BusinessApp Environments are created of type \"**Production\"**by default. To create a \"TEST\" type environment, be sure to use following option in Advanced Parameters. \n\n**Prerequisites  :**\n\n**Ideally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;**\n\n* The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same\n* User must take back-up of the Target environment before scheduling a refresh of the environment.\n\nThis takes around 5 to 7 hrs. \n\n**EnvironmentService REFRESH - Status One Off Check:**\n\nA refresh button is now enabled to perform one-off status check for REFRESH_POD\n\nAdditional information regarding the REFRESH use case:\n\nIdeally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;"
+      },
+      {
+        "chunk_id": "doc-0092:chunk-0001:bge-001",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "char_start": 0,
+        "char_end": 911,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-671>\n\nSupport Data Masking as post pod action\n---------------------------------------\n\nWe have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.\n\n**Note:**\n\n* Data masking will work for the releases for which DM template is already ingested.(Ex:GA,HWM ).\n\n**Feature not yet supported:**\n\n* Multiple data masking runs.\n\nMore details on Data Making: <https://docs.example.com/reference/resource-399>\n\n**Data Masking Oneoff Job:**\n\nFor cases where the data masking is timed out ,there will be a replay shown for status check of the data masking."
+      },
+      {
+        "chunk_id": "doc-0071:chunk-0016:bge-003",
+        "document_id": "doc-0071",
+        "parent_id": "doc-0028",
+        "title": "OnPod API User Guide",
+        "char_start": 80904,
+        "char_end": 81655,
+        "text": "**Restrictions**\n\n1. User must have the necessary roles (ROLE_FAMILY_ENV_ADV_POD_ACTIONS/ROLE_PREFLIGHT_ADV_POD_ACTIONS)\n2. User must belong to the same LOB or a parent LOB of the pod\n3. Pod cannot be deleted\n4. Pod must be EnvironmentService\n5. Pod must have RuntimeDiagnostics enabled\n6. Pod cannot have another action running (unless the forceJobExecution flag is used)\n\nresetBusinessAppAdminPasswordresetBusinessAppAdminPassword**Description:**\n\nTo reset the BusinessApp admin password on a EnvironmentService pod.\n\nEndpoint `https://api.example.com/reference/resource-636 \n\n**Sample Request:**\n\nEmacscurl -X 'POST' -H 'Authorization: auth' -F 'podName=<pod>' -F 'password=<password>' \\\nhttps://api.example.com/reference/resource-637 Response:**\n\n"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0009:bge-001",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 34458,
+        "char_end": 35458,
+        "text": "DESCRIPTION OF PARAMS:\nPlease use the following info for additional information on params. (For successful API call, please use correct format of JSON and params as mentioned above).\n{\n \"purpose\": \"\",\n \"lineOfBusiness\": \"\", //The LOB in which the pod should be provisioned. NOTE: A user can only submit pod for their primary or secondary LOB's and their child LOBs, if any.\n \"inputParameters\": {\n \"emailNotifications\": \"\", //Multiple emails should be separated by a ,\n \"stackConfiguration\": \"PreProduction\"\n \"businesssuiteEnvironmentType\": //businesssuiteEnvironmentType can have two possible values, production or test.\n \"templatePipelineHubId\": \"\" //Only for template based provisioning.\n \"faReleaseSet\": \"\"//Only for release based provisioning. This needs to be a string of a specific format: Version-Qualifier-TemplateType-ReleaseType.\n //Eg: For a Exa-IDENTITYSERVICE 23.04 Milestone-E Starter release set. The correct format will be 11.13.23.04.0-00000-Starter-Milestone-E:Exa-IDENTITYSERVICE.\n"
+      },
+      {
+        "chunk_id": "doc-0113:chunk-0003:bge-001",
+        "document_id": "doc-0113",
+        "parent_id": "doc-0054",
+        "title": "PipelineHub Preflight - Preflight Dashboard",
+        "char_start": 5640,
+        "char_end": 6529,
+        "text": "* `Hide`: Removes the record from normal dashboard results. It does not abort work and does not delete resources.\n* `Unhide`: Makes a hidden record visible again.\n* `Abort`: Stops an eligible in-progress preflight before the external provisioning or upgrade request has been submitted.\n* `Abort & Clean Template`: Stops eligible template creation and attempts cleanup.\n* `Delete`: Deletes or cleans up eligible pod resources.\n\n### **Recommended Workflows**\n\nTo check your active jobs:\n\n1. Set `View` to `My Preflights`.\n2. Keep `Status` as `IN_PROGRESS`.\n3. Click Search.\n4. Open the preflight ID for full details if a stage bubble or card status looks unexpected.\n\nTo find a failed job from your group:\n\n1. Set `View` to `My Group`.\n2. Set `Since` to the relevant time range.\n3. Set `Status` to `FAILED`.\n4. Optionally choose a submitter.\n5. Click Search.\n\nTo review all jobs for a LOB:\n\n"
+      },
+      {
+        "chunk_id": "doc-0115:chunk-0002:bge-003",
+        "document_id": "doc-0115",
+        "parent_id": "doc-0032",
+        "title": "Lifecycle Activities for EnvironmentLifecycleService on Fleet vs PipelineHub",
+        "char_start": 1884,
+        "char_end": 2770,
+        "text": "| 17 | Data Masking | Not supported | NA. |\n| 18 | Patch | Supported as any regular pod | Supported (Patch) - **Note: Make sure ALL types of patching is supported.** |\n| 19 | Run Tests | NA | **Action: This should NOT be supported but option is available on PIPELINEHUB. Need to hide.** |\n| 20 | Toggle Auto Scheduling | NA | **Action: This should NOT be supported but option is available on PIPELINEHUB. Need to hide.** |\n| 21 | Add a Feature Flag | NA | **Action: This should NOT be supported but option is available on PIPELINEHUB. Need to hide.** |\n| 22 | Delete a CloudNative Service | Same as ATE mentioned. Is Deletion allowed in ATE? | **Action: This should NOT be supported but option is available on PIPELINEHUB. Need to hide.** |\n| 23 | Add a ReleaseEngineering Form Tag | NA | **Action: This should NOT be supported but option is available on PIPELINEHUB. Need to hide.** |\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 11.474,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 468,
+        "prompt_tokens": 5269,
+        "total_tokens": 5737,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 7.8082
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 154,
+        "prompt_tokens": 5334,
+        "total_tokens": 5488,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.8552
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.808
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 8.6174
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 11.4738
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 11.4741
+    }
+  ],
+  "wall_seconds": 11.4849,
+  "token_usage": {
+    "prompt_tokens": 10603,
+    "completion_tokens": 622,
+    "total_tokens": 11225
+  },
+  "completed_at_utc": "2026-10-17T17:41:09.346303+00:00"
+}

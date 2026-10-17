@@ -1,0 +1,188 @@
+{
+  "id": "PH-G05",
+  "mode": "hybrid",
+  "question": "For a Python Lifecycle Hook container, which component type and ArtifactService Publish Type should I choose, and which CI step must be enabled?",
+  "run_status": "completed",
+  "result": {
+    "question": "For a Python Lifecycle Hook container, which component type and ArtifactService Publish Type should I choose, and which CI step must be enabled?",
+    "status": "answered",
+    "answer": "- For a Python Lifecycle Hook, select the component type MICROSERVICE_PYTHON_COMMON_COMPONENT. [doc-0108]\n- Set the ArtifactService Publish Type to None for Lifecycle Hooks. [doc-0108]\n- Configure the CI steps to include the Publish step to build the Lifecycle Hook as a Docker container. [doc-0108]\n\nSources:\n- [doc-0108] Lifecycle hooks CI/CD\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly identifies the component type as MICROSERVICE_PYTHON_COMMON_COMPONENT based on doc-0108. It correctly states the ArtifactService Publish Type should be 'None' as per doc-0108 Step 2. It also correctly identifies that the 'Publish' step must be included in the CI configuration to build the Docker container, citing doc-0108 Step 3. All claims are directly supported by the provided text for Lifecycle Hooks.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages explicitly outline the configuration steps for a Python Lifecycle Hook container, including the component type, publish type, and required CI step.",
+      "claims": [
+        {
+          "text": "For a Python Lifecycle Hook, select the component type MICROSERVICE_PYTHON_COMMON_COMPONENT.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0108:chunk-0001:bge-001:line-026"
+            }
+          ]
+        },
+        {
+          "text": "Set the ArtifactService Publish Type to None for Lifecycle Hooks.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0108:chunk-0001:bge-001:line-030"
+            }
+          ]
+        },
+        {
+          "text": "Configure the CI steps to include the Publish step to build the Lifecycle Hook as a Docker container.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0108:chunk-0001:bge-002:line-003"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "For a Python Lifecycle Hook, select the component type MICROSERVICE_PYTHON_COMMON_COMPONENT.",
+        "evidence_id": "doc-0108:chunk-0001:bge-001:line-026",
+        "quote": "* **MICROSERVICE_PYTHON_COMMON_COMPONENT**",
+        "document_id": "doc-0108",
+        "parent_id": "doc-0021",
+        "title": "Lifecycle hooks CI/CD",
+        "chunk_id": "doc-0108:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Set the ArtifactService Publish Type to None for Lifecycle Hooks.",
+        "evidence_id": "doc-0108:chunk-0001:bge-001:line-030",
+        "quote": "Choose the **ArtifactService Publish Type as \"None\"** and save.",
+        "document_id": "doc-0108",
+        "parent_id": "doc-0021",
+        "title": "Lifecycle hooks CI/CD",
+        "chunk_id": "doc-0108:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Configure the CI steps to include the Publish step to build the Lifecycle Hook as a Docker container.",
+        "evidence_id": "doc-0108:chunk-0001:bge-002:line-003",
+        "quote": "Configure the CI steps to include **Publish** step, then trigger the pipeline. This will build the Lifecycle Hooks and produce them as Docker containers.",
+        "document_id": "doc-0108",
+        "parent_id": "doc-0021",
+        "title": "Lifecycle hooks CI/CD",
+        "chunk_id": "doc-0108:chunk-0001:bge-002"
+      }
+    ],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0108:chunk-0001:bge-001",
+        "document_id": "doc-0108",
+        "parent_id": "doc-0021",
+        "title": "Lifecycle hooks CI/CD",
+        "char_start": 0,
+        "char_end": 1027,
+        "text": "**Overview:**\n-------------\n\nThis document outlines how to configure CI/CD for Lifecycle Hooks and subsequently consume them using PIPELINEHUB.\n\n**Usecase:**\n------------\n\nThis guide focuses on building a Lifecycle Hook as a Docker container and publishing it to the CloudNative Platform, enabling other microservices to utilize it afterward.\n\n**Source code languages supported:**\n------------------------------------\n\nPipelineHub supports signal handlers written in Java, Python, Go, and Golang\n\n**Configuration Steps:**\n------------------------\n\n### Step 1: Configure the right component type in your PipelineHub project\n\nInvolves choosing the right component type in your PipelineHub Project, one of depending on the source code language:\n\n* **MICROSERVICE_JAVA_COMMON_COMPONENT**\n* **MICROSERVICE_GO_COMMON_COMPONENT**\n* **MICROSERVICE_GOLANG_COMMON_COMPONENT**\n* **MICROSERVICE_PYTHON_COMMON_COMPONENT**\n\n### Step 2: Configure ArtifactService publish type\n\nChoose the **ArtifactService Publish Type as \"None\"** and save.\n\n"
+      },
+      {
+        "chunk_id": "doc-0108:chunk-0001:bge-002",
+        "document_id": "doc-0108",
+        "parent_id": "doc-0021",
+        "title": "Lifecycle hooks CI/CD",
+        "char_start": 1027,
+        "char_end": 2051,
+        "text": "### Step 3: Include Publish Step in CI and trigger pipeline\n\nConfigure the CI steps to include **Publish** step, then trigger the pipeline. This will build the Lifecycle Hooks and produce them as Docker containers.\n\n### Step 4: Reference Lifecycle Hooks in the Spec File of Another Workload Artifact\n\nIn the target workload artifact (e.g., a microservice application component) where the generated Lifecycle Hooks should be applied -\n\n#### Step 4.1: Modify the osspArtifact.yaml File to Include Lifecycle Hooks\n\nIn the **lifecycleHooks** section of the osspArtifact.yaml file (for the target workload artifact, a microservice application component), refer to the [Build Artifact Reference Resolution User Guide - BOM Format Instructions](#) for detailed guidance on how to substitute the newly generated Docker image.\n\n#### Step 4.2 Trigger pipeline\n\nInitiate the pipeline for this component. The Lifecycle Hooks from **Step 3** will be included in the artifact publish output.\n\n**Reporting Details:**\n----------------------"
+      },
+      {
+        "chunk_id": "doc-0105:chunk-0001:bge-004",
+        "document_id": "doc-0105",
+        "parent_id": "doc-0021",
+        "title": "Custom CI/CD Support for Generic Artifact",
+        "char_start": 2289,
+        "char_end": 3175,
+        "text": "### Step 2: Configure the right component type in your PipelineHub project\n\nInvolves choosing the right component type in your PipelineHub Project, one of depending on the source code language:\n\n* **MICROSERVICE_JAVA_COMMON_COMPONENT**\n* **MICROSERVICE_GO_COMMON_COMPONENT**\n* **MICROSERVICE_GOLANG_COMMON_COMPONENT**\n* **MICROSERVICE_PYTHON_COMMON_COMPONENT**\n\n### Step 3: Configure ArtifactService publish type and Specify Spec File in your source repo\n\nChoose the **ArtifactService Publish Type as \"Generic Artifact\"** and specify the path of your Generic Artifact Spec file (relative to source folder path) in the source repo in **\"ArtifactService Specification (JSON File Name)**\" field  \n\n### Step 4: Include Reference Resolution Step in CI\n\nConfigure the CI steps to include **Reference Resolution** step, then trigger the pipeline.\n\n**Reporting Details:**\n----------------------"
+      },
+      {
+        "chunk_id": "doc-0109:chunk-0001:bge-001",
+        "document_id": "doc-0109",
+        "parent_id": "doc-0021",
+        "title": "ArtifactService Specification Component Type - (CI/CD for Associations/TransactionDatabase Configs/EnvironmentService Proxy)",
+        "char_start": 0,
+        "char_end": 1003,
+        "text": "**Component Type / Example Usecases**\n-------------------------------------\n\n#### **Type**\n\nA new component type **“ArtifactService Specification (No Code)”** is being introduced under CloudNative Project Type\n\n* Serves usecases with only a ArtifactService specification file in the source repo that needs to published as an ArtifactService Artifact (Workload/Generic/Signal Handler)\n* A new parameter \"ArtifactService Publish Type\", which will dictate the ArtifactService publishing process. Following are the possible ArtifactService Publish Types:\n\n\t+ Workload Artifact\n\t+ Generic Artifact\n\t+ Signal Handler\n\t+ None\n\n#### **Usecases**\n\n**Workload Artifacts (Configs/Secrets Only):**\n\nExample:  TransactionDatabase Config & Secrets\n\n| Component Type | ArtifactService Publish Type | Comments |\n| --- | --- | --- |\n| ArtifactService Specification Only (No Code) | Workload Artifact | eg: * **<https://app.example.com/reference/resource-681>**\n* **<https://app.example.com/reference/resource-682>**\n |\n\n"
+      },
+      {
+        "chunk_id": "doc-0106:chunk-0001:bge-006",
+        "document_id": "doc-0106",
+        "parent_id": "doc-0021",
+        "title": "Custom Signal Handler CI/CD",
+        "char_start": 3859,
+        "char_end": 4739,
+        "text": "### Step 2: Configure the right component type in your PipelineHub project\n\nInvolves choosing the right component type in your PipelineHub Project, one of depending on the source code language:\n\n* **MICROSERVICE_JAVA_COMMON_COMPONENT**\n* **MICROSERVICE_GO_COMMON_COMPONENT**\n* **MICROSERVICE_GOLANG_COMMON_COMPONENT**\n* **MICROSERVICE_PYTHON_COMMON_COMPONENT**\n\n### Step 3: Configure ArtifactService publish type and Specify Spec File in your source repo\n\nChoose the **ArtifactService Publish Type as \"Signal Handler\"** and specify the path of your signalHandlerSpec file (relative to source folder path) in the source repo in **\"ArtifactService Specification (JSON File Name)**\" field  \n\n### Step 4: Include Reference Resolution Step in CI\n\nConfigure the CI steps to include **Reference Resolution** step, then trigger the pipeline.\n\n**Reporting Details:**\n----------------------"
+      },
+      {
+        "chunk_id": "doc-0107:chunk-0001:bge-005",
+        "document_id": "doc-0107",
+        "parent_id": "doc-0021",
+        "title": "Custom Signal Handler CI/CD Support",
+        "char_start": 3290,
+        "char_end": 4115,
+        "text": "Step 2\n------\n\nInvolves choosing the right component type in your PipelineHub Project, one of depending on the source code language:\n\n* **MICROSERVICE_JAVA_COMMON_COMPONENT**\n* **MICROSERVICE_GO_COMMON_COMPONENT**\n* **MICROSERVICE_GOLANG_COMMON_COMPONENT**\n* **MICROSERVICE_PYTHON_COMMON_COMPONENT**\n\nStep 3\n------\n\nChoose the **ArtifactService Publish Type as \"Signal Handler\"** and specify the path of your signalHandlerSpec file (relative to source folder path) in the source repo in **\"ArtifactService Specification (JSON File Name)**\" field  \n\n**Reporting Details:**\n----------------------\n\nAs part of this initial rollout, PipelineHub only supports CD for signal handlers where a single docker container is produced as part of Common Component CI. Support for multiple docker containers is part of our upcoming sprints."
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 7.021,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 296,
+        "prompt_tokens": 5334,
+        "total_tokens": 5630,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.5448
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 135,
+        "prompt_tokens": 5151,
+        "total_tokens": 5286,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.6738
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7996
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 4.3453
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 7.0206
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 7.0211
+    }
+  ],
+  "wall_seconds": 7.0321,
+  "token_usage": {
+    "prompt_tokens": 10485,
+    "completion_tokens": 431,
+    "total_tokens": 10916
+  },
+  "completed_at_utc": "2026-10-17T17:40:23.698862+00:00"
+}

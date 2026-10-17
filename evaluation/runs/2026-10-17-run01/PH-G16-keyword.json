@@ -1,0 +1,214 @@
+{
+  "id": "PH-G16",
+  "mode": "keyword",
+  "question": "I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?",
+  "run_status": "completed",
+  "result": {
+    "question": "I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The draft fails to answer the specific question regarding 'which overrides need review' when copying an active-release pod provisioning record; the provided evidence discusses Granular SSH group management but contains no information about copying records or reviewing overrides in that context. Additionally, the draft claims one must enter 'non-PIPELINEHUB GUIDs', whereas the evidence explicitly states to enter GUIDs of users 'not in PipelineHub' (implying they could be external, not necessarily non-PipelineHub format) and omits the critical caveat from doc-0094:chunk-0001:bge-001:line-022 which warns: 'If a required group is absent, do not substitute an unrelated group; verify the target LOB and group configuration first.' The draft also conflates roles, citing ROLE_GRANULAR_SSH_USER_MAN垢",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages contain specific procedures for creating SSH groups when they do not exist, the required role for this action, the fields that must be reviewed during creation, and the constraints for selecting groups during the post-pod action.",
+      "claims": [
+        {
+          "text": "An admin with the ROLE_GRANULAR_SSH_USER_MANAGEMENT role must create the missing group in Granular SSH Group Management before the post-pod action can proceed.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-008"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-001:line-013"
+            }
+          ]
+        },
+        {
+          "text": "When creating the new group, review the Group Name (letters and spaces only), Description, and Line of Business fields to ensure they match requirements.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-017"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-018"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-019"
+            }
+          ]
+        },
+        {
+          "text": "Add members by selecting registered PipelineHub users or entering valid non-PIPELINEHUB GUIDs as comma-separated values, then select Add Selected Users to stage them.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-020"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-021"
+            }
+          ]
+        },
+        {
+          "text": "Select Save Changes to finalize the group creation, as the Add Selected Users button only stages users for review without creating the group.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-023"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-024"
+            }
+          ]
+        },
+        {
+          "text": "Return to the Granular SSH post-pod action and select the newly created group, ensuring you select no more than three groups total.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-025"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-002"
+            }
+          ]
+        },
+        {
+          "text": "Review the selected groups and the target pod before proceeding, as the action lists only groups associated with the target pod's LOB.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-002:line-003"
+            },
+            {
+              "evidence_id": "doc-0094:chunk-0001:bge-001:line-011"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0094:chunk-0001:bge-002",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "char_start": 1270,
+        "char_end": 2594,
+        "text": "\t* Select only the groups necessary for the request.\n\t* Select no more than **three** groups.\n5. Review the selected groups and the target pod before proceeding.\n\nPrepare or update groups before the action\n------------------------------------------\n\nIf the required group does not exist or has incorrect membership, an admin with **ROLE_GRANULAR_SSH_USER_MANAGEMENT** can update it in **Granular SSH Group Management**.\n\n1. Open **Granular SSH Group Management** from the left navigation pane.\n2. If you can access multiple LOBs, select the intended LOB.\n3. Create a group with **Create New Group**, or select the existing group's **Edit** icon.\n4. For a new group, provide:\n\n| Field | Requirement |\n| --- | --- |\n| **Group Name** | Letters and spaces only. |\n| **Description** | A brief, non-sensitive statement of the group's purpose. |\n| **Line of Business** | The LOB in which the group must be available. |\n5. Add members either by selecting registered PipelineHub users or by entering valid non-PIPELINEHUB GUIDs as comma-separated values.\n6. Select **Add Selected Users** to stage the users for review.\n\nThis does not create or update the group by itself.\n7. Verify the membership, then select **Save Changes** to create or update the group.\n8. Return to the Granular SSH post-pod action and select the updated group."
+      },
+      {
+        "chunk_id": "doc-0094:chunk-0001:bge-001",
+        "document_id": "doc-0094",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+        "char_start": 0,
+        "char_end": 1270,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-673>\n\nPurpose\n-------\n\nUse the \\***Granular SSH**\\* post-pod action to grant SSH access to the users contained in approved Granular SSH groups. Instead of selecting individual users during the action, you select one or more pre-defined groups associated with the target pod's Line of Business (LOB).\n\nPrerequisites\n-------------\n\n* Granular SSH groups are LOB-specific. The action lists only groups associated with the target pod's LOB.\n* You can select a maximum of \\***three groups**\\* in one Granular SSH post-pod action.\n* **ROLE_GRANULAR_SSH_USER_MANAGEMENT** role is required to create and manage these groups. Ensure the needed groups already exist before submitting the pod action.\n\nSubmit a Granular SSH post-pod action\n-------------------------------------\n\n1. Open the PipelineHub post-pod action flow for the target pod.\n2. Select **Granular SSH** as the post-pod action.\n3. Review the groups presented by PIPELINEHUB.\n\nPipelineHub shows groups associated with the target pod's LOB. If a required group is absent, do not substitute an unrelated group; verify the target LOB and group configuration first.\n4. Select the group or groups that contain the intended SSH users.\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0034:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 102063,
+        "char_end": 103292,
+        "text": "Admins can create new user group lists by clicking \"Create New Group\"\n\n1. **Group Name:** any valid group name for the list of users you are adding (only char and space is allowed)\n2. **Description**: brief description of what this group is\n3. **Line of Business:** which LOB does this group get associated with\n4. **Select users to add to the group:**\n\t1. **Registered Users in PipelineHub:** select GUIDS from the users registered in PipelineHub\n\t2. **GUIDs/Users not in PipelineHub:** add comma separated values of valid GUIDs of user not in PipelineHub\n5. **Add Selected Users:** this will add all the users you have selected (Group not created at this point - this is only for review)\n6. **Save Changes:** This will create/update the group\n\nTo EDIT the existing group, simply click the Edit icon and it will open up the users in the group, this list can be modified either by adding or deleting the users\n\nNow during the actual post pod action on the pod, Granular SSH will now list the groups associated with the LOB and up to 3 maximum can be selected.\n\n### Granular SSH User Management Dashboard:\n\nAdmins can now create/manage user lists to perform Granular SSH Access on a POD. This requires a Role - ROLE_LOB_OPS_ADMIN."
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0034:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 100715,
+        "char_end": 102063,
+        "text": "We have now enabled granular ssh support for the LOBS/SUB-LOBS \n\nIf pipelinehub admin update metadata for user's LOB/Sub-LOB with a 'SubHostClass' , then that users pod will have granular ssh profile by default and on pipelinehub UI it can seen as a new stage post monitoring ,\n\nWe can also setUp granualSSH as post pod action and the pod is associated with the granular ssh profile associated with the LOB/SUB-LOB under which the pod is created. For more details, please refer to [Granular SSH access to EnvironmentService PODs](https://docs.example.com/reference/resource-417)\n\nThere are use cases when the pods get moved from one LOB to other LOB or SUB LOB or use cases where the granular ssh access need to be revoked and the pod to be made available for a generic SSH , in all those cases PipelineHub supports this new post pod action that will allow the pod owners to associate/ disassociate a given granular ssh profile on the pod.\n\n### Granular SSH User Management Dashboard:\n\nAdmins can now create/manage user lists to perform Granular SSH Access on a POD. This requires a Role - ROLE_LOB_OPS_ADMIN.\n\nGranular SSH Group Management option is available on the left hand side navigation option. \n\nIf the user is a super admin or has access to multiple LOBs, selecting the desired LOB will bring up the existing user lists that are created.\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0035:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 103294,
+        "char_end": 104277,
+        "text": "Granular SSH Group Management option is available on the left hand side navigation option. \n\nIf the user is a super admin or has access to multiple LOBs, selecting the desired LOB will bring up the existing user lists that are created.\n\nAdmins can create new user group lists by clicking \"Create New Group\"\n\n1. **Group Name:** any valid group name for the list of users you are adding (only char and space is allowed)\n2. **Description**: brief description of what this group is\n3. **Line of Business:** which LOB does this group get associated with\n4. **Select users to add to the group:**\n\t1. **Registered Users in PipelineHub:** select GUIDS from the users registered in PipelineHub\n\t2. **GUIDs/Users not in PipelineHub:** add comma separated values of valid GUIDs of user not in PipelineHub\n5. **Add Selected Users:** this will add all the users you have selected (Group not created at this point - this is only for review)\n6. **Save Changes:** This will create/update the group\n\n"
+      },
+      {
+        "chunk_id": "doc-0113:chunk-0003:bge-001",
+        "document_id": "doc-0113",
+        "parent_id": "doc-0054",
+        "title": "PipelineHub Preflight - Preflight Dashboard",
+        "char_start": 5640,
+        "char_end": 6529,
+        "text": "* `Hide`: Removes the record from normal dashboard results. It does not abort work and does not delete resources.\n* `Unhide`: Makes a hidden record visible again.\n* `Abort`: Stops an eligible in-progress preflight before the external provisioning or upgrade request has been submitted.\n* `Abort & Clean Template`: Stops eligible template creation and attempts cleanup.\n* `Delete`: Deletes or cleans up eligible pod resources.\n\n### **Recommended Workflows**\n\nTo check your active jobs:\n\n1. Set `View` to `My Preflights`.\n2. Keep `Status` as `IN_PROGRESS`.\n3. Click Search.\n4. Open the preflight ID for full details if a stage bubble or card status looks unexpected.\n\nTo find a failed job from your group:\n\n1. Set `View` to `My Group`.\n2. Set `Since` to the relevant time range.\n3. Set `Status` to `FAILED`.\n4. Optionally choose a submitter.\n5. Click Search.\n\nTo review all jobs for a LOB:\n\n"
+      }
+    ],
+    "handoff": {
+      "question": "I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?",
+      "reason": "The draft fails to answer the specific question regarding 'which overrides need review' when copying an active-release pod provisioning record; the provided evidence discusses Granular SSH group management but contains no information about copying records or reviewing overrides in that context. Additionally, the draft claims one must enter 'non-PIPELINEHUB GUIDs', whereas the evidence explicitly states to enter GUIDs of users 'not in PipelineHub' (implying they could be external, not necessarily non-PipelineHub format) and omits the critical caveat from doc-0094:chunk-0001:bge-001:line-022 which warns: 'If a required group is absent, do not substitute an unrelated group; verify the target LOB and group configuration first.' The draft also conflates roles, citing ROLE_GRANULAR_SSH_USER_MAN垢",
+      "source_ids": [
+        "doc-0094",
+        "doc-0032",
+        "doc-0113"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 10.804,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 905,
+        "prompt_tokens": 5897,
+        "total_tokens": 6802,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 7.8314
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 217,
+        "prompt_tokens": 6204,
+        "total_tokens": 6421,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.8779
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0922
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 7.9249
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 10.8036
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 10.8038
+    }
+  ],
+  "wall_seconds": 10.806,
+  "token_usage": {
+    "prompt_tokens": 12101,
+    "completion_tokens": 1122,
+    "total_tokens": 13223
+  },
+  "completed_at_utc": "2026-10-17T17:40:16.665288+00:00"
+}

@@ -1,0 +1,128 @@
+{
+  "id": "PH-G20",
+  "mode": "semantic",
+  "question": "How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.",
+  "run_status": "completed",
+  "result": {
+    "question": "How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The provided documentation does not contain information on configuring a native Jira Service Management connector to automatically open an incident upon deployment failure. The available excerpts describe manual Jira ticket filing procedures, linking Jira issues to merge requests, and updating Jira status after a build completes, but they do not cover the specific automation of incident creation via a connector or list the required API scopes for such a configuration.",
+    "draft": {
+      "decision": "escalate",
+      "reason": "The provided documentation does not contain information on configuring a native Jira Service Management connector to automatically open an incident upon deployment failure. The available excerpts describe manual Jira ticket filing procedures, linking Jira issues to merge requests, and updating Jira status after a build completes, but they do not cover the specific automation of incident creation via a connector or list the required API scopes for such a configuration.",
+      "claims": [],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0001:chunk-0005:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 11246,
+        "char_end": 12160,
+        "text": "\t+ This support is available for source repos in GitService GitService only (not for GitPortal/Gitlab)\n\t+ Configure your GitService GitService Source Repo to ensure Linked Issues section shows up - Refer this [GitService document](https://docs.example.com/reference/resource-012)\n\t+ Once above is done, PipelineHub will automatically report on Jiras linked to your MRs (as linked issues) in the Merge Requests Section\n\t+ \n\t+ The jiras fixed in the build will also be shown under Linked Issues\n\t+ \n\t+ In addition, If you would like PipelineHub to update the jiras after a build completes with status updates & build links, please perform the following steps:\n\t\t- Provide [user005@example.com](mailto:user005@example.com) user update access to your jiraboard (this is the user PipelineHub will use to update jiras)\n\t\t- Set the UpdateJiraStatus flag to true in Project Config → Common Section\n\t\t-\n\t+ **Jira Updates**\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0001:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 0,
+        "char_end": 1198,
+        "text": "PipelineHub is an illustrative platform for continuous integration, delivery, and release management.\n\n \n\n**Video Based Tutorial**\n\n**<https://training.example.com/reference/resource-002>**\n\n* BusinessApp Project Configuration\n* How to navigate through Project Pipeline Dashboard\n* How to navigate through Project Details\n* How to navigate through Validation Results\n* How to navigate through Build Results\n* How to navigate through Deployment Results\n* How to navigate through Test Results\n\n**Guide through Frequently Asked Questions (FAQ)**\n--------------------------------------------------\n\n* ### What is PipelineHub?\n\n\t+ PipelineHub is the platform for Continuous Integration/Continuous Delivery (CI/CD) and Release Management of BusinessApplications.\n\t+ It supports both monolithic and cloud-native applications built with Microservices, AppPackages, Visual Builder UI & LowCode.\n\t+ To integrate your application's source code into PipelineHub for CI/CD, you must register each repository as a PipelineHub project. Before starting this process, please familiarize yourself with the [supported project types](https://docs.example.com/reference/resource-003).\n* ### How to Access PipelineHub?\n\n"
+      },
+      {
+        "chunk_id": "doc-0033:chunk-0007:bge-003",
+        "document_id": "doc-0033",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform Preflight and Family PODs - Bug Logging Guidelines",
+        "char_start": 22774,
+        "char_end": 24038,
+        "text": "* **CloudNative Specific**: [how-to-file-effective-incident-jira-tickets-on-the-cloudnative-platform](https://docs.example.com/reference/resource-430)\n\nSteps to file JIRA with CloudNative Platform* Click link to file incident with CloudNativeV3:  <https://issues.example.com/reference/resource-476>\n* Click link to [**CloudNative Platform Incident (v3)**](https://issues.example.com/reference/resource-210)\n* Fillin these Values\n\t+ Summary - This is a Summary of the incident ... Example: Pod ABCDEFGHI failed to deploy CloudNative Environment due to okeinfra issue\n\t+ Fleet - The name of the CloudNative V3 Fleet ... This information can be found in the PipelineHub UI as the attribute \"Fleet\"\n\t+ Environment Name - This is the same as the POD Name (otherwise known as the System Name in the DevOps Portal\n\t+ Impact Start Time - Click on the Clock icon and supply a value, usually use the current time\n\t+ Description - Supply a Description of the issue (what steps did you perform to self-triage the issue and determine issue needs to be filed with CloudNative Platform)\n\t+ Press the CREATE button to submit the incident\n### Example Steps to File JIRA with DiagnosticsPlatform\n\n* **DiagnosticsPlatform Specific**: <https://docs.example.com/reference/resource-427>"
+      },
+      {
+        "chunk_id": "doc-0044:chunk-0001:bge-001",
+        "document_id": "doc-0044",
+        "parent_id": "doc-0001",
+        "title": "Tagging support for Nomination - Services & AppPackages",
+        "char_start": 0,
+        "char_end": 704,
+        "text": "Requirement\n-----------\n\nCentral JIRAadf9d0b9-328f-38b2-a954-2899436ad300CloudNativeCICD-17323\n\nTo automate and standardize the nomination process used by Microservice and AppPackage development teams to identify which artifact versions should be promoted into specific CWB or sprint-exit service version. \n\n**Problem Statement:** While PipelineHub currently supports tagging at the cloudnative service/application version level, it does not support the component/artifact-level tagging at the CI/CD pipeline or snapshot level today, and auditability required for automated downstream validations and service-version creation.\n\nHigh level support\n------------------\n\n### 1. Nomination Tags\n\n### Purpose\n\n"
+      },
+      {
+        "chunk_id": "doc-0033:chunk-0002:bge-002",
+        "document_id": "doc-0033",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform Preflight and Family PODs - Bug Logging Guidelines",
+        "char_start": 2447,
+        "char_end": 3150,
+        "text": "\t+ Please add the label **releaseengineering-preflight** label as mandate to the Jira Ticket if the issue is for \"Preflight\" job to give extra visibility\n* **Important Notes** \n\t+ *Manual jar patching, or any pod related operations done outside of PipelineHub is not supported.*\n\t+ Please note all work on support issues is handled in JIRAs. Please do not Slack/Text team members directly for work on issues.\n\t+ All tracked work must be in JIRAs, including requests for updates since the Jira queue is what we work from.\n\t+ \\*\\*\\*IMPORTANT: For any post provisioning / pod health related environment issue, please DO NOT log PLATFORM_PREFLIGHT Jira\n* **Known Issues:** If you need to submit a **KIWI**:\n"
+      },
+      {
+        "chunk_id": "doc-0033:chunk-0005:bge-003",
+        "document_id": "doc-0033",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform Preflight and Family PODs - Bug Logging Guidelines",
+        "char_start": 16187,
+        "char_end": 17075,
+        "text": "| LowCode | Please review the On-boarding document<https://docs.example.com/reference/resource-516>. | #businessapp-lowcode-cicd-support (releaseengineering)#cloudnative-ui-infra-users (ui-infra) |  |\n| DevOps |   | #environmentservice-devops-portal-support |  |\n| Language | FALCMUPG (Jira cloudplatform)/ Component: FALANGPACK |   |  |\n| NGI / Template failing at CLOUDPLATFORM_VM | [EEIMAGE](https://issues.example.com/reference/resource-517)  | #ee-ngi-prod-support |  |\n| octo |   | #saas-observability-users |  |\n| Prepare BuildAcceptanceTests  | * EnvironmentServiceHCP / Functional Tests\n* Upload Demo Users : 2230/ ExampleCo BusinessSuite Functional Setup Manager / ATS_QA or Jira ASM (sample jira: [DEMO-013](https://issues.example.com/reference/resource-518))\n |   |  |\n\nPipelineHub CloudPlatform Failures: Who/When to Log JIRA/BUG:\n--------------------------------------------"
+      }
+    ],
+    "handoff": {
+      "question": "How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.",
+      "reason": "The provided documentation does not contain information on configuring a native Jira Service Management connector to automatically open an incident upon deployment failure. The available excerpts describe manual Jira ticket filing procedures, linking Jira issues to merge requests, and updating Jira status after a build completes, but they do not cover the specific automation of incident creation via a connector or list the required API scopes for such a configuration.",
+      "source_ids": [
+        "doc-0001",
+        "doc-0033",
+        "doc-0044"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 2.976,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 111,
+        "prompt_tokens": 4790,
+        "total_tokens": 4901,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.2888
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.6865
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 2.9757
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 2.9758
+    }
+  ],
+  "wall_seconds": 2.9829,
+  "token_usage": {
+    "prompt_tokens": 4790,
+    "completion_tokens": 111,
+    "total_tokens": 4901
+  },
+  "completed_at_utc": "2026-10-17T17:39:46.814608+00:00"
+}

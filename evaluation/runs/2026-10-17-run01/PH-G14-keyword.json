@@ -1,0 +1,178 @@
+{
+  "id": "PH-G14",
+  "mode": "keyword",
+  "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+  "run_status": "completed",
+  "result": {
+    "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The draft correctly answers the MFA portion of the question using the provided evidence (doc-0098), confirming that BuildAcceptanceTests automatically disable MFA regardless of manual settings. The claims regarding tracking the build are supported by the text in doc-0001. However, the draft fails to fully answer the user's question on 'how do I start BuildAcceptanceTests'. The provided evidence (doc-0060) lists parameters like 'BuildAcceptanceTests Config' and mentions 'DeploymentTemplate Run Tests submissions', but the draft does not include the specific steps or commands to initiate these tests (e.g., navigating to a specific menu, selecting a template, or clicking a specific 'Run' button). Without instructions on the initiation mechanism, the answer is incomplete.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages contain specific instructions on how BuildAcceptanceTests affect MFA settings and general guidance on locating build status in PipelineHub.",
+      "claims": [
+        {
+          "text": "When BuildAcceptanceTests are triggered, they will automatically disable MFA on the POD regardless of any manual user settings or post-provisioning actions.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "Users should not expect manually enabled MFA settings to remain active during a BuildAcceptanceTests run, as the tests cannot run with MFA enabled.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "To track the status of BuildAcceptanceTests, navigate to the Project Pipeline and filter for the specific project.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0001:chunk-0006:bge-001:line-007"
+            }
+          ]
+        },
+        {
+          "text": "Selecting the Build/Pipeline Run will display all transactions and show if the transaction has been built.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0001:chunk-0006:bge-001:line-014"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0098:chunk-0001:bge-001",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "char_start": 0,
+        "char_end": 1165,
+        "text": "Toggle MFA (Multi-Factor Authentication) \n\n1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs.\n2. if MFA is disabled then the users will be able to login with user name and password on the IdentityService and IdentityService/ManagedDatabase pods\n3. if the MFA is enabled user will be prompted for extra authentication to be able to login to the PODs\n4. if BuildAcceptanceTests are triggered, BuildAcceptanceTests will automatically disable the MFA on the POD as BuildAcceptanceTests cannot run with MFA on, so when BuildAcceptanceTests are triggered the assumption is that MFA will be disabled (this will be done during the BuildAcceptanceTests run) , irrespective of what the user has done during prov or post prov action.\n\nEligible PODS (IdentityService) will have the option in the post pod actions - TOGGLE MFA\n\nThe user will be able to ENABLE MFA or DISABLE MFA based on the option selected (true or false)"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0006:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 14367,
+        "char_end": 15444,
+        "text": "* ### My integrator advised me to look at the Build Status via PipelineHub - how do I start that?\n\n\t+ Navigate to the default home page and search Or pick from the recently searched project.\n\n* + Search for your series or project name (you can just type in part of the name) and select the appropriate one.\n\n* + Navigate to the Project Pipeline and filter to the project you are looking for\n* My manager/integrator advised me to check the status of my WorkspaceCLI transaction via PipelineHub - how do I do that?\n\t+ Search for your series or project name (you can just type in part of the name) and select the appropriate one to navigate to Project Details page.\n\t+ Look for the section below Merge Requests that lists all the transactions in the recent past::\n\n* ### I have merged an WorkspaceCLI transaction and I do not see it is built yet, where do I check in PipelineHub what is happening with it?\n\n\t+ In the screenshot above it shows if the transaction is built or not. Additionally, you can select on the Build/Pipeline Run and that will show you all the transactions.\n\n"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0006:bge-001",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 14670,
+        "char_end": 16278,
+        "text": "Filter tag All is now defaulted for all DeploymentTemplate Run Tests submissions. This will be empty for STARTER jobs.   \n\nReference - <https://issues.example.com/reference/resource-416>\n\nReach out to BusinessApp QA to get details about values that can be used for these parameters. \n\nTesting Parameters: \n\n* `AcceptanceTests Label`\n* `Order prop`\n* `Filter tags`\n* `BuildAcceptanceTests Config`\n* Git Branch\n* `Additional Params`\n\n#### BATSnapper Integration to BuildAcceptanceTests for PSR\n\n* To enable BATSnapper, the user must include `ENABLE_BATSNAPPER=true` in the `Additional Params` when submitting BuildAcceptanceTests.\n* Previously, BATSnapper’s pre-buildacceptancetests and post-buildacceptancetests hooks were called only once. With this update, these hooks will be called every time the user re-runs the tests.\n* This feature is available only when BATSnapper is enabled.\n\n### ManagedDatabase Enabled Flag\n\nEnvironmentService-Uptake ManagedDatabase Flag in provisioning submissions. If the template is ManagedDatabase enabled. This is for the users who wants to use PipelineHub for ADBS provisioning jobs. \n\nthis is a requirement for LifecycleManager to be able to use PipelineHub for ADBS prov\n\nSupport Enabled DB info check box for EnvironmentService provisioning\n\nPipelineHub now support with \"Enabled DB info\" check box feature for EnvironmentService provisioning which works exactly like GEN1.\n\n \n\nX86 is defaulted for provisioning, ARM Pods are based on user selection \n\nX86 is now the default for POD provisioning. User should click \"***Provision an ARM64 pod***\" if they want an ARM pod."
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0004:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 7385,
+        "char_end": 8286,
+        "text": "\t+ Ensure that no one else had configured such a project in PIPELINEHUB. Just search for the name of the WorkspaceCLI series and it will guide you.\n\t+ If your WorkspaceCLI series is not visible in PipelineHub, please configure them in PipelineHub using the simple steps in the Project Configuration screen.\n* ### I have my source code in a Git based (GitPortal/GitService/Gitlab) Source Repo, how do I start with the CI/CD Pipeline using PipelineHub?\n\n\t+ Onboard your project to PipelineHub using steps defined in one of the following pages based on the project type: \"\"\n* ### How do I find the ProjectId for my GitPortal/Gitlab Source Code Repo?\n\n\t+ The projectId for your GitPortal Source code Repo can be found on the home page of the project.\n\t+ Example: For PipelineHub source code repo, you can see the project Id as given below:\n* ### How do I find the Org for my GitService Source Code Repo?\n\n"
+      },
+      {
+        "chunk_id": "doc-0017:chunk-0004:bge-003",
+        "document_id": "doc-0017",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (CloudNative)",
+        "char_start": 10527,
+        "char_end": 11266,
+        "text": "How do I trigger a custom build (selected components build) on my project?\n--------------------------------------------------------------------------\n\n* When in the trigger pipeline dialog shown above, select \"Selected\" option\n* Advanced Options expands by default\n* \n\nHow do I override pipeline steps to be run during an adhoc build?\n-----------------------------------------------------------------\n\n* For either All/Impacted/Selected use case, expand Advanced Options\n* Override pipeline steps for each component\n* eg. (selected scenario)\n* \n\nHow do I skip build of dependent components?\n--------------------------------------------\n\n* For Impacted or Selected use case, expand Advanced Options\n* Uncheck Build Dependent Components\n* \n\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0003:bge-002",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 6401,
+        "char_end": 7383,
+        "text": "\t+ Login in to PipelineHub → Navigate to **My Profile** Page from the user dropdown menu on the top right corner to see a screen like below.\n\t+ \n\t+ Click on edit button next to Secondary LOBs label. The below screen will pop-up.\n\t+ \n\t+ From the Desired Secondary LOB(s) drop-down you can select single or multiple Secondary LOB(s) and provide justification.\n\t+ Click on Submit and PipelineHub will trigger a mail to the manager for approval.\n\t+ Once manager approves your request, the changes will reflect in your profile.\n* ### I have been authorized to perform activities in PipelineHub, but when I login I do not see any action buttons or it says not authorized\n\n\t+ Please make sure to logout and login (using SSO) after you are authorized\n\t+ If the problem persists, please send an email to [user001@example.com](mailto:user001@example.com) describing the nature of the issue\n* ### I have my source code in WorkspaceCLI, how do I start with the CI/CD Pipeline using PipelineHub?"
+      }
+    ],
+    "handoff": {
+      "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+      "reason": "The draft correctly answers the MFA portion of the question using the provided evidence (doc-0098), confirming that BuildAcceptanceTests automatically disable MFA regardless of manual settings. The claims regarding tracking the build are supported by the text in doc-0001. However, the draft fails to fully answer the user's question on 'how do I start BuildAcceptanceTests'. The provided evidence (doc-0060) lists parameters like 'BuildAcceptanceTests Config' and mentions 'DeploymentTemplate Run Tests submissions', but the draft does not include the specific steps or commands to initiate these tests (e.g., navigating to a specific menu, selecting a template, or clicking a specific 'Run' button). Without instructions on the initiation mechanism, the answer is incomplete.",
+      "source_ids": [
+        "doc-0098",
+        "doc-0001",
+        "doc-0060",
+        "doc-0017"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 7.359,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 408,
+        "prompt_tokens": 5111,
+        "total_tokens": 5519,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 4.2057
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 200,
+        "prompt_tokens": 5022,
+        "total_tokens": 5222,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.0711
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0804
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 4.2867
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 7.359
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 7.3592
+    }
+  ],
+  "wall_seconds": 7.3715,
+  "token_usage": {
+    "prompt_tokens": 10133,
+    "completion_tokens": 608,
+    "total_tokens": 10741
+  },
+  "completed_at_utc": "2026-10-17T17:40:46.824614+00:00"
+}

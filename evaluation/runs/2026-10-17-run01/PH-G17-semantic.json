@@ -1,0 +1,119 @@
+{
+  "id": "PH-G17",
+  "mode": "semantic",
+  "question": "Can I restore this pod to the version we used before?",
+  "run_status": "completed",
+  "result": {
+    "question": "Can I restore this pod to the version we used before?",
+    "status": "needs_clarification",
+    "answer": "Do you have the name of the specific backup you wish to restore from, and are you looking to perform an N-1 (previous version) restore?",
+    "evidence_reason": "The provided documentation describes two distinct restore operations: restoring to the same version and restoring to a previous version (N-1 or GRP). The user's request to restore to a 'version we used before' implies a version change, but the specific parameters (like backup name) and the exact target state need to be confirmed to select the correct API payload structure.",
+    "draft": {
+      "decision": "clarify",
+      "reason": "The provided documentation describes two distinct restore operations: restoring to the same version and restoring to a previous version (N-1 or GRP). The user's request to restore to a 'version we used before' implies a version change, but the specific parameters (like backup name) and the exact target state need to be confirmed to select the correct API payload structure.",
+      "claims": [],
+      "clarification": "Do you have the name of the specific backup you wish to restore from, and are you looking to perform an N-1 (previous version) restore?"
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0028:chunk-0012:bge-002",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 47804,
+        "char_end": 48675,
+        "text": "EXAMPLE PAYLOAD AND FORMAT FOR SAME VERSION RESTORE:\n{\n  \"purpose\" : \"Testing restore API\",\n \"inputParameters\" : {\n \"podName\" : \"ELNK\",\n \"backupName\" : \"TEST_DEMO\",\n \"isSameVersionRestore\" : \"true\",\n \"emailNotifications\":\"Demo user025@example.com\"\n }\n}**All the fields in the above format not marked as optional are necessary and must be passed with valid values.**\n\n* **For GRP restore OR N-1.**\n\n**Note : isSameVersionRestore needs to be false**\n\nEXAMPLE PAYLOAD AND FORMAT FOR SAME VERSION RESTORE:\n{\n  \"purpose\" : \"Testing restore API\",\n    \"inputParameters\" : {\n \"podName\" : \"ELNK\",\n \"isSameVersionRestore\" : \"false\",\n \"emailNotifications\":\"Demo user025@example.com\"\n }\n}**All the fields in the above format not marked as optional are necessary and must be passed with valid values.**\n\n### **OUTPUT**\n\nOutput{\n \"status\": \"SUCCESS\",\n \"message\": \"<preflight-id>\"\n}  \n\n"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0002:bge-001",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 4338,
+        "char_end": 4940,
+        "text": "true{\n \"podName\": \"demo-environment\",\n \"patchType\": \"USER_GEN\",\n \"patchTypeEntities\": {\n \"previousLabel\": \"BUSINESSAPPLICATIONS_PT.V2MIBHCMSILVER_LINUX.X64_240221.1640\",\n \"targetLabel\": \"BUSINESSAPPLICATIONS_PT.V2MIBHCMSILVER_LINUX.X64_240322.2200.S\",\n \"userGenPatchType\" : \"L2L/FULL_LABEL_CONTENT/SINGLE_TXN\", //Optional, needed for 25.10+ release where we have PSR and Vector artifacts\n\n \"patchBundleLocation\": \"/net/host-017.example.com/scratch/demo-user/patches/silver/\",\n \"patchFiles\": [\n \"p36447961_111324070_BusinessSuite_GENERIC.zip\",\n \"p36447962_111324070_BusinessSuite_Linux-ARM-64.zip\"\n ],\n\n"
+      },
+      {
+        "chunk_id": "doc-0025:chunk-0001:bge-002",
+        "document_id": "doc-0025",
+        "parent_id": "doc-0001",
+        "title": "PipelineHub Preflight and Family Guide",
+        "char_start": 734,
+        "char_end": 1079,
+        "text": "Pod Actions\n===========\n\nCopy Provisioning Job\n---------------------\n\nRun Tests\n---------\n\nBounce BusinessApp Services and IDM Services\n-----------------------------------\n\nPod Backup/Restore/Delete\n-------------------------\n\nPod P2T Refresh\n---------------\n\nPod Resize and Pod Scale-out\n----------------------------\n\nGranular SSH\n------------\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0011:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 33493,
+        "char_end": 34785,
+        "text": "* dbChange(add new column before refresh) == will be refreshed from SOURCE\n* language pack (add extra lang before refresh) ==  **not carried over**\n* \\*toggleAutoSchedule (true/false) == not carried over **: individual pod's settings honored**\n* \\*featureFlag(add/Remove) == **not carried over : individual pod's settings honored**\n* deleteSpService == **not carried over;**\n* \\*addFreeForm tag == **not carried over: individual pod's settings honored**\n* scaleout/resize == not carried over\n* runtimediagnostics (from source to target) = **old RuntimeDiagnostics db is deleted and re-Enabled on the TARGET POD**\n* patches = same BusinessApp release and Patch bundles\n* source deploymenttemplate and target is starter (at same relLabel) = **post Refresh - TARGET will have DeploymentTemplate**\n\nHere are additional Details from EnvironmentService about P2T - \n\n### Enable feature Flag as post POD Action\n\nFeature flags can now be added individually as a post pod action.\n\n* Value and minVersion are optional fields\n* Not all feature flags can be added to an existing BusinessApp POD, please confirm with EnvironmentService team if the flag is supported\n* This operation will take 5-10 minutes and can be confirmed in the DevOps portal\n\n### Support for Freeform tag\n\n***PLEASE TAKE NOTE:*** \n\n"
+      },
+      {
+        "chunk_id": "doc-0125:chunk-0002:bge-001",
+        "document_id": "doc-0125",
+        "parent_id": "doc-0032",
+        "title": "PipelineHub Onboarding for CloudNative",
+        "char_start": 4253,
+        "char_end": 5585,
+        "text": "2) Select your Release Set (e.g.: 11.13.24.01.0 00000 Starter GA (X86,ARM64) )\n\n3) You can leave the defaulted ApplicationBOM as your base ApplicationBOM selection.\n\n* In the Override section, provide your service version for Preflight\n* Version field is editable. You can copy/paste. Versions are validated by PipelineHub with CloudNative Platform.\n\n* For Preflight Pod submission - Please use \"**businessapp-preflight**\" cloudnative fleet, it is limited to 2 per service team (based on honest system)\n* For Family Pod submission - Please use **your-own** cloudnative fleet, it will be limited based on how much quota your fleet is setup.\n* **Currently PipelineHub do not check whether the fleet has enough quota, PLEASE check manually before submission.**\n* \n* **You can override any numbers of services at this time. Promotion to TIP ApplicationBOM  is not yet available.**\n\n4) Press blue button \"**Provision EnvironmentService POD**\" in the bottom of the page \n\nUpdate (upgrade) of existing CloudNative POD\n----------------------------------------\n\nExisting CloudNative v3 POD can be upgraded to higher version of Monolith as well as CloudNative services.\n\nFor Services selection information refer to \"Step 7: Ready to Preflight\" section of this guide. \n\nPatching Support for CloudNative PODs\n---------------------------------\n\n"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0011:bge-005",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 46234,
+        "char_end": 46992,
+        "text": "For Preflight Pod: https://api.example.com/reference/resource-241\nFor Family Pod: https://api.example.com/reference/resource-242 **Payload Format:**\n\nEXAMPLE PAYLOAD AND FORMAT:\n{\n \"purpose\" : \"Testing backup API\",\n \"inputParameters\" : {\n \"podName\" : \"PNTIBBEQY\",\n \"backupName\" : \"TEST_DEMO\" , //Optional, auto-generated if not provided\n \"emailNotifications\":\"Demo user025@example.com\",\n \"monitoringagentMonitor\": true/false //To automatically invoke monitoringagent monitoring\n }\n}\n**All the fields in the above format not marked as optional are necessary and must be passed with valid values.**\n\n### **OUTPUT**\n\nOutput{\n \"status\": \"SUCCESS\",\n \"message\": \"<preflight-id>\"\n}  \n\n**EnvironmentService Restore API - POST call**\n---------------------------------"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 3.337,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 132,
+        "prompt_tokens": 6312,
+        "total_tokens": 6444,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.4575
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.8774
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.3364
+    },
+    {
+      "stage": "clarify",
+      "elapsed_seconds": 3.3367
+    }
+  ],
+  "wall_seconds": 3.3466,
+  "token_usage": {
+    "prompt_tokens": 6312,
+    "completion_tokens": 132,
+    "total_tokens": 6444
+  },
+  "completed_at_utc": "2026-10-17T17:40:33.604781+00:00"
+}

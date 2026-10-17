@@ -1,0 +1,37 @@
+{
+  "id": "PH-G12",
+  "mode": "keyword",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "9d5f0cfd0cdf385247738fae75aa6d36a780b846ec741ecdad883cdc68cd8bcc",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G12-C01",
+        "met": false,
+        "reason": "Not conveyed in the final response."
+      },
+      {
+        "criterion_id": "PH-G12-C02",
+        "met": false,
+        "reason": "Not conveyed in the final response."
+      },
+      {
+        "criterion_id": "PH-G12-C03",
+        "met": false,
+        "reason": "Not conveyed in the final response."
+      },
+      {
+        "criterion_id": "PH-G12-C04",
+        "met": false,
+        "reason": "The unsupported multiple-masking-runs limitation is omitted."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Semantic adds unsafe prerequisites from a different OnPod workflow. Hybrid omits the multiple-runs limitation; keyword asks unnecessary clarification."
+  },
+  "external_grading_calls": 0
+}

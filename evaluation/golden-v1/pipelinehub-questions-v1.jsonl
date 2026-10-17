@@ -1,0 +1,20 @@
+{"id": "PH-G01", "question": "In Add a Free Form Tag, what format is accepted, and how many tags may I send in one submission?"}
+{"id": "PH-G02", "question": "Which PipelineHub role is required for Pod Add-ons > Toggle Auto Scheduling, and what schedules does this action control?"}
+{"id": "PH-G03", "question": "For the Toggle MFA post-pod action, which pod identity configurations are eligible, and is IDM supported?"}
+{"id": "PH-G04", "question": "Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?"}
+{"id": "PH-G05", "question": "For a Python Lifecycle Hook container, which component type and ArtifactService Publish Type should I choose, and which CI step must be enabled?"}
+{"id": "PH-G06", "question": "In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?"}
+{"id": "PH-G07", "question": "Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?"}
+{"id": "PH-G08", "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?"}
+{"id": "PH-G09", "question": "I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?"}
+{"id": "PH-G10", "question": "I can see a provisioning record from my LOB, but Copy Provisioning Job says its release set is EOL. Can I bypass that by editing the copied form?"}
+{"id": "PH-G11", "question": "We want to turn off RuntimeDiagnostics on a pod but keep the replicated analytics data. Will disabling it preserve that data?"}
+{"id": "PH-G12", "question": "Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?"}
+{"id": "PH-G13", "question": "We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?"}
+{"id": "PH-G14", "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?"}
+{"id": "PH-G15", "question": "We locked a Family pod during maintenance and now want to scale it from XS1 to S2. What must change before the request, and is this a valid scale-out?"}
+{"id": "PH-G16", "question": "I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?"}
+{"id": "PH-G17", "question": "Can I restore this pod to the version we used before?"}
+{"id": "PH-G18", "question": "Which TestRunner provisioning method should I choose for my pod?"}
+{"id": "PH-G19", "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment."}
+{"id": "PH-G20", "question": "How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps."}

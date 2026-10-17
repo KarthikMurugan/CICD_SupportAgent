@@ -1,0 +1,37 @@
+{
+  "id": "PH-G14",
+  "mode": "keyword",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "130890e8ee28718fa4e3b7920c45a48ee0b2fafc79f5548f539d1ba0e5197f7f",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G14-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C04",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Hybrid gives supported facts about other CI workflows rather than the requested pod-test start/tracking procedure. Keyword/semantic withhold the answer."
+  },
+  "external_grading_calls": 0
+}

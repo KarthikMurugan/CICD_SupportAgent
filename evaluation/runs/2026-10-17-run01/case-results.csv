@@ -1,0 +1,606 @@
+﻿id,category,mode,expected_status,actual_status,execution_status,routing_correct,required_points_met,required_points_total,point_coverage,critical_points_missed,unacceptable_claim_present,rubric_scored,rubric_case_pass,simulated_resolved,gold_document_group_recall_at_6,all_gold_groups_found_at_6,first_gold_document_mrr_at_6,latency_seconds,prompt_tokens,completion_tokens,generation_cost_estimate_usd,delivered_draft_claims,claims_supported_by_cited_evidence_ai,source_cautions_valid,source_cautions_total,exact_quotes_valid,quotes_total,review_overridden,question,answer,review_notes
+PH-G01,exact_match,hybrid,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,6.5359,9739,458,0.0074922,3,3,2,2,3,3,False,"In Add a Free Form Tag, what format is accepted, and how many tags may I send in one submission?","Before you start, note these restrictions from the cited documentation:
+> * Only one free form tag is allowed per submission [doc-0080]
+
+> * It must follow the structure 'key=value' [doc-0080]
+
+Documented guidance:
+- Only one free form tag is allowed per submission when using the Add a Free Form Tag action. [doc-0080]
+- The tag must follow the structure 'key=value'. [doc-0080]
+- The value portion of the tag can be nested, for example: key=key1=value1,key2=value2. [doc-0080]
+
+Sources:
+- [doc-0080] PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G01,exact_match,keyword,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,7.185,10783,419,0.007978200000000001,3,3,2,2,3,3,False,"In Add a Free Form Tag, what format is accepted, and how many tags may I send in one submission?","Before you start, note these restrictions from the cited documentation:
+> * Only one free form tag is allowed per submission [doc-0080]
+
+> * It must follow the structure 'key=value' [doc-0080]
+
+Documented guidance:
+- Only one free form tag is allowed per submission when using the Add a Free Form Tag action. [doc-0080]
+- The tag must follow the structure 'key=value'. [doc-0080]
+- The value portion of the tag can be nested, for example: key=key1=value1,key2=value2. [doc-0080]
+
+Sources:
+- [doc-0080] PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G01,exact_match,semantic,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,6.4685,8531,449,0.006735,3,3,2,2,3,3,False,"In Add a Free Form Tag, what format is accepted, and how many tags may I send in one submission?","Before you start, note these restrictions from the cited documentation:
+> * Only one free form tag is allowed per submission [doc-0080]
+
+> * It must follow the structure 'key=value' [doc-0080]
+
+Documented guidance:
+- Only one free form tag is allowed per submission when using the Add a Free Form Tag action. [doc-0080]
+- The tag must follow the structure 'key=value'. [doc-0080]
+- The value portion of the tag can be nested, for example: key=key1=value1,key2=value2. [doc-0080]
+
+Sources:
+- [doc-0080] PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G02,exact_match,hybrid,answered,answered,completed,True,2,2,1.0,,False,True,True,True,1.0,True,1.0,7.9955,11193,431,0.0082674,2,2,1,1,4,4,False,"Which PipelineHub role is required for Pod Add-ons > Toggle Auto Scheduling, and what schedules does this action control?","Before you start, note these restrictions from the cited documentation:
+> * For long running PODs, we do not suggest to set this flag since best practice is to keep LifecycleManager Artifacts up to date [doc-0032]
+
+Documented guidance:
+- The Pod Add-ons > Toggle Auto Scheduling feature requires the ROLE_PREFLIGHT_AND_FAMILY_ADMIN role in PipelineHub. [doc-0085] [doc-0032]
+- This action allows users to enable or disable monthly and quarterly patch bundle patching events. [doc-0085] [doc-0032]
+
+Sources:
+- [doc-0085] PipelineHub Preflight - Pod Add-ons - Toggle Auto Scheduling
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Extra caution about long-running pods may distract from the role/schedule answer.
+PH-G02,exact_match,keyword,answered,answered,completed,True,2,2,1.0,,False,True,True,True,1.0,True,1.0,5.7597,10840,434,0.0080664,2,2,1,1,4,4,False,"Which PipelineHub role is required for Pod Add-ons > Toggle Auto Scheduling, and what schedules does this action control?","Before you start, note these restrictions from the cited documentation:
+> * For long running PODs, we do not suggest to set this flag since best practice is to keep LifecycleManager Artifacts up to date [doc-0032]
+
+Documented guidance:
+- The Pod Add-ons > Toggle Auto Scheduling feature requires the ROLE_PREFLIGHT_AND_FAMILY_ADMIN role in PipelineHub. [doc-0085] [doc-0032]
+- This action is used to allow or disallow monthly and quarterly patch bundle patching events. [doc-0085] [doc-0032]
+
+Sources:
+- [doc-0085] PipelineHub Preflight - Pod Add-ons - Toggle Auto Scheduling
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Extra caution about long-running pods may distract from the role/schedule answer.
+PH-G02,exact_match,semantic,answered,answered,completed,True,2,2,1.0,,False,True,True,True,1.0,True,1.0,6.8552,10692,440,0.0079992,2,2,1,1,4,4,False,"Which PipelineHub role is required for Pod Add-ons > Toggle Auto Scheduling, and what schedules does this action control?","Before you start, note these restrictions from the cited documentation:
+> * For long running PODs, we do not suggest to set this flag since best practice is to keep LifecycleManager Artifacts up to date [doc-0032]
+
+Documented guidance:
+- The Pod Add-ons > Toggle Auto Scheduling feature requires the ROLE_PREFLIGHT_AND_FAMILY_ADMIN role in PipelineHub. [doc-0085] [doc-0032]
+- This action is used to allow or disallow monthly and quarterly patch bundle patching events. [doc-0085] [doc-0032]
+
+Sources:
+- [doc-0085] PipelineHub Preflight - Pod Add-ons - Toggle Auto Scheduling
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Extra caution about long-running pods may distract from the role/schedule answer.
+PH-G03,exact_match,hybrid,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,7.9998,13067,659,0.0102126,5,5,1,1,6,6,False,"For the Toggle MFA post-pod action, which pod identity configurations are eligible, and is IDM supported?","Before you start, note these restrictions from the cited documentation:
+> 1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs. [doc-0098]
+
+Documented guidance:
+- The Toggle MFA post-pod action is available only for IdentityService and IdentityService/ManagedDatabase pods. [doc-0098]
+- The Toggle MFA feature is explicitly not supported for IDM pods, and the UI must not display this option for them. [doc-0098]
+- When MFA is disabled, users can log in to IdentityService and IdentityService/ManagedDatabase pods using only a username and password. [doc-0098]
+- If MFA is enabled, users are prompted for extra authentication to log in to the eligible pods. [doc-0098]
+- BuildAcceptanceTests automatically disable MFA on the pod during their run, regardless of user settings. [doc-0098]
+
+Sources:
+- [doc-0098] PipelineHub Preflight - Post Pod Actions - Toggle MFA
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G03,exact_match,keyword,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,7.329,11158,593,0.0088296,4,4,1,1,5,5,False,"For the Toggle MFA post-pod action, which pod identity configurations are eligible, and is IDM supported?","Before you start, note these restrictions from the cited documentation:
+> 1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs. [doc-0098]
+
+Documented guidance:
+- The Toggle MFA post-pod action is available only for IdentityService and IdentityService/ManagedDatabase pods. [doc-0098]
+- The Toggle MFA feature is explicitly not available for IDM, and the UI must not display this option for IDM pods. [doc-0098]
+- Eligible pods will present the Toggle MFA option within the post-pod actions menu. [doc-0098]
+- Users can enable or disable MFA on eligible pods, which affects whether extra authentication is required for login. [doc-0098]
+
+Sources:
+- [doc-0098] PipelineHub Preflight - Post Pod Actions - Toggle MFA
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G03,exact_match,semantic,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,8.2875,12378,650,0.009766799999999999,5,5,1,1,6,6,False,"For the Toggle MFA post-pod action, which pod identity configurations are eligible, and is IDM supported?","Before you start, note these restrictions from the cited documentation:
+> 1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs. [doc-0098]
+
+Documented guidance:
+- The Toggle MFA post-pod action is available only for IdentityService and IdentityService/ManagedDatabase pods. [doc-0098]
+- The Toggle MFA feature is explicitly not available for IDM, and the UI must not display this option for IDM pods. [doc-0098]
+- When MFA is disabled, users can log in to IdentityService and IdentityService/ManagedDatabase pods using only a username and password. [doc-0098]
+- If MFA is enabled, users are prompted for extra authentication to log in to the eligible pods. [doc-0098]
+- BuildAcceptanceTests automatically disable MFA on the pod during their run, as these tests cannot execute with MFA enabled. [doc-0098]
+
+Sources:
+- [doc-0098] PipelineHub Preflight - Post Pod Actions - Toggle MFA
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G04,exact_match,hybrid,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,7.6094,12036,603,0.0093924,5,5,0,0,5,5,False,"Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?","- The build compatibility table supports an EnterpriseLinux9 base image on an OL8u6 UEK6 build kernel. [doc-0050]
+- For this combination, the Compile step reports a success status (✅). [doc-0050]
+- For this combination, the Docker Creation step reports a success status (✅). [doc-0050]
+- For this combination, the Publish step reports a success status (✅). [doc-0050]
+- The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as GreenSupported. [doc-0050]
+
+Sources:
+- [doc-0050] Supported OS & Kernel Combinations - PipelineHub CI/CD Build
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G04,exact_match,keyword,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,7.2998,11091,614,0.008865,5,5,0,0,5,5,False,"Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?","- The build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel. [doc-0050]
+- For this combination, the Compile step is reported as successful (✅). [doc-0050]
+- For this combination, the Docker Creation step is reported as successful (✅). [doc-0050]
+- For this combination, the Publish step is reported as successful (✅). [doc-0050]
+- The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as 'GreenSupported'. [doc-0050]
+
+Sources:
+- [doc-0050] Supported OS & Kernel Combinations - PipelineHub CI/CD Build
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G04,exact_match,semantic,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,7.8954,9380,596,0.0077736,5,5,0,0,5,5,False,"Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?","- The build compatibility table supports the EnterpriseLinux9 base image on the OL8u6 UEK6 kernel. [doc-0050]
+- For this combination, the Compile step reports a success status (✅). [doc-0050]
+- For this combination, the Docker Creation step reports a success status (✅). [doc-0050]
+- For this combination, the Publish step reports a success status (✅). [doc-0050]
+- The overall support status for EnterpriseLinux9 on OL8u6 UEK6 is classified as GreenSupported. [doc-0050]
+
+Sources:
+- [doc-0050] Supported OS & Kernel Combinations - PipelineHub CI/CD Build
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G05,exact_match,hybrid,answered,answered,completed,True,1,3,0.3333333333333333,PH-G05-C02; PH-G05-C03,False,True,False,False,1.0,True,1.0,7.0321,10485,431,0.0078426,3,3,0,0,3,3,False,"For a Python Lifecycle Hook container, which component type and ArtifactService Publish Type should I choose, and which CI step must be enabled?","- For a Python Lifecycle Hook, select the component type MICROSERVICE_PYTHON_COMMON_COMPONENT. [doc-0108]
+- Set the ArtifactService Publish Type to None for Lifecycle Hooks. [doc-0108]
+- Configure the CI steps to include the Publish step to build the Lifecycle Hook as a Docker container. [doc-0108]
+
+Sources:
+- [doc-0108] Lifecycle hooks CI/CD
+
+Links, commands, and configurations in this adapted documentation are illustrative.","Core identifiers are right; the frozen rubric also requires Save and pipeline trigger details, making this a strict completeness failure."
+PH-G05,exact_match,keyword,answered,answered,completed,True,1,3,0.3333333333333333,PH-G05-C02; PH-G05-C03,False,True,False,False,1.0,True,1.0,5.8433,10487,488,0.008049,3,3,0,0,3,3,False,"For a Python Lifecycle Hook container, which component type and ArtifactService Publish Type should I choose, and which CI step must be enabled?","- For a Python Lifecycle Hook, select the component type MICROSERVICE_PYTHON_COMMON_COMPONENT in your PipelineHub project. [doc-0108]
+- Set the ArtifactService Publish Type to None for Lifecycle Hooks. [doc-0108]
+- Configure the CI steps to include the Publish step, which builds the Lifecycle Hooks as Docker containers. [doc-0108]
+
+Sources:
+- [doc-0108] Lifecycle hooks CI/CD
+
+Links, commands, and configurations in this adapted documentation are illustrative.","Core identifiers are right; the frozen rubric also requires Save and pipeline trigger details, making this a strict completeness failure."
+PH-G05,exact_match,semantic,answered,answered,completed,True,1,3,0.3333333333333333,PH-G05-C02; PH-G05-C03,False,True,False,False,1.0,True,1.0,7.3738,10558,477,0.008052,3,3,0,0,3,3,False,"For a Python Lifecycle Hook container, which component type and ArtifactService Publish Type should I choose, and which CI step must be enabled?","- For a Python Lifecycle Hook, select the component type MICROSERVICE_PYTHON_COMMON_COMPONENT. [doc-0108]
+- Set the ArtifactService Publish Type to None for Lifecycle Hooks. [doc-0108]
+- Configure the CI steps to include the Publish step to build the Lifecycle Hook as a Docker container. [doc-0108]
+
+Sources:
+- [doc-0108] Lifecycle hooks CI/CD
+
+Links, commands, and configurations in this adapted documentation are illustrative.","Core identifiers are right; the frozen rubric also requires Save and pipeline trigger details, making this a strict completeness failure."
+PH-G06,exact_match,hybrid,answered,answered,completed,True,1,3,0.3333333333333333,PH-G06-C01; PH-G06-C02,False,True,False,False,1.0,True,1.0,6.6742,10499,578,0.0083802,4,4,0,0,5,5,False,"In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?","- Recipients for project configuration-change emails are entered in the **Config Notifications** section on the Project Config page. [doc-0022]
+- To enter multiple recipients, provide comma-separated email addresses in the designated field. [doc-0022]
+- Email notifications are triggered by updates to basic information, source repository, build, deploy, or test configurations. [doc-0022]
+- These notifications apply to all branches associated with the selected usage type (e.g., RELEASE, INTEGRATION). [doc-0022]
+
+Sources:
+- [doc-0022] Configuring Email and Slack Notifications
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Core field/format/triggers are right for keyword/hybrid; the frozen rubric also requires Edit and Save. Semantic suffered an incomplete generation response.
+PH-G06,exact_match,keyword,answered,answered,completed,True,1,3,0.3333333333333333,PH-G06-C01; PH-G06-C02,False,True,False,False,1.0,True,1.0,6.5513,6504,587,0.0060156,4,4,0,0,6,6,False,"In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?","- Recipients for project configuration-change emails are entered in the **Config Notifications** section on the Project Config page. [doc-0022]
+- To enter multiple recipients, provide comma-separated email addresses in the designated field. [doc-0022]
+- Email notifications are triggered by updates to basic information, source repository, build, deploy, or test configurations. [doc-0022]
+- Notifications apply to all branches associated with the selected usage type (e.g., RELEASE, INTEGRATION). [doc-0022]
+
+Sources:
+- [doc-0022] Configuring Email and Slack Notifications
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Core field/format/triggers are right for keyword/hybrid; the frozen rubric also requires Edit and Save. Semantic suffered an incomplete generation response.
+PH-G06,exact_match,semantic,answered,needs_human_review,generation_error,False,0,3,0.0,PH-G06-C01; PH-G06-C02; PH-G06-C03,False,True,False,False,1.0,True,1.0,17.8175,0,0,0.0,0,0,0,0,0,0,False,"In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?",I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Core field/format/triggers are right for keyword/hybrid; the frozen rubric also requires Edit and Save. Semantic suffered an incomplete generation response.
+PH-G07,semantic_troubleshooting,hybrid,answered,answered,completed,True,2,4,0.5,PH-G07-C03; PH-G07-C04,False,True,False,False,1.0,True,1.0,10.4863,10416,938,0.0096264,6,6,6,6,7,7,False,"Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?","Before you start, note these restrictions from the cited documentation:
+> #### 1) Permissions Required [doc-0038]
+
+> The **Rerun Scans** button is rendered **only if**: [doc-0038]
+
+> Shown only: [doc-0038]
+
+> A step is eligible for rerun only if **all** conditions are met: [doc-0038]
+
+> + Required length: **10–60 characters** [doc-0038]
+
+> 3. Once the TA team processes the exemptions, developers currently must: [doc-0038]
+
+Documented guidance:
+- Verify that your user account has the 'Project Control' role, as this permission is required to access the rerun functionality. [doc-0038]
+- Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if an older snapshot is selected. [doc-0038]
+- Confirm that the build is not currently in progress, as the control is disabled while the build is running. [doc-0038]
+- Check that the code-quality step has a quality status of 'DIRTY', because only steps with this status are eligible for rerun. [doc-0038]
+- Verify that the component is of type 'UIBuildService Application' or 'UIBuildService Web Component' and the step is 'Codescan', as these are the only currently supported types. [doc-0038]
+- Ensure that another rerun submission is not already in progress, as this condition disables the button. [doc-0038]
+
+Sources:
+- [doc-0038] Rerun scans support
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Some source cautions are standalone headings rather than useful restrictions. The six-claim cap leaves dialog prerequisites incomplete.
+PH-G07,semantic_troubleshooting,keyword,answered,answered,completed,True,2,4,0.5,PH-G07-C03; PH-G07-C04,False,True,False,False,1.0,True,1.0,11.0351,10389,832,0.0092286,6,6,2,2,8,8,False,"Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?","Before you start, note these restrictions from the cited documentation:
+> #### 1) Permissions Required [doc-0038]
+
+> The **Rerun Scans** button is rendered **only if**: [doc-0038]
+
+Documented guidance:
+- Verify that your user account has the required 'Project Control' role, as lacking this permission will disable the button. [doc-0038]
+- Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if it is not. [doc-0038]
+- Confirm that at least one component in the build is of the 'UIBuildService' type, which is required for the button to appear. [doc-0038]
+- Check that the build is not currently in progress, as this status disables the rerun control. [doc-0038]
+- Verify that a rerun submission is not already in progress, as this condition also disables the button. [doc-0038]
+- Ensure there are eligible components or steps available for rerun; if none exist, the button will be disabled. [doc-0038]
+
+Sources:
+- [doc-0038] Rerun scans support
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Some source cautions are standalone headings rather than useful restrictions. The six-claim cap leaves dialog prerequisites incomplete.
+PH-G07,semantic_troubleshooting,semantic,answered,answered,completed,True,2,4,0.5,PH-G07-C03; PH-G07-C04,False,True,False,False,1.0,True,1.0,11.3614,13433,1060,0.011875799999999999,6,6,6,6,10,10,False,"Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?","Before you start, note these restrictions from the cited documentation:
+> Shown only: [doc-0038]
+
+> A step is eligible for rerun only if **all** conditions are met: [doc-0038]
+
+> + Required length: **10–60 characters** [doc-0038]
+
+> 3. Once the TA team processes the exemptions, developers currently must: [doc-0038]
+
+> #### 1) Permissions Required [doc-0038]
+
+> The **Rerun Scans** button is rendered **only if**: [doc-0038]
+
+Documented guidance:
+- Verify the component is a UIBuildService Application or Web Component, as rerun scans are currently supported only for these types. [doc-0038]
+- Ensure your user account has the 'Project Control' role, which is required to access the Rerun Scans action. [doc-0038]
+- Confirm the current snapshot is the latest eligible one for the pipeline, as the button is disabled or hidden for older snapshots. [doc-0038]
+- Check that the CodeScan step quality status is 'DIRTY', because only steps with this status are eligible for rerun. [doc-0038]
+- Ensure no other rerun submission is currently in progress, as this condition disables the button. [doc-0038]
+- Verify the build is not still in progress, as the rerun function is only available for completed pipelines. [doc-0038]
+
+Sources:
+- [doc-0038] Rerun scans support
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Some source cautions are standalone headings rather than useful restrictions. The six-claim cap leaves dialog prerequisites incomplete.
+PH-G08,semantic_troubleshooting,hybrid,answered,needs_human_review,completed,False,0,2,0.0,PH-G08-C02,False,True,False,False,1.0,True,1.0,6.6805,10031,412,0.0075017999999999994,0,0,0,0,0,0,False,Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?,I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Hybrid withheld a supported answer despite retrieving the correct recovery instruction.
+PH-G08,semantic_troubleshooting,keyword,answered,answered,completed,True,2,2,1.0,,False,True,True,True,1.0,True,1.0,5.6703,9543,397,0.007155,2,2,0,0,2,2,False,Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?,"- PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on. [doc-0084]
+- If the job times out, there is an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage to continue tracking the operation. [doc-0084]
+
+Sources:
+- [doc-0084] PipelineHub Preflight - Pod Add-ons - Install Language Packs
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Hybrid withheld a supported answer despite retrieving the correct recovery instruction.
+PH-G08,semantic_troubleshooting,semantic,answered,answered,completed,True,2,2,1.0,,False,True,True,True,1.0,True,1.0,7.0591,9616,419,0.007278,2,2,0,0,2,2,False,Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?,"- PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on. [doc-0084]
+- If the job for adding display languages times out, users can restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage to continue tracking the operation. [doc-0084]
+
+Sources:
+- [doc-0084] PipelineHub Preflight - Pod Add-ons - Install Language Packs
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Hybrid withheld a supported answer despite retrieving the correct recovery instruction.
+PH-G09,semantic_troubleshooting,hybrid,answered,answered,completed,True,2,3,0.6666666666666666,,False,True,False,False,1.0,True,0.2,7.6553,10030,532,0.0079332,3,2,0,0,3,3,False,"I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?","- The documentation confirms that any subsequent actions such as Patching, Upgrade, or EnableCloudMode will restore deleted cloud-native services. [doc-0081]
+- During an upgrade or patch using ApplicationBOM, services with higher versions defined in the BOM are applied successfully, effectively re-introducing the service. [doc-0032]
+- The EnableCloudMode action specifically redeploys the same workload which was previously submitted, which would include services present before deletion if the source definition hasn't changed. [doc-0032]
+
+Sources:
+- [doc-0081] PipelineHub Preflight - Pod Add-ons - Delete a CloudNative Service
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Additional version/redeployment explanations extend beyond the requested documented behavior; cleanup purpose is omitted.
+PH-G09,semantic_troubleshooting,keyword,answered,needs_human_review,completed,False,0,3,0.0,PH-G09-C01; PH-G09-C02,False,True,False,False,0.0,False,0,10.5957,9096,744,0.008136,0,0,0,0,0,0,False,"I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?",I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Additional version/redeployment explanations extend beyond the requested documented behavior; cleanup purpose is omitted.
+PH-G09,semantic_troubleshooting,semantic,answered,answered,completed,True,2,3,0.6666666666666666,,False,True,False,False,1.0,True,0.5,7.4522,10506,638,0.0086004,4,3,0,0,5,5,False,"I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?","- The documentation notes that any subsequent actions such as Patching, Upgrade, or EnableCloudMode will restore any deleted cloud-native services. [doc-0081]
+- Patching allows overriding existing CloudNative services with new versions or adding new services to the BusinessApp POD. [doc-0125]
+- When using ApplicationBOM for patching, services with higher versions in the BOM are applied successfully, while lower versions in the BOM do not get applied and the higher version currently in the POD is retained. [doc-0032]
+- The EnableCloudMode action redeploys the same workload which was previously submitted, effectively restoring the environment state. [doc-0066]
+
+Sources:
+- [doc-0081] PipelineHub Preflight - Pod Add-ons - Delete a CloudNative Service
+- [doc-0125] PipelineHub Onboarding for CloudNative
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+- [doc-0066] PipelineHub Preflight - CloudNative Patching
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Additional version/redeployment explanations extend beyond the requested documented behavior; cleanup purpose is omitted.
+PH-G10,semantic_troubleshooting,hybrid,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,7.7536,11972,578,0.009264,3,3,1,1,4,4,False,"I can see a provisioning record from my LOB, but Copy Provisioning Job says its release set is EOL. Can I bypass that by editing the copied form?","Before you start, note these restrictions from the cited documentation:
+> User can update the form and hit ""Provision EnvironmentService Pod"" button. | Source vs Current Comparison section will show difference for only following fields: * Start with [doc-0091]
+
+Documented guidance:
+- Users can only copy a provisioning submission if the release version is not end-of-life. [doc-0091]
+- If the source provisioning job was submitted using an EOL release set, the Copy Provisioning Job dialog displays an error stating it is not eligible for copying. [doc-0091]
+- The system prevents the copy action for EOL release versions by showing an error message instead of opening the pre-filled form for editing. [doc-0091]
+
+Sources:
+- [doc-0091] PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G10,semantic_troubleshooting,keyword,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,6.322,10538,469,0.008011200000000001,3,3,1,1,3,3,False,"I can see a provisioning record from my LOB, but Copy Provisioning Job says its release set is EOL. Can I bypass that by editing the copied form?","Before you start, note these restrictions from the cited documentation:
+> User can update the form and hit ""Provision EnvironmentService Pod"" button. | Source vs Current Comparison section will show difference for only following fields: * Start with [doc-0091]
+
+Documented guidance:
+- Users can only copy a provisioning submission if the release version is not end-of-life. [doc-0091]
+- If the source provisioning job uses an EOL release set, the Copy Provisioning Job dialog displays an error stating it is not eligible for copying. [doc-0091]
+- The system blocks the copy action for EOL release sets at the validation step before the form can be reviewed or edited. [doc-0091]
+
+Sources:
+- [doc-0091] PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G10,semantic_troubleshooting,semantic,answered,answered,completed,True,3,3,1.0,,False,True,True,True,1.0,True,1.0,7.312,14640,544,0.0107424,3,3,1,1,4,4,False,"I can see a provisioning record from my LOB, but Copy Provisioning Job says its release set is EOL. Can I bypass that by editing the copied form?","Before you start, note these restrictions from the cited documentation:
+> User can update the form and hit ""Provision EnvironmentService Pod"" button. | Source vs Current Comparison section will show difference for only following fields: * Start with [doc-0091]
+
+Documented guidance:
+- Users can only copy a provisioning submission if the release version is not end-of-life. [doc-0091]
+- If the source provisioning job was submitted using an EOL release set, the system displays an error message stating it is not eligible for copying. [doc-0091]
+- For EOL release versions, the process stops at the error message step and does not proceed to a pre-filled form that can be edited. [doc-0091]
+
+Sources:
+- [doc-0091] PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Relevant response with traceable source evidence.
+PH-G11,semantic_troubleshooting,hybrid,answered,answered,completed,True,2,3,0.6666666666666666,,False,True,False,False,1.0,True,0.5,7.3026,9967,498,0.007773,3,3,2,2,3,3,False,We want to turn off RuntimeDiagnostics on a pod but keep the replicated analytics data. Will disabling it preserve that data?,"Before you start, note these restrictions from the cited documentation:
+> * Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled [doc-0032]
+
+> Disable RuntimeDiagnostics option is now available. For newly provisioned pods we will have the correct metadata on the POD but for existing pods, please use this option only if you are sure that the pod has RUNTIMEDIAGNOSTICS. [doc-0032]
+
+Documented guidance:
+- Disabling RuntimeDiagnostics removes the RuntimeDiagnostics instance, which deletes the Replication Infrastructure and all replicated data from the AnalyticsDatabase instance. [doc-0083]
+- The Disable RuntimeDiagnostics operation results in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance. [doc-0032]
+- Enabling RuntimeDiagnostics installs the Replication Infrastructure and configures replicated data, while disabling reverses this by removing the data. [doc-0083]
+
+Sources:
+- [doc-0083] PipelineHub Preflight - Pod Add-ons - Enable-Disable RuntimeDiagnostics
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+
+Links, commands, and configurations in this adapted documentation are illustrative.",The destructive-data warning is correct; the rubric also requires the status-dependent UI explanation. Extra unrelated cautions appear.
+PH-G11,semantic_troubleshooting,keyword,answered,answered,completed,True,2,3,0.6666666666666666,,False,True,False,False,1.0,True,0.5,7.2402,9580,626,0.008001600000000001,3,3,2,2,6,6,False,We want to turn off RuntimeDiagnostics on a pod but keep the replicated analytics data. Will disabling it preserve that data?,"Before you start, note these restrictions from the cited documentation:
+> * Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled [doc-0032]
+
+> Disable RuntimeDiagnostics option is now available. For newly provisioned pods we will have the correct metadata on the POD but for existing pods, please use this option only if you are sure that the pod has RUNTIMEDIAGNOSTICS. [doc-0032]
+
+Documented guidance:
+- Disabling RuntimeDiagnostics removes the RuntimeDiagnostics instance, which results in the deletion of the Replication Infrastructure. [doc-0032] [doc-0083]
+- The process of disabling RuntimeDiagnostics explicitly deletes all replicated data from the AnalyticsDatabase instance. [doc-0032] [doc-0083]
+- Conversely, enabling RuntimeDiagnostics is required to install the Replication Infrastructure and set up replicated data in the AnalyticsDatabase instance. [doc-0032] [doc-0083]
+
+Sources:
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+- [doc-0083] PipelineHub Preflight - Pod Add-ons - Enable-Disable RuntimeDiagnostics
+
+Links, commands, and configurations in this adapted documentation are illustrative.",The destructive-data warning is correct; the rubric also requires the status-dependent UI explanation. Extra unrelated cautions appear.
+PH-G11,semantic_troubleshooting,semantic,answered,answered,completed,True,2,3,0.6666666666666666,,False,True,False,False,1.0,True,1.0,6.3528,10672,407,0.0078684,2,2,2,2,2,2,False,We want to turn off RuntimeDiagnostics on a pod but keep the replicated analytics data. Will disabling it preserve that data?,"Before you start, note these restrictions from the cited documentation:
+> * Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled [doc-0032]
+
+> Disable RuntimeDiagnostics option is now available. For newly provisioned pods we will have the correct metadata on the POD but for existing pods, please use this option only if you are sure that the pod has RUNTIMEDIAGNOSTICS. [doc-0032]
+
+Documented guidance:
+- Disabling RuntimeDiagnostics removes the RuntimeDiagnostics instance, which deletes the Replication Infrastructure and all replicated data from the AnalyticsDatabase instance. [doc-0083]
+- The Disable RuntimeDiagnostics action results in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance. [doc-0032]
+
+Sources:
+- [doc-0083] PipelineHub Preflight - Pod Add-ons - Enable-Disable RuntimeDiagnostics
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+
+Links, commands, and configurations in this adapted documentation are illustrative.",The destructive-data warning is correct; the rubric also requires the status-dependent UI explanation. Extra unrelated cautions appear.
+PH-G12,semantic_troubleshooting,hybrid,answered,answered,completed,True,3,4,0.75,PH-G12-C04,False,True,False,False,1.0,True,0.25,7.2772,9666,552,0.007786799999999999,3,3,1,1,4,4,False,"Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?","Before you start, note these restrictions from the cited documentation:
+> We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above. [doc-0092]
+
+Documented guidance:
+- The pod version 11.13.24.10.0-10999 is not eligible for data masking because the feature requires a version of at least 11.13.24.10.0-11000. [doc-0092]
+- Data masking as a post-pod action is only applicable on non-production type pods. [doc-0092]
+- A Data Masking (DM) template must be ingested during the creation of the release for the masking to work. [doc-0092]
+
+Sources:
+- [doc-0092] PipelineHub Preflight - Post Pod Actions - Data Masking
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Semantic adds unsafe prerequisites from a different OnPod workflow. Hybrid omits the multiple-runs limitation; keyword asks unnecessary clarification.
+PH-G12,semantic_troubleshooting,keyword,answered,needs_clarification,completed,False,0,4,0.0,PH-G12-C01; PH-G12-C02; PH-G12-C03; PH-G12-C04,False,True,False,False,0.0,False,0,2.7663,4725,139,0.0033354,0,0,0,0,0,0,False,"Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?","What is the specific name of the feature, service, or configuration setting used to mask customer fields in PipelineHub?",Semantic adds unsafe prerequisites from a different OnPod workflow. Hybrid omits the multiple-runs limitation; keyword asks unnecessary clarification.
+PH-G12,semantic_troubleshooting,semantic,answered,answered,completed,True,4,4,1.0,,False,True,False,False,1.0,True,0.5,11.4849,10603,622,0.008601,6,4,6,6,7,7,False,"Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?","Before you start, note these restrictions from the cited documentation:
+> We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above. [doc-0092]
+
+> 1. User must have the necessary roles (ROLE_FAMILY_ENV_ADV_POD_ACTIONS/ROLE_PREFLIGHT_ADV_POD_ACTIONS) [doc-0071]
+
+> 2. User must belong to the same LOB or a parent LOB of the pod [doc-0071]
+
+> 4. Pod must be EnvironmentService [doc-0071]
+
+> 5. Pod must have RuntimeDiagnostics enabled [doc-0071]
+
+> 6. Pod cannot have another action running (unless the forceJobExecution flag is used) [doc-0071]
+
+Documented guidance:
+- The pod version 11.13.24.10.0-10999 is not eligible because data masking requires a version of at least 11.13.24.10.0-11000 or above. [doc-0092]
+- Data masking as a post pod action is only applicable on non-production type pods. [doc-0092]
+- A data masking template must already be ingested for the release (e.g., GA, HWM) for the feature to work. [doc-0092]
+- Users must have specific roles such as ROLE_FAMILY_ENV_ADV_POD_ACTIONS or ROLE_PREFLIGHT_ADV_POD_ACTIONS to perform these actions. [doc-0071]
+- The pod must be an EnvironmentService pod with RuntimeDiagnostics enabled. [doc-0071]
+- Multiple data masking runs are not yet supported. [doc-0092]
+
+Sources:
+- [doc-0092] PipelineHub Preflight - Post Pod Actions - Data Masking
+- [doc-0071] OnPod API User Guide
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Semantic adds unsafe prerequisites from a different OnPod workflow. Hybrid omits the multiple-runs limitation; keyword asks unnecessary clarification.
+PH-G13,multi_passage,hybrid,answered,answered,completed,True,4,5,0.8,PH-G13-C02,False,True,False,False,1.0,True,0.5,9.4441,11017,751,0.009313799999999999,6,6,3,3,7,7,False,"We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?","Before you start, note these restrictions from the cited documentation:
+> * The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same [doc-0095]
+
+> * User must take back-up of the Target environment before scheduling a refresh of the environment. [doc-0095]
+
+> We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above. [doc-0092]
+
+Documented guidance:
+- Before scheduling a refresh, the user must take a backup of the target environment. [doc-0095]
+- The source and target pods must have the same BusinessApp version, patch state, and cloudnative configuration. [doc-0095]
+- Feature flags and extra language packs are not carried over during the refresh; the target pod's individual settings are honored. [doc-0095]
+- Data masking is only applicable on non-production type pods and requires a version of at least 11.13.24.10.0-11000 or above. [doc-0092]
+- Data masking works only for releases where the Data Masking template has already been ingested. [doc-0092]
+- Multiple data masking runs are not yet supported as a feature. [doc-0092]
+
+Sources:
+- [doc-0095] PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh
+- [doc-0092] PipelineHub Preflight - Post Pod Actions - Data Masking
+
+Links, commands, and configurations in this adapted documentation are illustrative.","Multi-document answer is partly complete, but each mode omits a different important condition."
+PH-G13,multi_passage,keyword,answered,needs_human_review,completed,False,0,5,0.0,PH-G13-C01; PH-G13-C02; PH-G13-C03; PH-G13-C04; PH-G13-C05,False,True,False,False,0.5,False,0.5,10.8682,10819,989,0.0100518,0,0,0,0,0,0,False,"We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?",I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,"Multi-document answer is partly complete, but each mode omits a different important condition."
+PH-G13,multi_passage,semantic,answered,answered,completed,True,4,5,0.8,PH-G13-C05,False,True,False,False,1.0,True,0.5,8.8102,11955,787,0.010006200000000002,6,6,3,3,8,8,False,"We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?","Before you start, note these restrictions from the cited documentation:
+> * The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same [doc-0095]
+
+> * User must take back-up of the Target environment before scheduling a refresh of the environment. [doc-0095]
+
+> We have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above. [doc-0092]
+
+Documented guidance:
+- The source and target pods must be symmetrical, matching in BusinessApp version, patch state, cloudnative status, and IdentityService/ManagedDatabase/IDM configurations. [doc-0095]
+- Users must take a backup of the target TEST environment before scheduling the refresh from Production. [doc-0095]
+- Feature flags and extra language packs are not carried over during the refresh; the target pod's individual settings are honored. [doc-0095]
+- Data masking is only applicable on non-production type pods and requires the pod version to be at least 11.13.24.10.0-11000 or above. [doc-0092]
+- Data masking works only for releases where the Data Masking (DM) template has already been ingested during the creation of the release. [doc-0092]
+- The refresh operation takes approximately 5 to 7 hours to complete. [doc-0095]
+
+Sources:
+- [doc-0095] PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh
+- [doc-0092] PipelineHub Preflight - Post Pod Actions - Data Masking
+
+Links, commands, and configurations in this adapted documentation are illustrative.","Multi-document answer is partly complete, but each mode omits a different important condition."
+PH-G14,multi_passage,hybrid,answered,answered,completed,True,1,4,0.25,PH-G14-C01; PH-G14-C03,False,True,False,False,0.5,False,1.0,8.0201,11188,631,0.0089844,4,4,5,5,4,4,False,"After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?","Before you start, note these restrictions from the cited documentation:
+> 1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs. [doc-0098]
+
+> * To enable BATSnapper, the user must include `ENABLE_BATSNAPPER=true` in the `Additional Params` when submitting BuildAcceptanceTests. [doc-0060]
+
+> * Previously, BATSnapper’s pre-buildacceptancetests and post-buildacceptancetests hooks were called only once. With this update, these hooks will be called every time the user re-runs the tests. [doc-0060]
+
+> * This feature is available only when BATSnapper is enabled. [doc-0060]
+
+> * ### I have merged an WorkspaceCLI transaction and I do not see it is built yet, where do I check in PipelineHub what is happening with it? [doc-0001]
+
+Documented guidance:
+- BuildAcceptanceTests will automatically disable MFA on the POD as they cannot run with MFA enabled, irrespective of any manual MFA settings configured during provisioning or post-provisioning actions. [doc-0098]
+- To start BuildAcceptanceTests, include the parameter ENABLE_BATSNAPPER=true in the Additional Params when submitting the test job if BATSnapper integration is required. [doc-0060]
+- Users can track the status of their project by navigating to the Project Pipeline and filtering for the specific project name. [doc-0001]
+- The status of a transaction, including whether it is built or not, can be viewed by selecting the Build/Pipeline Run which lists all transactions. [doc-0001]
+
+Sources:
+- [doc-0098] PipelineHub Preflight - Post Pod Actions - Toggle MFA
+- [doc-0060] PipelineHub Preflight - Provisioning
+- [doc-0001] PipelineHub User Guide
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Hybrid gives supported facts about other CI workflows rather than the requested pod-test start/tracking procedure. Keyword/semantic withhold the answer.
+PH-G14,multi_passage,keyword,answered,needs_human_review,completed,False,0,4,0.0,PH-G14-C01; PH-G14-C03; PH-G14-C04,False,True,False,False,0.5,False,1.0,7.3715,10133,608,0.008268600000000001,0,0,0,0,0,0,False,"After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Hybrid gives supported facts about other CI workflows rather than the requested pod-test start/tracking procedure. Keyword/semantic withhold the answer.
+PH-G14,multi_passage,semantic,answered,needs_human_review,completed,False,0,4,0.0,PH-G14-C01; PH-G14-C03; PH-G14-C04,False,True,False,False,1.0,True,1.0,9.1646,10983,785,0.009415799999999998,0,0,0,0,0,0,False,"After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Hybrid gives supported facts about other CI workflows rather than the requested pod-test start/tracking procedure. Keyword/semantic withhold the answer.
+PH-G15,multi_passage,hybrid,answered,answered,completed,True,2,4,0.5,PH-G15-C03; PH-G15-C04,False,True,False,False,1.0,True,1.0,11.1591,11240,883,0.009922799999999999,4,4,7,7,9,9,False,"We locked a Family pod during maintenance and now want to scale it from XS1 to S2. What must change before the request, and is this a valid scale-out?","Before you start, note these restrictions from the cited documentation:
+> Scale-out and Resize can be submitted from PipelineHub using the post pod action flow. PipelineHub submits the required pod details to EnvironmentService and receives callback status updates for the action. [doc-0087]
+
+> The logical size family should remain the same and only the number should change. For example, `S1 -> S2` is valid. [doc-0087]
+
+> The logical stamp should be the same. The current size and the new logical stamp size should be same, only the number can vary. [doc-0087]
+
+> Resize is used when the pod needs to be moved from the current logical stamp to the required logical stamp. [doc-0087]
+
+> User should provide the current logical stamp and required logical stamp while submitting the post pod action. [doc-0087]
+
+> * User should provide the correct current logical stamp and required logical stamp. [doc-0087]
+
+> Available only for Family Pods, Lock Pod action is blocking other users from submitting DB actions by other PipelineHub users against the POD. [doc-0088]
+
+Documented guidance:
+- The proposed scale-out from XS1 to S2 is invalid because the logical size family must remain the same; only the number can change (e.g., XS1 to XS2 is allowed, but XS1 to S2 is not). [doc-0087]
+- Before submitting the request, the Family pod must be unlocked, as the Lock Pod action blocks operations like scaling and hides pod action functionality. [doc-0088]
+- Scale-out and Resize actions are only supported for EnvironmentService PODS and are submitted via the post pod action flow in PipelineHub. [doc-0087]
+- The pod lifecycle state must be 'Active' and the lifecycle state for scheduling must be 'AVAILABLE' before the scale-out action can proceed. [doc-0087]
+
+Sources:
+- [doc-0087] PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize
+- [doc-0088] PipelineHub Preflight - Pod Actions - Lock Pod
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Resize/locking guidance is incomplete; semantic confuses HOLD release with the Family pod lock workflow.
+PH-G15,multi_passage,keyword,answered,answered,completed,True,2,4,0.5,PH-G15-C03; PH-G15-C04,False,True,False,False,1.0,True,1.0,9.3815,10958,878,0.0097356,5,5,7,7,7,7,False,"We locked a Family pod during maintenance and now want to scale it from XS1 to S2. What must change before the request, and is this a valid scale-out?","Before you start, note these restrictions from the cited documentation:
+> Scale-out and Resize can be submitted from PipelineHub using the post pod action flow. PipelineHub submits the required pod details to EnvironmentService and receives callback status updates for the action. [doc-0087]
+
+> The logical size family should remain the same and only the number should change. For example, `S1 -> S2` is valid. [doc-0087]
+
+> The logical stamp should be the same. The current size and the new logical stamp size should be same, only the number can vary. [doc-0087]
+
+> Resize is used when the pod needs to be moved from the current logical stamp to the required logical stamp. [doc-0087]
+
+> User should provide the current logical stamp and required logical stamp while submitting the post pod action. [doc-0087]
+
+> * User should provide the correct current logical stamp and required logical stamp. [doc-0087]
+
+> Available only for Family Pods, Lock Pod action is blocking other users from submitting DB actions by other PipelineHub users against the POD. [doc-0088]
+
+Documented guidance:
+- The transition from XS1 to S2 is not a valid Scale-out because the logical stamp family must remain the same; only the number can vary. [doc-0087]
+- Scale-out actions require the current size and new logical stamp size to be identical in family (e.g., XS1 to XS2 is allowed, but XS1 to S2 is not). [doc-0087]
+- Before submitting any pod action, the pod must be unlocked because locked pods hide all Pod Actions functionality. [doc-0088]
+- To unlock the pod, the user must select the actions icon and choose the 'Unlock Pod' menu item. [doc-0088]
+- Scale-out or Resize actions cannot be submitted while another conflicting pod action is already in progress. [doc-0087]
+
+Sources:
+- [doc-0087] PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize
+- [doc-0088] PipelineHub Preflight - Pod Actions - Lock Pod
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Resize/locking guidance is incomplete; semantic confuses HOLD release with the Family pod lock workflow.
+PH-G15,multi_passage,semantic,answered,answered,completed,True,2,4,0.5,PH-G15-C01; PH-G15-C03,False,True,False,False,0.5,False,1.0,9.5361,12100,964,0.0107304,5,4,7,7,9,9,False,"We locked a Family pod during maintenance and now want to scale it from XS1 to S2. What must change before the request, and is this a valid scale-out?","Before you start, note these restrictions from the cited documentation:
+> Scale-out and Resize can be submitted from PipelineHub using the post pod action flow. PipelineHub submits the required pod details to EnvironmentService and receives callback status updates for the action. [doc-0087]
+
+> The logical size family should remain the same and only the number should change. For example, `S1 -> S2` is valid. [doc-0087]
+
+> The logical stamp should be the same. The current size and the new logical stamp size should be same, only the number can vary. [doc-0087]
+
+> Resize is used when the pod needs to be moved from the current logical stamp to the required logical stamp. [doc-0087]
+
+> User should provide the current logical stamp and required logical stamp while submitting the post pod action. [doc-0087]
+
+> * User should provide the correct current logical stamp and required logical stamp. [doc-0087]
+
+> Note - Multi Tenant Related features are currently restricted to super admins [doc-0032]
+
+Documented guidance:
+- The proposed change from XS1 to S2 is not a valid scale-out because the logical size family must remain the same; only the number can vary (e.g., XS1 to XS2 is allowed, but XS1 to S2 is not). [doc-0087]
+- To change the logical stamp (e.g., from XS to S), the user must use the Resize action, which requires providing both the current and required logical stamps. [doc-0087]
+- Before submitting a Scale-out or Resize request, the pod lifecycle state must be 'Active' to pass the health check validation. [doc-0087]
+- The pod lifecycle state must be 'AVAILABLE' to ensure no conflicting scheduled activities exist; if the pod is locked or held, it must be released first. [doc-0087] [doc-0032]
+- Scale-out or Resize actions cannot be submitted while another conflicting pod action is already in progress. [doc-0087]
+
+Sources:
+- [doc-0087] PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize
+- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Resize/locking guidance is incomplete; semantic confuses HOLD release with the Family pod lock workflow.
+PH-G16,multi_passage,hybrid,answered,answered,completed,True,3,6,0.5,PH-G16-C01; PH-G16-C04; PH-G16-C05,False,True,False,False,1.0,True,1.0,11.1438,12255,1124,0.011399399999999999,6,6,8,8,14,14,False,"I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?","Before you start, note these restrictions from the cited documentation:
+> * Select only the groups necessary for the request. [doc-0094]
+
+> If the required group does not exist or has incorrect membership, an admin with **ROLE_GRANULAR_SSH_USER_MANAGEMENT** can update it in **Granular SSH Group Management**. [doc-0094]
+
+> | **Group Name** | Letters and spaces only. | [doc-0094]
+
+> | **Line of Business** | The LOB in which the group must be available. | [doc-0094]
+
+> * Granular SSH groups are LOB-specific. The action lists only groups associated with the target pod's LOB. [doc-0094]
+
+> * **ROLE_GRANULAR_SSH_USER_MANAGEMENT** role is required to create and manage these groups. Ensure the needed groups already exist before submitting the pod action. [doc-0094]
+
+> PipelineHub shows groups associated with the target pod's LOB. If a required group is absent, do not substitute an unrelated group; verify the target LOB and group configuration first. [doc-0094]
+
+> User can update the form and hit ""Provision EnvironmentService Pod"" button. | Source vs Current Comparison section will show difference for only following fields: * Start with [doc-0091]
+
+Documented guidance:
+- When copying an active-release pod provisioning record, CloudNative service, application, and environment profile overrides are excluded from auto-population and must be reviewed. [doc-0091]
+- If the required SSH group does not exist, an admin with the ROLE_GRANULAR_SSH_USER_MANAGEMENT role must create it in Granular SSH Group Management before the post-pod action. [doc-0094]
+- To prepare the group, open Granular SSH Group Management, select the intended LOB, and use Create New Group to provide a name (letters and spaces only), description, and Line of Business. [doc-0094]
+- Add members by selecting registered PipelineHub users or entering valid non-PIPELINEHUB GUIDs as comma-separated values, then select Add Selected Users to stage them for review. [doc-0094]
+- Select Save Changes to finalize the group creation, then return to the Granular SSH post-pod action to select the updated group. [doc-0094]
+- When executing the post-pod action, select only the necessary groups for the request, ensuring no more than three groups are chosen. [doc-0094]
+
+Sources:
+- [doc-0091] PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job
+- [doc-0094] PipelineHub Preflight - Post Pod Actions - Granular SSH
+
+Links, commands, and configurations in this adapted documentation are illustrative.",Hybrid combines both topics but misses some strict procedural criteria. Other modes escalate.
+PH-G16,multi_passage,keyword,answered,needs_human_review,completed,False,0,6,0.0,PH-G16-C01; PH-G16-C02; PH-G16-C03; PH-G16-C04; PH-G16-C05; PH-G16-C06,False,True,False,False,0.5,False,1.0,10.806,12101,1122,0.011299799999999999,0,0,0,0,0,0,False,"I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?",I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Hybrid combines both topics but misses some strict procedural criteria. Other modes escalate.
+PH-G16,multi_passage,semantic,answered,needs_human_review,completed,False,0,6,0.0,PH-G16-C01; PH-G16-C02; PH-G16-C03; PH-G16-C04; PH-G16-C05; PH-G16-C06,False,True,False,False,0.5,False,1.0,10.9496,11569,1040,0.0106854,0,0,0,0,0,0,False,"I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?",I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Hybrid combines both topics but misses some strict procedural criteria. Other modes escalate.
+PH-G17,ambiguous_clarification,hybrid,needs_clarification,needs_clarification,completed,True,0,3,0.0,PH-G17-C01; PH-G17-C02,False,True,False,False,,,,3.3245,5857,153,0.004065,0,0,0,0,0,0,False,Can I restore this pod to the version we used before?,"Are you trying to restore a specific snapshot (label) of your data, or are you trying to revert the entire pod environment to a previous software version (n-1) after an upgrade?","Correctly asks for clarification, but the questions do not collect the restore eligibility details required by the rubric."
+PH-G17,ambiguous_clarification,keyword,needs_clarification,needs_clarification,completed,True,0,3,0.0,PH-G17-C01; PH-G17-C02,False,True,False,False,,,,2.7843,5599,180,0.0040074,0,0,0,0,0,0,False,Can I restore this pod to the version we used before?,"Are you trying to restore an EnvironmentService pod to its previous software version (n-1 restore) after an upgrade, or are you trying to restore a specific build snapshot (label) to retrieve artifacts?","Correctly asks for clarification, but the questions do not collect the restore eligibility details required by the rubric."
+PH-G17,ambiguous_clarification,semantic,needs_clarification,needs_clarification,completed,True,0,3,0.0,PH-G17-C01; PH-G17-C02,False,True,False,False,,,,3.3466,6312,132,0.0042623999999999995,0,0,0,0,0,0,False,Can I restore this pod to the version we used before?,"Do you have the name of the specific backup you wish to restore from, and are you looking to perform an N-1 (previous version) restore?","Correctly asks for clarification, but the questions do not collect the restore eligibility details required by the rubric."
+PH-G18,ambiguous_clarification,hybrid,needs_clarification,needs_clarification,completed,True,1,3,0.3333333333333333,PH-G18-C01; PH-G18-C02,False,True,False,False,,,,3.0159,6200,132,0.0041952,0,0,0,0,0,0,False,Which TestRunner provisioning method should I choose for my pod?,"Do you require support for ARM architecture or pod sizes larger than Small (M/L), or do you specifically need to validate the Marketing SKU during the initial provisioning step?","Correct clarification route, but the question misses some method-selection inputs."
+PH-G18,ambiguous_clarification,keyword,needs_clarification,needs_clarification,completed,True,2,3,0.6666666666666666,PH-G18-C02,False,True,False,False,,,,2.4995,5944,141,0.004074,0,0,0,0,0,0,False,Which TestRunner provisioning method should I choose for my pod?,"To recommend the correct method, do you require support for ARM architecture, ManagedDatabase, or pod sizes larger than Small (M/L), or are you restricted to x86+EXA with a Small pod size?","Correct clarification route, but the question misses some method-selection inputs."
+PH-G18,ambiguous_clarification,semantic,needs_clarification,needs_clarification,completed,True,1,3,0.3333333333333333,PH-G18-C01; PH-G18-C02,False,True,False,False,,,,3.0605,6222,121,0.0041688,0,0,0,0,0,0,False,Which TestRunner provisioning method should I choose for my pod?,"Do you require support for ARM architecture or pod sizes larger than 'S', or do you need FMK/CDP services included in your subscription?","Correct clarification route, but the question misses some method-selection inputs."
+PH-G19,unsupported_escalation,hybrid,needs_human_review,needs_human_review,completed,True,3,3,1.0,,False,True,True,False,,,,3.1815,5909,94,0.0038838,0,0,0,0,0,0,False,Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.,I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Generic evidence-gap fallback is accepted in the context of the user's named request; it neither invents YAML nor denies product capability.
+PH-G19,unsupported_escalation,keyword,needs_human_review,needs_human_review,completed,True,3,3,1.0,,False,True,True,False,,,,2.2783,5301,101,0.0035442,0,0,0,0,0,0,False,Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.,I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Generic evidence-gap fallback is accepted in the context of the user's named request; it neither invents YAML nor denies product capability.
+PH-G19,unsupported_escalation,semantic,needs_human_review,needs_human_review,completed,True,3,3,1.0,,False,True,True,False,,,,2.558,6225,92,0.0040662,0,0,0,0,0,0,False,Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.,I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Generic evidence-gap fallback is accepted in the context of the user's named request; it neither invents YAML nor denies product capability.
+PH-G20,unsupported_escalation,hybrid,needs_human_review,needs_human_review,completed,True,3,3,1.0,,False,True,True,False,,,,3.3731,4744,122,0.0032856,0,0,0,0,0,0,False,How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.,I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Generic evidence-gap fallback is accepted in context; it neither invents connector scopes nor claims an incident was created.
+PH-G20,unsupported_escalation,keyword,needs_human_review,needs_human_review,completed,True,3,3,1.0,,False,True,True,False,,,,1.9178,3226,98,0.0022884,0,0,0,0,0,0,False,How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.,I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Generic evidence-gap fallback is accepted in context; it neither invents connector scopes nor claims an incident was created.
+PH-G20,unsupported_escalation,semantic,needs_human_review,needs_human_review,completed,True,3,3,1.0,,False,True,True,False,,,,2.9829,4790,111,0.0032735999999999998,0,0,0,0,0,0,False,How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.,I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.,Generic evidence-gap fallback is accepted in context; it neither invents connector scopes nor claims an incident was created.

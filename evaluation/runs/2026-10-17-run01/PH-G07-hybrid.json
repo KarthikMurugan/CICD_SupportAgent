@@ -1,0 +1,288 @@
+{
+  "id": "PH-G07",
+  "mode": "hybrid",
+  "question": "Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?",
+  "run_status": "completed",
+  "result": {
+    "question": "Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> #### 1) Permissions Required [doc-0038]\n\n> The **Rerun Scans** button is rendered **only if**: [doc-0038]\n\n> Shown only: [doc-0038]\n\n> A step is eligible for rerun only if **all** conditions are met: [doc-0038]\n\n> + Required length: **10–60 characters** [doc-0038]\n\n> 3. Once the TA team processes the exemptions, developers currently must: [doc-0038]\n\nDocumented guidance:\n- Verify that your user account has the 'Project Control' role, as this permission is required to access the rerun functionality. [doc-0038]\n- Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if an older snapshot is selected. [doc-0038]\n- Confirm that the build is not currently in progress, as the control is disabled while the build is running. [doc-0038]\n- Check that the code-quality step has a quality status of 'DIRTY', because only steps with this status are eligible for rerun. [doc-0038]\n- Verify that the component is of type 'UIBuildService Application' or 'UIBuildService Web Component' and the step is 'Codescan', as these are the only currently supported types. [doc-0038]\n- Ensure that another rerun submission is not already in progress, as this condition disables the button. [doc-0038]\n\nSources:\n- [doc-0038] Rerun scans support\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft answer correctly identifies all conditions under which the 'Rerun Scans' button is missing (rendered) or disabled (greyed out) based on the provided evidence. Specifically: 1) The 'Project Control' role requirement is supported by doc-0038:chunk-0001:bge-003:line-012. 2) The requirement for the latest eligible snapshot is supported by lines 018 and 026. 3) The build status check is supported by line 025. 4) The 'DIRTY' status requirement for the step is supported by doc-0038:chunk-0001:bge-004:line-017. 5) The component type ('UIBuildService Application' or 'Web Component') and step name ('Codescan') restrictions are supported by doc-0038:chunk-0001:bge-004:lines-008 and 016. 6) The check for an existing rerun submission is supported by line 029. All claims are directly backed by",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation outlines specific conditions under which the 'Rerun Scans' button is rendered, disabled, or greyed out, as well as requirements for the steps themselves. These points directly address what to check when the control is missing or inactive.",
+      "claims": [
+        {
+          "text": "Verify that your user account has the 'Project Control' role, as this permission is required to access the rerun functionality.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-012"
+            }
+          ]
+        },
+        {
+          "text": "Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if an older snapshot is selected.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-026"
+            }
+          ]
+        },
+        {
+          "text": "Confirm that the build is not currently in progress, as the control is disabled while the build is running.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-025"
+            }
+          ]
+        },
+        {
+          "text": "Check that the code-quality step has a quality status of 'DIRTY', because only steps with this status are eligible for rerun.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-004:line-017"
+            }
+          ]
+        },
+        {
+          "text": "Verify that the component is of type 'UIBuildService Application' or 'UIBuildService Web Component' and the step is 'Codescan', as these are the only currently supported types.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-004:line-008"
+            },
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-004:line-016"
+            }
+          ]
+        },
+        {
+          "text": "Ensure that another rerun submission is not already in progress, as this condition disables the button.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0038:chunk-0001:bge-003:line-029"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "Verify that your user account has the 'Project Control' role, as this permission is required to access the rerun functionality.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-012",
+        "quote": "* + **Project Control** role",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Ensure the current snapshot is the latest eligible snapshot for the pipeline, as the button is disabled if an older snapshot is selected.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-026",
+        "quote": "+ Current snapshot is not the latest eligible snapshot",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Confirm that the build is not currently in progress, as the control is disabled while the build is running.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-025",
+        "quote": "* + Build is in progress",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Check that the code-quality step has a quality status of 'DIRTY', because only steps with this status are eligible for rerun.",
+        "evidence_id": "doc-0038:chunk-0001:bge-004:line-017",
+        "quote": "* Step quality is **DIRTY**",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-004"
+      },
+      {
+        "claim": "Verify that the component is of type 'UIBuildService Application' or 'UIBuildService Web Component' and the step is 'Codescan', as these are the only currently supported types.",
+        "evidence_id": "doc-0038:chunk-0001:bge-004:line-008",
+        "quote": "+ **Currently supported:** UIBuildService Application / Web Component (UIBuildService)",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-004"
+      },
+      {
+        "claim": "Verify that the component is of type 'UIBuildService Application' or 'UIBuildService Web Component' and the step is 'Codescan', as these are the only currently supported types.",
+        "evidence_id": "doc-0038:chunk-0001:bge-004:line-016",
+        "quote": "+ **Currently supported:** Codescan step",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-004"
+      },
+      {
+        "claim": "Ensure that another rerun submission is not already in progress, as this condition disables the button.",
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-029",
+        "quote": "+ A rerun submission is already in progress",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "chunk_id": "doc-0038:chunk-0001:bge-003"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-010",
+        "document_id": "doc-0038",
+        "chunk_id": "doc-0038:chunk-0001:bge-003",
+        "quote": "#### 1) Permissions Required"
+      },
+      {
+        "evidence_id": "doc-0038:chunk-0001:bge-003:line-016",
+        "document_id": "doc-0038",
+        "chunk_id": "doc-0038:chunk-0001:bge-003",
+        "quote": "The **Rerun Scans** button is rendered **only if**:"
+      },
+      {
+        "evidence_id": "doc-0038:chunk-0001:bge-004:line-005",
+        "document_id": "doc-0038",
+        "chunk_id": "doc-0038:chunk-0001:bge-004",
+        "quote": "Shown only:"
+      },
+      {
+        "evidence_id": "doc-0038:chunk-0001:bge-004:line-012",
+        "document_id": "doc-0038",
+        "chunk_id": "doc-0038:chunk-0001:bge-004",
+        "quote": "A step is eligible for rerun only if **all** conditions are met:"
+      },
+      {
+        "evidence_id": "doc-0038:chunk-0001:bge-004:line-024",
+        "document_id": "doc-0038",
+        "chunk_id": "doc-0038:chunk-0001:bge-004",
+        "quote": "+ Required length: **10–60 characters**"
+      },
+      {
+        "evidence_id": "doc-0038:chunk-0001:bge-002:line-005",
+        "document_id": "doc-0038",
+        "chunk_id": "doc-0038:chunk-0001:bge-002",
+        "quote": "3. Once the TA team processes the exemptions, developers currently must:"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0038:chunk-0002:bge-001",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "char_start": 3484,
+        "char_end": 4569,
+        "text": "Once you have **submitted** the component and step for rerun, it will take some time for the component/step to be transitioned to the \"In progress\" state. Reload the page after 3-5 mins, to find the latest state of component/step. \n\n#### Build Results page\n\nKindly make a note of the following - \n\n* The selected scans will be rerun on the **same snapshot**, and **no new snapshot** will be created after rerun submission.\n* There will be **no impact** to other steps of the same component, or to any other components that were part of the original snapshot build.\n* The **Deploy/Test** stages will remain the same as in the original snapshot, and there will be **no impact** to them.\n\n#### Pipeline Runs page\n\nHow to Identify Whether a Scan Was Rerun\n----------------------------------------\n\nTo differentiate between a rerun scan and a non-rerun scan:\n\n* If a scan is rerun for a given **component** and **snapshot**, an **“R”** icon will appear next to the **step name**.\n* When you hover over the step, the tooltip will display the **step name** along with the label **“(Rerun)”**."
+      },
+      {
+        "chunk_id": "doc-0038:chunk-0001:bge-003",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "char_start": 1774,
+        "char_end": 2602,
+        "text": "User Interface\n--------------\n\n### Overview\n\nFor each completed pipeline a new action will be available to \"Rerun Scans\":\n\n### Rerun Scans Action Button Restrictions\n\n#### 1) Permissions Required\n\n* + **Project Control** role\n\n#### 2) Button Visibility (When the Button Is Rendered)\n\nThe **Rerun Scans** button is rendered **only if**:\n\n* + The snapshot is the **latest** eligible snapshot of the pipeline\n\t+ At least one component is of **UIBuildService type**\n\n#### 3) Button Disablement (When the Button Is Disabled)\n\nThe button is disabled if **any** of the following are true:\n\n* + Build is in progress\n\t+ Current snapshot is not the latest eligible snapshot\n\t+ No eligible components/steps are available for rerun\n\t+ User lacks permission\n\t+ A rerun submission is already in progress\n\n### Rerun Scans Dialog Restrictions\n\n"
+      },
+      {
+        "chunk_id": "doc-0038:chunk-0001:bge-004",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "char_start": 2602,
+        "char_end": 3482,
+        "text": "After clicking on the \"Rerun Scans\" button from the Actions bar, the following dialog will appear - \n\n#### 1) Components shown in the popup\n\nShown only:\n\n* Components that have **eligible rerun steps**\n\t+ **Currently supported:** UIBuildService Application / Web Component (UIBuildService)\n\n#### 2) Eligible Rerun steps (per Component)\n\nA step is eligible for rerun only if **all** conditions are met:  \n \n\n* The step is **enabled for the component type.**\n\t+ **Currently supported:** Codescan step\n* Step quality is **DIRTY**\n\n#### 3) Submit button disabled condition\n\nThe **Submit** button in the popup is disabled when:\n\n* **Reason validation fails**\n\t+ Required length: **10–60 characters**\n\n#### 4) Submit validation failure conditions\n\nSubmission fails validation when:\n\n* No components are selected, or\n* No steps are selected\n\nAfter Rerun Submission\n----------------------"
+      },
+      {
+        "chunk_id": "doc-0016:chunk-0016:bge-002",
+        "document_id": "doc-0016",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (Monolith)",
+        "char_start": 35983,
+        "char_end": 36883,
+        "text": "2. Copy that data, and locate the value 'integratorYpMaster' which should be under `additionalData`, and we've been changing it to Demo Contributor's YPMaster: 'MNANDANI'\n\n3. Save that newly updated data back using: https://app.example.com/reference/resource-137](https://app.example.com/reference/resource-057)rest/saveProjectOnboardingRequest POST request with `Content-Type: application/json` header. \n\n4. After it's successfully saved, go back to the onboarding request, and under the 'Fulfillment Request' tab, click the `Restart Workflow` button. (Here in this picture it's greyed out, but that's because I had already restarted it)\n\nOnce May-B goes into production, this should not be happening anymore as we have made a change to avoid using the IdentityService identity API for this specific use-case, but wanted to give some background on why/how the issue is happening and our expected fix"
+      },
+      {
+        "chunk_id": "doc-0038:chunk-0001:bge-002",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "char_start": 861,
+        "char_end": 1774,
+        "text": "**Central JIRAissuekey,summary,issuetype,created,updated,duedate,assignee,reporter,priority,status,customfield_15507,resolutionkey,summary,type,created,updated,due,assignee,reporter,priority,status,Status,resolutionadf9d0b9-328f-38b2-a954-2899436ad300CloudNativeCICD-13902**\n\n1. Developers review **CodeScan violations**.\n2. After review, developers often submit **exemption requests** to the **TA team**.\n3. Once the TA team processes the exemptions, developers currently must:  \na) Kick off an **ad hoc build** with **no code changes**  \nb) Generate a **new publish version**  \nc) Create an **WorkspaceCLI transaction** and update the **JSON file** with the new version.\n\nThis process is inefficient because it requires a full build cycle even when no code changes are involved. \n\nRerun scans will help avoid steps **(a), (b), and (c)** by enabling developers to **rerun CodeScan for VB components** directly.\n\n"
+      },
+      {
+        "chunk_id": "doc-0038:chunk-0001:bge-001",
+        "document_id": "doc-0038",
+        "parent_id": "doc-0001",
+        "title": "Rerun scans support",
+        "char_start": 0,
+        "char_end": 861,
+        "text": "Requirements\n------------\n\nCentral JIRAissuekey,summary,issuetype,created,updated,duedate,assignee,reporter,priority,status,customfield_15507,resolutionkey,summary,type,created,updated,due,assignee,reporter,priority,status,Status,resolutionadf9d0b9-328f-38b2-a954-2899436ad300CloudNativeCICD-17305\n\n**Rerun Scans** will enable the team to rerun specific scans for selected components without triggering an additional adhoc build.\n\n* In the **initial release**, rerun scans will be supported for:\n\t+ **UIBuildService Application and UIBuildService Web component**\n\t\t- **CodeScan step**\n* In **upcoming releases**, this functionality will be extended to additional scans and components.\n\nHigh level support\n------------------\n\nThe initial need to support rerun scans for VB components is driven by the current workflow for **CloudNative/UIBuildService builds.**\n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 10.473,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 652,
+        "prompt_tokens": 5157,
+        "total_tokens": 5809,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 6.5358
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 286,
+        "prompt_tokens": 5259,
+        "total_tokens": 5545,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.2576
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.6771
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 7.2136
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 10.4721
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 10.4728
+    }
+  ],
+  "wall_seconds": 10.4863,
+  "token_usage": {
+    "prompt_tokens": 10416,
+    "completion_tokens": 938,
+    "total_tokens": 11354
+  },
+  "completed_at_utc": "2026-10-17T17:41:37.729682+00:00"
+}

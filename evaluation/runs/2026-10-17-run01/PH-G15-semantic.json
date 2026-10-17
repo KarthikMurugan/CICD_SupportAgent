@@ -1,0 +1,313 @@
+{
+  "id": "PH-G15",
+  "mode": "semantic",
+  "question": "We locked a Family pod during maintenance and now want to scale it from XS1 to S2. What must change before the request, and is this a valid scale-out?",
+  "run_status": "completed",
+  "result": {
+    "question": "We locked a Family pod during maintenance and now want to scale it from XS1 to S2. What must change before the request, and is this a valid scale-out?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> Scale-out and Resize can be submitted from PipelineHub using the post pod action flow. PipelineHub submits the required pod details to EnvironmentService and receives callback status updates for the action. [doc-0087]\n\n> The logical size family should remain the same and only the number should change. For example, `S1 -> S2` is valid. [doc-0087]\n\n> The logical stamp should be the same. The current size and the new logical stamp size should be same, only the number can vary. [doc-0087]\n\n> Resize is used when the pod needs to be moved from the current logical stamp to the required logical stamp. [doc-0087]\n\n> User should provide the current logical stamp and required logical stamp while submitting the post pod action. [doc-0087]\n\n> * User should provide the correct current logical stamp and required logical stamp. [doc-0087]\n\n> Note - Multi Tenant Related features are currently restricted to super admins [doc-0032]\n\nDocumented guidance:\n- The proposed change from XS1 to S2 is not a valid scale-out because the logical size family must remain the same; only the number can vary (e.g., XS1 to XS2 is allowed, but XS1 to S2 is not). [doc-0087]\n- To change the logical stamp (e.g., from XS to S), the user must use the Resize action, which requires providing both the current and required logical stamps. [doc-0087]\n- Before submitting a Scale-out or Resize request, the pod lifecycle state must be 'Active' to pass the health check validation. [doc-0087]\n- The pod lifecycle state must be 'AVAILABLE' to ensure no conflicting scheduled activities exist; if the pod is locked or held, it must be released first. [doc-0087] [doc-0032]\n- Scale-out or Resize actions cannot be submitted while another conflicting pod action is already in progress. [doc-0087]\n\nSources:\n- [doc-0087] PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize\n- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly identifies that scaling from XS1 to S2 is invalid for a 'Scale-out' action because the logical family changes (XS to S), which requires a 'Resize' action instead. This is supported by doc-0087:chunk-0001:bge-002:line-001 and line-007. The draft also correctly states that the pod must be in an 'Active' state (doc-0087:chunk-0001:bge-003:line-025) and 'AVAILABLE' (doc-0087:chunk-0001:bge-003:line-033), noting that the maintenance lock (HOLD) mentioned in the question must be released first (doc-0032:chunk-0033:bge-001:line-005). All claims are directly supported by the provided evidence without extrapolation.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The user's request to scale a Family pod from XS1 to S2 is invalid because it changes the logical size family. Scale-out requires the family to remain the same (e.g., XS1 to XS2), while changing the family (XS to S) requires a Resize action. Additionally, the pod must be in an 'Active' and 'Available' state, meaning any maintenance lock or hold must be released before the request can proceed.",
+      "claims": [
+        {
+          "text": "The proposed change from XS1 to S2 is not a valid scale-out because the logical size family must remain the same; only the number can vary (e.g., XS1 to XS2 is allowed, but XS1 to S2 is not).",
+          "evidence": [
+            {
+              "evidence_id": "doc-0087:chunk-0001:bge-002:line-007"
+            },
+            {
+              "evidence_id": "doc-0087:chunk-0001:bge-002:line-001"
+            }
+          ]
+        },
+        {
+          "text": "To change the logical stamp (e.g., from XS to S), the user must use the Resize action, which requires providing both the current and required logical stamps.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0087:chunk-0001:bge-002:line-011"
+            },
+            {
+              "evidence_id": "doc-0087:chunk-0001:bge-002:line-013"
+            }
+          ]
+        },
+        {
+          "text": "Before submitting a Scale-out or Resize request, the pod lifecycle state must be 'Active' to pass the health check validation.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0087:chunk-0001:bge-003:line-025"
+            },
+            {
+              "evidence_id": "doc-0087:chunk-0001:bge-003:line-021"
+            }
+          ]
+        },
+        {
+          "text": "The pod lifecycle state must be 'AVAILABLE' to ensure no conflicting scheduled activities exist; if the pod is locked or held, it must be released first.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0087:chunk-0001:bge-003:line-033"
+            },
+            {
+              "evidence_id": "doc-0032:chunk-0033:bge-001:line-005"
+            }
+          ]
+        },
+        {
+          "text": "Scale-out or Resize actions cannot be submitted while another conflicting pod action is already in progress.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0087:chunk-0001:bge-002:line-020"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "The proposed change from XS1 to S2 is not a valid scale-out because the logical size family must remain the same; only the number can vary (e.g., XS1 to XS2 is allowed, but XS1 to S2 is not).",
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-007",
+        "quote": "* `XS1 -> S2` is not allowed",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "chunk_id": "doc-0087:chunk-0001:bge-002"
+      },
+      {
+        "claim": "The proposed change from XS1 to S2 is not a valid scale-out because the logical size family must remain the same; only the number can vary (e.g., XS1 to XS2 is allowed, but XS1 to S2 is not).",
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-001",
+        "quote": "The logical stamp should be the same. The current size and the new logical stamp size should be same, only the number can vary.",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "chunk_id": "doc-0087:chunk-0001:bge-002"
+      },
+      {
+        "claim": "To change the logical stamp (e.g., from XS to S), the user must use the Resize action, which requires providing both the current and required logical stamps.",
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-011",
+        "quote": "Resize is used when the pod needs to be moved from the current logical stamp to the required logical stamp.",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "chunk_id": "doc-0087:chunk-0001:bge-002"
+      },
+      {
+        "claim": "To change the logical stamp (e.g., from XS to S), the user must use the Resize action, which requires providing both the current and required logical stamps.",
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-013",
+        "quote": "User should provide the current logical stamp and required logical stamp while submitting the post pod action.",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "chunk_id": "doc-0087:chunk-0001:bge-002"
+      },
+      {
+        "claim": "Before submitting a Scale-out or Resize request, the pod lifecycle state must be 'Active' to pass the health check validation.",
+        "evidence_id": "doc-0087:chunk-0001:bge-003:line-025",
+        "quote": "Lifecycle State should be `Active`.",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "chunk_id": "doc-0087:chunk-0001:bge-003"
+      },
+      {
+        "claim": "Before submitting a Scale-out or Resize request, the pod lifecycle state must be 'Active' to pass the health check validation.",
+        "evidence_id": "doc-0087:chunk-0001:bge-003:line-021",
+        "quote": "This stage validates the pod lifecycle state and performs the pod health check before the Scale-out / Resize action proceeds.",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "chunk_id": "doc-0087:chunk-0001:bge-003"
+      },
+      {
+        "claim": "The pod lifecycle state must be 'AVAILABLE' to ensure no conflicting scheduled activities exist; if the pod is locked or held, it must be released first.",
+        "evidence_id": "doc-0087:chunk-0001:bge-003:line-033",
+        "quote": "Lifecycle State should be `AVAILABLE`.",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "chunk_id": "doc-0087:chunk-0001:bge-003"
+      },
+      {
+        "claim": "The pod lifecycle state must be 'AVAILABLE' to ensure no conflicting scheduled activities exist; if the pod is locked or held, it must be released first.",
+        "evidence_id": "doc-0032:chunk-0033:bge-001:line-005",
+        "quote": "NOTE: Once HOLD has been applied even if the patching/upgrade fails, the pod will need to be released before some actions can be taken on the pod.",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "chunk_id": "doc-0032:chunk-0033:bge-001"
+      },
+      {
+        "claim": "Scale-out or Resize actions cannot be submitted while another conflicting pod action is already in progress.",
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-020",
+        "quote": "* Scale-out / Resize should not be submitted while another conflicting pod action is already in progress.",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "chunk_id": "doc-0087:chunk-0001:bge-002"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0087:chunk-0001:bge-001:line-007",
+        "document_id": "doc-0087",
+        "chunk_id": "doc-0087:chunk-0001:bge-001",
+        "quote": "Scale-out and Resize can be submitted from PipelineHub using the post pod action flow. PipelineHub submits the required pod details to EnvironmentService and receives callback status updates for the action."
+      },
+      {
+        "evidence_id": "doc-0087:chunk-0001:bge-001:line-022",
+        "document_id": "doc-0087",
+        "chunk_id": "doc-0087:chunk-0001:bge-001",
+        "quote": "The logical size family should remain the same and only the number should change. For example, `S1 -> S2` is valid."
+      },
+      {
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-001",
+        "document_id": "doc-0087",
+        "chunk_id": "doc-0087:chunk-0001:bge-002",
+        "quote": "The logical stamp should be the same. The current size and the new logical stamp size should be same, only the number can vary."
+      },
+      {
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-011",
+        "document_id": "doc-0087",
+        "chunk_id": "doc-0087:chunk-0001:bge-002",
+        "quote": "Resize is used when the pod needs to be moved from the current logical stamp to the required logical stamp."
+      },
+      {
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-013",
+        "document_id": "doc-0087",
+        "chunk_id": "doc-0087:chunk-0001:bge-002",
+        "quote": "User should provide the current logical stamp and required logical stamp while submitting the post pod action."
+      },
+      {
+        "evidence_id": "doc-0087:chunk-0001:bge-002:line-018",
+        "document_id": "doc-0087",
+        "chunk_id": "doc-0087:chunk-0001:bge-002",
+        "quote": "* User should provide the correct current logical stamp and required logical stamp."
+      },
+      {
+        "evidence_id": "doc-0032:chunk-0033:bge-001:line-029",
+        "document_id": "doc-0032",
+        "chunk_id": "doc-0032:chunk-0033:bge-001",
+        "quote": "Note - Multi Tenant Related features are currently restricted to super admins"
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0087:chunk-0001:bge-001",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "char_start": 0,
+        "char_end": 809,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-665>\n\n### Scale-out and Resize Support\n\nScale-out and Resize is provided for EnvironmentService PODS.\n\nScale-out and Resize can be submitted from PipelineHub using the post pod action flow. PipelineHub submits the required pod details to EnvironmentService and receives callback status updates for the action.\n\n**Supported Actions:**\n\n* `ACTION_SCALEOUT_POD`\n* `ACTION_RESIZE_POD`\n\n \n\n### Scale-out\n\nScale-out is used for UI server addition to the pod.\n\nFor example, if the current pod size is `XS1` and it needs to be scaled out to `XS3`, then two UI servers will be added to the pod.\n\nThe logical size family should remain the same and only the number should change. For example, `S1 -> S2` is valid.\n\n**Prerequisites:**\n\n"
+      },
+      {
+        "chunk_id": "doc-0115:chunk-0002:bge-002",
+        "document_id": "doc-0115",
+        "parent_id": "doc-0032",
+        "title": "Lifecycle Activities for EnvironmentLifecycleService on Fleet vs PipelineHub",
+        "char_start": 1090,
+        "char_end": 1884,
+        "text": "| 9 | Resize and Scale out | Partially Supported* SR based resize/scaleout needs to be supported via DevOps portal.\n* We will not support resize or scale out as part of Day N order update.\n | **Action: We only have XS. So we should NOT be supported.**(Pod Resize, Pod Scaleout) |\n| 10 | Network ACL | Supported | NA. |\n| 11 | KMS/BG | Supported | NA. |\n| 12 | RuntimeDiagnostics | Supported | Supported(Pod Add-ons --> Enable/Disable RuntimeDiagnostics) |\n| 13 | DR | Not Supported | NA. |\n| 14 | Private connectivity using VPN/FastConnect | Supported | NA. Corporate VPN for PreProduction Pods. |\n| 15 | Suspension and Termination | Supported | Supported(Delete) |\n| 16 | Reinstate | Supported | **Action: This should NOT be supported but option is available on PIPELINEHUB. Need to hide.** |\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0008:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 24309,
+        "char_end": 25912,
+        "text": "Scaleout and resize is provided for EnvironmentService PODS \n\nHowever there is a known TLSE issue being tracked using Jira - [DEMO-007](https://issues.example.com/reference/resource-392)\n\n.      \n\n### Submit Post Repo patch along with patch bundle patch during cumulative patching upgrade\n\nUpgrade submission now allows \"Post repo\" patching alone, \"Patch bundle\" patching alone and both together during the cumulative patching upgrade submission. You will see this option under \"Advance parameters\" as before.\n\n### EnvironmentService M/L size\n\nWe are now supporting provisioning of both M and L size EnvironmentService PODS. However while provisioning of M size POD is stable, we ran into several intermittent issues for L size POD on the EnvironmentService front from time to time.  PipelineHub orchestration is confirmed to be working however issues with L size POD are being followed up with the EnvironmentService team.\n\nReleaseEngineering QA is not certifying L size POD provisioning due to intermittent issues from EnvironmentService.\n\n#### Provisioning\n\n### Multiple Subscriptions selection\n\nMultiple subscriptions can be now selected for S, XS ,M ,L size pods \n\n#### Upgrade\n\n### Consolidate Template Based Provisioning\n\nEnvironmentService uptake of consolidated template is now supported in Provisioning Flow. \n\nCurrently supporting S and M size templates. However \"L\" size provisioning encountering the quota issues.\n\n### Consolidate Template support for upgrade\n\nPipelineHub now support EnvironmentService upgrade submissions using consolidate templates.\n\n### Configure additional languages\n\n"
+      },
+      {
+        "chunk_id": "doc-0087:chunk-0001:bge-003",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "char_start": 1656,
+        "char_end": 3037,
+        "text": "**Callback Action Names:**\n\n* For Resize: `ACTION_RESIZE_POD`\n* For Scale-out: `ACTION_SCALEOUT_POD`\n\n### Monitoring Scale-out / Resize Request\n\nAfter submitting the Scale-out or Resize post pod action, user can monitor the request from the PipelineHub preflight details page.\n\nThe PipelineHub details page shows the overall request information, submitted parameters, stage-level progress, and final status.\n\nThe overall status should be checked after the Jenkins job completes. For a successful Scale-out request, the status is shown as `SUCCESS`.\n\n**For Scale-out / Resize, user can see phases such as:**\n\n* `PRE_UPDATE`\n* `SCALEOUT_RESIZE`\n\n### POD_STATUS_AND_HEALTH_CHECK\n\nThis stage validates the pod lifecycle state and performs the pod health check before the Scale-out / Resize action proceeds.\n\n**Expected value:**\n\nLifecycle State should be `Active`.\n\n### CHECK_EXISTING_SCHEDULES\n\nThis stage checks whether any conflicting scheduled activity already exists for the pod.\n\n**Expected value:**\n\nLifecycle State should be `AVAILABLE`.\n\nIf the lifecycle state is not `AVAILABLE`, user should verify existing scheduled activities before retrying the action.\n\n### SCALEOUT\n\nThis stage creates the Scale-out scheduled activity for the pod.\n\nOnce this stage completes successfully, the Scale-out scheduled activity is created.\n\n### ENVIRONMENTSERVICE_SCALEOUT_RESIZE_STATUS_CHECK"
+      },
+      {
+        "chunk_id": "doc-0087:chunk-0001:bge-002",
+        "document_id": "doc-0087",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+        "char_start": 809,
+        "char_end": 1656,
+        "text": "The logical stamp should be the same. The current size and the new logical stamp size should be same, only the number can vary.\n\n**Examples:**\n\n* `XS1 -> XS2` is allowed\n* `S2 -> S4` is allowed\n* `XS1 -> S2` is not allowed\n\n### Resize\n\nResize is used when the pod needs to be moved from the current logical stamp to the required logical stamp.\n\nUser should provide the current logical stamp and required logical stamp while submitting the post pod action.\n\n**Prerequisites:**\n\n* User should ensure the pod details are correct before submitting the Resize action.\n* User should provide the correct current logical stamp and required logical stamp.\n* User should validate whether the pod is eligible for Resize before submitting the request.\n* Scale-out / Resize should not be submitted while another conflicting pod action is already in progress.\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0033:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 97792,
+        "char_end": 99337,
+        "text": "We now allow applying HOLD following the completion of one of the 4 phases of patching, shown in the screenshot below.\n\nRelease can be triggered after the HOLD is applied successfully.\n\nNOTE: Once HOLD has been applied even if the patching/upgrade fails, the pod will need to be released before some actions can be taken on the pod.\n\nManagedDatabase Enabled Flag\n\nEnvironmentService-Uptake ManagedDatabase Flag in provisioning submissions. If the template is ManagedDatabase enabled. This is for the users who wants to use PipelineHub for ADBS provisioning jobs. \n\nthis is a requirement for LifecycleManager to be able to use PipelineHub for ADBS prov\n\nSupport Enabled DB info check box for EnvironmentService provisioning\n\nPipelineHub now support with \"Enabled DB info\" check box feature for EnvironmentService provisioning which works exactly like GEN1.\n\n \n\nX86 is defaulted for provisioning, ARM Pods are based on user selection \n\nX86 is now the default for POD provisioning. User should click \"***Provision an ARM64 pod***\" if they want an ARM pod.  \n\n#### All Pods Dashboard Enhancements\n\nThe All Pods Dashboard has been revamped, improving performance and add more filters similar to Family Pods Dashboard, to have a consistent look and feel.\n\n### Multitenant UI Enhancements\n\nNote - Multi Tenant Related features are currently restricted to super admins\n\n* Support for multiple data planes associated with a Proxy Service\n* Multi Tenant Preflight dashboard enhancements displaying services selected for promotion and environment details\n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 9.526,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 717,
+        "prompt_tokens": 5950,
+        "total_tokens": 6667,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 5.9224
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 247,
+        "prompt_tokens": 6150,
+        "total_tokens": 6397,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.8985
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.702
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 6.6255
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 9.5249
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 9.5255
+    }
+  ],
+  "wall_seconds": 9.5361,
+  "token_usage": {
+    "prompt_tokens": 12100,
+    "completion_tokens": 964,
+    "total_tokens": 13064
+  },
+  "completed_at_utc": "2026-10-17T17:41:56.197181+00:00"
+}

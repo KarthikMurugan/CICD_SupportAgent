@@ -1,0 +1,47 @@
+{
+  "id": "PH-G16",
+  "mode": "semantic",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "756a3fdd9343df7d1d22e592200df950e0eb4a8e904392f3166423c66f8b15b7",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G16-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C04",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C05",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C06",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Hybrid combines both topics but misses some strict procedural criteria. Other modes escalate."
+  },
+  "external_grading_calls": 0
+}

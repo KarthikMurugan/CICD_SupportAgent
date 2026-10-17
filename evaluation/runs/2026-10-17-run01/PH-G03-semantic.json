@@ -1,0 +1,241 @@
+{
+  "id": "PH-G03",
+  "mode": "semantic",
+  "question": "For the Toggle MFA post-pod action, which pod identity configurations are eligible, and is IDM supported?",
+  "run_status": "completed",
+  "result": {
+    "question": "For the Toggle MFA post-pod action, which pod identity configurations are eligible, and is IDM supported?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> 1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs. [doc-0098]\n\nDocumented guidance:\n- The Toggle MFA post-pod action is available only for IdentityService and IdentityService/ManagedDatabase pods. [doc-0098]\n- The Toggle MFA feature is explicitly not available for IDM, and the UI must not display this option for IDM pods. [doc-0098]\n- When MFA is disabled, users can log in to IdentityService and IdentityService/ManagedDatabase pods using only a username and password. [doc-0098]\n- If MFA is enabled, users are prompted for extra authentication to log in to the eligible pods. [doc-0098]\n- BuildAcceptanceTests automatically disable MFA on the pod during their run, as these tests cannot execute with MFA enabled. [doc-0098]\n\nSources:\n- [doc-0098] PipelineHub Preflight - Post Pod Actions - Toggle MFA\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly identifies that the Toggle MFA post-pod action is eligible only for 'IdentityService' and 'IdentityService/ManagedDatabase' pods, citing the explicit restriction in the evidence. It also correctly answers that IDM is not supported, preserving the mandatory caveat that the UI must not display this option for IDM pods. All additional claims regarding login behavior and BuildAcceptanceTests are directly supported by the provided text.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation explicitly states which pod identities are eligible for the Toggle MFA post-pod action and confirms that IDM is not supported.",
+      "claims": [
+        {
+          "text": "The Toggle MFA post-pod action is available only for IdentityService and IdentityService/ManagedDatabase pods.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-003"
+            },
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-008"
+            }
+          ]
+        },
+        {
+          "text": "The Toggle MFA feature is explicitly not available for IDM, and the UI must not display this option for IDM pods.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-003"
+            }
+          ]
+        },
+        {
+          "text": "When MFA is disabled, users can log in to IdentityService and IdentityService/ManagedDatabase pods using only a username and password.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-004"
+            }
+          ]
+        },
+        {
+          "text": "If MFA is enabled, users are prompted for extra authentication to log in to the eligible pods.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-005"
+            }
+          ]
+        },
+        {
+          "text": "BuildAcceptanceTests automatically disable MFA on the pod during their run, as these tests cannot execute with MFA enabled.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-006"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "The Toggle MFA post-pod action is available only for IdentityService and IdentityService/ManagedDatabase pods.",
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-003",
+        "quote": "1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs.",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "chunk_id": "doc-0098:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The Toggle MFA post-pod action is available only for IdentityService and IdentityService/ManagedDatabase pods.",
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-008",
+        "quote": "Eligible PODS (IdentityService) will have the option in the post pod actions - TOGGLE MFA",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "chunk_id": "doc-0098:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The Toggle MFA feature is explicitly not available for IDM, and the UI must not display this option for IDM pods.",
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-003",
+        "quote": "1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs.",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "chunk_id": "doc-0098:chunk-0001:bge-001"
+      },
+      {
+        "claim": "When MFA is disabled, users can log in to IdentityService and IdentityService/ManagedDatabase pods using only a username and password.",
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-004",
+        "quote": "2. if MFA is disabled then the users will be able to login with user name and password on the IdentityService and IdentityService/ManagedDatabase pods",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "chunk_id": "doc-0098:chunk-0001:bge-001"
+      },
+      {
+        "claim": "If MFA is enabled, users are prompted for extra authentication to log in to the eligible pods.",
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-005",
+        "quote": "3. if the MFA is enabled user will be prompted for extra authentication to be able to login to the PODs",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "chunk_id": "doc-0098:chunk-0001:bge-001"
+      },
+      {
+        "claim": "BuildAcceptanceTests automatically disable MFA on the pod during their run, as these tests cannot execute with MFA enabled.",
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-006",
+        "quote": "4. if BuildAcceptanceTests are triggered, BuildAcceptanceTests will automatically disable the MFA on the POD as BuildAcceptanceTests cannot run with MFA on, so when BuildAcceptanceTests are triggered the assumption is that MFA will be disabled (this will be done during the BuildAcceptanceTests run) , irrespective of what the user has done during prov or post prov action.",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "chunk_id": "doc-0098:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0098:chunk-0001:bge-001:line-003",
+        "document_id": "doc-0098",
+        "chunk_id": "doc-0098:chunk-0001:bge-001",
+        "quote": "1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs."
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0098:chunk-0001:bge-001",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "char_start": 0,
+        "char_end": 1165,
+        "text": "Toggle MFA (Multi-Factor Authentication) \n\n1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs.\n2. if MFA is disabled then the users will be able to login with user name and password on the IdentityService and IdentityService/ManagedDatabase pods\n3. if the MFA is enabled user will be prompted for extra authentication to be able to login to the PODs\n4. if BuildAcceptanceTests are triggered, BuildAcceptanceTests will automatically disable the MFA on the POD as BuildAcceptanceTests cannot run with MFA on, so when BuildAcceptanceTests are triggered the assumption is that MFA will be disabled (this will be done during the BuildAcceptanceTests run) , irrespective of what the user has done during prov or post prov action.\n\nEligible PODS (IdentityService) will have the option in the post pod actions - TOGGLE MFA\n\nThe user will be able to ENABLE MFA or DISABLE MFA based on the option selected (true or false)"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0013:bge-002",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 51184,
+        "char_end": 52051,
+        "text": "**Endpoints:**\n\nFor Preflight and family Pod: https://api.example.com/reference/resource-249 **OUTPUT**\n\nOutput{\n \"status\": \"SUCCESS\",\n \"message\": \"<Failure message if any>/<preflightId in case of successful submission>\"\n}\n\n---\n\n**TOGGLE MFA**\n--------------\n\n###  Purpose\n\n* The purpose of this API is to allow the user to toggle MFA without having to go into the PipelineHub UI\n\n**Endpoints:**\n\nhttps://api.example.com/reference/resource-250 **Payload Format**\n\n{\n \"inputParameters\": {\n \"emailNotifications\": \"user020@example.com\",\n \"podName\": \"demo-environment\",\n \"enableMFA\": true\n },\n \"lineOfBusiness\": \"RELEASEENGINEERING_PIPELINEHUBDEV\",\n \"purpose\": \"Toggle MFA enable\"\n}### **OUTPUT**\n\nOutput{\n \"status\": \"SUCCESS\",\n \"message\": \"251007.044811 OR <Failure message if any>\"\n}  \n\n---\n\n**Set Feature Flags API - POST call**\n-------------------------------------\n\n"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0017:bge-005",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 78664,
+        "char_end": 79221,
+        "text": " },\n ...\n ...\n ...\n {\n \"preflightID\": \"240509.203540\",\n \"overallStatus\": \"FAILED\",\n \"type\": \"BOUNCE_BUSINESSAPP_AND_IDM_SERVICES\",\n \"podUsedFor\": \"FAMILY\",\n \"templateType\": \"\",\n \"purpose\": \"Applying action BOUNCE_BUSINESSAPP_AND_IDM_SERVICES on pod demo-environment\",\n \"podName\": \"demo-environment\",\n \"lineOfBusiness\": \"FACORE_VBJ\",\n \"submittedBy\": \"user030@example.com\",\n \"startTime\": \"05/09/2024 20:35:40\",\n \"endTime\": \"05/09/2024 21:11:34\",\n \"pipelineJobName\": \"POST_PROVISIONING_ACTIONS\",\n \"statusType\": \"BOUNCE_BUSINESSAPP_AND_IDM_SERVICES\"\n }\n ]\n}  \n\n"
+      },
+      {
+        "chunk_id": "doc-0092:chunk-0001:bge-001",
+        "document_id": "doc-0092",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+        "char_start": 0,
+        "char_end": 911,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-671>\n\nSupport Data Masking as post pod action\n---------------------------------------\n\nWe have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.\n\n**Note:**\n\n* Data masking will work for the releases for which DM template is already ingested.(Ex:GA,HWM ).\n\n**Feature not yet supported:**\n\n* Multiple data masking runs.\n\nMore details on Data Making: <https://docs.example.com/reference/resource-399>\n\n**Data Masking Oneoff Job:**\n\nFor cases where the data masking is timed out ,there will be a replay shown for status check of the data masking."
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0033:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 97792,
+        "char_end": 99337,
+        "text": "We now allow applying HOLD following the completion of one of the 4 phases of patching, shown in the screenshot below.\n\nRelease can be triggered after the HOLD is applied successfully.\n\nNOTE: Once HOLD has been applied even if the patching/upgrade fails, the pod will need to be released before some actions can be taken on the pod.\n\nManagedDatabase Enabled Flag\n\nEnvironmentService-Uptake ManagedDatabase Flag in provisioning submissions. If the template is ManagedDatabase enabled. This is for the users who wants to use PipelineHub for ADBS provisioning jobs. \n\nthis is a requirement for LifecycleManager to be able to use PipelineHub for ADBS prov\n\nSupport Enabled DB info check box for EnvironmentService provisioning\n\nPipelineHub now support with \"Enabled DB info\" check box feature for EnvironmentService provisioning which works exactly like GEN1.\n\n \n\nX86 is defaulted for provisioning, ARM Pods are based on user selection \n\nX86 is now the default for POD provisioning. User should click \"***Provision an ARM64 pod***\" if they want an ARM pod.  \n\n#### All Pods Dashboard Enhancements\n\nThe All Pods Dashboard has been revamped, improving performance and add more filters similar to Family Pods Dashboard, to have a consistent look and feel.\n\n### Multitenant UI Enhancements\n\nNote - Multi Tenant Related features are currently restricted to super admins\n\n* Support for multiple data planes associated with a Proxy Service\n* Multi Tenant Preflight dashboard enhancements displaying services selected for promotion and environment details\n\n"
+      },
+      {
+        "chunk_id": "doc-0064:chunk-0001:bge-001",
+        "document_id": "doc-0064",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Special Project",
+        "char_start": 0,
+        "char_end": 1144,
+        "text": "### Special Project Support for Provisioning\n\nUsers can now choose to provision a pod using a valid registered special project.\n\nNote - All ENV/PODs created using special projects will not be eligible for regular promotion preflights.\n\n1. Check 'Enable Special Project'\n2. From the drop down select available active special project\n3. The 'BusinessApp Release' will fetch the registered release sets that belong to this special project - choose appropriate release set\n4. And the rest of the options like cloudnative / overrides remain the same\n5. Once all the options are selected, user can submit preflights\n\nOnce the preflight is successful - the reporting page should show the special project details with project name (under purpose)\n\n### HWM Template Support for Special Project\n\nPipelineHub will now allow HWM Templates to be used for Special Project Provisioning. \n\n### Special Project Support for  EnvironmentService Upgrade\n\nPipelineHub now support EnvironmentService upgrade for special project.\n\nSPD Service selection on Prov and Upgrade\n\n### Create New Special Project Page\n\n### Create Release Set option available for SPD Admins\n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 8.267,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 526,
+        "prompt_tokens": 6189,
+        "total_tokens": 6715,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 5.0474
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 124,
+        "prompt_tokens": 6189,
+        "total_tokens": 6313,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.4757
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.741
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 5.7889
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 8.2655
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 8.2666
+    }
+  ],
+  "wall_seconds": 8.2875,
+  "token_usage": {
+    "prompt_tokens": 12378,
+    "completion_tokens": 650,
+    "total_tokens": 13028
+  },
+  "completed_at_utc": "2026-10-17T17:42:55.453902+00:00"
+}

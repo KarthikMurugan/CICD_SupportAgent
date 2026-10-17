@@ -1,0 +1,1446 @@
+{
+  "metadata": {
+    "dataset_name": "PipelineHub Golden Evaluation Dataset",
+    "version": "1.0",
+    "authored_date": "2026-10-17",
+    "corpus_sha256": "aef28c6fc2ffbf5ce3fc37272f2e0a3d8bbcee80061231364f408814e95cb58a",
+    "corpus_dataset_version": "1.0",
+    "corpus_source": "PipelineHub-corpus.json (canonical adapted corpus)",
+    "case_count": 20,
+    "category_counts": {
+      "exact_match": 6,
+      "semantic_troubleshooting": 6,
+      "multi_passage": 4,
+      "ambiguous_clarification": 2,
+      "unsupported_escalation": 2
+    },
+    "expected_status_counts": {
+      "answered": 16,
+      "needs_clarification": 2,
+      "needs_human_review": 2
+    },
+    "split": "frozen evaluation holdout; use separate cases for tuning",
+    "bot_executed_on_these_questions": false,
+    "scores": null,
+    "review_status": "Source spans mechanically verified; authored annotations require user/SME review before claiming independently validated gold.",
+    "independence": "Questions and labels were authored directly from the canonical corpus without querying the bot, retriever, or generation provider. Existing persisted development questions, unit-test strings and visible demo prompts were screened for duplicates. Prior topics (overview, OAuth registration, generic failure, project pausing and uptime/service credits) were excluded. This is a new case set, not an external blind benchmark; same project assistant authored it and unrecorded historical prompts cannot be audited.",
+    "source_overlap_policy": "Documents may also have appeared incidentally in earlier retrievals. Independence means different question/intent/answer cases, not a document-disjoint corpus split.",
+    "source_limitations": [
+      "All answers describe adapted illustrative documentation, not verified executable platform behavior.",
+      "example.com URLs are placeholders; external linked content/media/attachments were not used.",
+      "No deprecated-titled document is used as gold support; pages with moved-content notices are labeled only as claims of this frozen corpus.",
+      "Accept semantically equivalent answers and valid alternative supporting corpus passages."
+    ],
+    "classification_rules": {
+      "exact_match": "Question explicitly names a setting, role, identifier, component or compatibility row; scoring still uses semantic correctness, not whole-string match.",
+      "semantic_troubleshooting": "Symptom or intent is expressed in user language and must be mapped to documented behavior; no fabricated diagnosis.",
+      "multi_passage": "Complete answer requires both listed evidence groups, not merely two citations to one fact.",
+      "ambiguous_clarification": "Missing user details prevent selecting the supported procedure; ask targeted questions.",
+      "unsupported_escalation": "Requested named capability or configuration is not established by the corpus; explain the evidence gap and route to human review."
+    },
+    "scoring": {
+      "answerable_cases": 16,
+      "all_cases": 20,
+      "point_coverage": "Satisfied required_answer_points / total required points. Paraphrases accepted; evaluate evidence support, not keyword occurrence.",
+      "case_pass": "Expected route AND all required points AND no unacceptable claim AND valid supporting citations for factual documentation claims. Critical fields flag particularly consequential omissions; all listed required points still count for completeness.",
+      "faithfulness": "Supported factual claims / all factual claims in generated answers; inspect cited evidence manually. A valid document ID alone is insufficient.",
+      "retrieval": "For the 16 answerable cases, report document-group recall@k; score all required evidence groups for multi-passage questions. Accept alternative passages only after verifying they support the criterion. Do not score unsupported cases against invented relevant documents.",
+      "simulated_first_contact_resolution_all": "Correct, complete, cited answers without clarification/human intervention divided by all 20 queries; maximum possible on this designed mix is 16/20 (80%).",
+      "simulated_first_contact_resolution_answerable": "Correct, complete, cited answers divided by the 16 answerable queries; report separately with explicit denominator.",
+      "routing_accuracy": "Correct answered/needs_clarification/needs_human_review status divided by 20. Clarification or escalation can pass routing but is not a resolution.",
+      "latency": "Record end-to-end time for each actual run; do not populate measurements before execution.",
+      "holdout_policy": "Freeze labels before running keyword/semantic/hybrid modes. Do not feed reference answers into generation or ingest evaluation files. Any changes after seeing results create a new version and require a fresh holdout for an unbiased final score."
+    }
+  },
+  "cases": [
+    {
+      "id": "PH-G01",
+      "category": "exact_match",
+      "question": "In Add a Free Form Tag, what format is accepted, and how many tags may I send in one submission?",
+      "expected_status": "answered",
+      "reference_answer": "Use key=value and submit only one free form tag per submission. The value may contain nested key/value pairs, for example key=key1=value1,key2=value2. [doc-0080]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G01-C01",
+          "text": "Only one free form tag is allowed per submission.",
+          "evidence_ids": [
+            "PH-G01-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G01-C02",
+          "text": "The required structure is key=value.",
+          "evidence_ids": [
+            "PH-G01-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G01-C03",
+          "text": "Nested key/value pairs are permitted inside the value.",
+          "evidence_ids": [
+            "PH-G01-E01"
+          ],
+          "critical": false
+        }
+      ],
+      "unacceptable_claims": [
+        "Multiple separate tags may be submitted in one request.",
+        "JSON or a colon-separated pair is the required tag format."
+      ],
+      "gold_document_ids": [
+        "doc-0080"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0080"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0080",
+          "parent_id": "doc-0058",
+          "title": "PipelineHub Preflight - Pod Add-ons - Add a Free Form Tag",
+          "char_start": 91,
+          "char_end": 348,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Users can add free form tags to PODs after deployment using the pod addons action Add a Free Form Tag:\n\n* Only one free form tag is allowed per submission\n* It must follow the structure 'key=value'\n\t+ The value can be nested, ie: key=key1=value1,key2=value2",
+          "quote_sha256": "e924f7f75efae80dd5849ebc1766cf21eebeb9215ba07d6ce3657b7b5bb31700",
+          "evidence_id": "PH-G01-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G02",
+      "category": "exact_match",
+      "question": "Which PipelineHub role is required for Pod Add-ons > Toggle Auto Scheduling, and what schedules does this action control?",
+      "expected_status": "answered",
+      "reference_answer": "The role is ROLE_PREFLIGHT_AND_FAMILY_ADMIN. Toggle Auto Scheduling allows or disallows monthly and quarterly patch bundle patching events. [doc-0085]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G02-C01",
+          "text": "Name ROLE_PREFLIGHT_AND_FAMILY_ADMIN exactly.",
+          "evidence_ids": [
+            "PH-G02-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G02-C02",
+          "text": "The action controls monthly and quarterly auto-scheduled patch bundle patching.",
+          "evidence_ids": [
+            "PH-G02-E01"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Project Control alone is the documented permission.",
+        "The action controls only daily CI builds."
+      ],
+      "gold_document_ids": [
+        "doc-0085"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0085"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0085",
+          "parent_id": "doc-0058",
+          "title": "PipelineHub Preflight - Pod Add-ons - Toggle Auto Scheduling",
+          "char_start": 0,
+          "char_end": 347,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "#### Disable Monthly and Quarterly Auto Scheduled Patch Bundle Events\n\nThis is added as a POD Add On action - please use \"Toggle Auto Scheduling\" action to allow (and disallow) monthly and quarterly patch bundle patching\n\n* Please note that the Pod Add-ons > Toggle Auto Scheduling feature needs role ROLE_PREFLIGHT_AND_FAMILY_ADMIN in PipelineHub",
+          "quote_sha256": "4d03e7d5d988ed8a992cf5c8e7da7e7c67fbf12d12046bbec3eb92c875ca1ecc",
+          "evidence_id": "PH-G02-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G03",
+      "category": "exact_match",
+      "question": "For the Toggle MFA post-pod action, which pod identity configurations are eligible, and is IDM supported?",
+      "expected_status": "answered",
+      "reference_answer": "Toggle MFA is available for IdentityService and IdentityService/ManagedDatabase pods. It is not available for IDM pods, and the UI should not show the feature for those pods. [doc-0098]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G03-C01",
+          "text": "IdentityService pods are eligible.",
+          "evidence_ids": [
+            "PH-G03-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G03-C02",
+          "text": "IdentityService/ManagedDatabase pods are eligible.",
+          "evidence_ids": [
+            "PH-G03-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G03-C03",
+          "text": "IDM pods are not supported and should not show the action.",
+          "evidence_ids": [
+            "PH-G03-E01"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Toggle MFA is supported for IDM pods.",
+        "All pod types support the action."
+      ],
+      "gold_document_ids": [
+        "doc-0098"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0098"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0098",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+          "char_start": 43,
+          "char_end": 348,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs.",
+          "quote_sha256": "90d83eb787e72c757fefc17028804584cf89db788cc63eb0539cea94b61e063f",
+          "evidence_id": "PH-G03-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G04",
+      "category": "exact_match",
+      "question": "Does the build compatibility table support an EnterpriseLinux9 base image on OL8u6 UEK6? What does it report for compile, Docker creation, and publish?",
+      "expected_status": "answered",
+      "reference_answer": "Yes. That exact row is marked GreenSupported, with successful compile, Docker creation, and publish checks. This is the documented build compatibility result, not a claim about every OS/kernel combination. [doc-0050]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G04-C01",
+          "text": "Match the EnterpriseLinux9 base image with OL8u6 UEK6.",
+          "evidence_ids": [
+            "PH-G04-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G04-C02",
+          "text": "Compile, Docker Creation and Publish all show success.",
+          "evidence_ids": [
+            "PH-G04-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G04-C03",
+          "text": "The row is GreenSupported.",
+          "evidence_ids": [
+            "PH-G04-E01"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "EnterpriseLinux9 requires UEK7 in every supported build.",
+        "Every OS and kernel combination is supported."
+      ],
+      "gold_document_ids": [
+        "doc-0050"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0050"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0050",
+          "parent_id": "doc-0017",
+          "title": "Supported OS & Kernel Combinations - PipelineHub CI/CD Build",
+          "char_start": 783,
+          "char_end": 1376,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Supported CI/CD Combinations\n----------------------------\n\nThe following summarizes a set of tests executed to verify compatibility and extend support for additional configurations.  \n \n\n| Base Image OS | Build Kernel | Compile | Docker Creation | Publish | Support | Notes |\n| --- | --- | --- | --- | --- | --- | --- |\n| EnterpriseLinux8 | OL8u10 UEK7 | ✅ | ✅ | ✅ | GreenSupported | Baseline |\n| EnterpriseLinux8 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |\n| EnterpriseLinux9 | OL8u10 UEK7 | ✅ | ✅ | ✅ | GreenSupported |  |\n| EnterpriseLinux9 | OL8u6 UEK6 | ✅ | ✅ | ✅ | GreenSupported |  |",
+          "quote_sha256": "020da93c8c32634d62628f1a3393e2fdbe7fe17115804184563225b0f4839836",
+          "evidence_id": "PH-G04-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G05",
+      "category": "exact_match",
+      "question": "For a Python Lifecycle Hook container, which component type and ArtifactService Publish Type should I choose, and which CI step must be enabled?",
+      "expected_status": "answered",
+      "reference_answer": "Use MICROSERVICE_PYTHON_COMMON_COMPONENT, set ArtifactService Publish Type to None and save, then include the Publish CI step and trigger the pipeline to build the Lifecycle Hook as a Docker container. [doc-0108]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G05-C01",
+          "text": "Use MICROSERVICE_PYTHON_COMMON_COMPONENT.",
+          "evidence_ids": [
+            "PH-G05-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G05-C02",
+          "text": "Set ArtifactService Publish Type to None and save.",
+          "evidence_ids": [
+            "PH-G05-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G05-C03",
+          "text": "Include the Publish CI step, then trigger the pipeline to produce the container.",
+          "evidence_ids": [
+            "PH-G05-E01"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Setting publish type None means the Publish CI step must be disabled.",
+        "Use an invented PYTHON_LIFECYCLE_HOOK component type."
+      ],
+      "gold_document_ids": [
+        "doc-0108"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0108"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0108",
+          "parent_id": "doc-0021",
+          "title": "Lifecycle hooks CI/CD",
+          "char_start": 548,
+          "char_end": 1241,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Step 1: Configure the right component type in your PipelineHub project\n\nInvolves choosing the right component type in your PipelineHub Project, one of depending on the source code language:\n\n* **MICROSERVICE_JAVA_COMMON_COMPONENT**\n* **MICROSERVICE_GO_COMMON_COMPONENT**\n* **MICROSERVICE_GOLANG_COMMON_COMPONENT**\n* **MICROSERVICE_PYTHON_COMMON_COMPONENT**\n\n### Step 2: Configure ArtifactService publish type\n\nChoose the **ArtifactService Publish Type as \"None\"** and save.\n\n### Step 3: Include Publish Step in CI and trigger pipeline\n\nConfigure the CI steps to include **Publish** step, then trigger the pipeline. This will build the Lifecycle Hooks and produce them as Docker containers.",
+          "quote_sha256": "3bee5fb1515f26adeabe6e48f6c464e6987db0009317383f22e4b225e16e65cd",
+          "evidence_id": "PH-G05-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G06",
+      "category": "exact_match",
+      "question": "In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?",
+      "expected_status": "answered",
+      "reference_answer": "Open the project, choose Project Config, click Edit, enter comma-separated email addresses in Config Notifications, and Save. Changes to basic information, source repository, build, deploy, or test configuration notify those recipients. [doc-0022]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G06-C01",
+          "text": "Use Project Config, click Edit, and enter recipients in Config Notifications.",
+          "evidence_ids": [
+            "PH-G06-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G06-C02",
+          "text": "Enter multiple email addresses as comma-separated values and Save.",
+          "evidence_ids": [
+            "PH-G06-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G06-C03",
+          "text": "Notifications cover changes to basic information, source repository, build, deploy and test configuration.",
+          "evidence_ids": [
+            "PH-G06-E01"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Use a space-separated address list as the documented required format.",
+        "These project configuration-change emails are documented only as alerts for failed builds."
+      ],
+      "gold_document_ids": [
+        "doc-0022"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0022"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0022",
+          "parent_id": "doc-0001",
+          "title": "Configuring Email and Slack Notifications",
+          "char_start": 556,
+          "char_end": 1320,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Configure email notification for project level config change\n\n* Go to Project Config page\n\t+ **Scenario 1:** use URL to locate the Project Config config page  \n\t\n\t\t- https://app.example.com/reference/resource-218<projectName>&view=basicConfig\n\t+ **Scenario 2:** search project Name to land onto Project Config config page  \n\t\n\t\t- Navigate to PipelineHub <https://app.example.com/reference/resource-004>\n\t\t- Search for the project name in the PipelineHub search bar\n\t\t- Click on the Project Config Tab Left NavBar\n* Click Edit button on top\n* Enter comma-separated email addresses in **Config Notifications** Section\n* Click Save button\n* Any changes to basic info/ source repo/ build/ deploy/ test configuration will notify email recipients configured above.\n*",
+          "quote_sha256": "6080dec339ae72a96238821e6ea26b19c8440867f9eaafdb30e9d63941a56cef",
+          "evidence_id": "PH-G06-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G07",
+      "category": "semantic_troubleshooting",
+      "question": "Our latest UI component build has finished, but the code-quality check retry control is missing or greyed out. What should I check before trying to rerun just that scan?",
+      "expected_status": "answered",
+      "reference_answer": "For Rerun Scans, check that you have Project Control, are on the latest eligible snapshot, and the pipeline contains a UIBuildService component. A build or rerun submission still in progress, no eligible steps/components, or missing permission can disable the action. In the dialog, the currently supported target is CodeScan on UIBuildService Application/Web components; the step must be enabled and its quality DIRTY. Select a component and step, and provide a reason of 10–60 characters. These are diagnostic checks, not a confirmed diagnosis of your run. [doc-0038]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G07-C01",
+          "text": "Require Project Control and the latest eligible snapshot with a UIBuildService component.",
+          "evidence_ids": [
+            "PH-G07-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G07-C02",
+          "text": "Check for build/rerun in progress, missing permission, or no eligible components/steps.",
+          "evidence_ids": [
+            "PH-G07-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G07-C03",
+          "text": "Currently eligible reruns are enabled CodeScan steps with DIRTY quality on supported UIBuildService Application/Web components.",
+          "evidence_ids": [
+            "PH-G07-E02"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G07-C04",
+          "text": "Select a component and a step; reason length must be 10–60 characters.",
+          "evidence_ids": [
+            "PH-G07-E02"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Any scanner on any component may be rerun.",
+        "A reason shorter than 10 characters is valid.",
+        "Declare a specific root cause without the user's run details."
+      ],
+      "gold_document_ids": [
+        "doc-0038"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0038"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0038",
+          "parent_id": "doc-0001",
+          "title": "Rerun scans support",
+          "char_start": 1897,
+          "char_end": 2563,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Rerun Scans Action Button Restrictions\n\n#### 1) Permissions Required\n\n* + **Project Control** role\n\n#### 2) Button Visibility (When the Button Is Rendered)\n\nThe **Rerun Scans** button is rendered **only if**:\n\n* + The snapshot is the **latest** eligible snapshot of the pipeline\n\t+ At least one component is of **UIBuildService type**\n\n#### 3) Button Disablement (When the Button Is Disabled)\n\nThe button is disabled if **any** of the following are true:\n\n* + Build is in progress\n\t+ Current snapshot is not the latest eligible snapshot\n\t+ No eligible components/steps are available for rerun\n\t+ User lacks permission\n\t+ A rerun submission is already in progress",
+          "quote_sha256": "cd7ba2942a3ee83badabe625fea58fe5cee19e974b07045e43dc93891fd1ffb3",
+          "evidence_id": "PH-G07-E01"
+        },
+        {
+          "document_id": "doc-0038",
+          "parent_id": "doc-0001",
+          "title": "Rerun scans support",
+          "char_start": 2565,
+          "char_end": 3435,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Rerun Scans Dialog Restrictions\n\nAfter clicking on the \"Rerun Scans\" button from the Actions bar, the following dialog will appear - \n\n#### 1) Components shown in the popup\n\nShown only:\n\n* Components that have **eligible rerun steps**\n\t+ **Currently supported:** UIBuildService Application / Web Component (UIBuildService)\n\n#### 2) Eligible Rerun steps (per Component)\n\nA step is eligible for rerun only if **all** conditions are met:  \n \n\n* The step is **enabled for the component type.**\n\t+ **Currently supported:** Codescan step\n* Step quality is **DIRTY**\n\n#### 3) Submit button disabled condition\n\nThe **Submit** button in the popup is disabled when:\n\n* **Reason validation fails**\n\t+ Required length: **10–60 characters**\n\n#### 4) Submit validation failure conditions\n\nSubmission fails validation when:\n\n* No components are selected, or\n* No steps are selected",
+          "quote_sha256": "3f8df3e552f333d34349fa9e4ff7efe8090f8566fafaca4599733974ce452248",
+          "evidence_id": "PH-G07-E02"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G08",
+      "category": "semantic_troubleshooting",
+      "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?",
+      "expected_status": "answered",
+      "reference_answer": "Additional language packs are a post-provisioning Pod Add-on for EnvironmentService pods. If the job times out, the documented recovery is to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage. The guide does not say to recreate the pod or promise that restarting monitoring reruns the installation. [doc-0084]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G08-C01",
+          "text": "The capability is a post-provisioning Pod Add-on for EnvironmentService pods.",
+          "evidence_ids": [
+            "PH-G08-E01"
+          ],
+          "critical": false
+        },
+        {
+          "criterion_id": "PH-G08-C02",
+          "text": "Restart monitoring on UPDATE_ADDITIONAL_LANGUAGES after a timeout.",
+          "evidence_ids": [
+            "PH-G08-E01"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Recreate the pod as the documented first recovery step.",
+        "Restarting monitoring necessarily resubmits the installation.",
+        "The operation is guaranteed complete because monitoring timed out."
+      ],
+      "gold_document_ids": [
+        "doc-0084"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0084"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0084",
+          "parent_id": "doc-0058",
+          "title": "PipelineHub Preflight - Pod Add-ons - Install Language Packs",
+          "char_start": 92,
+          "char_end": 391,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Configure additional languages\n\nPipelineHub now support configuring additional language packs on EnvironmentService environment as a post provisioning Pod Add-on on EnvironmentService Pods.\n\nIf the job times out there is an option to restart monitoring on the  UPDATE_ADDITIONAL_LANGUAGES stage.",
+          "quote_sha256": "d36c13fefdb63349c7c5eb3493637df33c7b4e00afc7a101adcd83c048e6b7fb",
+          "evidence_id": "PH-G08-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G09",
+      "category": "semantic_troubleshooting",
+      "question": "I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?",
+      "expected_status": "answered",
+      "reference_answer": "Yes. Delete a CloudNative Service is a Pod Add-on intended to validate CloudPlatform resource cleanup and delete a particular V3 service. The guide explicitly says later Patching, Upgrade, or EnableCloudMode actions restore deleted cloud-native services. The deletion is therefore not documented as permanent across those actions. [doc-0081]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G09-C01",
+          "text": "Later Upgrade actions restore services deleted with this Pod Add-on.",
+          "evidence_ids": [
+            "PH-G09-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G09-C02",
+          "text": "Patching and EnableCloudMode also restore deleted services.",
+          "evidence_ids": [
+            "PH-G09-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G09-C03",
+          "text": "The action targets V3 services and supports resource-cleanup validation.",
+          "evidence_ids": [
+            "PH-G09-E01"
+          ],
+          "critical": false
+        }
+      ],
+      "unacceptable_claims": [
+        "The service cannot return without manual redeployment.",
+        "The guide guarantees permanent deletion across upgrades."
+      ],
+      "gold_document_ids": [
+        "doc-0081"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0081"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0081",
+          "parent_id": "doc-0058",
+          "title": "PipelineHub Preflight - Pod Add-ons - Delete a CloudNative Service",
+          "char_start": 91,
+          "char_end": 515,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### PipelineHub supports to select and delete V3 cloudnative services in the pod\n\n* Delete a CloudNative Service as a Pod Add-on\n\n\t+ This operation is to be used  to validate if CloudPlatform resources are cleaned when your service is deleted, and to trigger the delete action for a specific service.\n\t+ Note: Any subsequent actions such as Patching, Upgrade or EnableCloudMode will restore any deleted cloudnative services.",
+          "quote_sha256": "e0f36728586cedfbfd9c155765522e7eb6bdc131a97833885113edbf5e23c696",
+          "evidence_id": "PH-G09-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G10",
+      "category": "semantic_troubleshooting",
+      "question": "I can see a provisioning record from my LOB, but Copy Provisioning Job says its release set is EOL. Can I bypass that by editing the copied form?",
+      "expected_status": "answered",
+      "reference_answer": "No documented bypass is provided. Copying requires both association with your LOBs and a release version that is not end-of-life. An EOL source provisioning job is not eligible for copying and produces an error. The editable prefilled form describes eligible active-release copies, not a way around the EOL check. [doc-0091]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G10-C01",
+          "text": "LOB association alone is insufficient; source release must not be EOL.",
+          "evidence_ids": [
+            "PH-G10-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G10-C02",
+          "text": "An EOL source is ineligible and the copy flow shows an error.",
+          "evidence_ids": [
+            "PH-G10-E02"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G10-C03",
+          "text": "Do not prescribe editing the copied form as an EOL bypass.",
+          "evidence_ids": [
+            "PH-G10-E01",
+            "PH-G10-E02"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Copy first and change the version to bypass the EOL restriction.",
+        "LOB membership overrides release eligibility."
+      ],
+      "gold_document_ids": [
+        "doc-0091"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0091"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0091",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+          "char_start": 91,
+          "char_end": 402,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Scope\n-----\n\nEnable users to copy a provisioning submission to simplify the preflight submission process and minimize repetitive work.\n\nUsers can copy any provisioning submission if the following conditions are met:\n\n* The submission is associated with the user’s LOBs.\n* The release version is not end-of-life.",
+          "quote_sha256": "e9c92f04aedb5904dc443489e7e4a61e0d0bea5634fd2f6385ef5d62abf187e3",
+          "evidence_id": "PH-G10-E01"
+        },
+        {
+          "document_id": "doc-0091",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+          "char_start": 2157,
+          "char_end": 2497,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Use Case 2: Copy Pod Provisioning with end of life release version\n\n| Step 1: Select pod action | Step 2: Show error message |\n| --- | --- |\n|  | trueError falseautotoptrue5412411**\"Copy Provisioning Job\" dialog appears.**With message:The source provisioning job was submitted using an EOL release set and is not eligible for copying. |",
+          "quote_sha256": "3d2880b4c5bcfb856df5e965bb2418827a7af0ef3e2d00f1d7f8c98b75db38ca",
+          "evidence_id": "PH-G10-E02"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G11",
+      "category": "semantic_troubleshooting",
+      "question": "We want to turn off RuntimeDiagnostics on a pod but keep the replicated analytics data. Will disabling it preserve that data?",
+      "expected_status": "answered",
+      "reference_answer": "No. Disable RuntimeDiagnostics removes its instance and deletes the Replication Infrastructure and all replicated data from the associated AnalyticsDatabase instance. It is a Post Provisioning Pod Add-on; the displayed enable/disable choice depends on the current status. Do not disable it expecting the replicated data to remain. [doc-0083]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G11-C01",
+          "text": "Disabling removes the RuntimeDiagnostics instance.",
+          "evidence_ids": [
+            "PH-G11-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G11-C02",
+          "text": "It deletes Replication Infrastructure and all replicated AnalyticsDatabase data.",
+          "evidence_ids": [
+            "PH-G11-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G11-C03",
+          "text": "It is a Post Provisioning Pod Add-on with choices based on current status.",
+          "evidence_ids": [
+            "PH-G11-E01"
+          ],
+          "critical": false
+        }
+      ],
+      "unacceptable_claims": [
+        "Disable only pauses replication while preserving all replicated data.",
+        "Suggest an undocumented export/backup mechanism as a guaranteed solution."
+      ],
+      "gold_document_ids": [
+        "doc-0083"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0083"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0083",
+          "parent_id": "doc-0058",
+          "title": "PipelineHub Preflight - Pod Add-ons - Enable-Disable RuntimeDiagnostics",
+          "char_start": 91,
+          "char_end": 865,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Enable/Disable RuntimeDiagnostics\n\n**Enable RuntimeDiagnostics** installs the Replication Infrastructure and configures replicated data in the associated AnalyticsDatabase instance.  \n**Disable RuntimeDiagnostics** removes the RuntimeDiagnostics instance, which deletes the Replication Infrastructure and all replicated data from the AnalyticsDatabase instance.\n\nThe **Enable/Disable RuntimeDiagnostics** option is available as a **Post Provisioning Pod Add-on** action. When the action is selected, PipelineHub checks the current RuntimeDiagnostics status for the pod. If RuntimeDiagnostics is disabled, the **Enable RuntimeDiagnostics** action is made available. If RuntimeDiagnostics is already enabled, the **Disable RuntimeDiagnostics** action is available instead.",
+          "quote_sha256": "308f33154ffedd111937677bf4edd6e1b50e776f809fd692a22c7ac2e9ae5048",
+          "evidence_id": "PH-G11-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G12",
+      "category": "semantic_troubleshooting",
+      "question": "Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?",
+      "expected_status": "answered",
+      "reference_answer": "That version is below the documented minimum 11.13.24.10.0-11000, so it does not meet the stated version requirement. Data Masking applies only to non-production pods and needs a DM template already ingested for the release, such as GA or HWM. The guide lists multiple data-masking runs as unsupported. It does not provide an upgrade procedure for this pod. [doc-0092]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G12-C01",
+          "text": "The supplied -10999 build does not meet the minimum 11.13.24.10.0-11000.",
+          "evidence_ids": [
+            "PH-G12-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G12-C02",
+          "text": "Only non-production pods are eligible.",
+          "evidence_ids": [
+            "PH-G12-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G12-C03",
+          "text": "The release must already have an ingested DM template.",
+          "evidence_ids": [
+            "PH-G12-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G12-C04",
+          "text": "Multiple data masking runs are not supported in this guide.",
+          "evidence_ids": [
+            "PH-G12-E01"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Non-production status alone makes this pod eligible.",
+        "Repeated masking runs are documented as supported.",
+        "Prescribe an unprovided upgrade command."
+      ],
+      "gold_document_ids": [
+        "doc-0092"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0092"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0092",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+          "char_start": 91,
+          "char_end": 686,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Support Data Masking as post pod action\n---------------------------------------\n\nWe have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.\n\n**Note:**\n\n* Data masking will work for the releases for which DM template is already ingested.(Ex:GA,HWM ).\n\n**Feature not yet supported:**\n\n* Multiple data masking runs.",
+          "quote_sha256": "779f427ad3e5a3da20df9aa1cee24efc855c75c162c86a6892fa310f88086339",
+          "evidence_id": "PH-G12-E01"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G13",
+      "category": "multi_passage",
+      "question": "We plan to refresh a TEST pod from Production and then mask its customer data. What prerequisites apply to the refresh and the subsequent masking, and will the refresh copy feature flags and extra language packs?",
+      "expected_status": "answered",
+      "reference_answer": "Before P2T refresh, back up the target. The source and target must match BusinessApp version and patch/cloud-native state; the guide also calls for matching IdentityService/ManagedDatabase/IDM and compatible service integration. Additional language packs are not carried over; feature flags are not carried over and each pod's settings are honored. For subsequent masking, verify that the target is non-production, is at least 11.13.24.10.0-11000, and its release has an ingested DM template. Multiple masking runs are unsupported. Do not assume TEST labeling alone establishes every masking prerequisite. [doc-0095] [doc-0092]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G13-C01",
+          "text": "Refresh a TEST target from Production; take a target backup before scheduling.",
+          "evidence_ids": [
+            "PH-G13-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G13-C02",
+          "text": "Match source/target BusinessApp versions, patches, cloud-native state and relevant identity/database/service integration.",
+          "evidence_ids": [
+            "PH-G13-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G13-C03",
+          "text": "Additional language packs do not carry over; feature flags retain individual pod settings.",
+          "evidence_ids": [
+            "PH-G13-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G13-C04",
+          "text": "Masking requires a non-production pod at or above 11.13.24.10.0-11000 and an ingested release DM template.",
+          "evidence_ids": [
+            "PH-G13-E02"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G13-C05",
+          "text": "Multiple masking runs are unsupported.",
+          "evidence_ids": [
+            "PH-G13-E02"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "P2T automatically copies the source feature flags and extra language packs.",
+        "A refresh removes the masking template/version checks.",
+        "A production target is eligible for Data Masking."
+      ],
+      "gold_document_ids": [
+        "doc-0095",
+        "doc-0092"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0095"
+        ],
+        [
+          "doc-0092"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0095",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+          "char_start": 91,
+          "char_end": 2206,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Uptake P2T (Refresh) as a post pod action\n\nThis feature is now available as a Post Pod Action feature. User can now refresh a \"**TEST**\" type environment from a \"**Production**\" environment.\n\nAll BusinessApp Environments are created of type \"**Production\"** by default. To create a \"TEST\" type environment, be sure to use following option in Advanced Parameters.\n\n**Prerequisites :**\n\n**Ideally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;**\n\n* The source pod and the target pod to be refreshed should be of the same BusinessApp version and state of all patches and cloudnative must be same\n* User must take back-up of the Target environment before scheduling a refresh of the environment.\n\nThis takes around 5 to 7 hrs.\n\n**EnvironmentService REFRESH - Status One Off Check:**\n\nA refresh button is now enabled to perform one-off status check for REFRESH_POD\n\nAdditional information regarding the REFRESH use case:\n\nIdeally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;\n\n* dbChange(add new column before refresh) == will be refreshed from SOURCE\n* language pack (add extra lang before refresh) == **not carried over**\n* \\*toggleAutoSchedule (true/false) == not carried over **: individual pod's settings honored**\n* \\*featureFlag(add/Remove) == **not carried over : individual pod's settings honored**\n* deleteSpService == **not carried over;**\n* \\*addFreeForm tag == **not carried over: individual pod's settings honored**\n* scaleout/resize == not carried over\n* runtimediagnostics (from source to target) = **old RuntimeDiagnostics db is deleted and re-Enabled on the TARGET POD**\n* patches = same BusinessApp release and Patch bundles\n* source deploymenttemplate and target is starter (at same relLabel) = **post Refresh - TARGET will have DeploymentTemplate**\n\nHere are additional Details from EnvironmentService about P2T - EnvironmentService REFRESH (P2T)",
+          "quote_sha256": "5f8b198c5897512d920cb6a1b8f3fd0c818bd80ecfd2218e6b26dd18dec64457",
+          "evidence_id": "PH-G13-E01"
+        },
+        {
+          "document_id": "doc-0092",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Data Masking",
+          "char_start": 91,
+          "char_end": 686,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Support Data Masking as post pod action\n---------------------------------------\n\nWe have support for data masking as a post pod action.Data Masking is used for hiding PII data and for masking the fields in DB according to the DM template ingested while creation of the release.This is only applicable on non prod type pods.The Pod to be used for data masking should be with a version at least 11.13.24.10.0-11000 or above.\n\n**Note:**\n\n* Data masking will work for the releases for which DM template is already ingested.(Ex:GA,HWM ).\n\n**Feature not yet supported:**\n\n* Multiple data masking runs.",
+          "quote_sha256": "779f427ad3e5a3da20df9aa1cee24efc855c75c162c86a6892fa310f88086339",
+          "evidence_id": "PH-G13-E02"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G14",
+      "category": "multi_passage",
+      "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+      "expected_status": "answered",
+      "reference_answer": "On the provisioned pod's Preflightpod page, use Run Tests at the bottom right and submit the BuildAcceptanceTests for your LOB. AcceptanceTests Label, Order prop and Git branch should auto-populate. Submission creates a new PipelineHub ID; track it on the pod's Preflightpod page through queued, running, and the documented SUCCSS success state. BuildAcceptanceTests automatically disable MFA because they cannot run with MFA on, regardless of provisioning or post-provisioning choice. The excerpt does not promise MFA is re-enabled after the run. [doc-0096] [doc-0098]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G14-C01",
+          "text": "Run Tests is available after provisioning from the Preflightpod page and submits tests for the user's LOB.",
+          "evidence_ids": [
+            "PH-G14-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G14-C02",
+          "text": "AcceptanceTests Label, Order prop and Git branch auto-populate.",
+          "evidence_ids": [
+            "PH-G14-E01"
+          ],
+          "critical": false
+        },
+        {
+          "criterion_id": "PH-G14-C03",
+          "text": "A new PipelineHub ID tracks the job; queued progresses to running and success (spelled SUCCSS in the source).",
+          "evidence_ids": [
+            "PH-G14-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G14-C04",
+          "text": "BuildAcceptanceTests disable MFA irrespective of earlier MFA choices because they cannot run with it enabled.",
+          "evidence_ids": [
+            "PH-G14-E02"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "The manual MFA setting remains enabled during BuildAcceptanceTests.",
+        "MFA is guaranteed to be automatically re-enabled afterward."
+      ],
+      "gold_document_ids": [
+        "doc-0096",
+        "doc-0098"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0096"
+        ],
+        [
+          "doc-0098"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0096",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Run Tests",
+          "char_start": 0,
+          "char_end": 907,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "[Redcontent moved to DocumentationPortal https://docs.example.com/reference/resource-675](https://docs.example.com/reference/resource-675)\n\n* Once the POD is provisioned user can submit the buildacceptancetests from the pipelinehub from the right bottom of the Preflightpod page.User can submit buildacceptancetests related their LOB.\n\n* After clicking on Run Tests new window will be populated it similar to below.\n* \n* AcceptanceTests Label, Order prop and Git branch will be auto populated. In case they are not populated user can refer this page how to get AcceptanceTests label and git branch\n* \n* Once the buildacceptancetests submitted new pipelinehub ID will be generated . User can go Preflightpod page of the POD and check the buildacceptancetests status. Initially it will be in queued state.\n\nOnce the execution state state will be moved to running, after completion it will move to SUCCSS state",
+          "quote_sha256": "4c2ee744fb68a0fd3e2adc09b8bc6cd1bb1880a22c9d3e258eff737d0ff99c45",
+          "evidence_id": "PH-G14-E01"
+        },
+        {
+          "document_id": "doc-0098",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+          "char_start": 604,
+          "char_end": 977,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "4. if BuildAcceptanceTests are triggered, BuildAcceptanceTests will automatically disable the MFA on the POD as BuildAcceptanceTests cannot run with MFA on, so when BuildAcceptanceTests are triggered the assumption is that MFA will be disabled (this will be done during the BuildAcceptanceTests run) , irrespective of what the user has done during prov or post prov action.",
+          "quote_sha256": "37a73006ca595e348a8fb4d0a3f59e7612b88b8f4b42ecae9a20b593d1f630d6",
+          "evidence_id": "PH-G14-E02"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G15",
+      "category": "multi_passage",
+      "question": "We locked a Family pod during maintenance and now want to scale it from XS1 to S2. What must change before the request, and is this a valid scale-out?",
+      "expected_status": "answered",
+      "reference_answer": "Unlock the Family pod through its actions menu before proceeding: a locked pod hides Pod Actions/Pod Add-ons and blocks impacting operations. XS1 to S2 is not a valid scale-out because scale-out keeps the logical size family and changes only the server count, such as XS1 to XS2. Moving logical stamps is a Resize use case, subject to eligibility, correct current/required stamps, and no conflicting pod action. For scale-out/resize, check Active at pod health validation and AVAILABLE at the existing-schedule check. A blocked check should be investigated rather than bypassed. [doc-0088] [doc-0087]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G15-C01",
+          "text": "Unlock via Unlock Pod; a locked Family pod hides the relevant actions.",
+          "evidence_ids": [
+            "PH-G15-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G15-C02",
+          "text": "XS1 to S2 is explicitly invalid for scale-out; same size family and changed count are required.",
+          "evidence_ids": [
+            "PH-G15-E02"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G15-C03",
+          "text": "Changing logical stamp calls for Resize eligibility and correct current/target stamps.",
+          "evidence_ids": [
+            "PH-G15-E02"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G15-C04",
+          "text": "Avoid conflicting actions and verify Active health and AVAILABLE schedule-check states.",
+          "evidence_ids": [
+            "PH-G15-E02"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "XS1 to S2 is a valid scale-out.",
+        "Submit a resize while the pod remains locked or a conflicting action is in progress."
+      ],
+      "gold_document_ids": [
+        "doc-0088",
+        "doc-0087"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0088"
+        ],
+        [
+          "doc-0087"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0088",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Pod Actions - Lock Pod",
+          "char_start": 91,
+          "char_end": 1419,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Available only for Family Pods, Lock Pod action is blocking other users from submitting DB actions by other PipelineHub users against the POD. \n\nPipelineHub has the ability to prevent PipelineHub and MonitoringAgent operations on a Family POD via the \"Lock POD\" ACTION. When a POD is locked, other PipelineHub and MonitoringAgent operations like Patching, Upgrading, Running Tests and Restore cannot be performed. Then, later on, the POD can be un-locked (back to normal). An example of when this feature might be helpful is when there is a team with many people aware of a POD, and due to an event activity for the POD, a POD stakeholder would like a way to indicate to other users that the POD is locked (and also it will prevent them from performing several actions that might impact the POD).\n\n```\n\n```\nSteps to trigger Lock Pod:\n\n1. Select a Family Pod actions icon (...) and select \"Lock Pod\" menu item\n2. Answer 'Yes' in the dialog: Are you sure you want to lock this pod for other actions?\n3. The POD get's locked and will display a lock icon until it's unlocked.\n\n4. In order to unlock the POD, actions icon (...) and select \"Unlock Pod\" menu item\n\nLocked PODs have hidden all the Pod Actions and Pod Add-on functionality including, Upgrade and Patching. So the locked POD can't be Upgraded or Patched from PIPELINEHUB.",
+          "quote_sha256": "9a9e93b8ac7666dd3a63387710dfafc141ab730744eb043b1d6fe7881f9f02bd",
+          "evidence_id": "PH-G15-E01"
+        },
+        {
+          "document_id": "doc-0087",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight -  Post Pod Actions - Scale-out and Resize",
+          "char_start": 91,
+          "char_end": 3788,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### Scale-out and Resize Support\n\nScale-out and Resize is provided for EnvironmentService PODS.\n\nScale-out and Resize can be submitted from PipelineHub using the post pod action flow. PipelineHub submits the required pod details to EnvironmentService and receives callback status updates for the action.\n\n**Supported Actions:**\n\n* `ACTION_SCALEOUT_POD`\n* `ACTION_RESIZE_POD`\n\n \n\n### Scale-out\n\nScale-out is used for UI server addition to the pod.\n\nFor example, if the current pod size is `XS1` and it needs to be scaled out to `XS3`, then two UI servers will be added to the pod.\n\nThe logical size family should remain the same and only the number should change. For example, `S1 -> S2` is valid.\n\n**Prerequisites:**\n\nThe logical stamp should be the same. The current size and the new logical stamp size should be same, only the number can vary.\n\n**Examples:**\n\n* `XS1 -> XS2` is allowed\n* `S2 -> S4` is allowed\n* `XS1 -> S2` is not allowed\n\n### Resize\n\nResize is used when the pod needs to be moved from the current logical stamp to the required logical stamp.\n\nUser should provide the current logical stamp and required logical stamp while submitting the post pod action.\n\n**Prerequisites:**\n\n* User should ensure the pod details are correct before submitting the Resize action.\n* User should provide the correct current logical stamp and required logical stamp.\n* User should validate whether the pod is eligible for Resize before submitting the request.\n* Scale-out / Resize should not be submitted while another conflicting pod action is already in progress.\n\n**Callback Action Names:**\n\n* For Resize: `ACTION_RESIZE_POD`\n* For Scale-out: `ACTION_SCALEOUT_POD`\n\n### Monitoring Scale-out / Resize Request\n\nAfter submitting the Scale-out or Resize post pod action, user can monitor the request from the PipelineHub preflight details page.\n\nThe PipelineHub details page shows the overall request information, submitted parameters, stage-level progress, and final status.\n\nThe overall status should be checked after the Jenkins job completes. For a successful Scale-out request, the status is shown as `SUCCESS`.\n\n**For Scale-out / Resize, user can see phases such as:**\n\n* `PRE_UPDATE`\n* `SCALEOUT_RESIZE`\n\n### POD_STATUS_AND_HEALTH_CHECK\n\nThis stage validates the pod lifecycle state and performs the pod health check before the Scale-out / Resize action proceeds.\n\n**Expected value:**\n\nLifecycle State should be `Active`.\n\n### CHECK_EXISTING_SCHEDULES\n\nThis stage checks whether any conflicting scheduled activity already exists for the pod.\n\n**Expected value:**\n\nLifecycle State should be `AVAILABLE`.\n\nIf the lifecycle state is not `AVAILABLE`, user should verify existing scheduled activities before retrying the action.\n\n### SCALEOUT\n\nThis stage creates the Scale-out scheduled activity for the pod.\n\nOnce this stage completes successfully, the Scale-out scheduled activity is created.\n\n### ENVIRONMENTSERVICE_SCALEOUT_RESIZE_STATUS_CHECK\n\nThis stage monitors the EnvironmentService Scale-out / Resize status until the action completes.\n\nThis stage usually takes longer than the earlier validation stages because it waits for the EnvironmentService operation to complete.\n\n### Successful PipelineHub Completion\n\nA Scale-out / Resize request is considered successful when:\n\n* Overall PipelineHub status is `SUCCESS`.\n* Pod status and health check completes with lifecycle state `Active`.\n* Existing schedule check completes with lifecycle state `AVAILABLE`.\n* Scale-out / Resize stage completes successfully.\n* EnvironmentService Scale-out / Resize status check completes successfully.\n\nUser should verify the final status in the PipelineHub details page after the action is completed.\n\n###",
+          "quote_sha256": "3b6383c764575676a49ad83bb2d79325b554ff8de3cda8da6879173a97bb8e49",
+          "evidence_id": "PH-G15-E02"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G16",
+      "category": "multi_passage",
+      "question": "I am copying an active-release pod provisioning record in my LOB, then need to grant SSH access to a team whose group does not exist yet. Which overrides need review, and how should I prepare and select the SSH group?",
+      "expected_status": "answered",
+      "reference_answer": "For an eligible non-EOL record in your LOB, Copy Provisioning Job pre-fills editable fields but excludes CloudNative service, application, and environment-profile overrides; review and set those as needed before submission. For SSH, an admin with ROLE_GRANULAR_SSH_USER_MANAGEMENT must create the LOB-specific group in Granular SSH Group Management with a letters-and-spaces group name, a brief non-sensitive description and the intended LOB, add the intended registered users or valid non-PipelineHub GUIDs, stage them with Add Selected Users, verify membership, and Save Changes. Add Selected Users alone does not save. In the target pod's Granular SSH action, select the prepared group from its LOB; at most three groups are allowed. If missing, verify LOB/configuration instead of choosing an unrelated group. [doc-0091] [doc-0094]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G16-C01",
+          "text": "Copy requires the user's LOB association and a non-EOL release.",
+          "evidence_ids": [
+            "PH-G16-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G16-C02",
+          "text": "CloudNative service, application and environment-profile overrides are excluded from prefilling and must be reviewed.",
+          "evidence_ids": [
+            "PH-G16-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G16-C03",
+          "text": "A group-management admin needs ROLE_GRANULAR_SSH_USER_MANAGEMENT; create/update the correct LOB-specific group.",
+          "evidence_ids": [
+            "PH-G16-E02"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G16-C04",
+          "text": "Use a group name containing letters and spaces only, a brief non-sensitive description and the intended LOB.",
+          "evidence_ids": [
+            "PH-G16-E02"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G16-C05",
+          "text": "Add intended registered users or valid comma-separated non-PipelineHub GUIDs; stage, review, then Save Changes.",
+          "evidence_ids": [
+            "PH-G16-E02"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G16-C06",
+          "text": "Select the group in Granular SSH for the target pod's LOB; maximum three groups and no unrelated substitute.",
+          "evidence_ids": [
+            "PH-G16-E02"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "All CloudNative overrides copy automatically.",
+        "Add Selected Users alone saves the group.",
+        "Grant the group-management role as an undocumented requirement for every pod-action submitter.",
+        "More than three SSH groups can be selected in one action."
+      ],
+      "gold_document_ids": [
+        "doc-0091",
+        "doc-0094"
+      ],
+      "required_evidence_groups": [
+        [
+          "doc-0091"
+        ],
+        [
+          "doc-0094"
+        ]
+      ],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0091",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Copy Provisioning Job",
+          "char_start": 91,
+          "char_end": 2155,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Scope\n-----\n\nEnable users to copy a provisioning submission to simplify the preflight submission process and minimize repetitive work.\n\nUsers can copy any provisioning submission if the following conditions are met:\n\n* The submission is associated with the user’s LOBs.\n* The release version is not end-of-life.\n\nUse Case Definition\n-------------------\n\nThe action menu will be available in the following scenarios:\n\n* On the **Preflight Dashboard**:\n\n\t+ For all rows where the Type is **ENVIRONMENTSERVICE_PROVISIONING** and the LOB belongs to the user's LOBs.\n* On **All PODs**:\n\n\t+ For all rows where the LOB belongs to the user's LOBs.\n\t\t- The action will use the provisioning record associated with the selected pod as the source record.\n* On the **Family Pod Dashboard**:\n\n\t+ For all rows where the LOB belongs to the user's LOBs.\n\t\t- The action will use the provisioning record associated with the selected pod as the source record.\n\nAll fields on the provisioning page are automatically populated from the source record.\n\nAdditionally, all fields on the provisioning UI remain editable, allowing users to make any necessary changes after reviewing the information.\n\n### Use Case 1: Copy Pod Provisioning with active release version\n\n| Step 1: Select pod action | Step 2: Open provisioning page with pre-filled form | Step 3: Review changes for any fields that have been modified from the source record and submit |\n| --- | --- | --- |\n|  | All fields on the provisioning page are automatically populated from the source record.The following will be excluded from auto-populating field values:1. CloudNative service overrides\n2. CloudNative application overrides\n3. CloudNative environment profile overrides\n\nUser can update the form and hit \"Provision EnvironmentService Pod\" button. | Source vs Current Comparison section will show difference for only following fields: * Start with\n* Free form tags\n* Feature Flags\n* ApplicationBOM\n* Environment Profiles\n* CloudNative Services\n* CloudNative Applications\n\ntrueSubmit Confirmationfalseautotoptrue7314711 |",
+          "quote_sha256": "b45f9301e1ee6d56e22c862d1e788185ad8671603124de6ce68193fa2eabeda5",
+          "evidence_id": "PH-G16-E01"
+        },
+        {
+          "document_id": "doc-0094",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Granular SSH",
+          "char_start": 91,
+          "char_end": 2594,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Purpose\n-------\n\nUse the \\***Granular SSH**\\* post-pod action to grant SSH access to the users contained in approved Granular SSH groups. Instead of selecting individual users during the action, you select one or more pre-defined groups associated with the target pod's Line of Business (LOB).\n\nPrerequisites\n-------------\n\n* Granular SSH groups are LOB-specific. The action lists only groups associated with the target pod's LOB.\n* You can select a maximum of \\***three groups**\\* in one Granular SSH post-pod action.\n* **ROLE_GRANULAR_SSH_USER_MANAGEMENT** role is required to create and manage these groups. Ensure the needed groups already exist before submitting the pod action.\n\nSubmit a Granular SSH post-pod action\n-------------------------------------\n\n1. Open the PipelineHub post-pod action flow for the target pod.\n2. Select **Granular SSH** as the post-pod action.\n3. Review the groups presented by PIPELINEHUB.\n\nPipelineHub shows groups associated with the target pod's LOB. If a required group is absent, do not substitute an unrelated group; verify the target LOB and group configuration first.\n4. Select the group or groups that contain the intended SSH users.\n\n\t* Select only the groups necessary for the request.\n\t* Select no more than **three** groups.\n5. Review the selected groups and the target pod before proceeding.\n\nPrepare or update groups before the action\n------------------------------------------\n\nIf the required group does not exist or has incorrect membership, an admin with **ROLE_GRANULAR_SSH_USER_MANAGEMENT** can update it in **Granular SSH Group Management**.\n\n1. Open **Granular SSH Group Management** from the left navigation pane.\n2. If you can access multiple LOBs, select the intended LOB.\n3. Create a group with **Create New Group**, or select the existing group's **Edit** icon.\n4. For a new group, provide:\n\n| Field | Requirement |\n| --- | --- |\n| **Group Name** | Letters and spaces only. |\n| **Description** | A brief, non-sensitive statement of the group's purpose. |\n| **Line of Business** | The LOB in which the group must be available. |\n5. Add members either by selecting registered PipelineHub users or by entering valid non-PIPELINEHUB GUIDs as comma-separated values.\n6. Select **Add Selected Users** to stage the users for review.\n\nThis does not create or update the group by itself.\n7. Verify the membership, then select **Save Changes** to create or update the group.\n8. Return to the Granular SSH post-pod action and select the updated group.",
+          "quote_sha256": "805cca8f9ef66f6c5edf6598b98aac4e7239e6ebb2feff13212333624fb3d88f",
+          "evidence_id": "PH-G16-E02"
+        }
+      ],
+      "clarification_slots": [],
+      "absence_search_terms": [],
+      "answerable_without_clarification": true,
+      "resolution_eligible": true,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G17",
+      "category": "ambiguous_clarification",
+      "question": "Can I restore this pod to the version we used before?",
+      "expected_status": "needs_clarification",
+      "reference_answer": "Which version is the pod on now, which version do you want to restore to, has it successfully completed an upgrade, and which backups are available? The guide distinguishes same-version restore from n-1 restore after a successful upgrade; these details are needed before choosing a procedure. [doc-0089]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G17-C01",
+          "text": "Ask for current and requested versions.",
+          "evidence_ids": [
+            "PH-G17-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G17-C02",
+          "text": "Ask whether the upgrade completed successfully and whether an appropriate backup exists.",
+          "evidence_ids": [
+            "PH-G17-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G17-C03",
+          "text": "Explain conditionally that same-version and post-successful-upgrade n-1 restore are distinct.",
+          "evidence_ids": [
+            "PH-G17-E01"
+          ],
+          "critical": false
+        }
+      ],
+      "unacceptable_claims": [
+        "Assume any arbitrary older version can be restored.",
+        "Give an unconditional n-1 restore procedure before checking upgrade/backup details.",
+        "Escalate immediately instead of asking for the missing details."
+      ],
+      "gold_document_ids": [],
+      "required_evidence_groups": [],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0089",
+          "parent_id": "doc-0059",
+          "title": "PipelineHub Preflight - Post Pod Actions - Backups-Restore",
+          "char_start": 402,
+          "char_end": 797,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "### PipelineHub UI support for Restore\n\nPipelineHub supports two forms of restore\n\n1. Restoring at same version as the pods version. This is done using a POD Backups available at that version\n2. Restoring to n-1 version. This is only available when the pod has been successfully upgrade. Once the upgrade is complete and if the user wishes to go back to n-1 version, he/she can do a n-1 restore.",
+          "quote_sha256": "b29c2c5342c0f7a22876e6a6f8f115b75fe2495213dc82a3569ca272fe2bef1e",
+          "evidence_id": "PH-G17-E01"
+        }
+      ],
+      "clarification_slots": [
+        "current pod version",
+        "requested restore version",
+        "successful upgrade status",
+        "available backup version(s)"
+      ],
+      "absence_search_terms": [],
+      "answerable_without_clarification": false,
+      "resolution_eligible": false,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G18",
+      "category": "ambiguous_clarification",
+      "question": "Which TestRunner provisioning method should I choose for my pod?",
+      "expected_status": "needs_clarification",
+      "reference_answer": "What architecture, database platform and pod size are you using, and do you need TestRunner during provisioning to validate the Marketing SKU or can it be added afterward? Also confirm any FMK/CDP requirement. The documented post-provisioning whitelist method supports ARM/x86, EXA/ManagedDatabase and S/M/L; the Marketing SKU method is documented for x86+EXA, S only, with FMK+CDP selected and CDP quota. Do not choose until the pod requirements are known. [doc-0137]",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G18-C01",
+          "text": "Ask for architecture, database platform and size.",
+          "evidence_ids": [
+            "PH-G18-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G18-C02",
+          "text": "Ask whether during-provisioning Marketing SKU validation is required or post-provisioning deployment is acceptable; establish FMK/CDP needs.",
+          "evidence_ids": [
+            "PH-G18-E01"
+          ],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G18-C03",
+          "text": "Do not select a method unconditionally without these details.",
+          "evidence_ids": [
+            "PH-G18-E01"
+          ],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Treat roadmap ETA statements as delivered support.",
+        "Recommend the Marketing SKU method for ARM/ManagedDatabase or M/L/XS sizes as already supported."
+      ],
+      "gold_document_ids": [],
+      "required_evidence_groups": [],
+      "supporting_evidence": [
+        {
+          "document_id": "doc-0137",
+          "parent_id": "doc-0032",
+          "title": "PipelineHub Family Pods & Preflight - Provisioning Subscription for TestRunner",
+          "char_start": 54,
+          "char_end": 2127,
+          "offset_basis": "canonical document content; Python Unicode code points; end exclusive",
+          "quote": "Method 1 - Whitelist Pod for TestRunner (Post-Provisioning)\n\n* 2 steps Process and support for ARM/x86, EXA/ManagedDatabase, support for S,M,L size only.\n\nMethod 2 - Use Marketing SKU in mock subscription which include TestRunner (As Part of Provisioning)\n\n* 1 step Process and support for x86+EXA only, support for S size only\n\n | Subscription Name | Description | User Usage | \n\n1 | \nALL_HYBRIDS_NO_TESTRUNNER_NO_CDP (All hybrids+FS SKU+CPQ SKU)\n\n | \nUsing this subscription, you will have the opportunity to whitelist the pod for TestRunner post provisioning.\n\n | \n* Note: If you need FMK/CDP, please DO NOT use this subscription\n\n* Step 1 - Provisioning with all/selected cloudnative services \n* If you select CDP for whatever reason, CDP deployment will FAIL\n\n* Step 2 - Select Pod Add-ons > Deploy Hybrid FDI\n\nReleaseEngineering To-Do: PipelineHub can enhance to orchestrate into 1-click for useability. However, do note behind-the-scene, it will still a post-provisioning process aka Method 1 use case. ETA 2/13. ( [https://issues.example.com/reference/resource-862] DEMO-018)\n\nReleaseEngineering To-Do: Need to support XS subscription.  [https://issues.example.com/reference/resource-863] DEMO-019. ETA 2/6\n | \n\n2 | \nNote: Use this subscription only if you want to validate Marketing SKU\n\nALL_HYBRIDS_WITH_TESTRUNNER  (All hybrids+FS SKU+CPQ SKU+Marketing SKU)\n\n | \nUsing this subscription, TestRunner will be deployed as part of provisioning.\n\nNote: PipelineHub will route the job to pre-defined tenancies which are whitelisted for CDP+TestRunner\n | \n* Note: FMK+CDP must be selected - Please make sure you have the CDP Quota!\n\n* Provisioning with all/selected cloudnative services (FMK+CDP MUST be selected) \n\n* Currently Limitation: x86+EXA Pod\n\nReleaseEngineering To-Do: PipelineHub will expand to allow ARM/x86, EXA/ManagedDatabase combination pods. ETA 2/6. ( [https://issues.example.com/reference/resource-864] DEMO-020)\n\nReleaseEngineering To-Do: Need to support L,XS,M subscription.  [https://issues.example.com/reference/resource-863] DEMO-019. ETA 2/6\n |",
+          "quote_sha256": "1db1eab6c3a0c7bb2618859c43580d6f5e2dbca4a4e5e91257c12b87b9feb4fe",
+          "evidence_id": "PH-G18-E01"
+        }
+      ],
+      "clarification_slots": [
+        "ARM or x86",
+        "EXA or ManagedDatabase",
+        "pod size",
+        "Marketing SKU validation / deployment timing",
+        "FMK/CDP requirement and quota"
+      ],
+      "absence_search_terms": [],
+      "answerable_without_clarification": false,
+      "resolution_eligible": false,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G19",
+      "category": "unsupported_escalation",
+      "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+      "expected_status": "needs_human_review",
+      "reference_answer": "I cannot verify a PipelineHub SLSA Level 3/Cosign configuration from the provided documentation. Please have a PipelineHub support or security engineer confirm whether this integration is supported and provide the approved configuration. No ticket has been submitted. This is a documentation gap, not evidence that the product lacks the capability.",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G19-C01",
+          "text": "State that the requested SLSA Level 3/Cosign configuration cannot be verified from the available corpus.",
+          "evidence_ids": [],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G19-C02",
+          "text": "Route to human support/security review without inventing YAML or settings.",
+          "evidence_ids": [],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G19-C03",
+          "text": "Do not claim a ticket was submitted or conclude the capability does not exist.",
+          "evidence_ids": [],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Invent a PipelineHub SLSA/Cosign setting, YAML key, endpoint, or supported compliance level.",
+        "Treat generic signing or service provenance mentions as proof of this named integration.",
+        "Claim the integration is definitively unsupported by the product."
+      ],
+      "gold_document_ids": [],
+      "required_evidence_groups": [],
+      "supporting_evidence": [],
+      "clarification_slots": [],
+      "absence_search_terms": [
+        "SLSA",
+        "Sigstore",
+        "Cosign",
+        "in-toto"
+      ],
+      "answerable_without_clarification": false,
+      "resolution_eligible": false,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    },
+    {
+      "id": "PH-G20",
+      "category": "unsupported_escalation",
+      "question": "How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.",
+      "expected_status": "needs_human_review",
+      "reference_answer": "The provided corpus does not establish a native Jira Service Management incident connector, its setup procedure, or required API scopes. Ask a PipelineHub support/integration engineer to confirm the supported approach. Do not invent connector steps or claim an incident has been created. Issue-tracker links in documentation are not evidence of such an integration.",
+      "required_answer_points": [
+        {
+          "criterion_id": "PH-G20-C01",
+          "text": "Say the named connector, setup steps and API scopes are not established by this corpus.",
+          "evidence_ids": [],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G20-C02",
+          "text": "Request human support/integration review rather than inventing configuration.",
+          "evidence_ids": [],
+          "critical": true
+        },
+        {
+          "criterion_id": "PH-G20-C03",
+          "text": "Do not claim the connector is absent from the product or that an incident/ticket was created.",
+          "evidence_ids": [],
+          "critical": true
+        }
+      ],
+      "unacceptable_claims": [
+        "Invent a native connector screen, URL, API scope, webhook contract, or incident submission.",
+        "Use ordinary issue-tracker references as proof of an automatic Jira Service Management connector."
+      ],
+      "gold_document_ids": [],
+      "required_evidence_groups": [],
+      "supporting_evidence": [],
+      "clarification_slots": [],
+      "absence_search_terms": [
+        "Jira Service Management",
+        "ServiceNow",
+        "incident ticket",
+        "automatic ticket",
+        "incident connector"
+      ],
+      "answerable_without_clarification": false,
+      "resolution_eligible": false,
+      "citation_policy": "Cite supporting document IDs and titles for substantive documentation claims. Any alternative corpus passage is acceptable only if it actually supports the same claim.",
+      "annotation_origin": "Authored from canonical corpus, not from chatbot responses; human SME review pending."
+    }
+  ]
+}

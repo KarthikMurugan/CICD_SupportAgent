@@ -1,0 +1,171 @@
+{
+  "id": "PH-G08",
+  "mode": "semantic",
+  "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?",
+  "run_status": "completed",
+  "result": {
+    "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?",
+    "status": "answered",
+    "answer": "- PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on. [doc-0084]\n- If the job for adding display languages times out, users can restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage to continue tracking the operation. [doc-0084]\n\nSources:\n- [doc-0084] PipelineHub Preflight - Pod Add-ons - Install Language Packs\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft answer is fully supported by the provided evidence. Claim 1 is supported by doc-0084:chunk-0001:bge-001:line-005, which confirms that PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on. Claim 2 is supported by doc-0084:chunk-0001:bge-001:line-007, which explicitly states that if the job times out, there is an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage. The draft accurately reflects the documentation without adding unsupported claims or omitting necessary caveats.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation explicitly states that if a language pack configuration job times out, there is an option to restart monitoring on the specific stage associated with the operation.",
+      "claims": [
+        {
+          "text": "PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0084:chunk-0001:bge-001:line-005"
+            }
+          ]
+        },
+        {
+          "text": "If the job for adding display languages times out, users can restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage to continue tracking the operation.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0084:chunk-0001:bge-001:line-007"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on.",
+        "evidence_id": "doc-0084:chunk-0001:bge-001:line-005",
+        "quote": "PipelineHub now support configuring additional language packs on EnvironmentService environment as a post provisioning Pod Add-on on EnvironmentService Pods.",
+        "document_id": "doc-0084",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Install Language Packs",
+        "chunk_id": "doc-0084:chunk-0001:bge-001"
+      },
+      {
+        "claim": "If the job for adding display languages times out, users can restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage to continue tracking the operation.",
+        "evidence_id": "doc-0084:chunk-0001:bge-001:line-007",
+        "quote": "If the job times out there is an option to restart monitoring on the  UPDATE_ADDITIONAL_LANGUAGES stage.",
+        "document_id": "doc-0084",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Install Language Packs",
+        "chunk_id": "doc-0084:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0084:chunk-0001:bge-001",
+        "document_id": "doc-0084",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Install Language Packs",
+        "char_start": 0,
+        "char_end": 391,
+        "text": "Redcontent moved to DocumentationPortal  <https://docs.example.com/reference/resource-664>\n\n### Configure additional languages\n\nPipelineHub now support configuring additional language packs on EnvironmentService environment as a post provisioning Pod Add-on on EnvironmentService Pods.\n\nIf the job times out there is an option to restart monitoring on the  UPDATE_ADDITIONAL_LANGUAGES stage."
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0008:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 25912,
+        "char_end": 27535,
+        "text": "PipelineHub now support configuring additional language packs on EnvironmentService environment as a post provisioning action on EnvironmentService pods.\n\n### Report update BusinessSuite Env status of Language Pack during Provisioning\n\nWe can now look for the update businesssuite env response in the provisioning screen using JSON icon. We can look for key **updateBusinessSuiteEnvResponse**inside the response json to find the complete EnvironmentControlPlane response of update businesssuite env.\n\n### Display Update BusinessSuite Env response in UI during provisioning\n\n### Enable RuntimeDiagnostics for EnvironmentService Provisioning\n\nThe EnvironmentService provisioning submission UI has introduced a new option for RuntimeDiagnostics enablement. This feature will enable RuntimeDiagnostics after POD provisioning is successful \n\nPlease do take a note we now support API provisioning submissions as well.\n\nMore about RuntimeDiagnostics: <https://docs.example.com/reference/resource-393>\n\n**PipelineHub will not allow patch submission if RuntimeDiagnostics workflow is running on the pod**\n\n* PipelineHub will now not allow submission of a new patch, from the Patching Dashboard, if the RuntimeDiagnostics PostDowntime Workflow is either currently **In progress** on the pod or is in the **NeedsAttention** stage\n* This is to avoid failure of the submitted patch in the Prepare Phase.\n* A new stage CHECK RuntimeDiagnostics WORKREQUEST is introduced in the dashboard for this purpose, and failure of this stage will block the user from submitting a new patch\n\n**AnalyticsDatabase Quota will be restricted/controlled**"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0031:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 91959,
+        "char_end": 93404,
+        "text": "### Special Project Support for  EnvironmentService Upgrade\n\nPipelineHub now support EnvironmentService upgrade for special project.\n\nSPD Service selection on Prov and Upgrade\n\nUptake new UI component for Service selection on Prov and Upgrade\n\nPatching DatabasePatch/MLR: DB Image Name input is not a drop down anymore. Its now freeform textbox where user can enter anything. no validations is done by PIPELINEHUB. its upto user to enter valid image names\n\n### Create New Special Project Page\n\n*Removed fields that will constant for all special projects.*\n\n### Create Release Set option available for SPD Admins\n\n***SPD- When \"Create Release Set\" button is clicked, a pop up will be opened to add details to create the new release set***\n\nPROMOTION\n\n1. All Special Project promotion preflights will have the ApplicationBOMS generated under the project/<spl-proj-name> sub directory and will remain there for the entire lifecycle - as noted from the start - all special project preflights will not be eligible for regular promotions.\n2. Special projects will have the same rules of promotion eligibility and those eligible will show up in the Promotion preflights page.\n3. Once promoted, the TIP ApplicationBOM will be generated under the project sub directory as shown below\n\n###  Special Project Release sets will now display correctly in the dropdown for Upgrade\n\n### Special Project Dashboard (SPD) - Default values for Release Set Creation\n\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0014:bge-002",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 36616,
+        "char_end": 37698,
+        "text": "* ### How do I make a specific page to be my default/home page when I sign in to PipelineHub?\n\n\t+ Use the following steps.\n\t+ Tap on dropdown beside home button and click on the menu item \"Set Current As Home\".\n\n* ### How do I update the dependency of my BusinessApplications Project to a new IntegrationBuild label (for newer ApplicationProvisioner)?\n\n\t+ Via Tagback Manager\n\n### \n\n1. * Click on Apps drop down and click on the \"**Tagback Manager**\"\n\t* Click on \"**New Request**\" which navigates to another screen where the user has to give in the valid information.\n\t* In the field of \"**IntegrationBuild label to tagback**\" give input like \"**INTEGRATIONBUILD_PT.MIDDLEWARE1412DEV_PLATFORMS_240905.2040**\" then tap on \"**ADD PROJECT**\"\n\t* You will be navigated to a pop up screen where the user has to give in the \"Project List\" Information for ex: \"**BUSINESSAPPLICATIONS_PT.V2MIBFMW14CMAIN5_LINUX.X64**\"\n\t* Then tap on \"ADD PROJECT\" and then tap on \"**FETCH PROJECT DETAILS**\" and then tap on \"SELECT\"\n\n* ### What does the Release Stage for a BusinessApplications project mean?"
+      },
+      {
+        "chunk_id": "doc-0007:chunk-0002:bge-001",
+        "document_id": "doc-0007",
+        "parent_id": "doc-0024",
+        "title": "Family Environment - User Guide",
+        "char_start": 3125,
+        "char_end": 4113,
+        "text": "1. **Before you submit:**\n\t* Reminder; Please review all your parameters are correctly selected.\n2. **WAIT!** Do double check the selected parameters again!\n\t* Reminder: Any mismatch of parameters will cause unnecessary provisioning failure! You do not want to waste your precious time...\n3. Click \"**Provision EnvironmentService POD**\"\nHow to Monitor Your Pod\n-----------------------\n\n1. Login using your sso to <https://app.example.com/reference/resource-004>\n2. In the PipelineHub website click on the \"**Apps**\" drop down and then click on the \"**Family pods & Preflight (CloudPlatform)** and finally click on the \"**Family Pod Dashboard**\"  \n\n\t* In the family Pod Dashboard - you have drop downs like \"**view\",** \"**Pod** **Status\",** and \"**Line Of Business**\" and on filtering with the options it will display all the pods.\n\t* You can filter accordingly using any of the filters to narrow the results within your LOB.\n3. Click on the **PipelineHub ID** that you want to monitor  \n\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0016:bge-002",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 42048,
+        "char_end": 43151,
+        "text": " \n\nThe below image is how the message looks like from the PipelineHubbot. \n\n* ### How to configure PipelineHub to invoke an external REST service or invoke external Jenkins job via REST call?\n\n\t+ Configure up to two external External Handlers via project configuration of each CI/CD stage (BUILD/DEPLOY/TEST)\n\t+ Open the respective(BUILD/DEPLOY/TEST) section of the project configuration (Advanced config section)\n\t+ Create a new External handler using the simple form (you can add one or more custom fields)\n\n* + - Suppose your External Handler Name is \"postBuildCallCXBugCreation\"You should test your handler by invoking manually from another window via REST api call\n\t+ Select the newly created handler and the condition of the CI/CD stage to invoke the handler\n\n* ### **How do I configure PipelineHub to invoke a custom program I have as an External Handler after Build Stage is completed?**\n\nRefer the Page [ReleaseEngineering Sample Python Based External Handler](https://docs.example.com/reference/resource-019)\n\n* ### What's the sample response I can get from PipelineHub for my External Handler"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 7.055,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 235,
+        "prompt_tokens": 4917,
+        "total_tokens": 5152,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.2248
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 184,
+        "prompt_tokens": 4699,
+        "total_tokens": 4883,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.0804
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7469
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.9733
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 7.0546
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 7.0549
+    }
+  ],
+  "wall_seconds": 7.0591,
+  "token_usage": {
+    "prompt_tokens": 9616,
+    "completion_tokens": 419,
+    "total_tokens": 10035
+  },
+  "completed_at_utc": "2026-10-17T17:41:16.320372+00:00"
+}

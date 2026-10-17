@@ -1,0 +1,202 @@
+{
+  "id": "PH-G06",
+  "mode": "keyword",
+  "question": "In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?",
+  "run_status": "completed",
+  "result": {
+    "question": "In Project Config, which field holds recipients for project configuration-change emails, how do I enter multiple recipients, and which changes trigger those emails?",
+    "status": "answered",
+    "answer": "- Recipients for project configuration-change emails are entered in the **Config Notifications** section on the Project Config page. [doc-0022]\n- To enter multiple recipients, provide comma-separated email addresses in the designated field. [doc-0022]\n- Email notifications are triggered by updates to basic information, source repository, build, deploy, or test configurations. [doc-0022]\n- Notifications apply to all branches associated with the selected usage type (e.g., RELEASE, INTEGRATION). [doc-0022]\n\nSources:\n- [doc-0022] Configuring Email and Slack Notifications\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly identifies the 'Config Notifications' section and the comma-separated input format based on line-025. It accurately lists the triggering changes (basic information, source repository, build, deploy, test configurations) citing lines 007 and 027. The additional claim regarding branch scope is supported by lines 009 and 011. All claims are directly grounded in the provided text without extrapolation.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages explicitly describe the field name, input format, and triggering events for project configuration change emails.",
+      "claims": [
+        {
+          "text": "Recipients for project configuration-change emails are entered in the **Config Notifications** section on the Project Config page.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0022:chunk-0001:bge-001:line-025"
+            }
+          ]
+        },
+        {
+          "text": "To enter multiple recipients, provide comma-separated email addresses in the designated field.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0022:chunk-0001:bge-001:line-025"
+            }
+          ]
+        },
+        {
+          "text": "Email notifications are triggered by updates to basic information, source repository, build, deploy, or test configurations.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0022:chunk-0001:bge-001:line-007"
+            },
+            {
+              "evidence_id": "doc-0022:chunk-0001:bge-001:line-027"
+            }
+          ]
+        },
+        {
+          "text": "Notifications apply to all branches associated with the selected usage type (e.g., RELEASE, INTEGRATION).",
+          "evidence": [
+            {
+              "evidence_id": "doc-0022:chunk-0001:bge-001:line-009"
+            },
+            {
+              "evidence_id": "doc-0022:chunk-0001:bge-001:line-011"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "Recipients for project configuration-change emails are entered in the **Config Notifications** section on the Project Config page.",
+        "evidence_id": "doc-0022:chunk-0001:bge-001:line-025",
+        "quote": "* Enter comma-separated email addresses in **Config Notifications** Section",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "chunk_id": "doc-0022:chunk-0001:bge-001"
+      },
+      {
+        "claim": "To enter multiple recipients, provide comma-separated email addresses in the designated field.",
+        "evidence_id": "doc-0022:chunk-0001:bge-001:line-025",
+        "quote": "* Enter comma-separated email addresses in **Config Notifications** Section",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "chunk_id": "doc-0022:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Email notifications are triggered by updates to basic information, source repository, build, deploy, or test configurations.",
+        "evidence_id": "doc-0022:chunk-0001:bge-001:line-007",
+        "quote": "Once configured, any updates to the **basic information**, **source repository**, **build**, **deploy**, or **test configurations** will trigger email notifications to the specified recipients.",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "chunk_id": "doc-0022:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Email notifications are triggered by updates to basic information, source repository, build, deploy, or test configurations.",
+        "evidence_id": "doc-0022:chunk-0001:bge-001:line-027",
+        "quote": "* Any changes to basic info/ source repo/ build/ deploy/ test configuration will notify email recipients configured above.",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "chunk_id": "doc-0022:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Notifications apply to all branches associated with the selected usage type (e.g., RELEASE, INTEGRATION).",
+        "evidence_id": "doc-0022:chunk-0001:bge-001:line-009",
+        "quote": "These notifications apply to **all branches associated with the selected usage type** (e.g., RELEASE, INTEGRATION).",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "chunk_id": "doc-0022:chunk-0001:bge-001"
+      },
+      {
+        "claim": "Notifications apply to all branches associated with the selected usage type (e.g., RELEASE, INTEGRATION).",
+        "evidence_id": "doc-0022:chunk-0001:bge-001:line-011",
+        "quote": "Recipients will be alerted whenever configuration changes occur within branches of the corresponding usage category.",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "chunk_id": "doc-0022:chunk-0001:bge-001"
+      }
+    ],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0022:chunk-0001:bge-001",
+        "document_id": "doc-0022",
+        "parent_id": "doc-0001",
+        "title": "Configuring Email and Slack Notifications",
+        "char_start": 0,
+        "char_end": 1408,
+        "text": "### \n\n### Summary\n\nThis guide outlines how to configure email notifications for changes made to a workload's CI/CD settings.\n\nOnce configured, any updates to the **basic information**, **source repository**, **build**, **deploy**, or **test configurations** will trigger email notifications to the specified recipients.\n\nThese notifications apply to **all branches associated with the selected usage type** (e.g., RELEASE, INTEGRATION).\n\nRecipients will be alerted whenever configuration changes occur within branches of the corresponding usage category.\n\n### Configure email notification for project level config change\n\n* Go to Project Config page\n\t+ **Scenario 1:** use URL to locate the Project Config config page  \n\t\n\t\t- https://app.example.com/reference/resource-218<projectName>&view=basicConfig\n\t+ **Scenario 2:** search project Name to land onto Project Config config page  \n\t\n\t\t- Navigate to PipelineHub <https://app.example.com/reference/resource-004>\n\t\t- Search for the project name in the PipelineHub search bar\n\t\t- Click on the Project Config Tab Left NavBar\n* Click Edit button on top\n* Enter comma-separated email addresses in **Config Notifications** Section\n* Click Save button\n* Any changes to basic info/ source repo/ build/ deploy/ test configuration will notify email recipients configured above.\n* \n\n### Configure email notification for branch level config change and ci/cd pipelines\n\n"
+      },
+      {
+        "chunk_id": "doc-0017:chunk-0004:bge-001",
+        "document_id": "doc-0017",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (CloudNative)",
+        "char_start": 9044,
+        "char_end": 9717,
+        "text": "How do I trigger a CI/CD pipeline for my Project :\n--------------------------------------------------\n\n* Search for the project name in the PipelineHub search bar\n* You will be landing into the CI/CD Pipelines view\n\t+ \n\t+ \n\t+ Choose the branch for which you want to trigger a pipeline (screenshot above)\n\t+ Click on **Trigger Pipeline** Button\n\t+ Enter the reason and select the **Impacted** or **All Components** button  \n\t\n\t\t- Select impacted components, you will trigger a build against only those components that are modified and impacted\n\t\t- Select all components, you will trigger a build against all components\n\t+ Click on Submit button to trigger pipeline  \n\t\n\t\t-\n\n"
+      },
+      {
+        "chunk_id": "doc-0017:chunk-0004:bge-002",
+        "document_id": "doc-0017",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (CloudNative)",
+        "char_start": 9717,
+        "char_end": 10527,
+        "text": "How do I trigger a full build (all components build) for my project?\n--------------------------------------------------------------------\n\n* Search for the project name in the PipelineHub search bar\n* You will be landing into the CI/CD Pipelines view\n\t+ \n\t+ \n\t+ Choose the branch for which you want to trigger a pipeline (screenshot above)\n\t+ Click on **Trigger Pipeline** Button\n\t+ Enter the reason and select **All Components** button  \n\t\n\t\t- Select all components, you will trigger a build against all components\n\t+ Click on Submit button to trigger pipeline:\n\t+\n\nHow do I trigger an incremental build (impacted components build) on my project?\n--------------------------------------------------------------------------------\n\n* When in the trigger pipeline dialog shown above, select \"Impacted\" option\n* \n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 6.54,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 458,
+        "prompt_tokens": 3279,
+        "total_tokens": 3737,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 4.4425
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 129,
+        "prompt_tokens": 3225,
+        "total_tokens": 3354,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.0119
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0821
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 4.5252
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 6.5381
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 6.5397
+    }
+  ],
+  "wall_seconds": 6.5513,
+  "token_usage": {
+    "prompt_tokens": 6504,
+    "completion_tokens": 587,
+    "total_tokens": 7091
+  },
+  "completed_at_utc": "2026-10-17T17:40:30.255535+00:00"
+}

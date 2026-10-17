@@ -1,0 +1,26 @@
+{
+  "formal_evaluation": false,
+  "checks": [
+    {
+      "case": "overview",
+      "status": "answered",
+      "elapsed_seconds": 9.523,
+      "model": "Qwen/Qwen3.5-397B-A17B",
+      "citations": 6
+    },
+    {
+      "case": "procedure",
+      "status": "answered",
+      "elapsed_seconds": 10.179,
+      "model": "Qwen/Qwen3.5-397B-A17B",
+      "citations": 12
+    },
+    {
+      "case": "unsupported",
+      "status": "needs_human_review",
+      "elapsed_seconds": 2.569,
+      "model": "Qwen/Qwen3.5-397B-A17B",
+      "citations": 0
+    }
+  ]
+}

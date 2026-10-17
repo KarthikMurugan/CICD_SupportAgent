@@ -1,0 +1,187 @@
+{
+  "id": "PH-G14",
+  "mode": "semantic",
+  "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+  "run_status": "completed",
+  "result": {
+    "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The draft contains unsupported claims and hallucinations. 1) It claims a 'PipelineHub ID' is generated, but the evidence (doc-0096:line-009) only states a 'new pipelinehub ID' (likely referring to a job ID, not a platform ID) and does not support the specific terminology 'PipelineHub ID'. 2) It claims the status transitions to 'SUCCESS', whereas the evidence (doc-0096:line-011) explicitly spells it 'SUCCSS'. 3) It invents a step to 'navigate to the bottom right... and click', while the evidence (doc-0096:line-003) simply says 'submit... from the right bottom', lacking the specific navigation and click instructions. 4) The draft claims MFA is disabled 'during the BuildAcceptanceTests run', but the evidence (doc-0098:line-006) states it happens 'when BuildAcceptanceTests are triggered'. Prec",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided passages contain specific instructions on how to start and track BuildAcceptanceTests after pod provisioning and explicitly state the behavior of MFA settings during these tests.",
+      "claims": [
+        {
+          "text": "To start BuildAcceptanceTests, navigate to the bottom right of the Preflightpod page and click 'Run Tests' to submit the tests related to your LOB.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0096:chunk-0001:bge-001:line-003"
+            },
+            {
+              "evidence_id": "doc-0096:chunk-0001:bge-001:line-005"
+            }
+          ]
+        },
+        {
+          "text": "Upon submission, a new PipelineHub ID is generated, and the test status can be tracked on the Preflightpod page, transitioning from 'queued' to 'running' and finally to 'SUCCESS'.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0096:chunk-0001:bge-001:line-009"
+            },
+            {
+              "evidence_id": "doc-0096:chunk-0001:bge-001:line-011"
+            }
+          ]
+        },
+        {
+          "text": "You should not expect your manually enabled MFA setting to remain enabled during the run, as BuildAcceptanceTests automatically disable MFA on the POD regardless of prior user settings.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "This automatic disabling occurs because BuildAcceptanceTests cannot run with MFA enabled, overriding any configuration set during provisioning or post-provisioning actions.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0098:chunk-0001:bge-001:line-006"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0098:chunk-0001:bge-001",
+        "document_id": "doc-0098",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Toggle MFA",
+        "char_start": 0,
+        "char_end": 1165,
+        "text": "Toggle MFA (Multi-Factor Authentication) \n\n1. PipelineHub will have a post pod action Enable/Disable MFA and based on the user choice the post pod action will call the corresponding JC's on the IdentityService or IdentityService/ManagedDatabase pods only , this feature is not available for IDM and the UI should not show this feature for IDM PODs.\n2. if MFA is disabled then the users will be able to login with user name and password on the IdentityService and IdentityService/ManagedDatabase pods\n3. if the MFA is enabled user will be prompted for extra authentication to be able to login to the PODs\n4. if BuildAcceptanceTests are triggered, BuildAcceptanceTests will automatically disable the MFA on the POD as BuildAcceptanceTests cannot run with MFA on, so when BuildAcceptanceTests are triggered the assumption is that MFA will be disabled (this will be done during the BuildAcceptanceTests run) , irrespective of what the user has done during prov or post prov action.\n\nEligible PODS (IdentityService) will have the option in the post pod actions - TOGGLE MFA\n\nThe user will be able to ENABLE MFA or DISABLE MFA based on the option selected (true or false)"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0006:bge-001",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 14670,
+        "char_end": 16278,
+        "text": "Filter tag All is now defaulted for all DeploymentTemplate Run Tests submissions. This will be empty for STARTER jobs.   \n\nReference - <https://issues.example.com/reference/resource-416>\n\nReach out to BusinessApp QA to get details about values that can be used for these parameters. \n\nTesting Parameters: \n\n* `AcceptanceTests Label`\n* `Order prop`\n* `Filter tags`\n* `BuildAcceptanceTests Config`\n* Git Branch\n* `Additional Params`\n\n#### BATSnapper Integration to BuildAcceptanceTests for PSR\n\n* To enable BATSnapper, the user must include `ENABLE_BATSNAPPER=true` in the `Additional Params` when submitting BuildAcceptanceTests.\n* Previously, BATSnapper’s pre-buildacceptancetests and post-buildacceptancetests hooks were called only once. With this update, these hooks will be called every time the user re-runs the tests.\n* This feature is available only when BATSnapper is enabled.\n\n### ManagedDatabase Enabled Flag\n\nEnvironmentService-Uptake ManagedDatabase Flag in provisioning submissions. If the template is ManagedDatabase enabled. This is for the users who wants to use PipelineHub for ADBS provisioning jobs. \n\nthis is a requirement for LifecycleManager to be able to use PipelineHub for ADBS prov\n\nSupport Enabled DB info check box for EnvironmentService provisioning\n\nPipelineHub now support with \"Enabled DB info\" check box feature for EnvironmentService provisioning which works exactly like GEN1.\n\n \n\nX86 is defaulted for provisioning, ARM Pods are based on user selection \n\nX86 is now the default for POD provisioning. User should click \"***Provision an ARM64 pod***\" if they want an ARM pod."
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0002:bge-002",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 4673,
+        "char_end": 6054,
+        "text": "### Display Update BusinessSuite Env response in UI during provisioning\n\n### Enable RuntimeDiagnostics for EnvironmentService Provisioning\n\nThe EnvironmentService provisioning submission UI has introduced a new option for RuntimeDiagnostics enablement. This feature will enable RuntimeDiagnostics after POD provisioning is successful\n\nPlease do take a note we now support API provisioning submissions as well.\n\nMore about RuntimeDiagnostics: <https://docs.example.com/reference/resource-393>\n\n### Allow opt-in for OPA hybrid service from UI\n\nUser to select checkbox to opt for OPA service while provisioning\n\n### Allow opt-in for UIBuildService hybrid service for Prod from UI\n\nUser can now provision UIBuildService Hybrid for Prod and not as a Test pod using the feature flag -\n\n**PFLT_UIBUILDSERVICE_PROD_PROVISION** is a group name and the feature flag is **provision-uibuildservice-hybrid-only-for-prod** which should be set to True\n\n### IdentityService support for pod provisioning\n\nPipelineHub support feature flags to enable IdentityService while provisioning a pod.\n\n### Support for Feature Flags\n\nPipelineHub provides commonly used feature flags for Provisioning, Upgrade and Patching jobs via Feature Flag Groups.\n\nHowever, there are more feature flags that can be used outside of these defaults. In order to add feature flags to PipelineHub, please specify the following"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0009:bge-003",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 30022,
+        "char_end": 30754,
+        "text": "AppServer Log setup is required on the Pod to enable or disable AppServer logs sync on the pod later on.\n\nVerify RuntimeDiagnosticsPostDowntime workflow status before patching submit\n\nThis change is to validate if RuntimeDiagnosticsPostDownTime is running at the time of patch submission, and prevent submission if it is. This is done as the patching fails when the workflow is running and to avoid an unnecessary submission that will fail.  \n\n### Allow opt-in for OPA hybrid service from UI\n\nUser to select checkbox to opt for OPA service while provisioning   \n\n### Allow opt-in for UIBuildService hybrid service for Prod from UI\n\nUser can now provision UIBuildService Hybrid for Prod and not as a Test pod using the feature flag -"
+      },
+      {
+        "chunk_id": "doc-0096:chunk-0001:bge-001",
+        "document_id": "doc-0096",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Run Tests",
+        "char_start": 0,
+        "char_end": 907,
+        "text": "[Redcontent moved to DocumentationPortal https://docs.example.com/reference/resource-675](https://docs.example.com/reference/resource-675)\n\n* Once the POD is provisioned user can submit the buildacceptancetests from the pipelinehub from the right bottom of the Preflightpod page.User can submit buildacceptancetests related their LOB.\n\n* After clicking on Run Tests new window will be populated it similar to below.\n* \n* AcceptanceTests Label, Order prop and Git branch will be auto populated. In case they are not populated user can refer this page how to get AcceptanceTests label and git branch\n* \n* Once the buildacceptancetests submitted new pipelinehub ID will be generated . User can go Preflightpod page of the POD and check the buildacceptancetests status. Initially it will be in queued state.\n\nOnce the execution state state will be moved to running, after completion it will move to SUCCSS state"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0014:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 43721,
+        "char_end": 45248,
+        "text": "These input feature flags are only enabled in the environmentservice pod before submit for environmentservice provisioning, upgrade or patching flows. Feature flags can be enabled in either an existing provisioned pod or a provisioning pod as long as the system name of the environmentservice pod is available.\n\n* Only ZDT Phase 5 and Enable IDM  is supported at this time\n\n#### Feature flag support for upgrade\n\n#### Feature flag support for Patching (BI, ApplicationPatchBundle and ApplicationProvisioner)\n\n### Feature Flags UI\n\nfeature flags moved under Advanced parameters section during EnvironmentService Upgrade submissions\n\nIdentityService support for pod provisioning\n---------------------------------\n\nPipelineHub now support feature flags to enable IdentityService while provisioning a pod.\n\n### ManagedDatabase and IdentityService support for Provisioning and Upgrade\n\nSupport Provisioning and upgrade flow if selected template for which isManagedDatabase or isIdentityService enabled under advanced parameters and same will be default selected for release 24.10 and above.\n\nSecurityScan scan\n----------\n\n### SecurityScan submission can be enabled while provisioning (Only Starter)\n\n* Users can now enable SecurityScan scan while provisioning a pod\n\n### SecurityScan Scans Display\n\nSecurityScan Central Dashboard is now displayed at landing page.\n\n### SecurityScan reporting changes in PipelineHub\n\nPipelineHub now have partial deny status, which users are expected to review the results.\n\n### Partial and Temp Deny"
+      }
+    ],
+    "handoff": {
+      "question": "After provisioning an IdentityService pod, how do I start BuildAcceptanceTests and track them, and should I expect my manually enabled MFA setting to remain enabled during that run?",
+      "reason": "The draft contains unsupported claims and hallucinations. 1) It claims a 'PipelineHub ID' is generated, but the evidence (doc-0096:line-009) only states a 'new pipelinehub ID' (likely referring to a job ID, not a platform ID) and does not support the specific terminology 'PipelineHub ID'. 2) It claims the status transitions to 'SUCCESS', whereas the evidence (doc-0096:line-011) explicitly spells it 'SUCCSS'. 3) It invents a step to 'navigate to the bottom right... and click', while the evidence (doc-0096:line-003) simply says 'submit... from the right bottom', lacking the specific navigation and click instructions. 4) The draft claims MFA is disabled 'during the BuildAcceptanceTests run', but the evidence (doc-0098:line-006) states it happens 'when BuildAcceptanceTests are triggered'. Prec",
+      "source_ids": [
+        "doc-0098",
+        "doc-0060",
+        "doc-0032",
+        "doc-0096"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 9.15,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 530,
+        "prompt_tokens": 5483,
+        "total_tokens": 6013,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 2096
+        }
+      },
+      "status": "ok",
+      "seconds": 5.4251
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 255,
+        "prompt_tokens": 5500,
+        "total_tokens": 5755,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.9867
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7345
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 6.1614
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 9.1494
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 9.1497
+    }
+  ],
+  "wall_seconds": 9.1646,
+  "token_usage": {
+    "prompt_tokens": 10983,
+    "completion_tokens": 785,
+    "total_tokens": 11768
+  },
+  "completed_at_utc": "2026-10-17T17:40:44.370219+00:00"
+}

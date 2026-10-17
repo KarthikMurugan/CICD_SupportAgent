@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Your PipelineHub support assistant. Ask a question, understand your next step, and check the documentation behind every answer.">
+  <title>PipelineHub · Support</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23232323'/%3E%3Cpath d='M10 9v14m0-7h8a4 4 0 004-4V9' stroke='white' fill='none' stroke-width='2'/%3E%3Ccircle cx='10' cy='8' r='3' fill='white'/%3E%3Ccircle cx='10' cy='24' r='3' fill='white'/%3E%3Ccircle cx='22' cy='8' r='3' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="svg-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-logo" viewBox="0 0 24 24"><path d="M6 5v14m0-7h7a5 5 0 0 0 5-5V5"/><circle cx="6" cy="4" r="2.5"/><circle cx="6" cy="20" r="2.5"/><circle cx="18" cy="4" r="2.5"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1m0-14c3-2 6-2 9-1v14c-3-1-6-1-9 1V6Z"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5"/><path d="m12 12 8 8m-4-4 3-3m-6 0 3-3"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-12h-7l1-8Z"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 4 2c-1 .7-1.5 1-1.5 3m0 3h.01"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6M8 13h8m-8 4h5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-4-4 4 4 4-4M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 6h16M9 6V3h6v3M6 6l1 15h10l1-15M10 10v7m4-7v7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11a9 9 0 0 1-9 9 9 9 0 0 1-4-1l-5 2 1-5a9 9 0 1 1 17-5Z"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  </svg>
+  <button id="sidebarBackdrop" class="sidebar-backdrop" aria-label="Close sidebar" hidden></button>
+  <aside class="sidebar" id="sidebar" aria-label="Chat history">
+    <div class="brand-row"><a class="brand" href="/" aria-label="PipelineHub home"><span class="brand-mark"><svg><use href="#i-logo"/></svg></span><span>PipelineHub</span></a><button class="icon-button" id="closeSidebar" title="Close sidebar" aria-label="Close sidebar"><svg><use href="#i-panel"/></svg></button></div>
+    <button class="new-chat" id="newChat"><svg><use href="#i-plus"/></svg>New chat<span class="shortcut">⌘ K</span></button>
+    <div class="history-label">YOUR CHATS</div>
+    <nav id="chatHistory" class="chat-history" aria-label="Previous conversations"></nav>
+    <div class="sidebar-bottom"><div class="workspace-mark"><svg><use href="#i-logo"/></svg></div><div><strong>Your workspace</strong><span><i class="status-dot"></i> Runs on your computer</span></div><button class="icon-button" id="aboutButton" title="About this assistant" aria-label="About this assistant"><svg><use href="#i-help"/></svg></button></div>
+  </aside>
+  <main class="main">
+    <header class="header"><div class="header-left"><button class="icon-button" id="openSidebar" title="Open sidebar" aria-label="Open sidebar" hidden><svg><use href="#i-panel"/></svg></button><span class="header-title">Support assistant</span><span class="header-separator">/</span><span class="header-subtitle">PipelineHub</span></div><button class="export-button" id="exportChat" disabled><svg><use href="#i-download"/></svg><span>Export chat</span></button></header>
+    <div class="connection-notice" id="connectionNotice" role="status" hidden></div>
+    <div id="chatScroll" class="chat-scroll">
+      <section class="welcome" id="welcome">
+        <div class="welcome-logo"><svg><use href="#i-logo"/></svg><span class="sparkle">✦</span></div>
+        <p class="eyebrow">A LITTLE CLARITY GOES A LONG WAY</p>
+        <h1>How can I help with<br><span>PipelineHub?</span></h1>
+        <p class="welcome-description">From your first project to your next deployment.<br>Find your next step, with documentation to back it up.</p>
+        <div class="suggestions" aria-label="Suggested questions">
+          <button class="suggestion" data-prompt="What is PipelineHub and which application types does it support?"><span class="suggestion-icon"><svg><use href="#i-book"/></svg></span><strong>Get to know PipelineHub</strong><span>Explore the platform and supported apps</span><svg class="suggestion-arrow"><use href="#i-chevron"/></svg></button>
+          <button class="suggestion" data-prompt="How do I register an OAuth client for PipelineHub REST services?"><span class="suggestion-icon"><svg><use href="#i-key"/></svg></span><strong>Connect to the API</strong><span>Understand OAuth client registration</span><svg class="suggestion-arrow"><use href="#i-chevron"/></svg></button>
+          <button class="suggestion" data-prompt="My pipeline failed. What should I do?"><span class="suggestion-icon"><svg><use href="#i-bolt"/></svg></span><strong>Work through a failure</strong><span>Find a starting point for troubleshooting</span><svg class="suggestion-arrow"><use href="#i-chevron"/></svg></button>
+          <button class="suggestion" data-prompt="What is PipelineHub's guaranteed uptime SLA and exact service credit percentage?"><span class="suggestion-icon"><svg><use href="#i-help"/></svg></span><strong>Check service guarantees</strong><span>See what the documentation covers</span><svg class="suggestion-arrow"><use href="#i-chevron"/></svg></button>
+        </div>
+        <div class="welcome-footnote"><svg><use href="#i-file"/></svg>Answers start with your knowledge base.</div>
+      </section>
+      <section id="messages" class="messages" aria-label="Conversation" hidden></section>
+    </div>
+    <div class="composer-area"><form id="chatForm" class="composer"><label for="question" class="sr-only">Message PipelineHub support</label><textarea id="question" rows="1" maxlength="4000" placeholder="Ask anything about PipelineHub…"></textarea><div class="composer-bottom"><span class="composer-context"><svg><use href="#i-book"/></svg>PipelineHub knowledge base</span><button type="submit" id="sendButton" class="send-button" aria-label="Send message" disabled><svg><use href="#i-arrow"/></svg></button></div></form><p class="composer-footnote">PipelineHub can make mistakes. Check the cited documentation.</p></div>
+  </main>
+  <dialog id="sourceDialog" class="source-dialog" aria-labelledby="sourceTitle"><div class="source-dialog-header"><span class="eyebrow">FROM YOUR KNOWLEDGE BASE</span><button class="icon-button" id="closeSource" aria-label="Close source"><svg><use href="#i-close"/></svg></button></div><div id="sourceContent"></div></dialog>
+  <dialog id="aboutDialog" class="about-dialog" aria-labelledby="aboutTitle"><button class="icon-button dialog-close" id="closeAbout" aria-label="Close about"><svg><use href="#i-close"/></svg></button><div class="welcome-logo small"><svg><use href="#i-logo"/></svg></div><h2 id="aboutTitle">Your documentation, in conversation.</h2><p>This assistant searches the adapted PipelineHub documentation and prepares answers with sources you can inspect.</p><p>When a question needs more detail, it asks. When the evidence isn't sufficient, it prepares a human-review message. It does not submit a support ticket.</p><div class="about-note">Chats are saved in this browser. Answers use the configured model provider; document search uses Pinecone. When Nebius is selected, your question and retrieved documentation excerpts are sent to Nebius. Documentation links and commands are illustrative.</div></dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

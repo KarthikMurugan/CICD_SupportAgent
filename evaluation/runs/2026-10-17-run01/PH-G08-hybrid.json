@@ -1,0 +1,162 @@
+{
+  "id": "PH-G08",
+  "mode": "hybrid",
+  "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?",
+  "run_status": "completed",
+  "result": {
+    "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The draft claims are supported by the text in doc-0084, which confirms that PipelineHub supports configuring additional language packs and offers an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage if a job times out. However, the draft fails to fully answer the user's question. The user asked for a way to 'keep tracking' the operation (implying continuous monitoring or resuming a live view), whereas the evidence only explicitly mentions an option to 'restart monitoring.' The draft does not explain how to access this option, where it is located in the UI, or if 'restarting' is the only method to resume tracking, leaving the procedural aspect of the user's problem unresolved.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation explicitly states that if the job for configuring additional languages times out, there is an option to restart monitoring on the specific stage.",
+      "claims": [
+        {
+          "text": "PipelineHub supports configuring additional language packs on an EnvironmentService environment as a post-provisioning Pod Add-on.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0084:chunk-0001:bge-001:line-005"
+            }
+          ]
+        },
+        {
+          "text": "If the job times out, there is an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0084:chunk-0001:bge-001:line-007"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0084:chunk-0001:bge-001",
+        "document_id": "doc-0084",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Install Language Packs",
+        "char_start": 0,
+        "char_end": 391,
+        "text": "Redcontent moved to DocumentationPortal  <https://docs.example.com/reference/resource-664>\n\n### Configure additional languages\n\nPipelineHub now support configuring additional language packs on EnvironmentService environment as a post provisioning Pod Add-on on EnvironmentService Pods.\n\nIf the job times out there is an option to restart monitoring on the  UPDATE_ADDITIONAL_LANGUAGES stage."
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0008:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 25912,
+        "char_end": 27535,
+        "text": "PipelineHub now support configuring additional language packs on EnvironmentService environment as a post provisioning action on EnvironmentService pods.\n\n### Report update BusinessSuite Env status of Language Pack during Provisioning\n\nWe can now look for the update businesssuite env response in the provisioning screen using JSON icon. We can look for key **updateBusinessSuiteEnvResponse**inside the response json to find the complete EnvironmentControlPlane response of update businesssuite env.\n\n### Display Update BusinessSuite Env response in UI during provisioning\n\n### Enable RuntimeDiagnostics for EnvironmentService Provisioning\n\nThe EnvironmentService provisioning submission UI has introduced a new option for RuntimeDiagnostics enablement. This feature will enable RuntimeDiagnostics after POD provisioning is successful \n\nPlease do take a note we now support API provisioning submissions as well.\n\nMore about RuntimeDiagnostics: <https://docs.example.com/reference/resource-393>\n\n**PipelineHub will not allow patch submission if RuntimeDiagnostics workflow is running on the pod**\n\n* PipelineHub will now not allow submission of a new patch, from the Patching Dashboard, if the RuntimeDiagnostics PostDowntime Workflow is either currently **In progress** on the pod or is in the **NeedsAttention** stage\n* This is to avoid failure of the submitted patch in the Prepare Phase.\n* A new stage CHECK RuntimeDiagnostics WORKREQUEST is introduced in the dashboard for this purpose, and failure of this stage will block the user from submitting a new patch\n\n**AnalyticsDatabase Quota will be restricted/controlled**"
+      },
+      {
+        "chunk_id": "doc-0117:chunk-0006:bge-002",
+        "document_id": "doc-0117",
+        "parent_id": "doc-0030",
+        "title": "PipelineHub One-Off Tagging: How It Differs from Tip and CWB Promotion",
+        "char_start": 16200,
+        "char_end": 17677,
+        "text": "### 5-complete-or-stop-the-tag-operation5. Complete or stop the tag operation\n\nIf all required checks pass, PipelineHub adds the one-off tag and records the result. Adding the tag does not by itself create or publish a one-off APPLICATIONBOM.\n\nIf a check fails, PipelineHub does not complete the tagging operation. The user must correct the reported condition and retry.\n\n### 6-downstream-handoff6. Downstream handoff\n\nAfter a successful tag, the intended flow hands the bug-scoped selection to downstream one-off/ApplicationBOM processing, where the targeted post-GA vehicle is assembled. The reviewed PipelineHub tagging path stops after saving the tag, and the exact current downstream owner, trigger, and tool need to be confirmed before this is published as an operational runbook.\n\nThe proposed base-APPLICATIONBOM value must be durable across that handoff. If tagging validates against one ApplicationBOM but downstream processing builds from another, the validation is not reproducible and can permit or reject the wrong version set.\n\napppackage-version-failureApp-package version failure\n-----------------------------------------------------\n\n### what-the-failure-meansWhat the failure means\n\n`App Package Version Validation Failed` means that at least one requested app-package version is lower than the version in the comparison APPLICATIONBOM. PipelineHub blocks the operation because the one-off must not move an app package backward relative to its real baseline."
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0009:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 27537,
+        "char_end": 29176,
+        "text": "* As a precursor, lets understand what accounts for an AnalyticsDatabase quota\n\t+ When the RuntimeDiagnostics is enabled, either during provisioning or during post action.\n\t+ When a CDP cloudnative service is provisioned or patched.\n* Starting this release, when an user opts for AnalyticsDatabase, the quota is checked against the LOB/SubLOB.\n* Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled\n\n### **Support Enable RuntimeDiagnostics added as a Post POD action.**\n\n### Disable RuntimeDiagnostics on an existing POD\n\nDisable RuntimeDiagnostics option is now available. For newly provisioned pods we will have the correct metadata on the POD but for existing pods, please use this option only if you are sure that the pod has RUNTIMEDIAGNOSTICS.  \n\nDisable RuntimeDiagnostics  does the deletion of RuntimeDiagnostics Instance, resulting in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance. On the other hand, enabling RuntimeDiagnostics does the installation of the Replication Infrastructure and the setup of replicated data in AnalyticsDatabase instance. Furthermore, it is possible to enable RuntimeDiagnostics again after disabling it.\n\nKeep in mind this operation takes several hours and PipelineHub monitoring reports the status back to user.  \n\nFurther more, you need to disable RuntimeDiagnostics prior to running RESTORE.\n\nNOTE: For older pods, this action might fail if RuntimeDiagnostics is not enabled.\n\nEnable/Disable RuntimeDiagnostics action changes made on Patching dashboard\n\n"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0031:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 91959,
+        "char_end": 93404,
+        "text": "### Special Project Support for  EnvironmentService Upgrade\n\nPipelineHub now support EnvironmentService upgrade for special project.\n\nSPD Service selection on Prov and Upgrade\n\nUptake new UI component for Service selection on Prov and Upgrade\n\nPatching DatabasePatch/MLR: DB Image Name input is not a drop down anymore. Its now freeform textbox where user can enter anything. no validations is done by PIPELINEHUB. its upto user to enter valid image names\n\n### Create New Special Project Page\n\n*Removed fields that will constant for all special projects.*\n\n### Create Release Set option available for SPD Admins\n\n***SPD- When \"Create Release Set\" button is clicked, a pop up will be opened to add details to create the new release set***\n\nPROMOTION\n\n1. All Special Project promotion preflights will have the ApplicationBOMS generated under the project/<spl-proj-name> sub directory and will remain there for the entire lifecycle - as noted from the start - all special project preflights will not be eligible for regular promotions.\n2. Special projects will have the same rules of promotion eligibility and those eligible will show up in the Promotion preflights page.\n3. Once promoted, the TIP ApplicationBOM will be generated under the project sub directory as shown below\n\n###  Special Project Release sets will now display correctly in the dropdown for Upgrade\n\n### Special Project Dashboard (SPD) - Default values for Release Set Creation\n\n"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0014:bge-002",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 36616,
+        "char_end": 37698,
+        "text": "* ### How do I make a specific page to be my default/home page when I sign in to PipelineHub?\n\n\t+ Use the following steps.\n\t+ Tap on dropdown beside home button and click on the menu item \"Set Current As Home\".\n\n* ### How do I update the dependency of my BusinessApplications Project to a new IntegrationBuild label (for newer ApplicationProvisioner)?\n\n\t+ Via Tagback Manager\n\n### \n\n1. * Click on Apps drop down and click on the \"**Tagback Manager**\"\n\t* Click on \"**New Request**\" which navigates to another screen where the user has to give in the valid information.\n\t* In the field of \"**IntegrationBuild label to tagback**\" give input like \"**INTEGRATIONBUILD_PT.MIDDLEWARE1412DEV_PLATFORMS_240905.2040**\" then tap on \"**ADD PROJECT**\"\n\t* You will be navigated to a pop up screen where the user has to give in the \"Project List\" Information for ex: \"**BUSINESSAPPLICATIONS_PT.V2MIBFMW14CMAIN5_LINUX.X64**\"\n\t* Then tap on \"ADD PROJECT\" and then tap on \"**FETCH PROJECT DETAILS**\" and then tap on \"SELECT\"\n\n* ### What does the Release Stage for a BusinessApplications project mean?"
+      }
+    ],
+    "handoff": {
+      "question": "Adding another display language to an already provisioned environment timed out in PipelineHub. Is there a documented way to keep tracking that operation?",
+      "reason": "The draft claims are supported by the text in doc-0084, which confirms that PipelineHub supports configuring additional language packs and offers an option to restart monitoring on the UPDATE_ADDITIONAL_LANGUAGES stage if a job times out. However, the draft fails to fully answer the user's question. The user asked for a way to 'keep tracking' the operation (implying continuous monitoring or resuming a live view), whereas the evidence only explicitly mentions an option to 'restart monitoring.' The draft does not explain how to access this option, where it is located in the UI, or if 'restarting' is the only method to resume tracking, leaving the procedural aspect of the user's problem unresolved.",
+      "source_ids": [
+        "doc-0084",
+        "doc-0032",
+        "doc-0117",
+        "doc-0001"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 6.67,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 228,
+        "prompt_tokens": 5129,
+        "total_tokens": 5357,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.7579
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 184,
+        "prompt_tokens": 4902,
+        "total_tokens": 5086,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.9129
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.9955
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.7552
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 6.6692
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 6.6695
+    }
+  ],
+  "wall_seconds": 6.6805,
+  "token_usage": {
+    "prompt_tokens": 10031,
+    "completion_tokens": 412,
+    "total_tokens": 10443
+  },
+  "completed_at_utc": "2026-10-17T17:39:43.828969+00:00"
+}

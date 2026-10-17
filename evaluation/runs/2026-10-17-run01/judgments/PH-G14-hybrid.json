@@ -1,0 +1,58 @@
+{
+  "id": "PH-G14",
+  "mode": "hybrid",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "da9e2587c50620163d8bada75f1b471fe688495e153a3db334af1673b316b0ee",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G14-C01",
+        "met": false,
+        "reason": "Uses CI project/build navigation and optional BATSnapper information rather than the provisioned pod Run Tests flow for the user's LOB."
+      },
+      {
+        "criterion_id": "PH-G14-C02",
+        "met": false,
+        "reason": "AcceptanceTests Label, Order prop and Git branch auto-population are omitted."
+      },
+      {
+        "criterion_id": "PH-G14-C03",
+        "met": false,
+        "reason": "The new PipelineHub ID and queued/running/success pod-test tracking sequence are omitted."
+      },
+      {
+        "criterion_id": "PH-G14-C04",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Hybrid gives supported facts about other CI workflows rather than the requested pod-test start/tracking procedure. Keyword/semantic withhold the answer."
+  },
+  "external_grading_calls": 0
+}

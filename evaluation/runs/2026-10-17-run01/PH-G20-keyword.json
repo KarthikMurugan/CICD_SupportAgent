@@ -1,0 +1,110 @@
+{
+  "id": "PH-G20",
+  "mode": "keyword",
+  "question": "How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.",
+  "run_status": "completed",
+  "result": {
+    "question": "How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The provided passages describe manual procedures for filing Jira incidents for CloudNative and Diagnostics platforms and mention integrating Jira with MRs, but they do not contain information on configuring a native Jira Service Management connector for automatic incident creation upon deployment failure, nor do they list required API scopes or specific setup steps for such an automation.",
+    "draft": {
+      "decision": "escalate",
+      "reason": "The provided passages describe manual procedures for filing Jira incidents for CloudNative and Diagnostics platforms and mention integrating Jira with MRs, but they do not contain information on configuring a native Jira Service Management connector for automatic incident creation upon deployment failure, nor do they list required API scopes or specific setup steps for such an automation.",
+      "claims": [],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0033:chunk-0007:bge-003",
+        "document_id": "doc-0033",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform Preflight and Family PODs - Bug Logging Guidelines",
+        "char_start": 22774,
+        "char_end": 24038,
+        "text": "* **CloudNative Specific**: [how-to-file-effective-incident-jira-tickets-on-the-cloudnative-platform](https://docs.example.com/reference/resource-430)\n\nSteps to file JIRA with CloudNative Platform* Click link to file incident with CloudNativeV3:  <https://issues.example.com/reference/resource-476>\n* Click link to [**CloudNative Platform Incident (v3)**](https://issues.example.com/reference/resource-210)\n* Fillin these Values\n\t+ Summary - This is a Summary of the incident ... Example: Pod ABCDEFGHI failed to deploy CloudNative Environment due to okeinfra issue\n\t+ Fleet - The name of the CloudNative V3 Fleet ... This information can be found in the PipelineHub UI as the attribute \"Fleet\"\n\t+ Environment Name - This is the same as the POD Name (otherwise known as the System Name in the DevOps Portal\n\t+ Impact Start Time - Click on the Clock icon and supply a value, usually use the current time\n\t+ Description - Supply a Description of the issue (what steps did you perform to self-triage the issue and determine issue needs to be filed with CloudNative Platform)\n\t+ Press the CREATE button to submit the incident\n### Example Steps to File JIRA with DiagnosticsPlatform\n\n* **DiagnosticsPlatform Specific**: <https://docs.example.com/reference/resource-427>"
+      },
+      {
+        "chunk_id": "doc-0001:chunk-0004:bge-005",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 10360,
+        "char_end": 11244,
+        "text": "\t\t\thttps://git.example.com/reference/resource-008  \n\t\t\tExample: <https:user004@example.com@gitservice.host-001.example.com/releaseengineering/s/releaseengineering_releaseengineering-hetero-monorepo_44045/supplychain/exm-cloudnative-mono-repo-poc.git>  \n\t\t\tHere, the projectId is releaseengineering_releaseengineering-hetero-monorepo_44045.\n* ### How do I register my Source Code Containing Microservices/WebUI/AppPackages for CI/CD under PipelineHub?\n\n\t+\n* ### How do I register my Generic Project for CI/CD under PipelineHub?\n\n\t+ Use the steps below to start registration of a GENERIC project, fill up the required fields and get going by following on screen instructions::\n\n### \n\nClick on New button in the above screenshot to create Monolith project type. Pls follow the screen instructions displayed.\n\n* ### What are the steps to integrate Jira System with my MRs and PipelineHub?"
+      },
+      {
+        "chunk_id": "doc-0017:chunk-0006:bge-001",
+        "document_id": "doc-0017",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (CloudNative)",
+        "char_start": 14590,
+        "char_end": 15157,
+        "text": "* + Go to your project's Branch Categories page\n\t+ Click the \"Edit\" button to configure the build/deploy/test steps for the target usage type and component type\n\t+ \n\t+ A popup will show up and you'll be able to add/remove steps\n\t\t- \n\t\t-\n\t+ A successful message pops up if pipeline steps have been successfully updated\n\t\t-\n\nHow do I configure a POD to deploy to\n-------------------------------------\n\n1. Click on Branches in the left nav\n\n2. Click on Edit under Schedules column for the branch you want to configure\n\n3. Choose how the service version will be created\n\n"
+      },
+      {
+        "chunk_id": "doc-0033:chunk-0003:bge-007",
+        "document_id": "doc-0033",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform Preflight and Family PODs - Bug Logging Guidelines",
+        "char_start": 9187,
+        "char_end": 10129,
+        "text": "| CloudNative | Many CloudNative related issues during platforms are specific to a particular  CloudNative service. In these cases, please file with the CloudNative Service JIRA Project using JIRA Board from the CloudNative Taxonomy for the service, Since so many services, won't list each link here, use Taxonomy to locate Jira Board.If issue impacts all services: [File Incident for CloudNative Platform](https://issues.example.com/reference/resource-473) If issue only affects services on EnvironmentService, use ENVIRONMENT_INTEGRATION > CloudNative**APM** Issues - Please read these links before filing JIRAs:* [CloudPlatform+Application+Preflight+and+Promotion+-for+AppPackages](https://docs.example.com/reference/resource-474)\n* [APM+Troubleshooting+Guide](https://docs.example.com/reference/resource-371)\n* Create Issue in [SAASINFRA](https://issues.example.com/reference/resource-475) and post in #ris-dataservice-env-support channel"
+      }
+    ],
+    "handoff": {
+      "question": "How do I configure a native Jira Service Management connector so a failed PipelineHub deployment automatically opens an incident? List its required API scopes and setup steps.",
+      "reason": "The provided passages describe manual procedures for filing Jira incidents for CloudNative and Diagnostics platforms and mention integrating Jira with MRs, but they do not contain information on configuring a native Jira Service Management connector for automatic incident creation upon deployment failure, nor do they list required API scopes or specific setup steps for such an automation.",
+      "source_ids": [
+        "doc-0033",
+        "doc-0001",
+        "doc-0017"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 1.911,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 98,
+        "prompt_tokens": 3226,
+        "total_tokens": 3324,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 1.8285
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0811
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 1.9104
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 1.9107
+    }
+  ],
+  "wall_seconds": 1.9178,
+  "token_usage": {
+    "prompt_tokens": 3226,
+    "completion_tokens": 98,
+    "total_tokens": 3324
+  },
+  "completed_at_utc": "2026-10-17T17:41:28.837865+00:00"
+}

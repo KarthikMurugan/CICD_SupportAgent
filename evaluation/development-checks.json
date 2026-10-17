@@ -1,0 +1,74 @@
+{
+  "purpose": "Development checks only; not the final 20-query evaluation",
+  "model": "qwen3:8b",
+  "provider": "local_ollama",
+  "prompt_version": "pipelinehub-grounded-v3",
+  "unit_tests_passed": 17,
+  "live_checks": {
+    "oauth-final": {
+      "status": "answered",
+      "elapsed_seconds": 37.784,
+      "prompt_version": "pipelinehub-grounded-v3",
+      "source_documents": [
+        "doc-0003",
+        "doc-0028",
+        "doc-0009"
+      ]
+    },
+    "ambiguous-final": {
+      "status": "needs_clarification",
+      "elapsed_seconds": 0.984,
+      "prompt_version": "pipelinehub-grounded-v3",
+      "source_documents": [
+        "doc-0001",
+        "doc-0021",
+        "doc-0028",
+        "doc-0138"
+      ]
+    },
+    "unsupported-v3": {
+      "status": "needs_human_review",
+      "elapsed_seconds": 17.65,
+      "prompt_version": "pipelinehub-grounded-v3",
+      "source_documents": [
+        "doc-0001",
+        "doc-0032",
+        "doc-0122",
+        "doc-0033"
+      ]
+    },
+    "overview-v3": {
+      "status": "answered",
+      "elapsed_seconds": 60.308,
+      "prompt_version": "pipelinehub-grounded-v3",
+      "source_documents": [
+        "doc-0001",
+        "doc-0032",
+        "doc-0117",
+        "doc-0003"
+      ]
+    }
+  },
+  "final_code_live_checks": [
+    "oauth-final",
+    "ambiguous-final"
+  ],
+  "additional_live_checks": "Unsupported and overview routes were checked before the deterministic source-caution renderer and brief-failure intent rule were added.",
+  "formal_evaluation": false,
+  "confidence_calibrated": false,
+  "first_contact_resolution": null,
+  "latency_target_met": false,
+  "iterations": [
+    "Initial free-form supporting quotes were altered by the model; strict validation correctly withheld that draft.",
+    "Model now selects excerpt IDs and the application binds them to exact source lines.",
+    "Model review missed a production/staging restriction; explicit source cautions are now copied into the final answer from retrieved parts of cited baseline passages.",
+    "Model escalated a brief vague failure report; a provisional intent rule now asks for the failed step and error details without a model call."
+  ],
+  "remaining_limitations": [
+    "Same-model claim review is not independent verification and can miss errors.",
+    "The source-caution rule can include extra warnings and does not guarantee preservation of every implicit prerequisite.",
+    "Answer completeness and faithfulness require a labeled 20-query evaluation.",
+    "Local generation took tens of seconds; the proposed 10-second target is unmet.",
+    "Human escalation creates a message and review packet; no real support ticket is submitted."
+  ]
+}

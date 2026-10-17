@@ -1,0 +1,48 @@
+{
+  "id": "PH-G05",
+  "mode": "hybrid",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "57b70673f58e7c442936d3a086a8450bfa01098aa64cc3d6b832f3b35bfd13a5",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G05-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G05-C02",
+        "met": false,
+        "reason": "Publish Type None is correct, but the required Save step is omitted."
+      },
+      {
+        "criterion_id": "PH-G05-C03",
+        "met": false,
+        "reason": "Publish CI step is identified, but explicitly triggering the pipeline is omitted."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Core identifiers are right; the frozen rubric also requires Save and pipeline trigger details, making this a strict completeness failure."
+  },
+  "external_grading_calls": 0
+}

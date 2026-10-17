@@ -1,0 +1,181 @@
+{
+  "id": "PH-G09",
+  "mode": "keyword",
+  "question": "I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?",
+  "run_status": "completed",
+  "result": {
+    "question": "I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The draft answer is not supported by the provided evidence. The evidence states that pods are 'always patched with higher version in the fleet' (doc-0021:chunk-0008:bge-002:line-001), but it does not state that this mechanism automatically restores manually removed services or that removal conflicts with fleet state. The claim that Single Service Deployment 'only deploys the new service... and does not redeploy all services' is supported, but the inference that this causes a removed service to be 'restored' is an extrapolation not found in the text. Furthermore, the evidence explicitly notes that Single Service Deployment has 'No checks/validations for versions... already deployed' (doc-0021:chunk-0003:bge-002:line-011), contradicting the claim that the pod maintains a baseline state that ",
+    "draft": {
+      "decision": "answer",
+      "reason": "The documentation explains that pods are managed as part of a fleet where they are automatically patched with higher service versions. Additionally, single service deployments in CI/CD do not remove existing services but only deploy new or updated ones, meaning a manually removed service will be restored during an upgrade or patch cycle.",
+      "claims": [
+        {
+          "text": "Pods are part of a fleet that is always patched with higher versions of services, which can restore services if a lower version or removal attempt conflicts with the fleet state.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0021:chunk-0008:bge-002:line-001"
+            }
+          ]
+        },
+        {
+          "text": "The documentation states that higher versions of the same service deployed to the pod represent the expected fleet behavior.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0021:chunk-0008:bge-002:line-001"
+            }
+          ]
+        },
+        {
+          "text": "Single Service Deployment is an in-factory mechanism for CI/CD that only deploys the new service generated and does not redeploy all services, but it operates within the constraints of the pod's provisioned versions.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0021:chunk-0003:bge-002:line-007"
+            },
+            {
+              "evidence_id": "doc-0021:chunk-0003:bge-002:line-010"
+            }
+          ]
+        },
+        {
+          "text": "The service version cannot be lower than the version the Pod was initially provisioned with, implying that the pod maintains a baseline state that overrides manual removals if they conflict with the provisioned version.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0021:chunk-0003:bge-002:line-012"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0021:chunk-0008:bge-001",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 22355,
+        "char_end": 23340,
+        "text": "|  | Error |\n| --- | --- |\n| 1 | Error could not perform the createV3ServiceAttachmentWithAllowlistPOJO operation: com.example.bmc.model.BmcException:Error returned by CreateServiceAttachment operation in ServiceAttachment service.(400, InvalidParameter, false) Invalid Error:**The BusinessApp POD cloud-resource-005 contains active V3 services,****cannot deploy V2 services (opc-request-id: ...)** **RCA**This error is returned by EnvironmentService and typically seen if there is an issue with allowlisting on the pod.<https://issues.example.com/reference/resource-213>**Recommendation**This was a one-time issue w.r.t EnvironmentService team deleting some allowlisting policies for Several Pods. Incase you still run into this for your pod please file a EnvironmentService ticket to allowlist similar to <https://issues.example.com/reference/resource-213>Retry deployment after sometime - as we have also seen sometimes allowlisting issues go away after the first time deployment |\n"
+      },
+      {
+        "chunk_id": "doc-0117:chunk-0004:bge-002",
+        "document_id": "doc-0117",
+        "parent_id": "doc-0030",
+        "title": "PipelineHub One-Off Tagging: How It Differs from Tip and CWB Promotion",
+        "char_start": 10161,
+        "char_end": 11425,
+        "text": "The reviewed tag request contains the tags and selected application or service versions, but it does not contain a base-APPLICATIONBOM field. This is the gap addressed by the proposed change.\n\nSaved CWB and one-off tags cannot be deleted through the current dashboard. Availability can also differ by service type and release configuration, so the UI and current release guidance remain the source of truth for whether a particular version is eligible for post-GA tagging.\n\n### why-the-checks-should-remain-enabledWhy the checks should remain enabled\n\nThe published promotion and tagging check catalog marks both the lower-version check and the Version Audit as strictly enforced. The Version Audit prevents a service or application from being tagged when its app-package dependencies would not be available in the promoted content.\n\nPipelineHub has configuration that can skip the audit during tagging, but using that switch to avoid the moving-baseline problem would remove a separate dependency-safety control. The working decision is therefore to keep the checks and give both baseline-dependent checks the correct one-off base APPLICATIONBOM.\n\n### proposed-target-behaviorProposed target behavior\n\nThe following behavior is recommended for the working design:"
+      },
+      {
+        "chunk_id": "doc-0021:chunk-0008:bge-002",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 23340,
+        "char_end": 24525,
+        "text": "| 2 | Error could not perform the createV3ServiceAttachmentWithAllowlistPOJO operation: com.example.bmc.model.BmcException: Error returned by CreateServiceAttachment operation in ServiceAttachment service.(400, InvalidParameter, false) Invalid Error: **The existing service version=2410.0.118-cicd240715121724332 for service=sales-common in the POD is greater than the version=2410.0.117-cicd240710122405433 specified in the payload** or the ApplicationBOM (opc-request-id: ...) RCAThis error is returned by ENVIRONMENTSERVICE. Higher version of the same service s deployed to the pod and we attempt to deploy a lower version. This is the fleet behavior as pods are always patched with higher version in the fleet.This may happen if:1)if you are using the same pod for CD of multiple releases     OR2) you try redeploying the workload version to a pod after sometime while a greater version of the same release is already present in the pod**Recommendation****1)Please use different pods,  If you are working simultaneously on different releases (eg:2410 & 2501),****2)Redeploy  using new workload version or trigger a new build pipeline.  It creates a new higher workload version** |\n"
+      },
+      {
+        "chunk_id": "doc-0071:chunk-0005:bge-003",
+        "document_id": "doc-0071",
+        "parent_id": "doc-0028",
+        "title": "OnPod API User Guide",
+        "char_start": 13862,
+        "char_end": 14818,
+        "text": " \"job_running_count\": 0,\n \"job_cancelled_count\": 0,\n \"joblist\": [\n {\n \"job_id\": 4978000750,\n \"reason\": \"Test script JOB for host-055.example.com\",\n \"job_status\": \"COMPLETED WITH SUCCESS\"\n }\n ],\n \"job_creation_failures\": [\n {\n \"asset\": \"host-057.example.com\",\n \"reason\": \"ERROR: JCEC-DEMO-014 - Job created for tenancy BusinessSuite but asset tenancy unknown.\"\n }\n ]\n}NoteFor pre-canned workflows, the status returned refers to whether or not the job was completed successfully without errors,   \nbut does not contain any other information regarding the output of the job. More information can be found using the getLogs API.Even if the status of running a RELEASEENGINEERING_POD_Health_Check workflow comes back as a Success, that does not mean all servers are up and running on the pod.   \nThat only means the health check was run successfully. To find information regarding the servers, you must check the logs of the job.getLogsgetLogs**Description:**\n\n"
+      },
+      {
+        "chunk_id": "doc-0021:chunk-0003:bge-002",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 8530,
+        "char_end": 9937,
+        "text": "* + Teams have different priorities (speed vs test stability)\n\t+ Preserves current behavior by default (no surprise impact)\n\nSingle Service Deployment (In-Factory Testing)\n----------------------------------------------\n\n* As described above, Single service deployment is an **“in-factory” deployment mechanism** and is **supported for CI/CD workflows only**. It is designed to optimize developer velocity by enabling **faster iteration and validation cycles** & **not intended to represent the exact production patching behavior**\n* This allows for faster deployment of your service enabling you for faster iteration & validation cycles.\n* A new EnvironmentService API for Single Tenant CD deployments which has the following behavior\n\t+ Only the new service generated as part of CI/CD will be deployed (EnvironmentService will not redeploy all services in the Pod as opposed to traditional sideloading route)\n\t+ No checks/validations for versions of the service already deployed in the pod (higher/lower)\n\t\t- Note however that the service version cannot be lower than the version the Pod was initially provisioned with in which case the deployment will still fail \n\t\t\t* eg: If the POD was provisioned with 2501, you cannot deploy a service with 2410 version\n* This is the default behavior during CI/CD since\n* There is a branch level property called \"**Single Service Deployment**\" which is true by default"
+      },
+      {
+        "chunk_id": "doc-0029:chunk-0001:bge-002",
+        "document_id": "doc-0029",
+        "parent_id": "doc-0001",
+        "title": "Feature Branch Deployment Support - Shared BusinessApp Environment",
+        "char_start": 1649,
+        "char_end": 2468,
+        "text": "**ArtifactService Documentation:**<https://docs.example.com/reference/resource-353> \n\n**For example: Previously, this approach was required during merge requests from the feature branch to the integration branch where the hardcoded routes had to be manually removed, but using named routes eliminates this step.**\n\n### Step3 : Service Developers trigger the pipeline using PipelineHub API\n\nThe developers must trigger the CI pipeline using the following REST api to avail this feature\n\ntrueAPI Specification**POST  rest/preMergeValidation** \n\n**Request Body Example** (\\*Required Field):\n\n{\n\n\\*\"projectName\":\"FIN-COMMON-SP\",\n\n\\*\"branchName\":\"albjose_testPipelineHubPremerge\",\n\n\\*\"reason\":\"test premerge validation support for microservices\",\n\n`\"releaseVersion\": \"2607.0\",`\n\n\\*\"environmentName\":\"demo-environment\",    \n\n"
+      }
+    ],
+    "handoff": {
+      "question": "I removed a V3 cloud-native service from a test pod, but it returned after an upgrade. Does the documentation explain that behavior?",
+      "reason": "The draft answer is not supported by the provided evidence. The evidence states that pods are 'always patched with higher version in the fleet' (doc-0021:chunk-0008:bge-002:line-001), but it does not state that this mechanism automatically restores manually removed services or that removal conflicts with fleet state. The claim that Single Service Deployment 'only deploys the new service... and does not redeploy all services' is supported, but the inference that this causes a removed service to be 'restored' is an extrapolation not found in the text. Furthermore, the evidence explicitly notes that Single Service Deployment has 'No checks/validations for versions... already deployed' (doc-0021:chunk-0003:bge-002:line-011), contradicting the claim that the pod maintains a baseline state that ",
+      "source_ids": [
+        "doc-0021",
+        "doc-0117",
+        "doc-0071",
+        "doc-0029"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 10.587,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 516,
+        "prompt_tokens": 4544,
+        "total_tokens": 5060,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 7.0876
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 228,
+        "prompt_tokens": 4552,
+        "total_tokens": 4780,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.4355
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0613
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 7.1497
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 10.5865
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 10.5868
+    }
+  ],
+  "wall_seconds": 10.5957,
+  "token_usage": {
+    "prompt_tokens": 9096,
+    "completion_tokens": 744,
+    "total_tokens": 9840
+  },
+  "completed_at_utc": "2026-10-17T17:41:26.917287+00:00"
+}

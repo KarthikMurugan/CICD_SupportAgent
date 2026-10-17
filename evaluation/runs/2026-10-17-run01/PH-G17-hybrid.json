@@ -1,0 +1,119 @@
+{
+  "id": "PH-G17",
+  "mode": "hybrid",
+  "question": "Can I restore this pod to the version we used before?",
+  "run_status": "completed",
+  "result": {
+    "question": "Can I restore this pod to the version we used before?",
+    "status": "needs_clarification",
+    "answer": "Are you trying to restore a specific snapshot (label) of your data, or are you trying to revert the entire pod environment to a previous software version (n-1) after an upgrade?",
+    "evidence_reason": "The user asks about restoring a 'pod' to a 'previous version'. The documentation distinguishes between restoring a snapshot/label (which may not restore purged data) and restoring a pod to an n-1 version (which requires a prior successful upgrade). It is unclear if the user wants to restore a specific snapshot label or revert the entire pod environment to a previous software version (n-1).",
+    "draft": {
+      "decision": "clarify",
+      "reason": "The user asks about restoring a 'pod' to a 'previous version'. The documentation distinguishes between restoring a snapshot/label (which may not restore purged data) and restoring a pod to an n-1 version (which requires a prior successful upgrade). It is unclear if the user wants to restore a specific snapshot label or revert the entire pod environment to a previous software version (n-1).",
+      "claims": [],
+      "clarification": "Are you trying to restore a specific snapshot (label) of your data, or are you trying to revert the entire pod environment to a previous software version (n-1) after an upgrade?"
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0001:chunk-0014:bge-001",
+        "document_id": "doc-0001",
+        "parent_id": null,
+        "title": "PipelineHub User Guide",
+        "char_start": 35539,
+        "char_end": 36616,
+        "text": "\t+ Use the following steps to extend a label via PIPELINEHUB.\n\t+ Note : we discourage using UNO to extend a snapshot, because this breaks many PipelineHub based processes that expects the knowledge of extension.\n\t+ Make sure to provide a valid reason.\n\n* ### How do I expire a snapshot (aka label) in PipelineHub?\n\n\t+ Use the following steps to expire a label via PIPELINEHUB.\n\t+ Note : we discourage using UNO to expire a snapshot, because this breaks many PipelineHub based processes that expects the knowledge of expiry.\n\t+ Make sure to provide a valid reason.\n\n* ### How do I restore a snapshot (aka label) ?\n\n\t+ Use the following steps to restore a label via PIPELINEHUB.\n\t+ Make sure to provide a valid reason.\n\t+ Remember: there is a good possibility that DOs of a label is truly purged and the restore process will not be able to restore the entire label. If you need the source only - use the force option.\n\n* ### Can I see only Microservices or UIBuildService Projects in PipelineHub?\n\n\t+ Use the following screen from PipelineHub Menu :: Reports → Project Pipeline\n\n"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0012:bge-002",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 47804,
+        "char_end": 48675,
+        "text": "EXAMPLE PAYLOAD AND FORMAT FOR SAME VERSION RESTORE:\n{\n  \"purpose\" : \"Testing restore API\",\n \"inputParameters\" : {\n \"podName\" : \"ELNK\",\n \"backupName\" : \"TEST_DEMO\",\n \"isSameVersionRestore\" : \"true\",\n \"emailNotifications\":\"Demo user025@example.com\"\n }\n}**All the fields in the above format not marked as optional are necessary and must be passed with valid values.**\n\n* **For GRP restore OR N-1.**\n\n**Note : isSameVersionRestore needs to be false**\n\nEXAMPLE PAYLOAD AND FORMAT FOR SAME VERSION RESTORE:\n{\n  \"purpose\" : \"Testing restore API\",\n    \"inputParameters\" : {\n \"podName\" : \"ELNK\",\n \"isSameVersionRestore\" : \"false\",\n \"emailNotifications\":\"Demo user025@example.com\"\n }\n}**All the fields in the above format not marked as optional are necessary and must be passed with valid values.**\n\n### **OUTPUT**\n\nOutput{\n \"status\": \"SUCCESS\",\n \"message\": \"<preflight-id>\"\n}  \n\n"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0002:bge-001",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 4338,
+        "char_end": 4940,
+        "text": "true{\n \"podName\": \"demo-environment\",\n \"patchType\": \"USER_GEN\",\n \"patchTypeEntities\": {\n \"previousLabel\": \"BUSINESSAPPLICATIONS_PT.V2MIBHCMSILVER_LINUX.X64_240221.1640\",\n \"targetLabel\": \"BUSINESSAPPLICATIONS_PT.V2MIBHCMSILVER_LINUX.X64_240322.2200.S\",\n \"userGenPatchType\" : \"L2L/FULL_LABEL_CONTENT/SINGLE_TXN\", //Optional, needed for 25.10+ release where we have PSR and Vector artifacts\n\n \"patchBundleLocation\": \"/net/host-017.example.com/scratch/demo-user/patches/silver/\",\n \"patchFiles\": [\n \"p36447961_111324070_BusinessSuite_GENERIC.zip\",\n \"p36447962_111324070_BusinessSuite_Linux-ARM-64.zip\"\n ],\n\n"
+      },
+      {
+        "chunk_id": "doc-0089:chunk-0001:bge-001",
+        "document_id": "doc-0089",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Backups-Restore",
+        "char_start": 0,
+        "char_end": 1487,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-667>\n\n### PipelineHub UI support for Backup/Restore/Delete backup\n\nPipelineHub supports backup, restore and delete from UI. Support 2 backups for EnvironmentService pods\n\n* In case you encounter issues with Backup/Restore, see Self-Triaging page for [Backup/Restore](https://docs.example.com/reference/resource-668)\n\n### PipelineHub UI support for Restore\n\nPipelineHub supports two forms of restore\n\n1. Restoring at same version as the pods version. This is done using a POD Backups available at that version\n2. Restoring to n-1 version. This is only available when the pod has been successfully upgrade. Once the upgrade is complete and if the user wishes to go back to n-1 version, he/she can do a n-1 restore.\n\n### PipelineHub refresh button for Backup/Restore job's\n\nThe status one off for backup / restore jobs appears under POST_PROVISIONING_ACTIONS\n\n* Users can get the status of the backup or restore at any point of time, need not wait till the job is COMPLETED\n* Some backup and restore jobs have to be resumed from JC console and the job continues to run. In such cases users can also refresh the status from PipelineHub UI with \"Refresh\" circle arrow button.\n\n### Hard delete the pod backup UI\n\n* Backup delete is now linked to actual JC job which hard deletes backup and frees up space.\n* After selecting \"Delete Backup\" there will be a new preflight ID created to track backup delete\n* \n*"
+      },
+      {
+        "chunk_id": "doc-0025:chunk-0001:bge-002",
+        "document_id": "doc-0025",
+        "parent_id": "doc-0001",
+        "title": "PipelineHub Preflight and Family Guide",
+        "char_start": 734,
+        "char_end": 1079,
+        "text": "Pod Actions\n===========\n\nCopy Provisioning Job\n---------------------\n\nRun Tests\n---------\n\nBounce BusinessApp Services and IDM Services\n-----------------------------------\n\nPod Backup/Restore/Delete\n-------------------------\n\nPod P2T Refresh\n---------------\n\nPod Resize and Pod Scale-out\n----------------------------\n\nGranular SSH\n------------\n\n"
+      },
+      {
+        "chunk_id": "doc-0028:chunk-0012:bge-001",
+        "document_id": "doc-0028",
+        "parent_id": "doc-0001",
+        "title": "ReleaseEngineering CloudPlatform API User Guide",
+        "char_start": 46994,
+        "char_end": 47804,
+        "text": "### **NOTE: API Endpoint is different for Family and Preflight Pods.**\n\n### Pre-requisites:\n\n* To use this API the user needs an OAuth token\n* To use the preflight API endpoint the user needs the role ROLE_CLOUDPLATFORM_PREFLIGHT_SUBMIT in PIPELINEHUB.\n* To use the family API endpoint the user needs the role ROLE_CLOUDPLATFORM_FAMILY_ENV_SUBMIT in PIPELINEHUB.\n\n### Purpose:\n\nThe purpose of this API is to allow the user to submit restore without having to go into the PipelineHub UI.\n\n**Endpoints:**\n\nFor Preflight Pod: https://api.example.com/reference/resource-243\nFor Family Pod: https://api.example.com/reference/resource-244 **Payload Format:**\n\n* **For same version restore. Same version restore needs a backup name to be able to submit a restore.**\n\n**Note : isSameVersionRestore needs to be true**\n\n"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "hybrid",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 3.314,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 153,
+        "prompt_tokens": 5857,
+        "total_tokens": 6010,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.573
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.7393
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.3132
+    },
+    {
+      "stage": "clarify",
+      "elapsed_seconds": 3.3134
+    }
+  ],
+  "wall_seconds": 3.3245,
+  "token_usage": {
+    "prompt_tokens": 5857,
+    "completion_tokens": 153,
+    "total_tokens": 6010
+  },
+  "completed_at_utc": "2026-10-17T17:42:47.161693+00:00"
+}

@@ -1,0 +1,2406 @@
+[
+  {
+    "id": "PH-G01",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G01-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G01-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G01-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G01-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G01",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G01-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G01-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G01-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G01-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G01",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G01-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G01-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G01-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G01-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G02",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G02-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G02-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G02-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G02",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G02-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G02-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G02-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G02",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G02-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G02-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G02-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G03",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G03-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G03-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G03-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G03-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G03",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G03-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G03-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G03-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G03-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G03",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G03-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G03-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G03-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G03-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G04",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G04-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G04-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G04-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G04-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G04",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G04-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G04-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G04-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G04-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G04",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G04-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G04-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G04-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G04-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G05",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G05-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G05-C02",
+        "met": false,
+        "reason": "Publish Type None is correct, but the required Save step is omitted."
+      },
+      {
+        "criterion_id": "PH-G05-C03",
+        "met": false,
+        "reason": "Publish CI step is identified, but explicitly triggering the pipeline is omitted."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G05-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G05",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G05-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G05-C02",
+        "met": false,
+        "reason": "Publish Type None is correct, but the required Save step is omitted."
+      },
+      {
+        "criterion_id": "PH-G05-C03",
+        "met": false,
+        "reason": "Publish CI step is identified, but explicitly triggering the pipeline is omitted."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G05-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G05",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G05-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G05-C02",
+        "met": false,
+        "reason": "Publish Type None is correct, but the required Save step is omitted."
+      },
+      {
+        "criterion_id": "PH-G05-C03",
+        "met": false,
+        "reason": "Publish CI step is identified, but explicitly triggering the pipeline is omitted."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G05-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G06",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G06-C01",
+        "met": false,
+        "reason": "Config Notifications and Project Config are named, but the Edit step is omitted."
+      },
+      {
+        "criterion_id": "PH-G06-C02",
+        "met": false,
+        "reason": "Comma-separated addresses are correct, but Save is omitted."
+      },
+      {
+        "criterion_id": "PH-G06-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G06-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G06",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G06-C01",
+        "met": false,
+        "reason": "Config Notifications and Project Config are named, but the Edit step is omitted."
+      },
+      {
+        "criterion_id": "PH-G06-C02",
+        "met": false,
+        "reason": "Comma-separated addresses are correct, but Save is omitted."
+      },
+      {
+        "criterion_id": "PH-G06-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G06-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G06",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G06-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G06-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G06-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G06-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G07",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G07-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G07-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G07-C03",
+        "met": false,
+        "reason": "The full enabled CodeScan/DIRTY/component eligibility criterion is incomplete. Keyword omits specific type/step/DIRTY; semantic/hybrid omit the enabled-for-component condition."
+      },
+      {
+        "criterion_id": "PH-G07-C04",
+        "met": false,
+        "reason": "Component/step selection before submission is omitted. Keyword also omits reason length; semantic/hybrid show the length only in a caution."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 6,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G07-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G07",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G07-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G07-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G07-C03",
+        "met": false,
+        "reason": "The full enabled CodeScan/DIRTY/component eligibility criterion is incomplete. Keyword omits specific type/step/DIRTY; semantic/hybrid omit the enabled-for-component condition."
+      },
+      {
+        "criterion_id": "PH-G07-C04",
+        "met": false,
+        "reason": "Component/step selection before submission is omitted. Keyword also omits reason length; semantic/hybrid show the length only in a caution."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 6,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G07-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G07",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G07-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G07-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G07-C03",
+        "met": false,
+        "reason": "The full enabled CodeScan/DIRTY/component eligibility criterion is incomplete. Keyword omits specific type/step/DIRTY; semantic/hybrid omit the enabled-for-component condition."
+      },
+      {
+        "criterion_id": "PH-G07-C04",
+        "met": false,
+        "reason": "Component/step selection before submission is omitted. Keyword also omits reason length; semantic/hybrid show the length only in a caution."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 6,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G07-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G08",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G08-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G08-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G08-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G08",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G08-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G08-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G08-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G08",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G08-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G08-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G08-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G09",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G09-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G09-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G09-C03",
+        "met": false,
+        "reason": "The V3 service scope and resource-cleanup validation purpose are not explained."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": false,
+        "reason": "The cited higher-BOM-version line is a CloudNative Redeploy lookup rule. It does not by itself establish the claim's added upgrade/patch and service-reintroduction scope."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G09-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G09",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G09-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G09-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G09-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G09-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G09",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G09-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G09-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G09-C03",
+        "met": false,
+        "reason": "The V3 service scope and resource-cleanup validation purpose are not explained."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": false,
+        "reason": "The quote establishes redeploying the same workload; restoring the environment state is broader and not established by this excerpt."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G09-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G10",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G10-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G10-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G10-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G10-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G10",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G10-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G10-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G10-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G10-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G10",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G10-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G10-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G10-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G10-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G11",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G11-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G11-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G11-C03",
+        "met": false,
+        "reason": "The final answer does not explain the post-provisioning, current-status-dependent Enable/Disable UI choices."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G11-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G11",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G11-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G11-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G11-C03",
+        "met": false,
+        "reason": "The final answer does not explain the post-provisioning, current-status-dependent Enable/Disable UI choices."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G11-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G11",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G11-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G11-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G11-C03",
+        "met": false,
+        "reason": "The final answer does not explain the post-provisioning, current-status-dependent Enable/Disable UI choices."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G11-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G12",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G12-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G12-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G12-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G12-C04",
+        "met": false,
+        "reason": "The unsupported multiple-masking-runs limitation is omitted."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G12-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G12",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G12-C01",
+        "met": false,
+        "reason": "Not conveyed in the final response."
+      },
+      {
+        "criterion_id": "PH-G12-C02",
+        "met": false,
+        "reason": "Not conveyed in the final response."
+      },
+      {
+        "criterion_id": "PH-G12-C03",
+        "met": false,
+        "reason": "Not conveyed in the final response."
+      },
+      {
+        "criterion_id": "PH-G12-C04",
+        "met": false,
+        "reason": "The unsupported multiple-masking-runs limitation is omitted."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G12-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G12",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G12-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G12-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G12-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G12-C04",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": false,
+        "reason": "The cited role restrictions belong to other OnPod operations, not data masking. The OnPod document contains no masking procedure."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": false,
+        "reason": "The RuntimeDiagnostics-enabled requirement is for startRuntimeDiagnosticsCredentialsJob, not the data masking action. This is a wrong-workflow prerequisite."
+      },
+      {
+        "claim_number": 6,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G12-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G13",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G13-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G13-C02",
+        "met": false,
+        "reason": "Versions/patches/cloud-native state are covered, but identity/database/service-integration matching is omitted."
+      },
+      {
+        "criterion_id": "PH-G13-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G13-C04",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G13-C05",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 6,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G13-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G13",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G13-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G13-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G13-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G13-C04",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G13-C05",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G13-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G13",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G13-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G13-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G13-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G13-C04",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G13-C05",
+        "met": false,
+        "reason": "The multiple-masking-runs limitation is omitted."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 6,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G13-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G14",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G14-C01",
+        "met": false,
+        "reason": "Uses CI project/build navigation and optional BATSnapper information rather than the provisioned pod Run Tests flow for the user's LOB."
+      },
+      {
+        "criterion_id": "PH-G14-C02",
+        "met": false,
+        "reason": "AcceptanceTests Label, Order prop and Git branch auto-population are omitted."
+      },
+      {
+        "criterion_id": "PH-G14-C03",
+        "met": false,
+        "reason": "The new PipelineHub ID and queued/running/success pod-test tracking sequence are omitted."
+      },
+      {
+        "criterion_id": "PH-G14-C04",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G14-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G14",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G14-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C04",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G14-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G14",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G14-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G14-C04",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G14-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G15",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G15-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G15-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G15-C03",
+        "met": false,
+        "reason": "Resize purpose/stamps appear in prose or cautions, but resize eligibility validation is omitted."
+      },
+      {
+        "criterion_id": "PH-G15-C04",
+        "met": false,
+        "reason": "The full no-conflict plus Active/AVAILABLE validation criterion is incomplete: keyword omits the states; hybrid omits an explicit conflict check."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G15-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G15",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G15-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G15-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G15-C03",
+        "met": false,
+        "reason": "Resize purpose/stamps appear in prose or cautions, but resize eligibility validation is omitted."
+      },
+      {
+        "criterion_id": "PH-G15-C04",
+        "met": false,
+        "reason": "The full no-conflict plus Active/AVAILABLE validation criterion is incomplete: keyword omits the states; hybrid omits an explicit conflict check."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G15-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G15",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G15-C01",
+        "met": false,
+        "reason": "The reply mentions releasing a lock/HOLD but not the Family pod Unlock Pod action or hidden actions; the cited HOLD workflow is different."
+      },
+      {
+        "criterion_id": "PH-G15-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G15-C03",
+        "met": false,
+        "reason": "Resize purpose/stamps appear in prose or cautions, but resize eligibility validation is omitted."
+      },
+      {
+        "criterion_id": "PH-G15-C04",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": false,
+        "reason": "Conflates release of a HOLD with the separate Family pod Unlock Pod action. AVAILABLE scheduling evidence does not establish that equivalence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G15-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G16",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G16-C01",
+        "met": false,
+        "reason": "The complete LOB/non-EOL copy eligibility rule is not explicitly explained; an active-release scenario alone is not a statement of both rules."
+      },
+      {
+        "criterion_id": "PH-G16-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G16-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G16-C04",
+        "met": false,
+        "reason": "Group name, description and LOB are listed, but the brief non-sensitive description requirement is omitted."
+      },
+      {
+        "criterion_id": "PH-G16-C05",
+        "met": false,
+        "reason": "Adding/staging members and saving are described, but membership verification before Save is not explicitly instructed."
+      },
+      {
+        "criterion_id": "PH-G16-C06",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [
+      {
+        "claim_number": 1,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 2,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 3,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 4,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 5,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      },
+      {
+        "claim_number": 6,
+        "supported_by_cited_evidence": true,
+        "reason": "Claim meaning is supported by the cited quote(s) and the retrieved source context reviewed with the canonical evidence."
+      }
+    ],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G16-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G16",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G16-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C04",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C05",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C06",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G16-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G16",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G16-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C04",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C05",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G16-C06",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G16-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G17",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G17-C01",
+        "met": false,
+        "reason": "Does not ask for both current and requested software versions."
+      },
+      {
+        "criterion_id": "PH-G17-C02",
+        "met": false,
+        "reason": "Does not establish both successful upgrade completion and an appropriate backup; semantic asks a backup name only."
+      },
+      {
+        "criterion_id": "PH-G17-C03",
+        "met": false,
+        "reason": "Does not distinguish same-version backup restore from n-1 restore after a successful upgrade. Keyword/hybrid instead contrast pod restore with a snapshot/artifact interpretation."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G17-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G17",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G17-C01",
+        "met": false,
+        "reason": "Does not ask for both current and requested software versions."
+      },
+      {
+        "criterion_id": "PH-G17-C02",
+        "met": false,
+        "reason": "Does not establish both successful upgrade completion and an appropriate backup; semantic asks a backup name only."
+      },
+      {
+        "criterion_id": "PH-G17-C03",
+        "met": false,
+        "reason": "Does not distinguish same-version backup restore from n-1 restore after a successful upgrade. Keyword/hybrid instead contrast pod restore with a snapshot/artifact interpretation."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G17-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G17",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G17-C01",
+        "met": false,
+        "reason": "Does not ask for both current and requested software versions."
+      },
+      {
+        "criterion_id": "PH-G17-C02",
+        "met": false,
+        "reason": "Does not establish both successful upgrade completion and an appropriate backup; semantic asks a backup name only."
+      },
+      {
+        "criterion_id": "PH-G17-C03",
+        "met": false,
+        "reason": "Does not distinguish same-version backup restore from n-1 restore after a successful upgrade. Keyword/hybrid instead contrast pod restore with a snapshot/artifact interpretation."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G17-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G18",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G18-C01",
+        "met": false,
+        "reason": "Architecture and size are asked, but database platform is omitted."
+      },
+      {
+        "criterion_id": "PH-G18-C02",
+        "met": false,
+        "reason": "The full timing/Marketing SKU and FMK/CDP decision information is incomplete. Keyword omits both; semantic asks FMK/CDP but not timing; hybrid asks timing/Marketing SKU but not FMK/CDP."
+      },
+      {
+        "criterion_id": "PH-G18-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G18-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G18",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G18-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G18-C02",
+        "met": false,
+        "reason": "The full timing/Marketing SKU and FMK/CDP decision information is incomplete. Keyword omits both; semantic asks FMK/CDP but not timing; hybrid asks timing/Marketing SKU but not FMK/CDP."
+      },
+      {
+        "criterion_id": "PH-G18-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G18-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G18",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G18-C01",
+        "met": false,
+        "reason": "Architecture and size are asked, but database platform is omitted."
+      },
+      {
+        "criterion_id": "PH-G18-C02",
+        "met": false,
+        "reason": "The full timing/Marketing SKU and FMK/CDP decision information is incomplete. Keyword omits both; semantic asks FMK/CDP but not timing; hybrid asks timing/Marketing SKU but not FMK/CDP."
+      },
+      {
+        "criterion_id": "PH-G18-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G18-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G19",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G19-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G19-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G19-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G19-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G19",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G19-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G19-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G19-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G19-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G19",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G19-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G19-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G19-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G19-semantic.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G20",
+    "mode": "hybrid",
+    "required_points": [
+      {
+        "criterion_id": "PH-G20-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G20-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G20-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G20-hybrid.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G20",
+    "mode": "keyword",
+    "required_points": [
+      {
+        "criterion_id": "PH-G20-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G20-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G20-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G20-keyword.json",
+    "primary_assistant_review": null
+  },
+  {
+    "id": "PH-G20",
+    "mode": "semantic",
+    "required_points": [
+      {
+        "criterion_id": "PH-G20-C01",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G20-C02",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      },
+      {
+        "criterion_id": "PH-G20-C03",
+        "met": true,
+        "reason": "The final response conveys this criterion in context; equivalent wording and valid source cautions count."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "original_judge": "evaluation/runs/2026-10-17-run01/judgments/PH-G20-semantic.json",
+    "primary_assistant_review": null
+  }
+]

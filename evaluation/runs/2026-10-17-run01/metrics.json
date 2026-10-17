@@ -1,0 +1,278 @@
+{
+  "evaluation_type": "Offline end-to-end evaluation with real Nebius/Pinecone requests and paired retrieval-mode comparison",
+  "dataset_version": "1.0",
+  "cases": 20,
+  "runs": 60,
+  "gold_dataset_sha256": "622321a4d7ff53fcaf4de802db9880925e9897bad109285f3c32c8635dd5cdaf",
+  "generation_model": "Qwen/Qwen3.5-397B-A17B",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "quality_labels": "Primary-assistant AI review of all 60 saved responses against frozen labels, with per-criterion and per-claim reasons; not independent human validation.",
+  "faithfulness_scope": "AI estimate covers delivered structured draft claims only. Verbatim source cautions are checked for source traceability separately and may be irrelevant. Clarification statements and all rendered prose have not been exhaustively claim-segmented.",
+  "retrieval_scope": "Macro mean gold-document-group recall in the final maximum six retrieved passages, on 16 answerable cases. Document matches are not passage entailment. Labels permit manually verified alternatives, but no alternative documents were automatically added.",
+  "latency_scope": "One trial per question/mode, randomized order, two requests concurrently. Includes retriever initialization; not a statistically reliable production latency benchmark.",
+  "fcr_scope": "Simulated offline strict rubric resolution only. Overall denominator 20 caps attainable FCR at 80% because 4 cases require clarification/escalation. Answerable-only denominator 16 reported separately. No actual customer FCR measured.",
+  "price_source": "https://tokenfactory.nebius.com/api/public/models_info",
+  "grading_privacy": "No gold labels were sent to a separate external grading API. External grading was rejected by automatic approval review; primary assistant reviewed captured responses in this chat instead.",
+  "limitations": [
+    "Same assistant authored the labels and reviews; no independent human SME review.",
+    "Only 20 questions and one run per mode; small-sample, single-trial results.",
+    "Compound criteria require all details, including Save/Edit in some factual questions; strict resolution may understate usefulness of correct core answers. SME review is needed before treating this as submission-grade gold.",
+    "Primary-assistant rubric review is fallible; see all per-criterion and per-claim judgments.",
+    "No prompt/routing/retrieval tuning during this frozen run. If used for tuning afterward, this set becomes development data.",
+    "Generation cost is a token-based estimate at $0.60/M input and $3.60/M output, excluding judge/Pinecone costs, taxes and billing adjustments."
+  ],
+  "summaries": [
+    {
+      "mode": "keyword",
+      "queries": 20,
+      "execution_errors": 0,
+      "answered": 11,
+      "clarified": 3,
+      "escalated": 6,
+      "routing_correct": 15,
+      "routing_accuracy": 0.75,
+      "rubric_cases_scored": 20,
+      "rubric_cases_passed": 8,
+      "rubric_pass_rate_ai_assisted": 0.4,
+      "required_points_met": 32,
+      "required_points_total": 67,
+      "required_point_coverage_ai": 0.47761194029850745,
+      "simulated_resolved": 6,
+      "simulated_fcr_all_20_ai": 0.3,
+      "simulated_resolution_answerable_16_ai": 0.375,
+      "false_human_escalations_answerable": 4,
+      "gold_document_group_recall_at_6": 0.78125,
+      "all_gold_groups_found_cases": 11,
+      "gold_document_mrr_at_6": 0.8125,
+      "latency_mean_seconds": 6.57524,
+      "latency_median_seconds": 6.86815,
+      "latency_p95_seconds": 10.876545,
+      "answered_latency_median_seconds": 7.185,
+      "responses_under_10_seconds": 16,
+      "supported_draft_claims_ai": 40,
+      "delivered_draft_claims": 40,
+      "draft_claim_citation_support_ai": 1.0,
+      "source_cautions_valid": 16,
+      "source_cautions_total": 16,
+      "exact_quotes_valid": 52,
+      "quotes_total": 52,
+      "prompt_tokens": 178815,
+      "completion_tokens": 10459,
+      "generation_cost_estimate_usd": 0.1449414,
+      "unsupported_routing_correct": 2,
+      "ambiguous_routing_correct": 2,
+      "category_results": {
+        "exact_match": {
+          "cases": 6,
+          "case_passes": 4,
+          "routing_correct": 6
+        },
+        "semantic_troubleshooting": {
+          "cases": 6,
+          "case_passes": 2,
+          "routing_correct": 4
+        },
+        "multi_passage": {
+          "cases": 4,
+          "case_passes": 0,
+          "routing_correct": 1
+        },
+        "ambiguous_clarification": {
+          "cases": 2,
+          "case_passes": 0,
+          "routing_correct": 2
+        },
+        "unsupported_escalation": {
+          "cases": 2,
+          "case_passes": 2,
+          "routing_correct": 2
+        }
+      },
+      "route_confusion": {
+        "answered": {
+          "answered": 11,
+          "needs_clarification": 1,
+          "needs_human_review": 4
+        },
+        "needs_clarification": {
+          "answered": 0,
+          "needs_clarification": 2,
+          "needs_human_review": 0
+        },
+        "needs_human_review": {
+          "answered": 0,
+          "needs_clarification": 0,
+          "needs_human_review": 2
+        }
+      }
+    },
+    {
+      "mode": "semantic",
+      "queries": 20,
+      "execution_errors": 1,
+      "answered": 13,
+      "clarified": 2,
+      "escalated": 5,
+      "routing_correct": 17,
+      "routing_accuracy": 0.85,
+      "rubric_cases_scored": 20,
+      "rubric_cases_passed": 8,
+      "rubric_pass_rate_ai_assisted": 0.4,
+      "required_points_met": 40,
+      "required_points_total": 67,
+      "required_point_coverage_ai": 0.5970149253731343,
+      "simulated_resolved": 6,
+      "simulated_fcr_all_20_ai": 0.3,
+      "simulated_resolution_answerable_16_ai": 0.375,
+      "false_human_escalations_answerable": 3,
+      "gold_document_group_recall_at_6": 0.9375,
+      "all_gold_groups_found_cases": 14,
+      "gold_document_mrr_at_6": 0.90625,
+      "latency_mean_seconds": 7.80644,
+      "latency_median_seconds": 7.413,
+      "latency_p95_seconds": 11.801530000000005,
+      "answered_latency_median_seconds": 7.4522,
+      "responses_under_10_seconds": 16,
+      "supported_draft_claims_ai": 48,
+      "delivered_draft_claims": 52,
+      "draft_claim_citation_support_ai": 0.9230769230769231,
+      "source_cautions_valid": 29,
+      "source_cautions_total": 29,
+      "exact_quotes_valid": 68,
+      "quotes_total": 68,
+      "prompt_tokens": 191165,
+      "completion_tokens": 10334,
+      "generation_cost_estimate_usd": 0.1519014,
+      "unsupported_routing_correct": 2,
+      "ambiguous_routing_correct": 2,
+      "category_results": {
+        "exact_match": {
+          "cases": 6,
+          "case_passes": 4,
+          "routing_correct": 5
+        },
+        "semantic_troubleshooting": {
+          "cases": 6,
+          "case_passes": 2,
+          "routing_correct": 6
+        },
+        "multi_passage": {
+          "cases": 4,
+          "case_passes": 0,
+          "routing_correct": 2
+        },
+        "ambiguous_clarification": {
+          "cases": 2,
+          "case_passes": 0,
+          "routing_correct": 2
+        },
+        "unsupported_escalation": {
+          "cases": 2,
+          "case_passes": 2,
+          "routing_correct": 2
+        }
+      },
+      "route_confusion": {
+        "answered": {
+          "answered": 13,
+          "needs_clarification": 0,
+          "needs_human_review": 3
+        },
+        "needs_clarification": {
+          "answered": 0,
+          "needs_clarification": 2,
+          "needs_human_review": 0
+        },
+        "needs_human_review": {
+          "answered": 0,
+          "needs_clarification": 0,
+          "needs_human_review": 2
+        }
+      }
+    },
+    {
+      "mode": "hybrid",
+      "queries": 20,
+      "execution_errors": 0,
+      "answered": 15,
+      "clarified": 2,
+      "escalated": 3,
+      "routing_correct": 19,
+      "routing_accuracy": 0.95,
+      "rubric_cases_scored": 20,
+      "rubric_cases_passed": 7,
+      "rubric_pass_rate_ai_assisted": 0.35,
+      "required_points_met": 42,
+      "required_points_total": 67,
+      "required_point_coverage_ai": 0.6268656716417911,
+      "simulated_resolved": 5,
+      "simulated_fcr_all_20_ai": 0.25,
+      "simulated_resolution_answerable_16_ai": 0.3125,
+      "false_human_escalations_answerable": 1,
+      "gold_document_group_recall_at_6": 0.96875,
+      "all_gold_groups_found_cases": 15,
+      "gold_document_mrr_at_6": 0.840625,
+      "latency_mean_seconds": 7.183225,
+      "latency_median_seconds": 7.4559999999999995,
+      "latency_p95_seconds": 11.144565,
+      "answered_latency_median_seconds": 7.7536,
+      "responses_under_10_seconds": 17,
+      "supported_draft_claims_ai": 59,
+      "delivered_draft_claims": 60,
+      "draft_claim_citation_support_ai": 0.9833333333333333,
+      "source_cautions_valid": 37,
+      "source_cautions_total": 37,
+      "exact_quotes_valid": 81,
+      "quotes_total": 81,
+      "prompt_tokens": 197511,
+      "completion_tokens": 10560,
+      "generation_cost_estimate_usd": 0.15652259999999998,
+      "unsupported_routing_correct": 2,
+      "ambiguous_routing_correct": 2,
+      "category_results": {
+        "exact_match": {
+          "cases": 6,
+          "case_passes": 4,
+          "routing_correct": 6
+        },
+        "semantic_troubleshooting": {
+          "cases": 6,
+          "case_passes": 1,
+          "routing_correct": 5
+        },
+        "multi_passage": {
+          "cases": 4,
+          "case_passes": 0,
+          "routing_correct": 4
+        },
+        "ambiguous_clarification": {
+          "cases": 2,
+          "case_passes": 0,
+          "routing_correct": 2
+        },
+        "unsupported_escalation": {
+          "cases": 2,
+          "case_passes": 2,
+          "routing_correct": 2
+        }
+      },
+      "route_confusion": {
+        "answered": {
+          "answered": 15,
+          "needs_clarification": 0,
+          "needs_human_review": 1
+        },
+        "needs_clarification": {
+          "answered": 0,
+          "needs_clarification": 2,
+          "needs_human_review": 0
+        },
+        "needs_human_review": {
+          "answered": 0,
+          "needs_clarification": 0,
+          "needs_human_review": 2
+        }
+      }
+    }
+  ]
+}

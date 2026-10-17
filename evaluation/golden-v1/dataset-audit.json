@@ -1,0 +1,211 @@
+{
+  "corpus_sha256": "aef28c6fc2ffbf5ce3fc37272f2e0a3d8bbcee80061231364f408814e95cb58a",
+  "checked_files": [
+    "evaluation/development-checks.json",
+    "evaluation/nebius-development-checks.json",
+    "evaluation/ui-checks.json",
+    "data/bot-checks/ambiguous-final.json",
+    "data/bot-checks/ambiguous-v3.json",
+    "data/bot-checks/ambiguous.json",
+    "data/bot-checks/oauth-final.json",
+    "data/bot-checks/oauth-v2.json",
+    "data/bot-checks/oauth-v3.json",
+    "data/bot-checks/oauth.json",
+    "data/bot-checks/overview-v3.json",
+    "data/bot-checks/overview.json",
+    "data/bot-checks/summary-v3.json",
+    "data/bot-checks/summary.json",
+    "data/bot-checks/unsupported-v3.json",
+    "data/bot-checks/unsupported.json",
+    "data/ui-checks/answer.json",
+    "data/ui-checks/clarification.json",
+    "data/ui-checks/model-qwen3-4b.json",
+    "data/ui-checks/model-qwen3-8b-restored.json",
+    "data/ui-checks/nebius-overview.json",
+    "data/ui-checks/nebius-procedure.json",
+    "data/ui-checks/nebius-ui.json",
+    "data/ui-checks/nebius-unsupported.json",
+    "data/ui-checks/summary.json",
+    "tests/test_bot.py",
+    "tests/test_chunk.py",
+    "tests/test_generation.py",
+    "tests/test_retrieval.py",
+    "tests/test_ui_server.py",
+    "src/cicd_support_rag/bot.py",
+    "src/cicd_support_rag/web/app.js",
+    "src/cicd_support_rag/web/index.html"
+  ],
+  "existing_questions_and_test_prompts": [
+    "How can I pause my project?",
+    "How do I register an OAuth client for PipelineHub REST services?",
+    "How do I register an OAuth client?",
+    "It failed. What should I do?",
+    "My pipeline failed. What now?",
+    "My pipeline failed. What should I do?",
+    "What is PipelineHub and which application types does it support?",
+    "What is PipelineHub's guaranteed uptime SLA and exact service credit percentage?",
+    "What is PipelineHub?",
+    "What is the guaranteed monthly uptime SLA and financial compensation for PipelineHub outages?",
+    "Which project type are you using?",
+    "Which step failed (build, deployment, test, or login), and what error message do you see?",
+    "Which step?"
+  ],
+  "near_duplicate_screen": [
+    {
+      "id": "PH-G01",
+      "nearest_existing_question": "What is PipelineHub and which application types does it support?",
+      "character_similarity": 0.359,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G02",
+      "nearest_existing_question": "What is PipelineHub's guaranteed uptime SLA and exact service credit percentage?",
+      "character_similarity": 0.449,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G03",
+      "nearest_existing_question": "What is PipelineHub and which application types does it support?",
+      "character_similarity": 0.436,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G04",
+      "nearest_existing_question": "Which step failed (build, deployment, test, or login), and what error message do you see?",
+      "character_similarity": 0.341,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G05",
+      "nearest_existing_question": "What is PipelineHub's guaranteed uptime SLA and exact service credit percentage?",
+      "character_similarity": 0.345,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G06",
+      "nearest_existing_question": "Which step failed (build, deployment, test, or login), and what error message do you see?",
+      "character_similarity": 0.331,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G07",
+      "nearest_existing_question": "Which step failed (build, deployment, test, or login), and what error message do you see?",
+      "character_similarity": 0.29,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G08",
+      "nearest_existing_question": "What is the guaranteed monthly uptime SLA and financial compensation for PipelineHub outages?",
+      "character_similarity": 0.344,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G09",
+      "nearest_existing_question": "What is PipelineHub's guaranteed uptime SLA and exact service credit percentage?",
+      "character_similarity": 0.337,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G10",
+      "nearest_existing_question": "My pipeline failed. What should I do?",
+      "character_similarity": 0.237,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G11",
+      "nearest_existing_question": "What is PipelineHub's guaranteed uptime SLA and exact service credit percentage?",
+      "character_similarity": 0.307,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G12",
+      "nearest_existing_question": "Which step failed (build, deployment, test, or login), and what error message do you see?",
+      "character_similarity": 0.33,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G13",
+      "nearest_existing_question": "Which step failed (build, deployment, test, or login), and what error message do you see?",
+      "character_similarity": 0.261,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G14",
+      "nearest_existing_question": "Which step failed (build, deployment, test, or login), and what error message do you see?",
+      "character_similarity": 0.238,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G15",
+      "nearest_existing_question": "How do I register an OAuth client for PipelineHub REST services?",
+      "character_similarity": 0.276,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G16",
+      "nearest_existing_question": "What is PipelineHub's guaranteed uptime SLA and exact service credit percentage?",
+      "character_similarity": 0.226,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G17",
+      "nearest_existing_question": "What is PipelineHub and which application types does it support?",
+      "character_similarity": 0.313,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G18",
+      "nearest_existing_question": "How do I register an OAuth client for PipelineHub REST services?",
+      "character_similarity": 0.333,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G19",
+      "nearest_existing_question": "What is PipelineHub and which application types does it support?",
+      "character_similarity": 0.316,
+      "exact_duplicate": false
+    },
+    {
+      "id": "PH-G20",
+      "nearest_existing_question": "How do I register an OAuth client for PipelineHub REST services?",
+      "character_similarity": 0.373,
+      "exact_duplicate": false
+    }
+  ],
+  "intent_review": "Authored cases avoid the known prior intents; similarity is a screening aid, not proof of semantic independence.",
+  "absence_checks": {
+    "PH-G19": {
+      "searched_documents": 138,
+      "usable_documents": 131,
+      "case_insensitive_literal_search": {
+        "SLSA": [],
+        "Sigstore": [],
+        "Cosign": [],
+        "in-toto": []
+      },
+      "interpretation": "No occurrences of these named capabilities. This supports a corpus-coverage gap only; absence of keywords alone is not proof about product capabilities. Related sections were reviewed when choosing the cases."
+    },
+    "PH-G20": {
+      "searched_documents": 138,
+      "usable_documents": 131,
+      "case_insensitive_literal_search": {
+        "Jira Service Management": [],
+        "ServiceNow": [],
+        "incident ticket": [],
+        "automatic ticket": [],
+        "incident connector": []
+      },
+      "interpretation": "No occurrences of these named capabilities. This supports a corpus-coverage gap only; absence of keywords alone is not proof about product capabilities. Related sections were reviewed when choosing the cases."
+    }
+  },
+  "evidence_spans_verified": 24,
+  "classification_counts_verified": {
+    "exact_match": 6,
+    "semantic_troubleshooting": 6,
+    "multi_passage": 4,
+    "ambiguous_clarification": 2,
+    "unsupported_escalation": 2
+  },
+  "bot_or_retrieval_calls": 0,
+  "human_review_pending": true
+}

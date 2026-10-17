@@ -1,0 +1,184 @@
+{
+  "id": "PH-G11",
+  "mode": "semantic",
+  "question": "We want to turn off RuntimeDiagnostics on a pod but keep the replicated analytics data. Will disabling it preserve that data?",
+  "run_status": "completed",
+  "result": {
+    "question": "We want to turn off RuntimeDiagnostics on a pod but keep the replicated analytics data. Will disabling it preserve that data?",
+    "status": "answered",
+    "answer": "Before you start, note these restrictions from the cited documentation:\n> * Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled [doc-0032]\n\n> Disable RuntimeDiagnostics option is now available. For newly provisioned pods we will have the correct metadata on the POD but for existing pods, please use this option only if you are sure that the pod has RUNTIMEDIAGNOSTICS. [doc-0032]\n\nDocumented guidance:\n- Disabling RuntimeDiagnostics removes the RuntimeDiagnostics instance, which deletes the Replication Infrastructure and all replicated data from the AnalyticsDatabase instance. [doc-0083]\n- The Disable RuntimeDiagnostics action results in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance. [doc-0032]\n\nSources:\n- [doc-0083] PipelineHub Preflight - Pod Add-ons - Enable-Disable RuntimeDiagnostics\n- [doc-0032] CloudPlatform EnvironmentService Preflight Submission and Monitoring\n\nLinks, commands, and configurations in this adapted documentation are illustrative.",
+    "evidence_reason": "All supporting quotes match retrieved source passages. The draft correctly answers the user's question with a definitive 'no' regarding data preservation. The claims are fully supported by the provided evidence. Specifically, doc-0083:chunk-0001:bge-001:line-006 states that disabling RuntimeDiagnostics 'deletes the Replication Infrastructure and all replicated data,' and doc-0032:chunk-0009:bge-001:line-013 confirms the 'removal of the Replication Infrastructure and Replicated Data.' The draft accurately reflects these explicit statements without omitting necessary caveats or inventing details.",
+    "draft": {
+      "decision": "answer",
+      "reason": "The provided documentation explicitly states that disabling RuntimeDiagnostics results in the deletion of all replicated data, meaning the data will not be preserved.",
+      "claims": [
+        {
+          "text": "Disabling RuntimeDiagnostics removes the RuntimeDiagnostics instance, which deletes the Replication Infrastructure and all replicated data from the AnalyticsDatabase instance.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0083:chunk-0001:bge-001:line-006"
+            }
+          ]
+        },
+        {
+          "text": "The Disable RuntimeDiagnostics action results in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance.",
+          "evidence": [
+            {
+              "evidence_id": "doc-0032:chunk-0009:bge-001:line-013"
+            }
+          ]
+        }
+      ],
+      "clarification": ""
+    },
+    "supporting_quotes": [
+      {
+        "claim": "Disabling RuntimeDiagnostics removes the RuntimeDiagnostics instance, which deletes the Replication Infrastructure and all replicated data from the AnalyticsDatabase instance.",
+        "evidence_id": "doc-0083:chunk-0001:bge-001:line-006",
+        "quote": "**Disable RuntimeDiagnostics** removes the RuntimeDiagnostics instance, which deletes the Replication Infrastructure and all replicated data from the AnalyticsDatabase instance.",
+        "document_id": "doc-0083",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Enable-Disable RuntimeDiagnostics",
+        "chunk_id": "doc-0083:chunk-0001:bge-001"
+      },
+      {
+        "claim": "The Disable RuntimeDiagnostics action results in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance.",
+        "evidence_id": "doc-0032:chunk-0009:bge-001:line-013",
+        "quote": "Disable RuntimeDiagnostics  does the deletion of RuntimeDiagnostics Instance, resulting in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance. On the other hand, enabling RuntimeDiagnostics does the installation of the Replication Infrastructure and the setup of replicated data in AnalyticsDatabase instance. Furthermore, it is possible to enable RuntimeDiagnostics again after disabling it.",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "chunk_id": "doc-0032:chunk-0009:bge-001"
+      }
+    ],
+    "source_cautions": [
+      {
+        "evidence_id": "doc-0032:chunk-0009:bge-001:line-005",
+        "document_id": "doc-0032",
+        "chunk_id": "doc-0032:chunk-0009:bge-001",
+        "quote": "* Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled"
+      },
+      {
+        "evidence_id": "doc-0032:chunk-0009:bge-001:line-011",
+        "document_id": "doc-0032",
+        "chunk_id": "doc-0032:chunk-0009:bge-001",
+        "quote": "Disable RuntimeDiagnostics option is now available. For newly provisioned pods we will have the correct metadata on the POD but for existing pods, please use this option only if you are sure that the pod has RUNTIMEDIAGNOSTICS."
+      }
+    ],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0083:chunk-0001:bge-001",
+        "document_id": "doc-0083",
+        "parent_id": "doc-0058",
+        "title": "PipelineHub Preflight - Pod Add-ons - Enable-Disable RuntimeDiagnostics",
+        "char_start": 0,
+        "char_end": 865,
+        "text": "Redcontent moved to DocumentationPortal <https://docs.example.com/reference/resource-663>\n\n### Enable/Disable RuntimeDiagnostics\n\n**Enable RuntimeDiagnostics** installs the Replication Infrastructure and configures replicated data in the associated AnalyticsDatabase instance.  \n**Disable RuntimeDiagnostics** removes the RuntimeDiagnostics instance, which deletes the Replication Infrastructure and all replicated data from the AnalyticsDatabase instance.\n\nThe **Enable/Disable RuntimeDiagnostics** option is available as a **Post Provisioning Pod Add-on** action. When the action is selected, PipelineHub checks the current RuntimeDiagnostics status for the pod. If RuntimeDiagnostics is disabled, the **Enable RuntimeDiagnostics** action is made available. If RuntimeDiagnostics is already enabled, the **Disable RuntimeDiagnostics** action is available instead."
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0009:bge-001",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 27537,
+        "char_end": 29176,
+        "text": "* As a precursor, lets understand what accounts for an AnalyticsDatabase quota\n\t+ When the RuntimeDiagnostics is enabled, either during provisioning or during post action.\n\t+ When a CDP cloudnative service is provisioned or patched.\n* Starting this release, when an user opts for AnalyticsDatabase, the quota is checked against the LOB/SubLOB.\n* Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled\n\n### **Support Enable RuntimeDiagnostics added as a Post POD action.**\n\n### Disable RuntimeDiagnostics on an existing POD\n\nDisable RuntimeDiagnostics option is now available. For newly provisioned pods we will have the correct metadata on the POD but for existing pods, please use this option only if you are sure that the pod has RUNTIMEDIAGNOSTICS.  \n\nDisable RuntimeDiagnostics  does the deletion of RuntimeDiagnostics Instance, resulting in the removal of the Replication Infrastructure and Replicated Data from the AnalyticsDatabase instance. On the other hand, enabling RuntimeDiagnostics does the installation of the Replication Infrastructure and the setup of replicated data in AnalyticsDatabase instance. Furthermore, it is possible to enable RuntimeDiagnostics again after disabling it.\n\nKeep in mind this operation takes several hours and PipelineHub monitoring reports the status back to user.  \n\nFurther more, you need to disable RuntimeDiagnostics prior to running RESTORE.\n\nNOTE: For older pods, this action might fail if RuntimeDiagnostics is not enabled.\n\nEnable/Disable RuntimeDiagnostics action changes made on Patching dashboard\n\n"
+      },
+      {
+        "chunk_id": "doc-0057:chunk-0003:bge-002",
+        "document_id": "doc-0057",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Patching",
+        "char_start": 7697,
+        "char_end": 9091,
+        "text": "### Save the Filter\n\nUsers can now save filter in Patching Dashboard\n\n### Support for Enabling and Disabling RuntimeDiagnostics for Central DIT pods in Patching Dashboard\n\nWe now allow the ability to enable as well as disable RuntimeDiagnostics on a central DIT pod, from the patching dashboard. The action can be triggered from the dashboard, the status and the details of the action itself can be found by looking at the Pod History section in the pod details. Selecting the ID of the enable/disable RuntimeDiagnostics action will give you more details about the action itself.\n\n**PipelineHub will not allow patch submission if RuntimeDiagnostics workflow is running on the pod**\n\n* PipelineHub will now not allow submission of a new patch, from the Patching Dashboard, if the RuntimeDiagnostics PostDowntime Workflow is either currently **In progress** on the pod or is in the **NeedsAttention** stage\n* This is to avoid failure of the submitted patch in the Prepare Phase.\n* A new stage CHECK RuntimeDiagnostics WORKREQUEST is introduced in the dashboard for this purpose, and failure of this stage will block the user from submitting a new patch\n\n**Enable/Disable RuntimeDiagnostics action changes made on Patching dashboard**\n\nPlease check <https://docs.example.com/reference/resource-394> for more details\n\n**Verify RuntimeDiagnosticsPostDowntime workflow status before patching submit**"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0019:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 57502,
+        "char_end": 58735,
+        "text": "### Save the Filter\n\nUsers can now save filter in Patching Dashboard\n\n### Support for Enabling and Disabling RuntimeDiagnostics for Central DIT pods in Patching Dashboard\n\nWe now allow the ability to enable as well as disable RuntimeDiagnostics on a central DIT pod, from the patching dashboard. The action can be triggered from the dashboard, the status and the details of the action itself can be found by looking at the Pod History section in the pod details. Selecting the ID of the enable/disable RuntimeDiagnostics action will give you more details about the action itself.\n\nEnvironmentService CloudNative Upgrade\n---------------------\n\n### CloudNative Patching/Redeploy\n\n**This feature is for a CloudNative POD.** We are not currently supporting creating CloudNative Env. on a monolith POD.\n\nStart with choosing patching type \"CloudNative Redeploy\".\n\nThere are several flavors of patching/redeploying cloudnative services & Applications (appPackages) on an environment.\n\n* EnableCloudMode\n* Choose a specific ApplicationBOM → <User selection>\n\t+ Patch all services\n\t+ Patch only those services which are in the environment\n\t+ Patch only a subset of services\n* Selected Service Versions\n* Selected Application Versions\n\nDetails"
+      },
+      {
+        "chunk_id": "doc-0060:chunk-0004:bge-002",
+        "document_id": "doc-0060",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Provisioning",
+        "char_start": 10095,
+        "char_end": 11567,
+        "text": "* As a precursor, lets understand what accounts for an AnalyticsDatabase quota\n\t+ When the RuntimeDiagnostics is enabled, either during provisioning or during post action.\n\t+ When a CDP cloudnative service is provisioned or patched.\n* Starting this release, when an user opts for AnalyticsDatabase, the quota is checked against the LOB/SubLOB.\n* Please contact the sustenance, if you dont have quota to submit a AnalyticsDatabase pod.ANALYTICSDATABASE Quota will be restricted/controlled\n\nEnable AppServer logs\n\nUsers are now provided with an option in PipelineHub to setup AppServer logs on the Pod, during provisioning of a pod.\n\nThis is optional and users are provided with a checkbox called ***Enable AppServer Log*** as part of the ***Advanced Parameters*** in the Provisioning Submit page.\n\nAppServer Log setup is required on the Pod to enable or disable AppServer logs sync on the pod later on.\n\n### Subscriptions\n\nUsers can choose from a variety of SKUs by selecting different subscriptions during the provisioning process. Please note that all of these subscriptions are mock subscriptions.  \nFor more information about the available SKUs, <https://api.example.com/reference/resource-398>.  \nTo learn more about Provisioning Subscription for TestRunner, see: <https://docs.example.com/doc-0137>\n\n### CloudNative Service selection UI/Validations for Provisioning and Upgrade\n\nOn Provisioning and upgrade UI, we are splitting the cloudnative services in 2 sections:"
+      },
+      {
+        "chunk_id": "doc-0032:chunk-0031:bge-002",
+        "document_id": "doc-0032",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform EnvironmentService Preflight Submission and Monitoring",
+        "char_start": 93404,
+        "char_end": 94789,
+        "text": "Special Project Dashboard Admins who have access to create release set - can now utilize the defaulting logic for fields such as DB Image Name, DB Version, LifecycleManager Artifact Set ID, Pod Size Profile. These fields will default to the latest release set for the selected Template Type, Flavor, Stack and Region\n\n#### \n\nMonitoring\n----------\n\n### MonitoringAgent Monitoring for Patching\n\nMonitoringAgent Monitoring from PipelineHub is now supported for all ApplicationPatchBundle/ApplicationProvisioner/ReportingPatchBundle patches submitted on Gen1 and EnvironmentService now. This is not enabled by default, users can select this option if they wish to get their job monitored. \n\n### MonitoringAgent Monitoring support from UI for patching\n\nExcept for CloudNative, PipelineHub UI now supports MonitoringAgent Monitoring check for all other flavors of patching.\n\n**EnableGRC** would selected and non editable for central pods. For all other Prefight/Family pod - Users have an option to select or deselect.\n\n### Enable MonitoringAgent Monitoring by default for Backup/Restore for that job in PipelineHub UI\n\nBackup and Restore now allows MonitoringAgent monitoring. This is enabled through checkbox which shows up on back or restore pop ups.\n\n**Note**: Restore is not supported for ManagedDatabase pods. Teams are advised **not** to attempt it.\n\n### Hard delete the pod backup UI"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "semantic",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 6.341,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 235,
+        "prompt_tokens": 5446,
+        "total_tokens": 5681,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 3.2726
+    },
+    {
+      "schema": "Review",
+      "usage": {
+        "completion_tokens": 172,
+        "prompt_tokens": 5226,
+        "total_tokens": 5398,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.3771
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.6869
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 3.9619
+    },
+    {
+      "stage": "verify",
+      "elapsed_seconds": 6.3401
+    },
+    {
+      "stage": "answer",
+      "elapsed_seconds": 6.3408
+    }
+  ],
+  "wall_seconds": 6.3528,
+  "token_usage": {
+    "prompt_tokens": 10672,
+    "completion_tokens": 407,
+    "total_tokens": 11079
+  },
+  "completed_at_utc": "2026-10-17T17:42:52.828708+00:00"
+}

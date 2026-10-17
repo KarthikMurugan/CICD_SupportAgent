@@ -1,0 +1,129 @@
+{
+  "id": "PH-G19",
+  "mode": "keyword",
+  "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+  "run_status": "completed",
+  "result": {
+    "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+    "status": "needs_human_review",
+    "answer": "I couldn't find enough verified evidence to answer this reliably. Please share this question with a PipelineHub support engineer. No support ticket has been submitted.",
+    "evidence_reason": "The provided documentation excerpts describe workload.yaml configuration, deployment config repos, and general promotion guidelines, but they do not contain any information regarding SLSA Level 3 provenance generation, Sigstore Cosign signature verification, or the specific settings and YAML required to enforce these security measures. Therefore, the requested procedure cannot be answered from the supplied text.",
+    "draft": {
+      "decision": "escalate",
+      "reason": "The provided documentation excerpts describe workload.yaml configuration, deployment config repos, and general promotion guidelines, but they do not contain any information regarding SLSA Level 3 provenance generation, Sigstore Cosign signature verification, or the specific settings and YAML required to enforce these security measures. Therefore, the requested procedure cannot be answered from the supplied text.",
+      "claims": [],
+      "clarification": ""
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0021:chunk-0004:bge-003",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 11467,
+        "char_end": 12842,
+        "text": "**What is a workload.yaml?**\n\n* Workload yaml specifies a list of custom artifact versions to be used during PipelineHub CD.\n* Based on the specifications in this file, either fixed versions or rules to select latest versions for a given release are used to create the CI/CD service version which gets deployed to the configured POD.\n* You can specify any of the following artifact types supported by CloudNative Platform: workloadArtifacts, genericArtifacts and signalHandlers\n* The workload yaml file needs to be in the **main** branch of your deployment config repo.\n* PipelineHub first checks for existence of the file in the main branch and if does not exist, fallsback to the file's presence in the master branch.\n\t+ eg:\n\n**How to configure deployment config repo for your CD?**\n\n* The deployment config repo is associated at the service level (and not at the microservice/artifact level )\n* So this needs to be mapped to your service in the CloudNative Service Dashboard\n* Configure the SSH and Web Url of your deployment config repo for your service as shown in screenshot below\n\n* Checkin the workload yaml file in the deployment config repository post the above.\n* After the above steps, you can configure the same for your branch level CD (by selecting the Workload Yaml) Option as shown in screenshot below\n\n**High Level Points/Recommendations:**\n\n* **Location:**"
+      },
+      {
+        "chunk_id": "doc-0011:chunk-0009:bge-001",
+        "document_id": "doc-0011",
+        "parent_id": "doc-0001",
+        "title": "LowCode CI-CD Onboarding",
+        "char_start": 24239,
+        "char_end": 25555,
+        "text": "1. Publishing LowCode artifacts to CloudNative Platform: PipelineHub publishes the DBBOM generated in CI pipeline to CloudNative Platform, with artifact version being the release version of the CI pipeline\n2. Creating CloudNative service version: PipelineHub creates a CloudNative service version (unpublished, used for CICD purposes only) containing LowCode artifacts from step 1\n\t1. You can choose the base CloudNative service version as the basis\n\t2. If you choose the base to be \"Latest Regular Service Version\", PipelineHub uses the latest service version in the CloudNative repo and artifact, and plugs in the LowCode artifacts\n\t3. If you choose the base to be \"Workload YAML\", PipelineHub uses the workload yaml file in your deployment repo, and plugs in the LowCode artifacts\n\t4. To configure a workload yaml in the deployment repo, see the instructions below\n3. Creating Patch Bundle: PipelineHub creates a patch bundle containing the CloudNative service version created in step 2\n4. Patch to the POD: PipelineHub uses ApplicationPatchBundle patching to patch the patch bundle in step 3 to the POD\n\t1. Please see the instructions below on how to monitor patching job\n\n**How to configure a POD to deploy to**\n\n \n\n**How to configure workload yaml in deployment config repo**\n\n**How to monitor patching job**\n\n"
+      },
+      {
+        "chunk_id": "doc-0021:chunk-0004:bge-002",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 10701,
+        "char_end": 11467,
+        "text": "Typical Deploy Timings\n----------------------\n\n1. We have seen CD deployments to a V3 POD typically take around 10 mins and in some cases around 25mins\n2. PipelineHub has a deployment timeout of 1 hour\n\n**Deployment Config Repo/Workload Yaml Config**\n===============================================\n\n**What is a deployment config repo?**\n\n* It is a repository used to specify deployment specifications (similar to how a source code repository stores source code)\n* It contains one or more YAML files that define workloads (For those familiar with SPV2, we used to store instance yamls in this repo but this is no longer the case in ServiceModelV3)\n* **Note: PipelineHub only supports deployment config repos in GitService Git (GitPortal/Gitlab are not supported)**\n\n"
+      },
+      {
+        "chunk_id": "doc-0021:chunk-0011:bge-002",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 32486,
+        "char_end": 33146,
+        "text": "| 2 | Error creating Workload Version: 2410.0.13-cicd240716115028266 in SERVICEMODELV3. **RCA**This could happen for one of the below reasons:1) There are incorrect artifact versions specified in your workload yaml (with the + sign and neither PipelineHub nor cloudnative platform is able to resolve them)OR2) There are incorrect fixed artifact versions specified in your workload yaml file which are not present in cloudnative platform**Recommendation**Review the artifact versions entered in the workload yaml file to ensure correctness.If cloudnative platform is not able to resolve the latest version, please specify a fixed version in the workload yaml |\n"
+      },
+      {
+        "chunk_id": "doc-0030:chunk-0001:bge-001",
+        "document_id": "doc-0030",
+        "parent_id": "doc-0001",
+        "title": "CloudPlatform Application Preflight and Promotion -for AppPackages",
+        "char_start": 0,
+        "char_end": 1557,
+        "text": "Overview\n--------\n\nThis page covers high level guidelines and steps for Preflight and promotion of CloudNative Applications. \n\nCloudNative Application is a collection of AppPackages. CloudNative Application is deployment and promotion unit for AppPackages. Teams complete AppPackage ci.cd and when AppPackages are ready for promotion a new CloudNative Application version must be created using AppPackage versions. \n\nBusinessApp teams are expected to follow BusinessSuite Release Program Management guidelines and various timelines related to Milestone promotions. \n\n**CloudNative Applications will follow the same promotion process as CloudNative Services.**There are nuances on how a CloudNative Application team can complete the verification in preflights which is outlined in the next sections.\n\nTrainingPortal Recordings -\n------------------\n\n* Overview of AppPackage and Redwood Application\n\t+ <https://training.example.com/reference/resource-358>\n* Taxonomy overview - Repo registration, AppPackage Registration <https://training.example.com/reference/resource-359>\n\nPrerequisites\n-------------\n\nBusinessApp Teams need to review these guidelines prior to any Preflight Submission.\n\n1. BusinessSuite Release Management has documented Application uptake and policy details below.\n\t1. \n\t2. \n\t3. BusinessApp Release Schedule :  <https://app.example.com/reference/resource-360>:::::\n2. Reference AppPackage and Application Design Document\n\t1.\n3. Review constraints and FAQ documented by the APM team\n\t1.\n\nOnboarding\n----------\n\n### Security & User Roles\n\n"
+      },
+      {
+        "chunk_id": "doc-0095:chunk-0001:bge-002",
+        "document_id": "doc-0095",
+        "parent_id": "doc-0059",
+        "title": "PipelineHub Preflight - Post Pod Actions - Pod P2T Refresh",
+        "char_start": 1080,
+        "char_end": 2206,
+        "text": "Additional information regarding the REFRESH use case:\n\nIdeally PODs should be symmetrical from service integration perspective; compatible patches; same effective BusinessApp Version, IdentityService/ManagedDatabase/IDM should match;\n\n* dbChange(add new column before refresh) == will be refreshed from SOURCE\n* language pack (add extra lang before refresh) == **not carried over**\n* \\*toggleAutoSchedule (true/false) == not carried over **: individual pod's settings honored**\n* \\*featureFlag(add/Remove) == **not carried over : individual pod's settings honored**\n* deleteSpService == **not carried over;**\n* \\*addFreeForm tag == **not carried over: individual pod's settings honored**\n* scaleout/resize == not carried over\n* runtimediagnostics (from source to target) = **old RuntimeDiagnostics db is deleted and re-Enabled on the TARGET POD**\n* patches = same BusinessApp release and Patch bundles\n* source deploymenttemplate and target is starter (at same relLabel) = **post Refresh - TARGET will have DeploymentTemplate**\n\nHere are additional Details from EnvironmentService about P2T - EnvironmentService REFRESH (P2T)"
+      }
+    ],
+    "handoff": {
+      "question": "Give me the PipelineHub settings and YAML to generate SLSA Level 3 provenance and enforce Sigstore Cosign signature verification before deployment.",
+      "reason": "The provided documentation excerpts describe workload.yaml configuration, deployment config repos, and general promotion guidelines, but they do not contain any information regarding SLSA Level 3 provenance generation, Sigstore Cosign signature verification, or the specific settings and YAML required to enforce these security measures. Therefore, the requested procedure cannot be answered from the supplied text.",
+      "source_ids": [
+        "doc-0021",
+        "doc-0011",
+        "doc-0030",
+        "doc-0095"
+      ],
+      "submitted": false
+    },
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 2.272,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 101,
+        "prompt_tokens": 5301,
+        "total_tokens": 5402,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.2012
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0698
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 2.2718
+    },
+    {
+      "stage": "escalate",
+      "elapsed_seconds": 2.2721
+    }
+  ],
+  "wall_seconds": 2.2783,
+  "token_usage": {
+    "prompt_tokens": 5301,
+    "completion_tokens": 101,
+    "total_tokens": 5402
+  },
+  "completed_at_utc": "2026-10-17T17:39:46.729206+00:00"
+}

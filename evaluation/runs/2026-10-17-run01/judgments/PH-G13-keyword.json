@@ -1,0 +1,42 @@
+{
+  "id": "PH-G13",
+  "mode": "keyword",
+  "judge_model": "Primary Codex assistant in this chat; no external grading call",
+  "review_type": "AI-assisted local review against frozen labels; not a human SME review",
+  "raw_response_sha256": "15397427491e4c2b499070c79528e86ce43fba86f84aba3e6331f05bff1e5ddd",
+  "status": "scored",
+  "judgment": {
+    "points": [
+      {
+        "criterion_id": "PH-G13-C01",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G13-C02",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G13-C03",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G13-C04",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      },
+      {
+        "criterion_id": "PH-G13-C05",
+        "met": false,
+        "reason": "The final reply withholds the answer; an internal draft does not satisfy delivered-answer criteria."
+      }
+    ],
+    "claim_support": [],
+    "unacceptable_claim_present": false,
+    "unacceptable_claim_reason": "None of the specifically listed prohibited claims occurs in the final reply. Separate unsupported claims are recorded above.",
+    "relevance_note": "Multi-document answer is partly complete, but each mode omits a different important condition."
+  },
+  "external_grading_calls": 0
+}

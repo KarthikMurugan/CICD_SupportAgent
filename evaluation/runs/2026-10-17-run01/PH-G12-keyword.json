@@ -1,0 +1,119 @@
+{
+  "id": "PH-G12",
+  "mode": "keyword",
+  "question": "Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?",
+  "run_status": "completed",
+  "result": {
+    "question": "Our non-production pod is on 11.13.24.10.0-10999 and we want to mask customer fields. Is it eligible, and what else must be in place?",
+    "status": "needs_clarification",
+    "answer": "What is the specific name of the feature, service, or configuration setting used to mask customer fields in PipelineHub?",
+    "evidence_reason": "The provided passages discuss account migration, CI/CD onboarding, repo creation, token relay configuration, and auth migration, but do not contain information about version eligibility (11.13.24.10.0-10999) or a feature for masking customer fields. I need to know the specific name of the feature or service responsible for masking customer fields to locate the correct documentation.",
+    "draft": {
+      "decision": "clarify",
+      "reason": "The provided passages discuss account migration, CI/CD onboarding, repo creation, token relay configuration, and auth migration, but do not contain information about version eligibility (11.13.24.10.0-10999) or a feature for masking customer fields. I need to know the specific name of the feature or service responsible for masking customer fields to locate the correct documentation.",
+      "claims": [],
+      "clarification": "What is the specific name of the feature, service, or configuration setting used to mask customer fields in PipelineHub?"
+    },
+    "supporting_quotes": [],
+    "source_cautions": [],
+    "answer_rendering_version": "source-cautions-v1",
+    "retrieved_sources": [
+      {
+        "chunk_id": "doc-0111:chunk-0001:bge-003",
+        "document_id": "doc-0111",
+        "parent_id": "doc-0071",
+        "title": "Generic accounts migration for ReleaseEngineering API users",
+        "char_start": 1732,
+        "char_end": 2403,
+        "text": "FAQ\n---\n\n* **Can we use the same account for PipelineHub access and Job Control submissions?**  \nIndividual account → Yes.  \nGeneric account → No. Users would need to use a human proxy account for PipelineHub, and a Non-Federated account for JC.\n* **If the generic account is being used exclusively for ReleaseEngineering APIs only, what is the recommendation for the migration path?**  \nIf the generic account is being used only for ReleaseEngineering APIs and nothing else, then our recommendation is\n\t+ Option 1\n\t\t- Convert existing account to Human Proxy (with our without mailbox, based on your requirement).\n\t\t- Create a new Non-Federated account for JC\n\t+ Option 2"
+      },
+      {
+        "chunk_id": "doc-0016:chunk-0010:bge-001",
+        "document_id": "doc-0016",
+        "parent_id": "doc-0001",
+        "title": "CI/CD Onboarding (Monolith)",
+        "char_start": 21356,
+        "char_end": 22204,
+        "text": "| **Placing a project into \"REVIEWING\" Sub-Status from \"SUBMITTED\"** |\n| --- |\n| 1. Here I'm highlighting a project that's been submitted by a user and has been placed in the \"SUBMITTED\" sub-status.\n2. If we want to place this project in the \"REVIEWING\" sub-status, we are going to have to click on this button here:\n\t1.\n3. Once we click on the button with the three dots here as shown in the previous picture, we're going to select the option labeled: \"View\" as shown in this picture:\n\t1.\n4. After we click on the \"View\" button, we're going to be directed to this page:\n\t1. \n\t2. We can see a button labeled: \"Review\" at the bottom of this page here. This is the button that we're going to want to click in order to place this project in the \"REVIEWING\" sub-status.\n\t3. This is the modal that we're going to see after we click the \"Review\" Button.\n"
+      },
+      {
+        "chunk_id": "doc-0052:chunk-0002:bge-001",
+        "document_id": "doc-0052",
+        "parent_id": "doc-0025",
+        "title": "PipelineHub Preflight - Create Repo",
+        "char_start": 3451,
+        "char_end": 4553,
+        "text": "***PARTIAL_SUCCESS is being used as status when REPO build is completed but some of the ExecutionEngine deliverables are not clean. We do not stop users from using such repos. Status is just to inform users that some ExecutionEngine deliverable was not clean***\n\n### BusinessApp on LOWCODE-Repo Creation\n\nLowCode workspace related data is packaged during the repo creation.  \n\nIf you Submit using latest INTEGRATIONBUILD.MAIN label when you provision, you need to know what LowCode app you want to use and deploy. Existing POD cannot be used for LowCode service deployments later..\n\n### Support for promoting services with LowCode contents\n\nServices with LowCode must start their preflight with repo creation. New service version they want to promote must be specified during Repo build in the overrides section to get LowCode DB artifacts included in the BusinessApp DB.\n\nThis is different from other services which typically begin with a BusinessApp Release Set (Milestone/HWM/GA). \n\nProvisioning and Upgrade submission has validations and constraints added when such BusinessApp Template is used. \n\n"
+      },
+      {
+        "chunk_id": "doc-0021:chunk-0006:bge-003",
+        "document_id": "doc-0021",
+        "parent_id": "doc-0001",
+        "title": "Configuration Guide for ArtifactService Artifacts Deployment",
+        "char_start": 18014,
+        "char_end": 18805,
+        "text": "**ServiceModelV3 Token Relay Configuration**\n==================================\n\nTo support different token relay for V3 environments we introduced a new field. You can configure RWD token relay url in this field, even though other token relay urls also supported in this field we recommend to use RWD token relay url\n\n**Note:** continue to use old fields for V2 environments, there is no change for V2. Even if the url same for V2 and V3, configure in both fields\n\nToken relay configuration for CloudNative projects\n----------------------------------------------\n\nConfigure RWD token relay under Project Config → Project Properties → Test → Rwdtools Token Relay URI  \n\nIf the URL requires podname, use **$podName$** as place holder instead of hardcoding it, it will be replaced at runtime\n\n"
+      },
+      {
+        "chunk_id": "doc-0099:chunk-0001:bge-002",
+        "document_id": "doc-0099",
+        "parent_id": "doc-0003",
+        "title": "Migrating CI Cloud Auth to IdentityService",
+        "char_start": 969,
+        "char_end": 2489,
+        "text": "* In PipelineHub we have CloudNative Projects and Monolith Projects\n\t+ Are built in Jenkins Nodes\n\t+ Jenkins Nodes are called: CI Cloud Jenkins Nodes\n\t+ Whenever we trigger a new build in CloudNative, these are ran in CI Cloud Jenkins Nodes\n\t+ We want to change the Auth that these Nodes on the integration level\n\t+ Today the Auth works like:\n\t\n\t\t- Today the Auth is done via `CIAASClient.java` file\n\t\t- It gets the token from the crumb response from the first call and using it for the subsequent calls\n+ Monolith Projects - All Codebases in 1 single repo\n+ CloudNative Projects - Microservice Based\n\n* What we’re doing is:\n\t+ Today, what the GitService team, is that we can enable the IdentityService for the browser based access for `businessapp-cloudnative-6` case that Demo Contributor shows us on the UI\n+ The Jenkins CrumURL is called, and then once we estabish that connectivity, the secret will be recieved\n+ With subsequent calls, we pass this secret in header and it works\n+ With new way, the crumb way is no longer valid\n+ Today if we go to a Jenkins instance today via the browser, for example, we see a different screen because its’ integrated with the LDAP\n+ The same thing is simulated in the Application workflow, this is why the Jenkins jobs work for us on the UI to deploy and do other actions as Devs\n+ Jenkins-6, uses SSO IdentityService Auth instead of the LDAP Crum Auth\n+ When we make a call for the crumb call for the new one, we don’t need the Crumb call and needs to be replaced with the token"
+      },
+      {
+        "chunk_id": "doc-0099:chunk-0002:bge-001",
+        "document_id": "doc-0099",
+        "parent_id": "doc-0003",
+        "title": "Migrating CI Cloud Auth to IdentityService",
+        "char_start": 2491,
+        "char_end": 3315,
+        "text": "* Each Project that gets registered will be associated with a Jenkins Service in the Services tab of the MetadataConfig, the url is not going to change that we see here\n\n* Looks like code lives herein this file `CIAASCLient.java`, but starts in `JenkinsDAO.java` in `createJobinCI` method on line 265.\n+ buildInfra is the service name that is coming from the Jenkins mapping in metadata config\n\n* We need to assign a project with our new Jenkins Service so that it picks up the correct serviceConfiguration\n\n* The old way of doing auth for these Jenkins CI Cloud APIs only got the crumb the first time and then every time we were good. Now we must pass the username and password/“token” in the calls every time\n* The usernames and passwords will be retrieved from the vault\n* Might need to use the `--auth-no-challenge` flag"
+      }
+    ],
+    "handoff": null,
+    "prompt_version": "pipelinehub-grounded-v3",
+    "generation_model": "Qwen/Qwen3.5-397B-A17B",
+    "retrieval_mode": "keyword",
+    "vector_backend": "pinecone",
+    "elapsed_seconds": 2.758,
+    "confidence_calibrated": false
+  },
+  "generation_calls": [
+    {
+      "schema": "Draft",
+      "usage": {
+        "completion_tokens": 139,
+        "prompt_tokens": 4725,
+        "total_tokens": 4864,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "status": "ok",
+      "seconds": 2.6699
+    }
+  ],
+  "stages": [
+    {
+      "stage": "retrieve",
+      "elapsed_seconds": 0.0864
+    },
+    {
+      "stage": "draft",
+      "elapsed_seconds": 2.7575
+    },
+    {
+      "stage": "clarify",
+      "elapsed_seconds": 2.7577
+    }
+  ],
+  "wall_seconds": 2.7663,
+  "token_usage": {
+    "prompt_tokens": 4725,
+    "completion_tokens": 139,
+    "total_tokens": 4864
+  },
+  "completed_at_utc": "2026-10-17T17:42:46.472569+00:00"
+}

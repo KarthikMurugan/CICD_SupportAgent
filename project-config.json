@@ -1,0 +1,47 @@
+{
+  "platform_name": "PipelineHub",
+  "corpus_path": "../sources/PipelineHub-corpus.json",
+  "corpus_type": "adapted_documentation",
+  "citation_fields": [
+    "document_id",
+    "title"
+  ],
+  "network_links_are_illustrative": true,
+  "retrieval": {
+    "keyword_backend": "bm25_local",
+    "vector_backend": "pinecone",
+    "fusion": "reciprocal_rank_fusion",
+    "pinecone": {
+      "api_key_env": "PINECONE_API_KEY",
+      "index_name_env": "PINECONE_INDEX_NAME",
+      "namespace": "pipelinehub-bge-small-v1-cc9d284dbbd0",
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "dimension": 384,
+      "metric": "cosine"
+    }
+  },
+  "embedding": {
+    "provider": "local_fastembed",
+    "model": "BAAI/bge-small-en-v1.5",
+    "dimension": 384,
+    "max_input_tokens": 512,
+    "chunk_token_limit": 400,
+    "query_instruction": "Represent this sentence for searching relevant passages: "
+  },
+  "generation": {
+    "provider": "nebius",
+    "model_env": "NEBIUS_MODEL",
+    "default_model": "Qwen/Qwen3.5-397B-A17B",
+    "prompt_version": "pipelinehub-grounded-v3",
+    "draft_temperature": 0,
+    "claim_support_review": true,
+    "evidence_confidence_calibrated": false,
+    "answer_rendering_version": "source-cautions-v1",
+    "provider_env": "GENERATION_PROVIDER",
+    "api_key_env": "NEBIUS_API_KEY",
+    "base_url": "https://api.tokenfactory.nebius.com/v1",
+    "max_output_tokens": 2048,
+    "thinking_enabled": false,
+    "fallback_provider": "ollama (explicit configuration only; no automatic fallback)"
+  }
+}

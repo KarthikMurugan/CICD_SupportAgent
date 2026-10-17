@@ -1,0 +1,33 @@
+{
+  "question_file_sha256": "9276dff0d4d702b2016e6431abc8ab41f3b1ea8edbef4380f20ba2a5a36c3f97",
+  "gold_manifest_sha256": "76c2c4c515a465b0519c9b08d6ccd0510c0e9e7205045730b2b0c178791155ff",
+  "generation_model": "Qwen/Qwen3.5-397B-A17B",
+  "provider": "NebiusClient",
+  "modes": [
+    "keyword",
+    "semantic",
+    "hybrid"
+  ],
+  "production_workflow": "retrieve 10; drop deprecated titles; first 6 passages; unchanged draft/review prompts and source-caution rendering",
+  "candidate_limit_per_retriever": 15,
+  "passages_in_context_max": 6,
+  "concurrency": 2,
+  "shuffle_seed": 20261017,
+  "same_questions_all_modes": true,
+  "labels_loaded_by_runner": false,
+  "generation_temperature": 0,
+  "code_sha256": {
+    "src/cicd_support_rag/ingest.py": "b05d4846af457080fb3286f103503750d97cfda541fd388bec62e02b4fc4a7e0",
+    "src/cicd_support_rag/generation.py": "ea8c54cd04ecd6698ac7f4a7874f90b6e971c2dc70c7179b6a40cd600e885553",
+    "src/cicd_support_rag/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/cicd_support_rag/chunk.py": "4f984f7228a2cdd1843e42bd6a50ef29d4b2d784328b0da7cb32a7e834bcbc9c",
+    "src/cicd_support_rag/embeddings.py": "08b5467191a500d641369bf44e6f300463510763c8c18990a6b2d3b0ce2799e8",
+    "src/cicd_support_rag/bot.py": "eb52ad39bb2cffe77da4f0a1ac7dac7bf0223c8836526507f0a99f3b4e9a08bd",
+    "src/cicd_support_rag/search.py": "1bcc7edfda005168b7cb1f2c10136dd2d500101a51e80ed6b1729ad1f4455a44",
+    "src/cicd_support_rag/workflow.py": "69f08f2d62efda66942d5ec4f1a77fc17c1f4304dc2c29e38a306367ffdfcdce",
+    "src/cicd_support_rag/grounding.py": "680efa8f15acee7cd2548992dac6303d1ccaa4a3e1fe66e12aae67b12eded347",
+    "src/cicd_support_rag/ui_server.py": "1bb54eac9f5b50897e2793574d2bea6b48add0b71bfe714a6b4c0166a5edf1a6",
+    "src/cicd_support_rag/prepare.py": "e1e9bce7fbf4fdef41571a8371394aa0cc50c82c782776be9adec0021450846d"
+  },
+  "measurement_notes": "Single run per case/mode. End-to-end includes retriever/model-client initialization. Two requests in flight; not an isolated single-user latency benchmark. No answer-dependent retries or tuning."
+}
