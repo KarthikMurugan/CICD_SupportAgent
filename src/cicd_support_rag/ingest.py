@@ -25,7 +25,10 @@ def normalize_corpus(path: Path):
         parent_id = doc.get("parent_id")
         if parent_id is not None and parent_id not in known_ids:
             raise ValueError(f"Unknown parent for {doc['id']}: {parent_id}")
-        content = doc["content"].replace("\r\n", "\n").replace("\u00a0", " ").strip()
+        content = (
+            doc["content"].replace("\r\n", "\n").replace("\r", "\n")
+            .replace("\u00a0", " ").strip()
+        )
         if not content:
             empty_ids.append(doc["id"])
             continue
@@ -77,3 +80,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
